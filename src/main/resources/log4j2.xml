@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration monitorinterval="300" status="off">
+	<Properties>
+		<!--定义变量-->
+		<property name="LOG_HOME">E:\btz\logs</property>
+		<property name="BACKUP_HOME">{LOG_HOME}/backup</property>
+		<property name="SERVER_NAME">btz-app-service</property>
+	</Properties>
+	<Appenders>
+		<Console name="Console" target="SYSTEM_OUT">
+			<PatternLayout pattern="[btz-app-service] %date{yyyy-MM-dd HH:mm:ss.SSS} %level [%thread][%file:%line] - %msg%n" />
+		</Console>
+		<!-- 程序员调试日志 -->
+		<RollingRandomAccessFile name="DevLog" append="true"
+								 fileName="${LOG_HOME}/${SERVER_NAME}"
+								 filePattern="${LOG_HOME}/${SERVER_NAME}.%d{yyyy-MM-dd-HH}-%i.log.gz">
+			<PatternLayout pattern="[btz-app-service-dev] %date{yyyy-MM-dd HH:mm:ss.SSS} %level [%thread][%file:%line] - %msg%n" />
+			<Policies>
+				<TimeBasedTriggeringPolicy interval="1" modulate="true" />
+				<SizeBasedTriggeringPolicy size="50MB"/>
+			</Policies>
+		</RollingRandomAccessFile>
+	</Appenders>
+	<Loggers>
+		<logger name="org.springframework.core" level="ERROR" />
+		<logger name="org.springframework.beans" level="ERROR" />
+		<logger name="org.springframework.context" level="ERROR" />
+		<logger name="org.springframework.web" level="ERROR" />
+		<logger name="org.hibernate" level="ERROR" />
+		<logger name="org.eclipse.jetty" level="ERROR" />
+		<Root level="ALL">
+			<appender-ref ref="DevLog" />
+			<AppenderRef ref="Console"/>
+		</Root>
+	</Loggers>
+</Configuration>
