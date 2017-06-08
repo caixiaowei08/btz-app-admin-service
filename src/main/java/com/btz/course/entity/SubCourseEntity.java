@@ -3,37 +3,40 @@ package com.btz.course.entity;
 import com.alibaba.fastjson.annotation.JSONField;
 
 import javax.persistence.*;
-import javax.persistence.criteria.CriteriaBuilder;
 import java.io.Serializable;
 import java.util.Date;
 
 /**
- * Created by User on 2017/6/4.
+ * Created by User on 2017/6/8.
  */
 @Entity
-@Table(name = "btz_course_base_info")
-public class MainCourseEntity implements Serializable{
+@Table(name = "btz_sub_course_info")
+public class SubCourseEntity implements Serializable {
     /**
      * 主键
      */
-     private Integer id;
+    private Integer id;
     /**
-     *课程名称
+     * 主课程ID
      */
-    private String name;
+    private Integer fid;
+    /**
+     * 子课程名称
+     */
+    private String subName;
     /**
      * 显示顺序
      */
-     private Integer orderNo;
+    private Integer orderNo;
     /**
-     *状态 1-正常 2-禁用
+     * 是否允许试用 1- 是 2- 否
      */
-    private Integer state;
+    private Integer isTryOut;
     /**
      * 创建时间
      */
     @JSONField(format="yyyy-MM-dd HH:mm:ss")
-     private Date createTime;
+    private Date createTime;
     /**
      * 修改时间
      */
@@ -50,13 +53,23 @@ public class MainCourseEntity implements Serializable{
     public void setId(Integer id) {
         this.id = id;
     }
-    @Column(name ="name",nullable = false,length=50)
-    public String getName() {
-        return name;
+
+    @Column(name ="fid",nullable = false,length=20)
+    public Integer getFid() {
+        return fid;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setFid(Integer fid) {
+        this.fid = fid;
+    }
+
+    @Column(name ="subName",nullable = false,length=50)
+    public String getSubName() {
+        return subName;
+    }
+
+    public void setSubName(String subName) {
+        this.subName = subName;
     }
 
     @Column(name ="orderNo",nullable=false,length=11)
@@ -68,13 +81,13 @@ public class MainCourseEntity implements Serializable{
         this.orderNo = orderNo;
     }
 
-    @Column(name ="state",nullable=false,length=11)
-    public Integer getState() {
-        return state;
+    @Column(name ="isTryOut",nullable=false,length=11)
+    public Integer getIsTryOut() {
+        return isTryOut;
     }
 
-    public void setState(Integer state) {
-        this.state = state;
+    public void setIsTryOut(Integer isTryOut) {
+        this.isTryOut = isTryOut;
     }
 
     @Column(name ="createTime",nullable=true,length=20)
