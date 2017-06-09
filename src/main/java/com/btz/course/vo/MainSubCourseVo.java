@@ -1,22 +1,20 @@
-package com.btz.course.entity;
+package com.btz.course.vo;
 
 import com.alibaba.fastjson.annotation.JSONField;
+import com.btz.course.entity.SubCourseEntity;
 
-import javax.persistence.*;
-import javax.persistence.criteria.CriteriaBuilder;
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 
 /**
- * Created by User on 2017/6/4.
+ * Created by User on 2017/6/8.
  */
-@Entity
-@Table(name = "btz_course_base_info")
-public class MainCourseEntity implements Serializable{
+public class MainSubCourseVo implements Serializable {
     /**
      * 主键
      */
-     private Integer id;
+    private Integer id;
     /**
      *课程名称
      */
@@ -24,7 +22,7 @@ public class MainCourseEntity implements Serializable{
     /**
      * 显示顺序
      */
-     private Integer orderNo;
+    private Integer orderNo;
     /**
      *状态 1-正常 2-禁用
      */
@@ -33,16 +31,18 @@ public class MainCourseEntity implements Serializable{
      * 创建时间
      */
     @JSONField(format="yyyy-MM-dd HH:mm:ss")
-     private Date createTime;
+    private Date createTime;
     /**
      * 修改时间
      */
     @JSONField(format="yyyy-MM-dd HH:mm:ss")
     private Date updateTime;
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name ="id",nullable=false,length=20)
+    /**
+     * 课程列表
+     */
+    private List<SubCourseEntity> subCourseList;
+
     public Integer getId() {
         return id;
     }
@@ -51,7 +51,6 @@ public class MainCourseEntity implements Serializable{
         this.id = id;
     }
 
-    @Column(name ="name",nullable = false,length=50)
     public String getName() {
         return name;
     }
@@ -60,7 +59,6 @@ public class MainCourseEntity implements Serializable{
         this.name = name;
     }
 
-    @Column(name ="orderNo",nullable=false,length=11)
     public Integer getOrderNo() {
         return orderNo;
     }
@@ -69,7 +67,6 @@ public class MainCourseEntity implements Serializable{
         this.orderNo = orderNo;
     }
 
-    @Column(name ="state",nullable=false,length=11)
     public Integer getState() {
         return state;
     }
@@ -78,7 +75,6 @@ public class MainCourseEntity implements Serializable{
         this.state = state;
     }
 
-    @Column(name ="createTime",nullable=true,length=20)
     public Date getCreateTime() {
         return createTime;
     }
@@ -87,12 +83,19 @@ public class MainCourseEntity implements Serializable{
         this.createTime = createTime;
     }
 
-    @Column(name ="updateTime",nullable=true,length=20)
     public Date getUpdateTime() {
         return updateTime;
     }
 
     public void setUpdateTime(Date updateTime) {
         this.updateTime = updateTime;
+    }
+
+    public List<SubCourseEntity> getSubCourseList() {
+        return subCourseList;
+    }
+
+    public void setSubCourseList(List<SubCourseEntity> subCourseList) {
+        this.subCourseList = subCourseList;
     }
 }

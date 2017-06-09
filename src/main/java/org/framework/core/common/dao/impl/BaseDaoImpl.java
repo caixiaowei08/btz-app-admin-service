@@ -124,4 +124,15 @@ public class BaseDaoImpl implements BaseDao {
         Criteria criteria = cq.getExecutableCriteria(getSession());
         return criteria.list();
     }
+
+    /**
+     * 加载全部实体
+     * @param entityClass
+     * @param <T>
+     * @return
+     */
+    public <T> List<T> loadAll(Class<T> entityClass) {
+        return getSession().createCriteria(entityClass).list();
+    }
+
 }

@@ -2,6 +2,7 @@ package com.btz.course.controller;
 
 import com.btz.course.entity.MainCourseEntity;
 import com.btz.course.service.MainCourseService;
+import com.btz.system.global.GlobalService;
 import org.framework.core.common.controller.BaseController;
 import org.framework.core.common.model.json.AjaxJson;
 import org.framework.core.common.model.json.DataGrid;

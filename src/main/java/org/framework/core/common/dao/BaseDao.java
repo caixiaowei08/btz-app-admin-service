@@ -57,6 +57,21 @@ public interface BaseDao {
      */
     public DataGridReturn getDataGridReturn(final CriteriaQuery criteriaQuery);
 
+    /**
+     * 根据条件查询
+     * @param cq
+     * @return
+     */
     public List getListByCriteriaQuery(DetachedCriteria cq);
+
+    /**
+     * 加载全部实体
+     *
+     * @param <T>
+     * @param entityClass
+     * @return
+     */
+    public <T> List<T> loadAll(final Class<T> entityClass);
+
 
 }
