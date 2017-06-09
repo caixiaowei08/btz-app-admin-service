@@ -25,7 +25,11 @@ public class ChapterEntity implements Serializable {
      */
     private Integer fid;
     /**
-     * 章节名称
+     * 章节层级
+     */
+    private String level;
+    /**
+     *
      */
     private String chapterName;
 
@@ -44,11 +48,6 @@ public class ChapterEntity implements Serializable {
      */
     @JSONField(format = "yyyy-MM-dd HH:mm:ss")
     private Date updateTime;
-
-    /**
-     * 子集章节
-     */
-    private List<ChapterEntity> children;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -88,6 +87,15 @@ public class ChapterEntity implements Serializable {
         this.chapterName = chapterName;
     }
 
+    @Column(name = "level", nullable = true, length = 5)
+    public String getLevel() {
+        return level;
+    }
+
+    public void setLevel(String level) {
+        this.level = level;
+    }
+
     @Column(name = "orderNo", nullable = false, length = 11)
     public Integer getOrderNo() {
         return orderNo;
@@ -115,15 +123,6 @@ public class ChapterEntity implements Serializable {
         this.updateTime = updateTime;
     }
 
-    @OneToMany(targetEntity = ChapterEntity.class, cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    @JoinColumn(name = "fid")
-    @OrderBy("orderNo")
-    public List<ChapterEntity> getChildren() {
-        return children;
-    }
 
-    public void setChildren(List<ChapterEntity> children) {
-        this.children = children;
-    }
 
 }
