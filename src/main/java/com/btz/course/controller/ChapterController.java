@@ -30,8 +30,6 @@ public class ChapterController extends BaseController {
     @Autowired
     private ChapterService chapterService;
 
-
-
     @RequestMapping(params = "doAdd")
     @ResponseBody
     public AjaxJson doAdd(ChapterPojo chapterPojo, HttpServletRequest request, HttpServletResponse response) {
