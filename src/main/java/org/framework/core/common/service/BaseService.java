@@ -55,4 +55,11 @@ public interface BaseService {
      * @return
      */
     public <T> List<T> loadAll(final Class<T> entityClass);
+
+    /**
+     * 批量保存
+     * @param entitys
+     * @param <T>
+     */
+    public <T> void batchSave(List<T> entitys);
 }

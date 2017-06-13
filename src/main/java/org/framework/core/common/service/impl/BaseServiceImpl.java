@@ -56,4 +56,10 @@ public class BaseServiceImpl implements BaseService{
     public <T> List<T> loadAll(final Class<T> entityClass){
         return baseDao.loadAll(entityClass);
     }
+
+    public <T> void batchSave(List<T> entitys) {
+        for ( T entity : entitys){
+            save(entity);
+        }
+    }
 }
