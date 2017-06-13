@@ -51,7 +51,7 @@ public class SystemAccountEntity implements Serializable {
         this.id = id;
     }
 
-    @Column(name ="id",nullable=false,length=20)
+    @Column(name ="accountId",nullable=false,length=50)
     public String getAccountId() {
         return accountId;
     }

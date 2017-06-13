@@ -7,6 +7,9 @@ import java.util.UUID;
  */
 public class TokenGeneratorUtil {
 
+    public final static String TOKEN_FLAG = "token";
+
+    public final static String APP_USER_SESSION = "app_user_session";
     /**
      *token唯一值生成器
      * @return

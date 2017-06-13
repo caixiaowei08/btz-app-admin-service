@@ -73,7 +73,7 @@ public class SystemTokenEntity implements Serializable {
         this.createTime = createTime;
     }
 
-    @Column(name = "createTime", nullable = true, length = 20)
+    @Column(name = "updateTime", nullable = true, length = 20)
     public Date getUpdateTime() {
         return updateTime;
     }

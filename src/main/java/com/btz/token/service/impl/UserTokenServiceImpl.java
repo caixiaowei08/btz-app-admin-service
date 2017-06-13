@@ -11,4 +11,9 @@ import org.springframework.transaction.annotation.Transactional;
 @Service("userTokenService")
 @Transactional
 public class UserTokenServiceImpl extends BaseServiceImpl implements UserTokenService{
+
+    public String getTest() {
+        return "测试哟！";
+    }
+
 }
