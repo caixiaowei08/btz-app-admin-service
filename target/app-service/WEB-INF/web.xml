@@ -55,6 +55,17 @@
 		<listener-class>org.springframework.web.context.request.RequestContextListener</listener-class>
 	</listener>
 
+	<!--APP跨域问题 end-->
+	<filter>
+		<filter-name>appCrossAomainFilter</filter-name>
+		<filter-class>app.btz.filter.AppCrossAomainFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>appCrossAomainFilter</filter-name>
+		<url-pattern>*.app</url-pattern>
+	</filter-mapping>
+	<!--APP跨域问题 end-->
+
 	<filter>
 		<filter-name>DelegatingFilterProxy</filter-name>
 		<filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>

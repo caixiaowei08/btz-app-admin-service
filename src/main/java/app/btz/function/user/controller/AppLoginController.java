@@ -11,6 +11,7 @@ import org.framework.core.common.constant.SystemConstant;
 import org.framework.core.common.controller.BaseController;
 import org.framework.core.common.model.json.AjaxJson;
 import org.framework.core.utils.PasswordUtil;
+import org.framework.core.utils.StringUtils;
 import org.framework.core.utils.TokenGeneratorUtil;
 import org.hibernate.criterion.DetachedCriteria;
 import org.hibernate.criterion.Restrictions;
@@ -30,7 +31,7 @@ import java.util.List;
 @Scope("prototype")
 @Controller
 @RequestMapping("/appLoginController")
-public class AppLoginController extends BaseController{
+public class AppLoginController extends BaseController {
 
     @Autowired
     private UserService userService;
@@ -43,9 +44,9 @@ public class AppLoginController extends BaseController{
     public AjaxJson changeAdminPwd(UserEntity userEntity, HttpServletRequest request) {
         AjaxJson j = new AjaxJson();
         DetachedCriteria userEntityDetachedCriteria = DetachedCriteria.forClass(UserEntity.class);
-        if (userEntity.getUserId() == null || userEntity.getUserPwd() == null) {
+        if (!StringUtils.hasText(userEntity.getUserId()) || !StringUtils.hasText(userEntity.getUserPwd())) {
             j.setSuccess(AjaxJson.CODE_FAIL);
-            j.setMsg("请输入账号或者密码！");
+            j.setMsg("请填写账号和密码！");
             return j;
         }
         userEntityDetachedCriteria.add(Restrictions.eq("userId", userEntity.getUserId()));
@@ -60,7 +61,7 @@ public class AppLoginController extends BaseController{
                     j.setSuccess(AjaxJson.CODE_SUCCESS);
                     j.setContent(appUserVo);
                     return j;
-                }catch (Exception e){
+                } catch (Exception e) {
                     j.setSuccess(AjaxJson.CODE_FAIL);
                     j.setMsg("登录失败，请重新登录！");
                     return j;
