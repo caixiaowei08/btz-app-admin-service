@@ -12,8 +12,6 @@ public class SubCourseVo implements Serializable{
 
     private Boolean isLeaf = true;
 
-
-
     /**
      *状态 1-可以试用 2-禁止试用
      */

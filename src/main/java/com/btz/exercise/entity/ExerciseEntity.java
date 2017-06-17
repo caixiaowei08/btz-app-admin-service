@@ -17,61 +17,50 @@ public class ExerciseEntity implements Serializable{
      */
     private Integer id;
     /**
-     *题目版本号 用于更新
-     */
-    private Integer versionNo;
-
-    /**
      *所属课程主键
      */
     private Integer subCourseId;
-
     /**
      *章节主键
      */
     private Integer chapterId;
-
     /**
      *题目类型 1-单选题 2-多选题 3-判断题 4-分录题 5-不定项分析题 6-长文本题 7-短文本题 8-公式题 9-不定项表格
      */
     private Integer type;
-
     /**
-     *归属 1-章节练习 2-核心考点 3-考前押题
+     *模块主键
      */
-    private Integer belongTo;
-
+    private Integer moduleId;
+    /**
+     *模块类型
+     */
+    private Integer moduleType;
     /**
      *题干
      */
     private String title;
-
     /**
      *题目内容
      */
     private String content;
-
     /**
      *答案
      */
     private String answer;
-
     /**
      *答案解析
      */
     private String answerKey;
-
     /**
      *显示顺序
      */
     private Integer orderNo;
-
     /**
      *创建时间
      */
     @JSONField(format="yyyy-MM-dd HH:mm:ss")
     private Date createTime;
-
     /**
      *更新时间
      */
@@ -89,13 +78,22 @@ public class ExerciseEntity implements Serializable{
         this.id = id;
     }
 
-    @Column(name ="versionNo",nullable=false,length=11)
-    public Integer getVersionNo() {
-        return versionNo;
+    @Column(name ="moduleId",nullable=false,length=11)
+    public Integer getModuleId() {
+        return moduleId;
     }
 
-    public void setVersionNo(Integer versionNo) {
-        this.versionNo = versionNo;
+    public void setModuleId(Integer moduleId) {
+        this.moduleId = moduleId;
+    }
+
+    @Column(name ="moduleType",nullable=false,length=11)
+    public Integer getModuleType() {
+        return moduleType;
+    }
+
+    public void setModuleType(Integer moduleType) {
+        this.moduleType = moduleType;
     }
 
     @Column(name ="subCourseId",nullable=false,length=20)
@@ -115,6 +113,7 @@ public class ExerciseEntity implements Serializable{
     public void setChapterId(Integer chapterId) {
         this.chapterId = chapterId;
     }
+
     @Column(name ="type",nullable=false,length=11)
     public Integer getType() {
         return type;
@@ -124,14 +123,6 @@ public class ExerciseEntity implements Serializable{
         this.type = type;
     }
 
-    @Column(name ="belongTo",nullable=false,length=11)
-    public Integer getBelongTo() {
-        return belongTo;
-    }
-
-    public void setBelongTo(Integer belongTo) {
-        this.belongTo = belongTo;
-    }
     @Column(name ="title",nullable=false)
     public String getTitle() {
         return title;

@@ -24,6 +24,15 @@ public class ChapterEntity implements Serializable {
      * 父级ID
      */
     private Integer fid;
+
+    /**
+     * 模块id
+     */
+    private Integer moduleId;
+    /**
+     *模块类型
+     */
+    private Integer moduleType;
     /**
      * 章节层级
      */
@@ -123,6 +132,21 @@ public class ChapterEntity implements Serializable {
         this.updateTime = updateTime;
     }
 
+    @Column(name = "moduleId", nullable = true, length = 20)
+    public Integer getModuleId() {
+        return moduleId;
+    }
 
+    public void setModuleId(Integer moduleId) {
+        this.moduleId = moduleId;
+    }
 
+    @Column(name = "moduleType", nullable = true, length = 5)
+    public Integer getModuleType() {
+        return moduleType;
+    }
+
+    public void setModuleType(Integer moduleType) {
+        this.moduleType = moduleType;
+    }
 }

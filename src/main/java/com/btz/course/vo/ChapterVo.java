@@ -1,5 +1,7 @@
 package com.btz.course.vo;
 
+import org.apache.commons.collections.CollectionUtils;
+
 import java.io.Serializable;
 import java.util.List;
 
@@ -15,6 +17,11 @@ public class ChapterVo implements Serializable{
      private Integer orderNo;
 
      private String  level;
+
+    /**
+     *是否是叶子节点
+     */
+    private Boolean isLeaf = false;
 
      private List<ChapterVo> children;
 
@@ -56,5 +63,13 @@ public class ChapterVo implements Serializable{
 
     public void setLevel(String level) {
         this.level = level;
+    }
+
+    public Boolean getLeaf() {
+        return CollectionUtils.isEmpty(children);
+    }
+
+    public void setLeaf(Boolean leaf) {
+        isLeaf = leaf;
     }
 }

@@ -7,7 +7,10 @@ import com.btz.course.entity.SubCourseEntity;
 import com.btz.course.vo.ChapterVo;
 import com.btz.course.vo.MainCourseVo;
 import com.btz.course.vo.SubCourseVo;
+import com.btz.module.entity.ModuleEntity;
+import com.btz.module.service.ModuleService;
 import com.btz.system.global.GlobalService;
+import com.btz.utils.Constant;
 import org.apache.commons.collections.CollectionUtils;
 import org.framework.core.common.controller.BaseController;
 import org.framework.core.common.model.json.TreeGrid;
@@ -38,13 +41,35 @@ public class CascadeMainSubCourseController extends BaseController {
     @Autowired
     private GlobalService globalService;
 
+    @Autowired
+    private ModuleService moduleService;
+
+
     @RequestMapping(params = "mainCourseTreeGrid")
     @ResponseBody
     public TreeGrid mainCourseTreeGrid(HttpServletRequest request, HttpServletResponse response) {
+       String type = request.getParameter("type");
+
         DetachedCriteria mainCourseDetachedCriteria = DetachedCriteria.forClass(MainCourseEntity.class);
         mainCourseDetachedCriteria.addOrder(Order.asc("orderNo"));
         List<MainCourseEntity> mainCourseEntities = globalService.getListByCriteriaQuery(mainCourseDetachedCriteria);
         List<MainCourseVo> mainSubCourseVos = new ArrayList<MainCourseVo>();
+
+        List<ModuleEntity> moduleEntities = null;
+        if(StringUtils.hasText(type)){
+            DetachedCriteria moduleDetachedCriteria = DetachedCriteria.forClass(ModuleEntity.class);
+            moduleDetachedCriteria.add(Restrictions.eq("type",Integer.parseInt(type)));
+            moduleDetachedCriteria.add(Restrictions.eq("s_state",Constant.STATE_UNLOCK));
+            if(CollectionUtils.isNotEmpty(mainCourseEntities)){
+                List<Integer> params = new ArrayList<Integer>();
+                for (MainCourseEntity mainCourseEntity: mainCourseEntities) {
+                    params.add(mainCourseEntity.getId());
+                }
+                moduleDetachedCriteria.add(Restrictions.in("mainCourseId",params));
+            }
+            moduleEntities = globalService.getListByCriteriaQuery(moduleDetachedCriteria);
+        }
+
         if (CollectionUtils.isNotEmpty(mainCourseEntities)) {
             for (MainCourseEntity mainCourseEntity : mainCourseEntities) {
                 MainCourseVo mainCourseVo = new MainCourseVo();
@@ -54,6 +79,13 @@ public class CascadeMainSubCourseController extends BaseController {
                 DetachedCriteria mainSubCourseVoDetachedCriteria = DetachedCriteria.forClass(SubCourseEntity.class);
                 mainSubCourseVoDetachedCriteria.add(Restrictions.eq("fid", mainCourseEntity.getId()));
                 mainSubCourseVoDetachedCriteria.addOrder(Order.asc("orderNo"));
+                if(CollectionUtils.isNotEmpty(moduleEntities)){
+                    List<Integer> params = new ArrayList<Integer>();
+                    for (ModuleEntity moduleEntity: moduleEntities) {
+                        params.add(moduleEntity.getSubCourseId());
+                    }
+                    mainSubCourseVoDetachedCriteria.add(Restrictions.in("id",params));
+                }
                 List<SubCourseEntity> subCourseEntityList = globalService.getListByCriteriaQuery(mainSubCourseVoDetachedCriteria);
                 List<SubCourseVo> children = new ArrayList<SubCourseVo>();
                 if (CollectionUtils.isNotEmpty(subCourseEntityList)) {

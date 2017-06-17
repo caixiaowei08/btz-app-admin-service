@@ -5,9 +5,17 @@ import com.btz.course.entity.ChapterEntity;
 import com.btz.course.entity.MainCourseEntity;
 import com.btz.course.service.ChapterService;
 import com.btz.course.vo.ChapterPojo;
+import com.btz.course.vo.MainCourseVo;
+import com.btz.module.entity.ModuleEntity;
+import com.btz.module.service.ModuleService;
+import com.btz.utils.BelongToEnum;
+import org.apache.commons.collections.CollectionUtils;
 import org.framework.core.common.controller.BaseController;
 import org.framework.core.common.model.json.AjaxJson;
 import org.framework.core.utils.BeanUtils;
+import org.hibernate.criterion.DetachedCriteria;
+import org.hibernate.criterion.Order;
+import org.hibernate.criterion.Restrictions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
@@ -17,7 +25,9 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 /**
  * Created by User on 2017/6/8.
@@ -30,17 +40,35 @@ public class ChapterController extends BaseController {
     @Autowired
     private ChapterService chapterService;
 
+    @Autowired
+    private ModuleService moduleService;
+
+
     @RequestMapping(params = "doAdd")
     @ResponseBody
     public AjaxJson doAdd(ChapterPojo chapterPojo, HttpServletRequest request, HttpServletResponse response) {
         AjaxJson j = new AjaxJson();
 
+
+        DetachedCriteria moduleEntityDetachedCriteria = DetachedCriteria.forClass(ModuleEntity.class);
+        moduleEntityDetachedCriteria.add(Restrictions.eq("subCourseId",chapterPojo.getCourseId()));
+        moduleEntityDetachedCriteria.add(Restrictions.eq("type", BelongToEnum.CHAPTER.getIndex()));
+        List<ModuleEntity> moduleEntityList = moduleService.getListByCriteriaQuery(moduleEntityDetachedCriteria);
+
+        if(CollectionUtils.isEmpty(moduleEntityList)){
+            j.setSuccess(AjaxJson.CODE_FAIL);
+            j.setMsg("章节练习模块已被删除！");
+            return j;
+        }
+
+        ModuleEntity moduleEntity = moduleEntityList.get(0);
+
         ChapterEntity chapterEntity = new ChapterEntity();
         try {
+            chapterEntity.setModuleId(moduleEntity.getId());
+            chapterEntity.setModuleType(moduleEntity.getType());
             chapterEntity.setCourseId(chapterPojo.getCourseId());
             chapterEntity.setFid(chapterPojo.getFid());
-
-
             String level = chapterPojo.getLevel();
             if(level.equals(ConstantChapterLevel.SUBCOURSE)){
                 chapterEntity.setLevel(ConstantChapterLevel.ONE);

@@ -2,6 +2,7 @@ package com.btz.admin.controller;
 
 import com.btz.admin.entity.AdminEntity;
 import com.btz.admin.service.AdminService;
+import com.btz.exercise.entity.ExerciseEntity;
 import com.btz.user.entity.UserEntity;
 import org.apache.commons.collections.CollectionUtils;
 import org.framework.core.common.controller.BaseController;
