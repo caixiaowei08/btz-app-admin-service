@@ -139,8 +139,8 @@ public class ChapterServiceImpl extends BaseServiceImpl implements ChapterServic
         style.setFillBackgroundColor(HSSFColor.YELLOW.index);
 
         Row row = sheet.createRow(0);
-        String [] columns ={"课程ID*","课程名称","章节ID*","章节名称","模块ID*","模块名称","题目类型ID*","题目类型","题干","内容","答案","解析","显示顺序"};
-        int [] columnsColumnWidth ={1,3,1,3,1,3,1,3,7,7,1,10,2};
+        String [] columns ={"课程ID*","课程名称","章节ID*","章节名称","模块类型ID*","模块类型名称","题目类型ID*","题目类型","题干","内容","答案","解析","显示顺序"};
+        int [] columnsColumnWidth ={2,3,2,3,2,3,2,3,7,7,1,10,2};
         Cell cell = null;
         for (int i = 0; i <columnsColumnWidth.length ; i++) {
             sheet.setColumnWidth(i,(columnsColumnWidth[i] * 1500));

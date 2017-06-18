@@ -35,24 +35,26 @@ public class PoiExcelExerciseUtils {
                     exerciseEntity = new ExerciseEntity();
                     HSSFCell subCourseId = hssfRow.getCell(0);
                     HSSFCell chapterId = hssfRow.getCell(2);
-                    HSSFCell type = hssfRow.getCell(4);
-                    HSSFCell title = hssfRow.getCell(6);
-                    HSSFCell content = hssfRow.getCell(7);
-                    HSSFCell answer = hssfRow.getCell(8);
-                    HSSFCell answerKey = hssfRow.getCell(9);
-                    HSSFCell orderNo = hssfRow.getCell(10);
+                    HSSFCell moduleType = hssfRow.getCell(4);
+                    HSSFCell type = hssfRow.getCell(6);
+                    HSSFCell title = hssfRow.getCell(8);
+                    HSSFCell content = hssfRow.getCell(9);
+                    HSSFCell answer = hssfRow.getCell(10);
+                    HSSFCell answerKey = hssfRow.getCell(11);
+                    HSSFCell orderNo = hssfRow.getCell(12);
                     try {
                         exerciseEntity.setSubCourseId(Integer.parseInt(subCourseId.toString()));
                         exerciseEntity.setChapterId(Integer.parseInt(chapterId.toString()));
                         exerciseEntity.setType(Integer.parseInt(type.toString()));
                         exerciseEntity.setTitle(title.toString());
+                        exerciseEntity.setModuleType(Integer.parseInt(moduleType.toString()));
                         exerciseEntity.setContent(content.toString());
                         exerciseEntity.setAnswer(answer.toString());
                         exerciseEntity.setAnswerKey(answerKey.toString());
                         exerciseEntity.setOrderNo(Integer.parseInt(orderNo.toString()));
                         exerciseEntityList.add(exerciseEntity);
                     }catch (Exception e){
-                        throw new BusinessException("数据解析错误--第"+rowNum+"行");
+                        throw new BusinessException("数据解析错误,第"+rowNum+"行,请检查！");
                     }
                 }
             }

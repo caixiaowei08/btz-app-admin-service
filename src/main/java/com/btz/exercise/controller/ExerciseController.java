@@ -1,25 +1,19 @@
 package com.btz.exercise.controller;
 
-import com.btz.admin.entity.AdminEntity;
-import com.btz.course.ConstantChapterLevel;
-import com.btz.course.entity.ChapterEntity;
+import com.btz.course.entity.MainCourseEntity;
 import com.btz.course.entity.SubCourseEntity;
 import com.btz.course.service.ChapterService;
+import com.btz.course.vo.MainCourseVo;
 import com.btz.exercise.entity.ExerciseEntity;
 import com.btz.exercise.service.ExerciseService;
 import com.btz.exercise.utils.PoiExcelExerciseUtils;
-import com.btz.exercise.vo.ChapterVo;
-import com.btz.exercise.vo.SubCourseVo;
+import com.btz.module.entity.ModuleEntity;
+import com.btz.module.service.ModuleService;
 import com.btz.poi.pojo.ExerciseExcelPojo;
 import com.btz.system.global.GlobalService;
 import com.btz.utils.BelongToEnum;
-import com.btz.utils.ExerciseTypeEnum;
 import org.apache.commons.collections.CollectionUtils;
 import org.apache.commons.io.FileUtils;
-import org.apache.poi.hssf.usermodel.HSSFCellStyle;
-import org.apache.poi.hssf.usermodel.HSSFWorkbook;
-import org.apache.poi.hssf.util.HSSFColor;
-import org.apache.poi.ss.usermodel.*;
 import org.framework.core.common.constant.PoiConstant;
 import org.framework.core.common.controller.BaseController;
 import org.framework.core.common.model.json.AjaxJson;
@@ -40,7 +34,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.commons.CommonsMultipartFile;
-import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.*;
@@ -64,6 +57,9 @@ public class ExerciseController extends BaseController {
     private ChapterService chapterService;
 
     @Autowired
+    private ModuleService moduleService;
+
+    @Autowired
     private GlobalService globalService;
 
     @RequestMapping(params = "datagrid")
@@ -78,7 +74,7 @@ public class ExerciseController extends BaseController {
         criteriaQuery.installCriteria();
         DetachedCriteria detachedCriteria = criteriaQuery.getDetachedCriteria();
         detachedCriteria.add(Restrictions.eq("subCourseId",Integer.parseInt(subCourseId.substring(1,subCourseId.length()))));
-        if(StringUtils.hasText(chapterId)){
+        if(StringUtils.hasText(chapterId)&&!chapterId.contains("S")){
             detachedCriteria.add(Restrictions.eq("chapterId",Integer.parseInt(chapterId.substring(1,chapterId.length()))));
         }else{
             SubCourseEntity subCourseEntity = globalService.get(SubCourseEntity.class, Integer.parseInt(subCourseId.substring(1,subCourseId.length())));
@@ -152,6 +148,12 @@ public class ExerciseController extends BaseController {
             if(CollectionUtils.isNotEmpty(exerciseEntityList)){
                 for (int i = 0; i < exerciseEntityList.size(); i++) {
                     ExerciseEntity exerciseEntity = exerciseEntityList.get(i);
+                    DetachedCriteria moduleCourseDetachedCriteria = DetachedCriteria.forClass(ModuleEntity.class);
+                    moduleCourseDetachedCriteria.add(Restrictions.eq("subCourseId",exerciseEntity.getSubCourseId()));
+                    moduleCourseDetachedCriteria.add(Restrictions.eq("type",exerciseEntity.getModuleType()));
+                    List<ModuleEntity> moduleEntities = globalService.getListByCriteriaQuery(moduleCourseDetachedCriteria);
+                    exerciseEntity.setModuleId(moduleEntities.get(0).getId());
+                    exerciseEntity.setModuleType(moduleEntities.get(0).getType());
                     exerciseEntity.setCreateTime(new Date());
                     exerciseEntity.setUpdateTime(new Date());
                 }
