@@ -97,6 +97,25 @@ public class AppTestModuleController extends BaseController {
     }
 
 
+    @RequestMapping(params = "getFirstModuleByToken")
+    @ResponseBody
+    public AppAjax getFirstModuleByToken(AppRequestHeader requestHeader, HttpServletRequest request, HttpServletResponse response) {
+        AppAjax j = new AppAjax();
+        DetachedCriteria subCourseDetachedCriteria = DetachedCriteria.forClass(SubCourseEntity.class);
+        subCourseDetachedCriteria.add(Restrictions.eq("state", Constant.STATE_UNLOCK));
+        subCourseDetachedCriteria.addOrder(Order.asc("orderNo"));
+        List<SubCourseEntity> subCourseAppVoList = subCourseService.getListByCriteriaQuery(subCourseDetachedCriteria);
+        SubCourseAppVo subCourseAppVo = new SubCourseAppVo();
+        SubCourseEntity subCourseEntity = subCourseAppVoList.get(0);
+        subCourseAppVo.setSubCourseId(subCourseEntity.getId());
+        subCourseAppVo.setSubCourseName(subCourseEntity.getSubName());
+        subCourseAppVo.setOrderNo(subCourseEntity.getOrderNo());
+        subCourseAppVo.setTryOut(subCourseEntity.getIsTryOut());
+        j.setContent(subCourseAppVo);
+        return j;
+    }
+
+
     /**
      * 根据课程号subCourseId 和 模块类型id 以及token值获取层级信息
      */
