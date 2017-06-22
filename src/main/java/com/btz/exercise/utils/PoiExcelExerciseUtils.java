@@ -18,7 +18,7 @@ import java.util.List;
  */
 public class PoiExcelExerciseUtils {
 
-    public static List<ExerciseEntity> readXls(File file) throws IOException,BusinessException {
+    public static List<ExerciseEntity> readXls(File file) throws IOException, BusinessException {
 
         FileInputStream excelFile = new FileInputStream(file);
         HSSFWorkbook hssfWorkbook = new HSSFWorkbook(excelFile);
@@ -46,15 +46,15 @@ public class PoiExcelExerciseUtils {
                         exerciseEntity.setSubCourseId(Integer.parseInt(subCourseId.toString()));
                         exerciseEntity.setChapterId(Integer.parseInt(chapterId.toString()));
                         exerciseEntity.setType(Integer.parseInt(type.toString()));
-                        exerciseEntity.setTitle(title.toString());
+                        exerciseEntity.setTitle(title == null ? "":title.toString());
                         exerciseEntity.setModuleType(Integer.parseInt(moduleType.toString()));
-                        exerciseEntity.setContent(content.toString());
-                        exerciseEntity.setAnswer(answer.toString());
-                        exerciseEntity.setAnswerKey(answerKey.toString());
+                        exerciseEntity.setContent(content == null ? "" : content.toString());
+                        exerciseEntity.setAnswer(answer == null ? "" : answer.toString());
+                        exerciseEntity.setAnswerKey(answerKey == null ? "" : answerKey.toString());
                         exerciseEntity.setOrderNo(Integer.parseInt(orderNo.toString()));
                         exerciseEntityList.add(exerciseEntity);
-                    }catch (Exception e){
-                        throw new BusinessException("数据解析错误,第"+rowNum+"行,请检查！");
+                    } catch (Exception e) {
+                        throw new BusinessException("数据解析错误,第" + rowNum + "行,请检查！");
                     }
                 }
             }

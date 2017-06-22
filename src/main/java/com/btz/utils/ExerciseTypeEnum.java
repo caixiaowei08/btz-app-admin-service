@@ -5,7 +5,9 @@ package com.btz.utils;
  */
 public enum ExerciseTypeEnum {
 
-    S_SELECTION("单选题", 1), M_SELECTION("多选题", 2);
+    S_SELECTION("单选题", 1), M_SELECTION("多选题", 2),JUDGE("判断题",3),
+    FILLBLANKS("填空题", 4), JOURNALIZING_N("分录题(数字)", 5),JOURNALIZING("分录题",6),
+    COMPOSITION("作文题", 7), UNDEFINED_TERM("不定项", 8);
 
     private String typeName;
 
