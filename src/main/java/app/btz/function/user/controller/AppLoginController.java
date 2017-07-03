@@ -1,18 +1,15 @@
 package app.btz.function.user.controller;
 
+import app.btz.common.ajax.AppAjax;
 import app.btz.function.user.service.AppUserService;
 import app.btz.function.user.vo.AppUserVo;
-import com.btz.token.entity.UserTokenEntity;
-import com.btz.token.service.UserTokenService;
 import com.btz.user.entity.UserEntity;
 import com.btz.user.service.UserService;
 import org.apache.commons.collections.CollectionUtils;
 import org.framework.core.common.constant.SystemConstant;
 import org.framework.core.common.controller.BaseController;
-import org.framework.core.common.model.json.AjaxJson;
 import org.framework.core.utils.PasswordUtil;
 import org.framework.core.utils.StringUtils;
-import org.framework.core.utils.TokenGeneratorUtil;
 import org.hibernate.criterion.DetachedCriteria;
 import org.hibernate.criterion.Restrictions;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,7 +19,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
-import java.util.Date;
 import java.util.List;
 
 /**
@@ -41,11 +37,11 @@ public class AppLoginController extends BaseController {
 
     @RequestMapping(params = "login")
     @ResponseBody
-    public AjaxJson changeAdminPwd(UserEntity userEntity, HttpServletRequest request) {
-        AjaxJson j = new AjaxJson();
+    public AppAjax changeAdminPwd(UserEntity userEntity, HttpServletRequest request) {
+        AppAjax j = new AppAjax();
         DetachedCriteria userEntityDetachedCriteria = DetachedCriteria.forClass(UserEntity.class);
         if (!StringUtils.hasText(userEntity.getUserId()) || !StringUtils.hasText(userEntity.getUserPwd())) {
-            j.setSuccess(AjaxJson.CODE_FAIL);
+            j.setReturnCode(AppAjax.FAIL);
             j.setMsg("请填写账号和密码！");
             return j;
         }
@@ -58,21 +54,21 @@ public class AppLoginController extends BaseController {
             if (userDb.getState().equals(SystemConstant.YN_Y)) {
                 try {
                     AppUserVo appUserVo = appUserService.saveUserToken(userDb);
-                    j.setSuccess(AjaxJson.CODE_SUCCESS);
+                    j.setReturnCode(AppAjax.SUCCESS);
                     j.setContent(appUserVo);
                     return j;
                 } catch (Exception e) {
-                    j.setSuccess(AjaxJson.CODE_FAIL);
+                    j.setReturnCode(AppAjax.FAIL);
                     j.setMsg("登录失败，请重新登录！");
                     return j;
                 }
             } else {
-                j.setSuccess(AjaxJson.CODE_FAIL);
+                j.setReturnCode(AppAjax.FAIL);
                 j.setMsg("该账户被冻结！");
                 return j;
             }
         } else {
-            j.setSuccess(AjaxJson.CODE_FAIL);
+            j.setReturnCode(AppAjax.FAIL);
             j.setMsg("账号或者密码不正确！");
             return j;
         }

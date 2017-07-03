@@ -102,7 +102,7 @@ public class AppTestModuleController extends BaseController {
     public AppAjax getFirstModuleByToken(AppRequestHeader requestHeader, HttpServletRequest request, HttpServletResponse response) {
         AppAjax j = new AppAjax();
         DetachedCriteria subCourseDetachedCriteria = DetachedCriteria.forClass(SubCourseEntity.class);
-        subCourseDetachedCriteria.add(Restrictions.eq("state", Constant.STATE_UNLOCK));
+        //subCourseDetachedCriteria.add(Restrictions.eq("state", Constant.STATE_UNLOCK));
         subCourseDetachedCriteria.addOrder(Order.asc("orderNo"));
         List<SubCourseEntity> subCourseAppVoList = subCourseService.getListByCriteriaQuery(subCourseDetachedCriteria);
         SubCourseAppVo subCourseAppVo = new SubCourseAppVo();
