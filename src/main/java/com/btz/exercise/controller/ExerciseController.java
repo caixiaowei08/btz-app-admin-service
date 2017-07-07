@@ -10,10 +10,13 @@ import com.btz.exercise.utils.PoiExcelExerciseUtils;
 import com.btz.module.entity.ModuleEntity;
 import com.btz.module.service.ModuleService;
 import com.btz.poi.pojo.ExerciseExcelPojo;
+import com.btz.poi.service.DownTestModuleExcel;
 import com.btz.system.global.GlobalService;
 import com.btz.utils.BelongToEnum;
 import org.apache.commons.collections.CollectionUtils;
 import org.apache.commons.io.FileUtils;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.framework.core.common.constant.PoiConstant;
 import org.framework.core.common.controller.BaseController;
 import org.framework.core.common.model.json.AjaxJson;
@@ -42,6 +45,8 @@ import java.util.Date;
 import java.util.List;
 import java.util.UUID;
 
+import static com.btz.utils.BelongToEnum.CHAPTER;
+
 /**
  * Created by User on 2017/6/12.
  */
@@ -50,6 +55,8 @@ import java.util.UUID;
 @RequestMapping("/exerciseController")
 public class ExerciseController extends BaseController {
 
+    private static Logger logger = LogManager.getLogger(ExerciseController.class.getName());
+
     @Autowired
     private ExerciseService exerciseService;
 
@@ -57,7 +64,7 @@ public class ExerciseController extends BaseController {
     private ChapterService chapterService;
 
     @Autowired
-    private ModuleService moduleService;
+    private DownTestModuleExcel downTestModuleExcel;
 
     @Autowired
     private GlobalService globalService;
@@ -78,7 +85,7 @@ public class ExerciseController extends BaseController {
             detachedCriteria.add(Restrictions.eq("chapterId",Integer.parseInt(chapterId.substring(1,chapterId.length()))));
         }else{
             SubCourseEntity subCourseEntity = globalService.get(SubCourseEntity.class, Integer.parseInt(subCourseId.substring(1,subCourseId.length())));
-            List<ExerciseExcelPojo> exerciseExcelPojoList = chapterService.getExcelTemplet(subCourseEntity,BelongToEnum.CHAPTER.getIndex());
+            List<ExerciseExcelPojo> exerciseExcelPojoList = chapterService.getExcelTemplet(subCourseEntity, CHAPTER.getIndex());
             if(CollectionUtils.isNotEmpty(exerciseExcelPojoList)){
                 List<Integer> params = new ArrayList<Integer>();
                 for (ExerciseExcelPojo exerciseExcelPojo: exerciseExcelPojoList ) {
@@ -92,13 +99,12 @@ public class ExerciseController extends BaseController {
         DatagridJsonUtils.datagrid(response, dataGridReturn);
     }
 
-
     @RequestMapping(params = "downLoadExcel")
     public void downLoadExcel(ExerciseExcelPojo exerciseExcelPojo, HttpServletRequest request, HttpServletResponse response) {
         Integer subCourseId = exerciseExcelPojo.getSubCourseId();
         SubCourseEntity subCourseEntity = globalService.get(SubCourseEntity.class, subCourseId);
-        List<ExerciseExcelPojo> exerciseExcelPojoList = chapterService.getExcelTemplet(subCourseEntity,BelongToEnum.CHAPTER.getIndex());
-        chapterService.downLoadExcel(exerciseExcelPojoList,response,subCourseEntity.getSubName(),BelongToEnum.CHAPTER);
+        List<ExerciseExcelPojo> exerciseExcelPojoList = chapterService.getExcelTemplet(subCourseEntity, CHAPTER.getIndex());
+        downTestModuleExcel.downTestModuleExcel(exerciseExcelPojoList,request,response,subCourseEntity.getSubName(),CHAPTER);
     }
 
     @RequestMapping(params = "uploadExcel")
@@ -109,7 +115,6 @@ public class ExerciseController extends BaseController {
         String newFileName = UUID.randomUUID() + file.getOriginalFilename();
         File filelocal = new File(realPath, newFileName);
         FileUtils.copyInputStreamToFile(file.getInputStream(), filelocal);
-
         if (file == null) {
             j.setSuccess(AjaxJson.CODE_FAIL);
             j.setMsg("请选择上传文件！");
@@ -118,22 +123,20 @@ public class ExerciseController extends BaseController {
         List<ExerciseEntity> exerciseEntityList = null;
         String postfix = org.framework.core.utils.StringUtils.getPostfix(newFileName);
         try {
-            if (StringUtils.hasText(postfix) && PoiConstant.OFFICE_EXCEL_2003_POSTFIX.equals(postfix)) {
-                exerciseEntityList = PoiExcelExerciseUtils.readXls(filelocal);
-            } else if (StringUtils.hasText(postfix) && PoiConstant.OFFICE_EXCEL_2010_POSTFIX.equals(postfix)) {
+            if(StringUtils.hasText(postfix)&&PoiConstant.OFFICE_EXCEL_2010_POSTFIX.equals(postfix)){
+                exerciseEntityList = downTestModuleExcel.readXlsxToExerciseEntityList(filelocal);//PoiExcelExerciseUtils.readXls(filelocal);
+            }else{
                 j.setSuccess(AjaxJson.CODE_FAIL);
-                j.setMsg("仅支持Excel xls 2003文件！");
-                return j;
-            } else {
-                j.setSuccess(AjaxJson.CODE_FAIL);
-                j.setMsg("上传文件必须是EXCEL文件！");
+                j.setMsg("仅支持 Excel xlsx 2007文件！");
                 return j;
             }
         } catch (IOException e) {
+            logger.error(e.fillInStackTrace());
             j.setSuccess(AjaxJson.CODE_FAIL);
-            j.setMsg("文档格式不正确，请修正之后，再上传！");
+            j.setMsg("文档异常，请确认文档格式正确性！");
             return j;
         }catch (BusinessException be){
+            logger.error(be.fillInStackTrace());
             j.setSuccess(AjaxJson.CODE_FAIL);
             j.setMsg(be.getMessage());
             return j;
@@ -151,9 +154,9 @@ public class ExerciseController extends BaseController {
                     DetachedCriteria moduleCourseDetachedCriteria = DetachedCriteria.forClass(ModuleEntity.class);
                     moduleCourseDetachedCriteria.add(Restrictions.eq("subCourseId",exerciseEntity.getSubCourseId()));
                     moduleCourseDetachedCriteria.add(Restrictions.eq("type",exerciseEntity.getModuleType()));
-                    List<ModuleEntity> moduleEntities = globalService.getListByCriteriaQuery(moduleCourseDetachedCriteria);
-                    exerciseEntity.setModuleId(moduleEntities.get(0).getId());
-                    exerciseEntity.setModuleType(moduleEntities.get(0).getType());
+                    List<ModuleEntity> moduleEntityList = globalService.getListByCriteriaQuery(moduleCourseDetachedCriteria);
+                    exerciseEntity.setModuleId(moduleEntityList.get(0).getId());
+                    exerciseEntity.setModuleType(moduleEntityList.get(0).getType());
                     exerciseEntity.setCreateTime(new Date());
                     exerciseEntity.setUpdateTime(new Date());
                 }
@@ -164,13 +167,13 @@ public class ExerciseController extends BaseController {
                 return j;
             }
         } catch (Exception e) {
+            logger.error(e.fillInStackTrace());
             j.setSuccess(AjaxJson.CODE_FAIL);
             j.setMsg("数据保存错误，请检查数据是否完成整！");
             return j;
         }
         return j;
     }
-
 
     @RequestMapping(params = "doAdd")
     @ResponseBody

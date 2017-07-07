@@ -33,7 +33,6 @@ public class UploadExcelController extends BaseController {
     public AjaxJson uploadExcel(@RequestParam("file") CommonsMultipartFile file) {
         AjaxJson j = new AjaxJson();
         long startTime = System.currentTimeMillis();
-        System.out.println("fileName：" + file.getOriginalFilename());
         try {
             InputStream is = file.getInputStream();
         } catch (IOException e) {
@@ -119,17 +118,17 @@ public class UploadExcelController extends BaseController {
             }
         } catch (IOException e) {
         } finally {
-            if (bis != null){
+            if (bis != null) {
                 try {
                     bis.close();
-                }catch (IOException e){
+                } catch (IOException e) {
 
                 }
             }
-            if (bos  != null){
+            if (bos != null) {
                 try {
-                    bos .close();
-                }catch (IOException e){
+                    bos.close();
+                } catch (IOException e) {
 
                 }
             }

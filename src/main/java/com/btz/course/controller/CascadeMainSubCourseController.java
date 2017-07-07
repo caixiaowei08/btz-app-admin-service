@@ -44,17 +44,13 @@ public class CascadeMainSubCourseController extends BaseController {
     @Autowired
     private ModuleService moduleService;
 
-
     @RequestMapping(params = "mainCourseTreeGrid")
     @ResponseBody
     public TreeGrid mainCourseTreeGrid(HttpServletRequest request, HttpServletResponse response) {
        String type = request.getParameter("type");
-
         DetachedCriteria mainCourseDetachedCriteria = DetachedCriteria.forClass(MainCourseEntity.class);
         mainCourseDetachedCriteria.addOrder(Order.asc("orderNo"));
         List<MainCourseEntity> mainCourseEntities = globalService.getListByCriteriaQuery(mainCourseDetachedCriteria);
-        List<MainCourseVo> mainSubCourseVos = new ArrayList<MainCourseVo>();
-
         List<ModuleEntity> moduleEntities = null;
         if(StringUtils.hasText(type)){
             DetachedCriteria moduleDetachedCriteria = DetachedCriteria.forClass(ModuleEntity.class);
@@ -70,6 +66,7 @@ public class CascadeMainSubCourseController extends BaseController {
             moduleEntities = globalService.getListByCriteriaQuery(moduleDetachedCriteria);
         }
 
+        List<MainCourseVo> mainSubCourseVos = new ArrayList<MainCourseVo>();
         if (CollectionUtils.isNotEmpty(mainCourseEntities)) {
             for (MainCourseEntity mainCourseEntity : mainCourseEntities) {
                 MainCourseVo mainCourseVo = new MainCourseVo();
@@ -97,10 +94,11 @@ public class CascadeMainSubCourseController extends BaseController {
                         children.add(subCourseVo);
                     }
                     mainCourseVo.setChildren(children);
+                    mainSubCourseVos.add(mainCourseVo);
                 }
-                mainSubCourseVos.add(mainCourseVo);
             }
         }
+
         TreeGrid treeGrid = new TreeGrid();
         treeGrid.setRows(mainSubCourseVos);
         return treeGrid;
@@ -111,8 +109,10 @@ public class CascadeMainSubCourseController extends BaseController {
     public TreeGrid chapterTreeGrid(HttpServletRequest request, HttpServletResponse response) {
         TreeGrid treeGrid = new TreeGrid();
         String subCourseId = "";
+        String moduleType = "";
         try {
             subCourseId = request.getParameterMap().get("subCourseId")[0];
+            moduleType = request.getParameterMap().get("moduleType")[0];
         } catch (Exception e) {
             return treeGrid;
         }
@@ -129,6 +129,7 @@ public class CascadeMainSubCourseController extends BaseController {
                 DetachedCriteria chapterEntityADetachedCriteria = DetachedCriteria.forClass(ChapterEntity.class);
                 chapterEntityADetachedCriteria.add(Restrictions.eq("courseId", subCourseEntity.getId()));
                 chapterEntityADetachedCriteria.add(Restrictions.eq("level", ConstantChapterLevel.ONE));
+                chapterEntityADetachedCriteria.add(Restrictions.eq("moduleType",Integer.parseInt(moduleType)));
                 chapterEntityADetachedCriteria.addOrder(Order.asc("orderNo"));
                 List<ChapterEntity> chapterEntitiesA = globalService.getListByCriteriaQuery(chapterEntityADetachedCriteria);
                 if (CollectionUtils.isNotEmpty(chapterEntitiesA)) {
@@ -143,6 +144,7 @@ public class CascadeMainSubCourseController extends BaseController {
                         chapterEntityBDetachedCriteria.add(Restrictions.eq("courseId", subCourseEntity.getId()));
                         chapterEntityBDetachedCriteria.add(Restrictions.eq("fid", chapterA.getId()));
                         chapterEntityBDetachedCriteria.add(Restrictions.eq("level", ConstantChapterLevel.TWO));
+                        chapterEntityBDetachedCriteria.add(Restrictions.eq("moduleType",Integer.parseInt(moduleType)));
                         chapterEntityBDetachedCriteria.addOrder(Order.asc("orderNo"));
                         List<ChapterEntity> chapterEntitiesB = globalService.getListByCriteriaQuery(chapterEntityBDetachedCriteria);
                         if (CollectionUtils.isNotEmpty(chapterEntitiesB)) {
@@ -157,6 +159,7 @@ public class CascadeMainSubCourseController extends BaseController {
                                 chapterEntityCDetachedCriteria.add(Restrictions.eq("courseId", subCourseEntity.getId()));
                                 chapterEntityCDetachedCriteria.add(Restrictions.eq("fid", chapterB.getId()));
                                 chapterEntityCDetachedCriteria.add(Restrictions.eq("level", ConstantChapterLevel.THREE));
+                                chapterEntityCDetachedCriteria.add(Restrictions.eq("moduleType",Integer.parseInt(moduleType)));
                                 chapterEntityCDetachedCriteria.addOrder(Order.asc("orderNo"));
                                 List<ChapterEntity> chapterEntitiesC = globalService.getListByCriteriaQuery(chapterEntityCDetachedCriteria);
                                 if (CollectionUtils.isNotEmpty(chapterEntitiesC)) {

@@ -48,16 +48,21 @@ public class ChapterController extends BaseController {
     @ResponseBody
     public AjaxJson doAdd(ChapterPojo chapterPojo, HttpServletRequest request, HttpServletResponse response) {
         AjaxJson j = new AjaxJson();
-
-
-        DetachedCriteria moduleEntityDetachedCriteria = DetachedCriteria.forClass(ModuleEntity.class);
-        moduleEntityDetachedCriteria.add(Restrictions.eq("subCourseId",chapterPojo.getCourseId()));
-        moduleEntityDetachedCriteria.add(Restrictions.eq("type", BelongToEnum.CHAPTER.getIndex()));
-        List<ModuleEntity> moduleEntityList = moduleService.getListByCriteriaQuery(moduleEntityDetachedCriteria);
-
-        if(CollectionUtils.isEmpty(moduleEntityList)){
+        Integer type = -1;
+        try {
+            type = Integer.parseInt(request.getParameter("moduleType"));
+        } catch (Exception e) {
             j.setSuccess(AjaxJson.CODE_FAIL);
-            j.setMsg("章节练习模块已被删除！");
+            j.setMsg("参数有误，模块参数错误！");
+            return j;
+        }
+        DetachedCriteria moduleEntityDetachedCriteria = DetachedCriteria.forClass(ModuleEntity.class);
+        moduleEntityDetachedCriteria.add(Restrictions.eq("subCourseId", chapterPojo.getCourseId()));
+        moduleEntityDetachedCriteria.add(Restrictions.eq("type", type));
+        List<ModuleEntity> moduleEntityList = moduleService.getListByCriteriaQuery(moduleEntityDetachedCriteria);
+        if (CollectionUtils.isEmpty(moduleEntityList)) {
+            j.setSuccess(AjaxJson.CODE_FAIL);
+            j.setMsg("模块已被删除！");
             return j;
         }
 
@@ -70,13 +75,13 @@ public class ChapterController extends BaseController {
             chapterEntity.setCourseId(chapterPojo.getCourseId());
             chapterEntity.setFid(chapterPojo.getFid());
             String level = chapterPojo.getLevel();
-            if(level.equals(ConstantChapterLevel.SUBCOURSE)){
+            if (level.equals(ConstantChapterLevel.SUBCOURSE)) {
                 chapterEntity.setLevel(ConstantChapterLevel.ONE);
-            }else if(level.equals(ConstantChapterLevel.ONE)){
+            } else if (level.equals(ConstantChapterLevel.ONE)) {
                 chapterEntity.setLevel(ConstantChapterLevel.TWO);
-            }else if(level.equals(ConstantChapterLevel.TWO)){
+            } else if (level.equals(ConstantChapterLevel.TWO)) {
                 chapterEntity.setLevel(ConstantChapterLevel.THREE);
-            }else {
+            } else {
                 j.setSuccess(AjaxJson.CODE_FAIL);
                 j.setMsg("章节层级不能超过三层，新增失败！");
                 return j;
@@ -123,7 +128,8 @@ public class ChapterController extends BaseController {
     public AjaxJson doUpdate(ChapterEntity chapterEntity, HttpServletRequest request) {
         AjaxJson j = new AjaxJson();
         ChapterEntity t = chapterService.get(ChapterEntity.class, chapterEntity.getId());
-        if(t == null){
+
+        if (t == null) {
             j.setSuccess(AjaxJson.CODE_FAIL);
             j.setMsg("需要修改的数据不存在！");
             return j;

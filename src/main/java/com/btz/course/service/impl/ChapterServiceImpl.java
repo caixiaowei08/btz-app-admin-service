@@ -170,7 +170,7 @@ public class ChapterServiceImpl extends BaseServiceImpl implements ChapterServic
             cell = row.createCell(8);
             cell.setCellValue("eg：会计是以货币为主要计量单位，核算和监督一个单位经济活动的一种（）。");
             cell = row.createCell(9);
-            cell.setCellValue("A.方法<br />B.手段<br />C.信息工具<br />D.经济管理工作");
+            cell.setCellValue("A.方法<br/>B.手段<br/>C.信息工具<br/>D.经济管理工作");
             cell = row.createCell(10);
             cell.setCellValue("A");
             cell = row.createCell(11);
