@@ -1,5 +1,6 @@
 package com.btz.module.controller;
 
+import com.alibaba.fastjson.JSON;
 import com.btz.course.ConstantChapterLevel;
 import com.btz.course.entity.ChapterEntity;
 import com.btz.course.entity.MainCourseEntity;
@@ -8,9 +9,12 @@ import com.btz.course.service.ChapterService;
 import com.btz.course.service.SubCourseService;
 import com.btz.course.vo.MainCourseVo;
 import com.btz.course.vo.SubCourseVo;
+import com.btz.exercise.controller.ExerciseController;
 import com.btz.module.entity.ModuleEntity;
 import com.btz.module.service.ModuleService;
 import org.apache.commons.collections.CollectionUtils;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.framework.core.common.controller.BaseController;
 import org.framework.core.common.model.json.AjaxJson;
 import org.framework.core.common.model.json.TreeGrid;
@@ -38,6 +42,8 @@ import java.util.List;
 @RequestMapping("/moduleController")
 public class ModuleController extends BaseController {
 
+    private static Logger logger = LogManager.getLogger(ModuleController.class.getName());
+
     @Autowired
     private ModuleService moduleService;
 
@@ -47,9 +53,9 @@ public class ModuleController extends BaseController {
 
     @RequestMapping(params = "treeGrid")
     @ResponseBody
-    public TreeGrid mainCourseTreeGrid(ModuleEntity moduleEntity,HttpServletRequest request, HttpServletResponse response) {
+    public TreeGrid mainCourseTreeGrid(ModuleEntity moduleEntity, HttpServletRequest request, HttpServletResponse response) {
         DetachedCriteria mainCourseDetachedCriteria = DetachedCriteria.forClass(ModuleEntity.class);
-        mainCourseDetachedCriteria.add(Restrictions.eq("subCourseId",moduleEntity.getSubCourseId()));
+        mainCourseDetachedCriteria.add(Restrictions.eq("subCourseId", moduleEntity.getSubCourseId()));
         mainCourseDetachedCriteria.addOrder(Order.asc("type"));
         List<ModuleEntity> mainCourseEntities = moduleService.getListByCriteriaQuery(mainCourseDetachedCriteria);
         TreeGrid treeGrid = new TreeGrid();
@@ -65,21 +71,22 @@ public class ModuleController extends BaseController {
         DetachedCriteria moduleEntityDetachedCriteria = DetachedCriteria.forClass(ModuleEntity.class);
         moduleEntityDetachedCriteria.add(Restrictions.eq("subCourseId", moduleEntity.getSubCourseId()));
         moduleEntityDetachedCriteria.add(Restrictions.eq("type", moduleEntity.getType()));
-       List<ModuleEntity> moduleEntityList = moduleService.getListByCriteriaQuery(moduleEntityDetachedCriteria);
-       if(CollectionUtils.isNotEmpty(moduleEntityList)){
-           j.setSuccess(AjaxJson.CODE_FAIL);
-           j.setMsg("不能重复新建模块！");
-           return j;
-       }
+        List<ModuleEntity> moduleEntityList = moduleService.getListByCriteriaQuery(moduleEntityDetachedCriteria);
+        if (CollectionUtils.isNotEmpty(moduleEntityList)) {
+            logger.warn("不能重复新建模块:" + JSON.toJSONString(moduleEntityList.get(0)));
+            j.setSuccess(AjaxJson.CODE_FAIL);
+            j.setMsg("不能重复新建模块！");
+            return j;
+        }
 
-       SubCourseEntity subCourseEntity =   subCourseService.get(SubCourseEntity.class,moduleEntity.getSubCourseId());
+        SubCourseEntity subCourseEntity = subCourseService.get(SubCourseEntity.class, moduleEntity.getSubCourseId());
 
-       if(subCourseEntity==null){
-           j.setSuccess(AjaxJson.CODE_FAIL);
-           j.setMsg("课程已被删除，不能新建模块！");
-           return j;
-       }
-
+        if (subCourseEntity == null) {
+            logger.warn("课程已被删除，不能新建模块:" + moduleEntity.getSubCourseId());
+            j.setSuccess(AjaxJson.CODE_FAIL);
+            j.setMsg("课程已被删除，不能新建模块！");
+            return j;
+        }
         try {
             moduleEntity.setVersionNo(0);
             moduleEntity.setMainCourseId(subCourseEntity.getFid());
@@ -87,7 +94,7 @@ public class ModuleController extends BaseController {
             moduleEntity.setCreateTime(new Date());
             moduleService.save(moduleEntity);
         } catch (Exception e) {
-            e.printStackTrace();
+            logger.error(e.fillInStackTrace());
             j.setSuccess(AjaxJson.CODE_FAIL);
             j.setMsg("保存失败！");
         }
@@ -101,12 +108,12 @@ public class ModuleController extends BaseController {
         String ids = request.getParameter("ids");
         try {
             if (StringUtils.hasText(ids)) {
-                String [] id_array = ids.split(",");
-                for (int i = 0; i < id_array.length ; i++) {
-                    moduleEntity = moduleService.get(ModuleEntity.class,Integer.parseInt(id_array[i]));
+                String[] id_array = ids.split(",");
+                for (int i = 0; i < id_array.length; i++) {
+                    moduleEntity = moduleService.get(ModuleEntity.class, Integer.parseInt(id_array[i]));
                     moduleService.delete(moduleEntity);
                 }
-            }else{
+            } else {
                 j.setSuccess(AjaxJson.CODE_FAIL);
                 j.setMsg("请选择需要删除的数据！");
                 return j;
@@ -124,13 +131,13 @@ public class ModuleController extends BaseController {
     public AjaxJson doGet(ModuleEntity moduleEntity, HttpServletRequest request, HttpServletResponse response) {
         AjaxJson j = new AjaxJson();
         Integer id = moduleEntity.getId();
-        if(id == null){
+        if (id == null) {
             j.setSuccess(AjaxJson.CODE_FAIL);
             j.setMsg("请选择你需要查看详情的数据！");
             return j;
         }
         ModuleEntity moduleEntityDb = moduleService.get(ModuleEntity.class, id);
-        if(moduleEntityDb == null){
+        if (moduleEntityDb == null) {
             j.setSuccess(AjaxJson.CODE_FAIL);
             j.setMsg("该数据不存在！");
             return j;

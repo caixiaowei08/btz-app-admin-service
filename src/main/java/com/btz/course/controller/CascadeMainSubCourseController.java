@@ -10,6 +10,7 @@ import com.btz.course.vo.SubCourseVo;
 import com.btz.module.entity.ModuleEntity;
 import com.btz.module.service.ModuleService;
 import com.btz.system.global.GlobalService;
+import com.btz.utils.BelongToEnum;
 import com.btz.utils.Constant;
 import org.apache.commons.collections.CollectionUtils;
 import org.framework.core.common.controller.BaseController;
@@ -47,14 +48,24 @@ public class CascadeMainSubCourseController extends BaseController {
     @RequestMapping(params = "mainCourseTreeGrid")
     @ResponseBody
     public TreeGrid mainCourseTreeGrid(HttpServletRequest request, HttpServletResponse response) {
-       String type = request.getParameter("type");
+        Integer type = null;
+        TreeGrid treeGrid = new TreeGrid();
+        try {
+            type = Integer.parseInt(request.getParameter("type"));
+        }catch (Exception e){
+            return treeGrid;
+        }
+
+
         DetachedCriteria mainCourseDetachedCriteria = DetachedCriteria.forClass(MainCourseEntity.class);
         mainCourseDetachedCriteria.addOrder(Order.asc("orderNo"));
         List<MainCourseEntity> mainCourseEntities = globalService.getListByCriteriaQuery(mainCourseDetachedCriteria);
         List<ModuleEntity> moduleEntities = null;
-        if(StringUtils.hasText(type)){
+        if(type != null){
             DetachedCriteria moduleDetachedCriteria = DetachedCriteria.forClass(ModuleEntity.class);
-            moduleDetachedCriteria.add(Restrictions.eq("type",Integer.parseInt(type)));
+            if(!type.equals(BelongToEnum.ALL.getIndex())){
+                moduleDetachedCriteria.add(Restrictions.eq("type",type));
+            }
             moduleDetachedCriteria.add(Restrictions.eq("s_state",Constant.STATE_UNLOCK));
             if(CollectionUtils.isNotEmpty(mainCourseEntities)){
                 List<Integer> params = new ArrayList<Integer>();
@@ -63,7 +74,7 @@ public class CascadeMainSubCourseController extends BaseController {
                 }
                 moduleDetachedCriteria.add(Restrictions.in("mainCourseId",params));
             }
-            moduleEntities = globalService.getListByCriteriaQuery(moduleDetachedCriteria);
+            moduleEntities = moduleService.getListByCriteriaQuery(moduleDetachedCriteria);
         }
 
         List<MainCourseVo> mainSubCourseVos = new ArrayList<MainCourseVo>();
@@ -76,12 +87,16 @@ public class CascadeMainSubCourseController extends BaseController {
                 DetachedCriteria mainSubCourseVoDetachedCriteria = DetachedCriteria.forClass(SubCourseEntity.class);
                 mainSubCourseVoDetachedCriteria.add(Restrictions.eq("fid", mainCourseEntity.getId()));
                 mainSubCourseVoDetachedCriteria.addOrder(Order.asc("orderNo"));
-                if(CollectionUtils.isNotEmpty(moduleEntities)){
-                    List<Integer> params = new ArrayList<Integer>();
-                    for (ModuleEntity moduleEntity: moduleEntities) {
-                        params.add(moduleEntity.getSubCourseId());
+                if(!type.equals(BelongToEnum.ALL.getIndex())){
+                    if(CollectionUtils.isNotEmpty(moduleEntities)){
+                        List<Integer> params = new ArrayList<Integer>();
+                        for (ModuleEntity moduleEntity: moduleEntities) {
+                            params.add(moduleEntity.getSubCourseId());
+                        }
+                        mainSubCourseVoDetachedCriteria.add(Restrictions.in("id",params));
+                    }else{
+                        mainSubCourseVoDetachedCriteria.add(Restrictions.eq("id",-1));
                     }
-                    mainSubCourseVoDetachedCriteria.add(Restrictions.in("id",params));
                 }
                 List<SubCourseEntity> subCourseEntityList = globalService.getListByCriteriaQuery(mainSubCourseVoDetachedCriteria);
                 List<SubCourseVo> children = new ArrayList<SubCourseVo>();
@@ -98,8 +113,6 @@ public class CascadeMainSubCourseController extends BaseController {
                 }
             }
         }
-
-        TreeGrid treeGrid = new TreeGrid();
         treeGrid.setRows(mainSubCourseVos);
         return treeGrid;
     }

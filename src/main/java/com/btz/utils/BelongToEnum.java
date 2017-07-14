@@ -5,7 +5,8 @@ package com.btz.utils;
  */
 public enum BelongToEnum {
 
-    CHAPTER("章节练习 ", 1), CORE_POINT("核心考点", 2);
+    ALL("所有模块 ", 0),CHAPTER("章节练习 ", 1), CORE_POINT("核心考点", 2),SIMULATION_TEST("模拟考场", 3),EXAM_TIPS("考前押题", 4),
+    RECORDED_VIDEO("录播视频", 5),LIVE_VIDEO("直播视频 ", 6);
 
     private String typeName;
 
@@ -17,6 +18,16 @@ public enum BelongToEnum {
     }
 
     // 普通方法
+    public static BelongToEnum getBelongToEnum(int index) {
+        for (BelongToEnum c : BelongToEnum.values()) {
+            if (c.getIndex() == index) {
+                return c;
+            }
+        }
+        return null;
+    }
+
+    // 普通方法
     public static String getTypeName(int index) {
         for (BelongToEnum c : BelongToEnum.values()) {
             if (c.getIndex() == index) {
@@ -25,6 +36,8 @@ public enum BelongToEnum {
         }
         return null;
     }
+
+
 
     public String getTypeName() {
         return typeName;

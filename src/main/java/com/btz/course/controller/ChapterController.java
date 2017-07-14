@@ -65,9 +65,7 @@ public class ChapterController extends BaseController {
             j.setMsg("模块已被删除！");
             return j;
         }
-
         ModuleEntity moduleEntity = moduleEntityList.get(0);
-
         ChapterEntity chapterEntity = new ChapterEntity();
         try {
             chapterEntity.setModuleId(moduleEntity.getId());
@@ -84,6 +82,55 @@ public class ChapterController extends BaseController {
             } else {
                 j.setSuccess(AjaxJson.CODE_FAIL);
                 j.setMsg("章节层级不能超过三层，新增失败！");
+                return j;
+            }
+            chapterEntity.setOrderNo(chapterPojo.getOrderNo());
+            chapterEntity.setChapterName(chapterPojo.getChapterName());
+            chapterEntity.setCreateTime(new Date());
+            chapterEntity.setUpdateTime(new Date());
+            chapterService.save(chapterEntity);
+        } catch (Exception e) {
+            e.printStackTrace();
+            j.setSuccess(AjaxJson.CODE_FAIL);
+            j.setMsg("保存失败！");
+        }
+        return j;
+    }
+
+    @RequestMapping(params = "doAddPaper")
+    @ResponseBody
+    public AjaxJson doAddPaper(ChapterPojo chapterPojo, HttpServletRequest request, HttpServletResponse response) {
+        AjaxJson j = new AjaxJson();
+        Integer type = -1;
+        try {
+            type = Integer.parseInt(request.getParameter("moduleType"));
+        } catch (Exception e) {
+            j.setSuccess(AjaxJson.CODE_FAIL);
+            j.setMsg("参数有误，模块参数错误！");
+            return j;
+        }
+        DetachedCriteria moduleEntityDetachedCriteria = DetachedCriteria.forClass(ModuleEntity.class);
+        moduleEntityDetachedCriteria.add(Restrictions.eq("subCourseId", chapterPojo.getCourseId()));
+        moduleEntityDetachedCriteria.add(Restrictions.eq("type", type));
+        List<ModuleEntity> moduleEntityList = moduleService.getListByCriteriaQuery(moduleEntityDetachedCriteria);
+        if (CollectionUtils.isEmpty(moduleEntityList)) {
+            j.setSuccess(AjaxJson.CODE_FAIL);
+            j.setMsg("模块已被删除！");
+            return j;
+        }
+        ModuleEntity moduleEntity = moduleEntityList.get(0);
+        ChapterEntity chapterEntity = new ChapterEntity();
+        try {
+            chapterEntity.setModuleId(moduleEntity.getId());
+            chapterEntity.setModuleType(moduleEntity.getType());
+            chapterEntity.setCourseId(chapterPojo.getCourseId());
+            chapterEntity.setFid(chapterPojo.getFid());
+            String level = chapterPojo.getLevel();
+            if (level.equals(ConstantChapterLevel.SUBCOURSE)) {
+                chapterEntity.setLevel(ConstantChapterLevel.ONE);
+            } else{
+                j.setSuccess(AjaxJson.CODE_FAIL);
+                j.setMsg("只能在课程下添加试卷！");
                 return j;
             }
             chapterEntity.setOrderNo(chapterPojo.getOrderNo());

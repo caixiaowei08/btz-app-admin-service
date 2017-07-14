@@ -45,6 +45,7 @@ import java.util.Date;
 import java.util.List;
 import java.util.UUID;
 
+import static com.btz.utils.BelongToEnum.ALL;
 import static com.btz.utils.BelongToEnum.CHAPTER;
 
 /**
@@ -102,9 +103,15 @@ public class ExerciseController extends BaseController {
     @RequestMapping(params = "downLoadExcel")
     public void downLoadExcel(ExerciseExcelPojo exerciseExcelPojo, HttpServletRequest request, HttpServletResponse response) {
         Integer subCourseId = exerciseExcelPojo.getSubCourseId();
+        Integer moduleType = exerciseExcelPojo.getBelongTo();
+        BelongToEnum belongToEnum = BelongToEnum.getBelongToEnum(moduleType);
+        if (belongToEnum == null) {
+            downTestModuleExcel.downTestModuleExcel(null,request,response,"模块类型输入错误！",ALL);
+            return;
+        }
         SubCourseEntity subCourseEntity = globalService.get(SubCourseEntity.class, subCourseId);
-        List<ExerciseExcelPojo> exerciseExcelPojoList = chapterService.getExcelTemplet(subCourseEntity, CHAPTER.getIndex());
-        downTestModuleExcel.downTestModuleExcel(exerciseExcelPojoList,request,response,subCourseEntity.getSubName(),CHAPTER);
+        List<ExerciseExcelPojo> exerciseExcelPojoList = chapterService.getExcelTemplet(subCourseEntity, belongToEnum.getIndex());
+        downTestModuleExcel.downTestModuleExcel(exerciseExcelPojoList,request,response,subCourseEntity.getSubName(),belongToEnum);
     }
 
     @RequestMapping(params = "uploadExcel")
