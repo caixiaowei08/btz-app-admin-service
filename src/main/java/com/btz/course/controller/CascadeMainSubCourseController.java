@@ -55,8 +55,6 @@ public class CascadeMainSubCourseController extends BaseController {
         }catch (Exception e){
             return treeGrid;
         }
-
-
         DetachedCriteria mainCourseDetachedCriteria = DetachedCriteria.forClass(MainCourseEntity.class);
         mainCourseDetachedCriteria.addOrder(Order.asc("orderNo"));
         List<MainCourseEntity> mainCourseEntities = globalService.getListByCriteriaQuery(mainCourseDetachedCriteria);
