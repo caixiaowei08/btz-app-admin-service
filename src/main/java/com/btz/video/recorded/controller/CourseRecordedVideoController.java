@@ -4,6 +4,7 @@ import com.btz.course.entity.SubCourseEntity;
 import com.btz.exercise.entity.ExerciseEntity;
 import com.btz.poi.pojo.ExerciseExcelPojo;
 import com.btz.system.global.GlobalService;
+import com.btz.user.entity.UserEntity;
 import com.btz.video.recorded.entity.CourseRecordedVideoEntity;
 import com.btz.video.recorded.service.CourseRecordedVideoService;
 import org.apache.commons.collections.CollectionUtils;
@@ -40,6 +41,15 @@ public class CourseRecordedVideoController extends BaseController {
 
     @Autowired
     private GlobalService globalService;
+
+    @RequestMapping(params = "dataGrid")
+    public void dataGrid(CourseRecordedVideoEntity courseRecordedVideoEntity, HttpServletRequest request, HttpServletResponse response, DataGrid dataGrid) {
+        CriteriaQuery criteriaQuery = new CriteriaQuery(CourseRecordedVideoEntity.class, dataGrid, request.getParameterMap());
+        criteriaQuery.installCriteria();
+        DataGridReturn dataGridReturn = courseRecordedVideoService.getDataGridReturn(criteriaQuery);
+        DatagridJsonUtils.listToObj(dataGridReturn, CourseRecordedVideoEntity.class, dataGrid.getField());
+        DatagridJsonUtils.datagrid(response, dataGridReturn);
+    }
 
 
 
