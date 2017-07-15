@@ -91,21 +91,18 @@ public class DownTestModuleExcelImpl implements DownTestModuleExcel {
                     cell = row.createCell(1);
                     cell.setCellType(CellType.STRING);
                     cell.setCellValue(exerciseExcelPojo.getSubCourseName());
-
                     cell = row.createCell(2);
                     cell.setCellType(CellType.NUMERIC);
                     cell.setCellValue(exerciseExcelPojo.getChapterId());
                     cell = row.createCell(3);
                     cell.setCellType(CellType.STRING);
                     cell.setCellValue(exerciseExcelPojo.getChapterName());
-
                     cell = row.createCell(4);
                     cell.setCellType(CellType.NUMERIC);
                     cell.setCellValue(belongToEnum.getIndex());
                     cell = row.createCell(5);
                     cell.setCellType(CellType.STRING);
                     cell.setCellValue(belongToEnum.getTypeName());
-
                     cell = row.createCell(6);
                     cell.setCellType(CellType.NUMERIC);
                     cell.setCellValue(QuestionType.values()[j].getCode());

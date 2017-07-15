@@ -132,7 +132,7 @@ public class CourseRecordedVideoEntity implements Serializable {
         this.videoUrl = videoUrl;
     }
 
-    @Column(name = "lectureUrls", nullable = true)
+    @Column(name = "lectureUrl", nullable = true)
     public String getLectureUrl() {
         return lectureUrl;
     }
