@@ -32,7 +32,6 @@ public class UploadExcelController extends BaseController {
     @ResponseBody
     public AjaxJson uploadExcel(@RequestParam("file") CommonsMultipartFile file) {
         AjaxJson j = new AjaxJson();
-        long startTime = System.currentTimeMillis();
         try {
             InputStream is = file.getInputStream();
         } catch (IOException e) {

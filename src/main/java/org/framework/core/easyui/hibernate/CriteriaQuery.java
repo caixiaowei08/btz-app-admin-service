@@ -1,7 +1,8 @@
 package org.framework.core.easyui.hibernate;
 
 import org.apache.commons.beanutils.PropertyUtils;
-import org.apache.commons.collections.CollectionUtils;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.framework.core.common.model.json.DataGrid;
 import org.hibernate.criterion.DetachedCriteria;
 import org.hibernate.criterion.ProjectionList;
@@ -18,6 +19,8 @@ import java.util.Map;
  * Created by User on 2017/5/28.
  */
 public class CriteriaQuery {
+
+    private static Logger logger = LogManager.getLogger(CriteriaQuery.class.getName());
 
     /**
      * 时间查询符号
@@ -64,6 +67,7 @@ public class CriteriaQuery {
             installHqlParams();
             installProjectionList();
         } catch (Exception e) {
+            logger.error(e.fillInStackTrace());
             e.printStackTrace();
         }
     }
