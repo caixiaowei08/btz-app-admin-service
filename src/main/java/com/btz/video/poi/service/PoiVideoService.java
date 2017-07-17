@@ -1,6 +1,7 @@
 package com.btz.video.poi.service;
 
 import com.btz.poi.pojo.ExerciseExcelPojo;
+import com.btz.video.live.vo.LiveVideoPojo;
 import com.btz.video.recorded.vo.RecordedVideoPojo;
 import org.framework.core.common.service.BaseService;
 
@@ -14,6 +15,11 @@ import java.util.List;
 public interface PoiVideoService extends BaseService {
 
     public void downLoadCourseRecordedVideoExcel(List<RecordedVideoPojo> recordedVideoPojoList,
+                                                 HttpServletRequest request,
+                                                 HttpServletResponse response,
+                                                 String excelFileName);
+
+    public void downLoadCourseLiveVideoExcel(List<LiveVideoPojo> liveVideoPojoList,
                                                  HttpServletRequest request,
                                                  HttpServletResponse response,
                                                  String excelFileName);

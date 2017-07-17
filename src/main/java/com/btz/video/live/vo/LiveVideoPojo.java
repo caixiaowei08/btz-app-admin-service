@@ -1,11 +1,11 @@
-package com.btz.video.recorded.vo;
+package com.btz.video.live.vo;
 
 import java.io.Serializable;
 
 /**
  * Created by User on 2017/7/16.
  */
-public class RecordedVideoPojo implements Serializable{
+public class LiveVideoPojo implements Serializable{
 
     private Integer subCourseId;
 
@@ -21,9 +21,11 @@ public class RecordedVideoPojo implements Serializable{
 
     private String  title;
 
+    private String teacherName;
+
     private String videoUrl;
 
-    private String lectureUrl;
+    private Integer  status;
 
     private Integer orderNo;
 
@@ -35,12 +37,28 @@ public class RecordedVideoPojo implements Serializable{
         this.subCourseId = subCourseId;
     }
 
+    public String getSubCourseName() {
+        return subCourseName;
+    }
+
+    public void setSubCourseName(String subCourseName) {
+        this.subCourseName = subCourseName;
+    }
+
     public Integer getChapterId() {
         return chapterId;
     }
 
     public void setChapterId(Integer chapterId) {
         this.chapterId = chapterId;
+    }
+
+    public String getChapterName() {
+        return chapterName;
+    }
+
+    public void setChapterName(String chapterName) {
+        this.chapterName = chapterName;
     }
 
     public Integer getModuleId() {
@@ -75,12 +93,20 @@ public class RecordedVideoPojo implements Serializable{
         this.videoUrl = videoUrl;
     }
 
-    public String getLectureUrl() {
-        return lectureUrl;
+    public String getTeacherName() {
+        return teacherName;
     }
 
-    public void setLectureUrl(String lectureUrl) {
-        this.lectureUrl = lectureUrl;
+    public void setTeacherName(String teacherName) {
+        this.teacherName = teacherName;
+    }
+
+    public Integer getStatus() {
+        return status;
+    }
+
+    public void setStatus(Integer status) {
+        this.status = status;
     }
 
     public Integer getOrderNo() {
@@ -89,21 +115,5 @@ public class RecordedVideoPojo implements Serializable{
 
     public void setOrderNo(Integer orderNo) {
         this.orderNo = orderNo;
-    }
-
-    public String getSubCourseName() {
-        return subCourseName;
-    }
-
-    public void setSubCourseName(String subCourseName) {
-        this.subCourseName = subCourseName;
-    }
-
-    public String getChapterName() {
-        return chapterName;
-    }
-
-    public void setChapterName(String chapterName) {
-        this.chapterName = chapterName;
     }
 }
