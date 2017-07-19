@@ -27,7 +27,7 @@ import java.util.List;
  */
 @Scope("prototype")
 @Controller
-@RequestMapping("/appUserController")
+@RequestMapping("/app/userController")
 public class AppUserController extends BaseController {
 
     @RequestMapping(params = "test")

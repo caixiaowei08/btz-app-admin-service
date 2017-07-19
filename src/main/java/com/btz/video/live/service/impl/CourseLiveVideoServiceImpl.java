@@ -9,8 +9,6 @@ import com.btz.utils.BelongToEnum;
 import com.btz.video.live.entity.CourseLiveVideoEntity;
 import com.btz.video.live.service.CourseLiveVideoService;
 import com.btz.video.live.vo.LiveVideoPojo;
-import com.btz.video.recorded.entity.CourseRecordedVideoEntity;
-import com.btz.video.recorded.vo.RecordedVideoPojo;
 import org.apache.commons.collections.CollectionUtils;
 import org.apache.poi.xssf.usermodel.XSSFCell;
 import org.apache.poi.xssf.usermodel.XSSFRow;
@@ -83,58 +81,66 @@ public class CourseLiveVideoServiceImpl extends BaseServiceImpl implements Cours
                 if (xssfRow != null) {
                     XSSFCell subCourseId = xssfRow.getCell(0);
                     XSSFCell chapterId = xssfRow.getCell(2);
-                    XSSFCell moduleType = xssfRow.getCell(4);
-                    XSSFCell title = xssfRow.getCell(6);
-                    XSSFCell videoUrl = xssfRow.getCell(7);
-                    XSSFCell lectureUrl = xssfRow.getCell(8);
-                    XSSFCell orderNo = xssfRow.getCell(9);
+                    XSSFCell title = xssfRow.getCell(4);
+                    XSSFCell teacherName = xssfRow.getCell(5);
+                    XSSFCell videoUrl = xssfRow.getCell(6);
+                    XSSFCell status = xssfRow.getCell(7);
+                    XSSFCell orderNo = xssfRow.getCell(8);
                     courseLiveVideoEntity = new CourseLiveVideoEntity();
+                    //subCourseId
                     if (subCourseId == null) {
                         throw new BusinessException("第" + rowNum + "行课程ID错误，请核实！");
                     }
                     try {
-                        Integer subCourseIdValue  = new Double(subCourseId.getNumericCellValue()).intValue();
+                        Integer subCourseIdValue = new Double(subCourseId.getNumericCellValue()).intValue();
                         courseLiveVideoEntity.setSubCourseId(subCourseIdValue);
-                    }catch (Exception e){
+                    } catch (Exception e) {
                         throw new BusinessException("第" + rowNum + "行课程ID错误，请核实！");
                     }
+                    //chapterId
                     if (chapterId == null) {
                         throw new BusinessException("第" + rowNum + "行章节ID错误，请核实！");
                     }
                     try {
-                        Integer chapterIdValue  = new Double(chapterId.getNumericCellValue()).intValue();
+                        Integer chapterIdValue = new Double(chapterId.getNumericCellValue()).intValue();
                         courseLiveVideoEntity.setChapterId(chapterIdValue);
-                    }catch (Exception e){
+                    } catch (Exception e) {
                         throw new BusinessException("第" + rowNum + "行章节ID错误，请核实！");
                     }
-                    //moduleType
-                    if (moduleType == null) {
-                        throw new BusinessException("第" + rowNum + "行模块类型ID错误，请核实！");
+                    //title
+                    if (StringUtils.hasText(title.getStringCellValue())) {
+                        courseLiveVideoEntity.setTitle(title.getStringCellValue());
+                    } else {
+                        throw new BusinessException("第" + rowNum + "行直播名称不能为空，请核实！");
+                    }
+                    //teacherName
+                    if (StringUtils.hasText(teacherName.getStringCellValue())) {
+                        courseLiveVideoEntity.setTeacherName(teacherName.getStringCellValue());
+                    }
+                    //videoUrl
+                    if (StringUtils.hasText(videoUrl.getStringCellValue())) {
+                        courseLiveVideoEntity.setVideoUrl(videoUrl.getStringCellValue());
+                    } else {
+                        throw new BusinessException("第" + rowNum + "行直播视频链接地址不能为空，请核实！");
+                    }
+                    //status
+                    if (status == null) {
+                        throw new BusinessException("第" + rowNum + "行直播状态不能为空，请核实！");
                     }
                     try {
-                        Integer moduleTypeValue  = new Double(moduleType.getNumericCellValue()).intValue();
-                        courseLiveVideoEntity.setModuleType(moduleTypeValue);
-                    }catch (Exception e){
-                        throw new BusinessException("第" + rowNum + "行模块类型ID错误，请核实！");
-                    }
-                    if(StringUtils.hasText(title.getStringCellValue())){
-                        courseLiveVideoEntity.setTitle(title.getStringCellValue());
-                    }else{
-                        throw new BusinessException("第" + rowNum + "行视频标题不能为空，请核实！");
-                    }
-                    if(StringUtils.hasText(videoUrl.getStringCellValue())){
-                        courseLiveVideoEntity.setVideoUrl(videoUrl.getStringCellValue());
-                    }else{
-                        throw new BusinessException("第" + rowNum + "行视频链接地址不能为空，请核实！");
+                        Integer statusValue= new Double(status.getNumericCellValue()).intValue();
+                        courseLiveVideoEntity.setStatus(statusValue);
+                    } catch (Exception e) {
+                        throw new BusinessException("第" + rowNum + "行直播状态格式错误，请核实！");
                     }
                     if (orderNo == null) {
-                        throw new BusinessException("第" + rowNum + "行显示顺序错误，请核实！");
+                        throw new BusinessException("第" + rowNum + "行显示顺序不能为空，请核实！");
                     }
                     try {
-                        Integer orderNoValue  = new Double(orderNo.getNumericCellValue()).intValue();
+                        Integer orderNoValue = new Double(orderNo.getNumericCellValue()).intValue();
                         courseLiveVideoEntity.setOrderNo(orderNoValue);
-                    }catch (Exception e){
-                        throw new BusinessException("第" + rowNum + "行显示顺序错误，请核实！");
+                    } catch (Exception e) {
+                        throw new BusinessException("第" + rowNum + "行显示顺序格式错误，请核实！");
                     }
                     courseLiveVideoEntityList.add(courseLiveVideoEntity);
                 }

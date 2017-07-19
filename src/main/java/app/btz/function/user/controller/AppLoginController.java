@@ -26,7 +26,7 @@ import java.util.List;
  */
 @Scope("prototype")
 @Controller
-@RequestMapping("/appLoginController")
+@RequestMapping("/app/loginController")
 public class AppLoginController extends BaseController {
 
     @Autowired

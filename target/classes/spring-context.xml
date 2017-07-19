@@ -12,7 +12,7 @@
 	   default-autowire="byName" default-lazy-init="false">
 
 	<!-- 加载service,此时要排除要controller,因为controller已经spring-mvc中加载过了 -->
-	<context:component-scan base-package="org.framework.*,com.btz.*,app.btz.*">
+	<context:component-scan base-package="org.framework.*,com.btz.*,app.btz.*,api.btz.*">
 		<context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
 	</context:component-scan>
 	<!-- 引入属性文件 -->
@@ -65,7 +65,9 @@
 	</bean>
 
 	<bean id="appLoginFilter" class="app.btz.filter.AppLoginFilter">
+	</bean>
 
+	<bean id="apiLoginFilter" class="api.btz.filter.ApiLoginFilter">
 	</bean>
 
 	<!-- 配置事物管理器，在*ServiceImpl里写@Transactional就可以启用事物管理 -->

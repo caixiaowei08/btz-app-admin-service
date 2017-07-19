@@ -1,6 +1,6 @@
 <component name="ArtifactManager">
   <artifact type="exploded-war" name="btz-app-admin-service:war exploded">
-    <output-path>$PROJECT_DIR$/target/app-service</output-path>
+    <output-path>$PROJECT_DIR$/target/btz-app-service-snapshot-1.0</output-path>
     <root id="root">
       <element id="directory" name="WEB-INF">
         <element id="directory" name="classes">
@@ -62,7 +62,7 @@
         </element>
       </element>
       <element id="directory" name="META-INF">
-        <element id="file-copy" path="$PROJECT_DIR$/target/app-service/META-INF/MANIFEST.MF" />
+        <element id="file-copy" path="$PROJECT_DIR$/target/btz-app-service-snapshot-1.0/META-INF/MANIFEST.MF" />
       </element>
       <element id="javaee-facet-resources" facet="btz-app-admin-service/web/Web" />
     </root>

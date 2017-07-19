@@ -32,7 +32,7 @@ import java.util.List;
  */
 @Scope("prototype")
 @Controller
-@RequestMapping("/appTestModuleController")
+@RequestMapping("/app/testModuleController")
 public class AppTestModuleController extends BaseController {
 
     @Autowired
@@ -48,20 +48,23 @@ public class AppTestModuleController extends BaseController {
     private SubCourseService subCourseService;
 
     /**
-     * 根据课程号subCourseId 和 模块类型id 以及token值获取层级信息
+     *
      */
-    @RequestMapping(params = "getModuleByToken")
+    @RequestMapping(params = "getAllCourseInfoByToken")
     @ResponseBody
     public AppAjax getModuleByToken(AppRequestHeader requestHeader, HttpServletRequest request, HttpServletResponse response) {
         AppAjax j = new AppAjax();
-        //TODO token这块是和用户权限相关 所以 在获取课程列表时 获取自己权限有的列表
+
+
+
+
         DetachedCriteria mainCourseDetachedCriteria = DetachedCriteria.forClass(MainCourseEntity.class);
         mainCourseDetachedCriteria.add(Restrictions.eq("state", Constant.STATE_UNLOCK));
         mainCourseDetachedCriteria.addOrder(Order.asc("orderNo"));
-        List<MainCourseEntity> mainCourseEntities = mainCourseService.getListByCriteriaQuery(mainCourseDetachedCriteria);
+        List<MainCourseEntity> mainCourseEntityList = mainCourseService.getListByCriteriaQuery(mainCourseDetachedCriteria);
         List<MainCourseAppVo> mainCourseAppVoList = new ArrayList<MainCourseAppVo>();
-        if (CollectionUtils.isNotEmpty(mainCourseEntities)) {
-            for (MainCourseEntity mainCourseEntity : mainCourseEntities) {
+        if (CollectionUtils.isNotEmpty(mainCourseEntityList)) {
+            for (MainCourseEntity mainCourseEntity : mainCourseEntityList) {
                 MainCourseAppVo mainCourseAppVo = new MainCourseAppVo();
                 mainCourseAppVo.setMainCourseId(mainCourseEntity.getId());
                 mainCourseAppVo.setMainCourseAppName(mainCourseEntity.getName());
@@ -70,7 +73,6 @@ public class AppTestModuleController extends BaseController {
                 mainCourseAppVoList.add(mainCourseAppVo);
             }
         }
-
         if (CollectionUtils.isNotEmpty(mainCourseAppVoList)) {
             for (MainCourseAppVo mainCourseAppVo : mainCourseAppVoList) {
                 DetachedCriteria subCourseDetachedCriteria = DetachedCriteria.forClass(SubCourseEntity.class);
@@ -119,7 +121,7 @@ public class AppTestModuleController extends BaseController {
     /**
      * 根据课程号subCourseId 和 模块类型id 以及token值获取层级信息
      */
-    @RequestMapping(params = "getModuleTest")
+    @RequestMapping(params = "getModule")
     @ResponseBody
     public AppAjax getModuleTest(ModuleTestRequestVo moduleTestRequestVo, AppRequestHeader requestHeader, HttpServletRequest request, HttpServletResponse response) {
         AppAjax j = new AppAjax();

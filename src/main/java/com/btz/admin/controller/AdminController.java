@@ -2,17 +2,20 @@ package com.btz.admin.controller;
 
 import com.btz.admin.entity.AdminEntity;
 import com.btz.admin.service.AdminService;
-import com.btz.exercise.entity.ExerciseEntity;
-import com.btz.user.entity.UserEntity;
+import com.btz.utils.SessionConstants;
 import org.apache.commons.collections.CollectionUtils;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.framework.core.common.controller.BaseController;
 import org.framework.core.common.model.json.AjaxJson;
 import org.framework.core.common.model.json.DataGrid;
 import org.framework.core.common.model.json.DataGridReturn;
 import org.framework.core.easyui.hibernate.CriteriaQuery;
 import org.framework.core.utils.BeanUtils;
+import org.framework.core.utils.ContextHolderUtils;
 import org.framework.core.utils.DatagridJsonUtils;
 import org.framework.core.utils.PasswordUtil;
+import org.framework.web.service.SystemService;
 import org.hibernate.criterion.DetachedCriteria;
 import org.hibernate.criterion.Restrictions;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,6 +23,7 @@ import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
@@ -34,31 +38,72 @@ import java.util.List;
 @Controller
 @RequestMapping("/adminController")
 public class AdminController extends BaseController {
+
+    private static Logger logger = LogManager.getLogger(AdminController.class.getName());
+
     @Autowired
     private AdminService adminService;
+
+    @Autowired
+    private SystemService systemService;
+
+
+    @RequestMapping(params = "doLogin", method = RequestMethod.POST)
+    @ResponseBody
+    public AjaxJson doLogin(AdminEntity adminEntity, HttpServletRequest request, HttpServletResponse response) {
+        AjaxJson j = new AjaxJson();
+        DetachedCriteria detachedCriteria = DetachedCriteria.forClass(AdminEntity.class);
+        detachedCriteria.add(Restrictions.eq("accountId", adminEntity.getAccountId()));
+        detachedCriteria.add(Restrictions.eq("accountPwd", PasswordUtil.getMD5Encryp(adminEntity.getAccountPwd())));
+        List<AdminEntity> adminEntityList = adminService.getListByCriteriaQuery(detachedCriteria);
+        if (CollectionUtils.isNotEmpty(adminEntityList)) {
+            ContextHolderUtils.getSession().setAttribute(SessionConstants.ADMIN_SESSION_CONSTANTS, adminEntityList.get(0));
+            j.setSuccess(AjaxJson.CODE_SUCCESS);
+            j.setMsg("登录成功!");
+            return j;
+        }
+        j.setSuccess(AjaxJson.CODE_FAIL);
+        j.setMsg("账号或者密码错误！");
+        return j;
+    }
+
+    @RequestMapping(params = "loginOff", method = RequestMethod.POST)
+    @ResponseBody
+    public AjaxJson loginOff(HttpServletRequest request, HttpServletResponse response) {
+        AjaxJson j = new AjaxJson();
+        ContextHolderUtils.getSession().invalidate();
+        return j;
+    }
 
     @RequestMapping(params = "changeAdminPwd")
     @ResponseBody
     public AjaxJson changeAdminPwd(AdminEntity adminEntity, HttpServletRequest request) {
         AjaxJson j = new AjaxJson();
-        Integer id = adminEntity.getId();
-        if (id == null) {
-            j.setSuccess(AjaxJson.CODE_FAIL);
-            j.setMsg("请输入需要修改的用户ID！");
-            return j;
-        }
-        AdminEntity t = adminService.get(AdminEntity.class, id);
-        if (t == null) {
-            j.setSuccess(AjaxJson.CODE_FAIL);
-            j.setMsg("需要修改的用户不存在！");
+        String password = request.getParameter("password");
+        String newpassword = request.getParameter("newpassword");
+
+        AdminEntity adminSession = systemService.getAdminEntityFromSession();
+        if (adminSession == null) {
+            j.setSuccess(AjaxJson.CODE_LOGIN);
+            j.setMsg("登录超时！");
             return j;
         }
 
+        DetachedCriteria detachedCriteria = DetachedCriteria.forClass(AdminEntity.class);
+        detachedCriteria.add(Restrictions.eq("accountId", adminSession.getAccountId()));
+        detachedCriteria.add(Restrictions.eq("accountPwd", PasswordUtil.getMD5Encryp(password)));
+        List<AdminEntity> adminEntityList = adminService.getListByCriteriaQuery(detachedCriteria);
+        if (CollectionUtils.isEmpty(adminEntityList)) {
+            j.setSuccess(AjaxJson.CODE_FAIL);
+            j.setMsg("原始密码错误！");
+            return j;
+        }
+        AdminEntity adminDb = adminEntityList.get(0);
         try {
-            adminEntity.setAccountPwd(PasswordUtil.getMD5Encryp(adminEntity.getAccountPwd()));
-            adminEntity.setUpdateTime(new Date());
-            BeanUtils.copyBeanNotNull2Bean(adminEntity, t);
-            adminService.saveOrUpdate(t);
+            adminDb.setAccountPwd(PasswordUtil.getMD5Encryp(newpassword));
+            adminDb.setUpdateTime(new Date());
+            BeanUtils.copyBeanNotNull2Bean(adminEntity, adminDb);
+            adminService.saveOrUpdate(adminDb);
         } catch (Exception e) {
             e.printStackTrace();
             j.setSuccess(AjaxJson.CODE_FAIL);
@@ -82,9 +127,9 @@ public class AdminController extends BaseController {
     public AjaxJson doAdd(AdminEntity adminEntity, HttpServletRequest request, HttpServletResponse response) {
         AjaxJson j = new AjaxJson();
         DetachedCriteria detachedCriteria = DetachedCriteria.forClass(AdminEntity.class);
-        detachedCriteria.add(Restrictions.eq("accountId",adminEntity.getAccountId()));
+        detachedCriteria.add(Restrictions.eq("accountId", adminEntity.getAccountId()));
         List adminEntityList = adminService.getListByCriteriaQuery(detachedCriteria);
-        if(CollectionUtils.isNotEmpty(adminEntityList)){
+        if (CollectionUtils.isNotEmpty(adminEntityList)) {
             j.setSuccess(AjaxJson.CODE_FAIL);
             j.setMsg("新增账户失败，账户ID已经被使用！");
             return j;
@@ -95,7 +140,7 @@ public class AdminController extends BaseController {
             adminEntity.setAccountPwd(PasswordUtil.getMD5Encryp(adminEntity.getAccountPwd()));
             adminService.save(adminEntity);
         } catch (Exception e) {
-            e.printStackTrace();
+            logger.error(e.fillInStackTrace());
             j.setSuccess(AjaxJson.CODE_FAIL);
             j.setMsg("保存失败！");
         }
@@ -130,12 +175,12 @@ public class AdminController extends BaseController {
         String ids = request.getParameter("ids");
         try {
             if (StringUtils.hasText(ids)) {
-                String [] id_array = ids.split(",");
-                for (int i = 0; i < id_array.length ; i++) {
-                    adminEntity = adminService.get(AdminEntity.class,Integer.parseInt(id_array[i]));
+                String[] id_array = ids.split(",");
+                for (int i = 0; i < id_array.length; i++) {
+                    adminEntity = adminService.get(AdminEntity.class, Integer.parseInt(id_array[i]));
                     adminService.delete(adminEntity);
                 }
-            }else{
+            } else {
                 j.setSuccess(AjaxJson.CODE_FAIL);
                 j.setMsg("未输入需要删除的数据ID！");
                 return j;
@@ -153,14 +198,14 @@ public class AdminController extends BaseController {
     public AjaxJson get(AdminEntity adminEntity, HttpServletRequest request, HttpServletResponse response) {
         AjaxJson j = new AjaxJson();
         Integer id = adminEntity.getId();
-        if(id == null){
+        if (id == null) {
             j.setSuccess(AjaxJson.CODE_FAIL);
             j.setMsg("请输入需要修改的账户ID！");
             return j;
         }
 
         AdminEntity adminDb = adminService.get(AdminEntity.class, id);
-        if(adminDb == null){
+        if (adminDb == null) {
             j.setSuccess(AjaxJson.CODE_FAIL);
             j.setMsg("该账户不存在！");
             return j;
@@ -168,4 +213,22 @@ public class AdminController extends BaseController {
         j.setContent(adminDb);
         return j;
     }
+
+    @RequestMapping(params = "getAdminEntityFromSession")
+    @ResponseBody
+    public AjaxJson getAdminEntityFromSession(HttpServletRequest request, HttpServletResponse response) {
+        AjaxJson j = new AjaxJson();
+        AdminEntity adminEntity = systemService.getAdminEntityFromSession();
+        if (adminEntity == null) {
+            j.setSuccess(AjaxJson.CODE_LOGIN);
+            j.setMsg("请重新登录！");
+            return j;
+        }
+        j.setSuccess(AjaxJson.CODE_SUCCESS);
+        j.setContent(adminEntity);
+        j.setMsg("操作成功！");
+        return j;
+    }
+
+
 }

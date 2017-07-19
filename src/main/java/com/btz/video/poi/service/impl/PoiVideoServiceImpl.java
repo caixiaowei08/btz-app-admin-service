@@ -168,14 +168,14 @@ public class PoiVideoServiceImpl extends BaseServiceImpl implements PoiVideoServ
         XSSFWorkbook workBook = new XSSFWorkbook();//一个excel文档对象
         XSSFSheet sheet = workBook.createSheet();// 创建一个工作薄对象
         String[] columns = {
-                "课程ID*", "课程名称", "章节ID*", "章节名称",
-                "模块类型ID*", "模块类型名称", "录播视频名称", "录播视频地址",
-                "讲义地址", "显示顺序"
+                "课程ID*", "课程名称", "直播类别ID*", "模块类型名称",
+                "直播名称", "讲师名称", "直播视频地址", "状态--1：开启 2：关闭",
+                "显示顺序"
         };
         int[] columnsColumnWidth = {
-                2000, 4000, 2000, 4000,
-                4000, 4000, 10000, 10000,
-                10000, 4000
+                2000, 4000, 4000, 4000,
+                4000, 4000, 4000, 10000,
+                4000
         };
         CellStyle headStyle = workBook.createCellStyle();
         headStyle.setAlignment(CellStyle.ALIGN_CENTER);
@@ -218,23 +218,20 @@ public class PoiVideoServiceImpl extends BaseServiceImpl implements PoiVideoServ
                 cell.setCellType(CellType.STRING);
                 cell.setCellValue(liveVideoPojo.getChapterName());
                 cell = row.createCell(4);
-                cell.setCellType(CellType.NUMERIC);
-                cell.setCellValue(BelongToEnum.RECORDED_VIDEO.getIndex());
+                cell.setCellType(CellType.STRING);
+                cell.setCellValue("直播名称");
                 cell = row.createCell(5);
                 cell.setCellType(CellType.STRING);
-                cell.setCellValue(BelongToEnum.RECORDED_VIDEO.getTypeName());
+                cell.setCellValue("讲师名称");
                 cell = row.createCell(6);
                 cell.setCellType(CellType.STRING);
-                cell.setCellValue("录播视频名称");
+                cell.setCellValue("直播视频地址");
                 cell = row.createCell(7);
-                cell.setCellType(CellType.STRING);
-                cell.setCellValue("录播视频地址");
-                cell = row.createCell(8);
-                cell.setCellType(CellType.STRING);
-                cell.setCellValue("录播视频讲义");
-                cell = row.createCell(9);
                 cell.setCellType(CellType.NUMERIC);
-                cell.setCellValue(rowNum);
+                cell.setCellValue(1);
+                cell = row.createCell(8);
+                cell.setCellType(CellType.NUMERIC);
+                cell.setCellValue(1);
                 rowNum++;
             }
         }
@@ -250,7 +247,7 @@ public class PoiVideoServiceImpl extends BaseServiceImpl implements PoiVideoServ
         response.setContentType("application/vnd.ms-excel;charset=utf-8");
         try {
             response.setHeader("Content-Disposition",
-                    "attachment;filename=" + new String((excelFileName + "-" + BelongToEnum.RECORDED_VIDEO.getTypeName()).getBytes("utf-8"), "iso-8859-1").toString() + ".xlsx");
+                    "attachment;filename=" + new String((excelFileName + "-" + BelongToEnum.LIVE_VIDEO.getTypeName()).getBytes("utf-8"), "iso-8859-1").toString() + ".xlsx");
         } catch (UnsupportedEncodingException e) {
             logger.error(e.fillInStackTrace());
         }

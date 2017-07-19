@@ -10,7 +10,6 @@ import com.btz.video.live.entity.CourseLiveVideoEntity;
 import com.btz.video.live.service.CourseLiveVideoService;
 import com.btz.video.live.vo.LiveVideoPojo;
 import com.btz.video.poi.service.PoiVideoService;
-import com.btz.video.recorded.entity.CourseRecordedVideoEntity;
 import org.apache.commons.collections.CollectionUtils;
 import org.apache.commons.io.FileUtils;
 import org.apache.logging.log4j.LogManager;
