@@ -1,12 +1,14 @@
 package app.btz.function.testModule.vo;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 
 /**
  * Created by User on 2017/6/19.
  */
-public class MainCourseAppVo implements Serializable {
+public class MainCourseAppVo implements Serializable,Comparable<MainCourseAppVo> {
 
     /**
      * 大类主键
@@ -28,10 +30,15 @@ public class MainCourseAppVo implements Serializable {
      */
     private Integer state;
 
+
+    public int compareTo(MainCourseAppVo o) {
+        return this.orderNo.compareTo(o.getOrderNo());
+    }
+
     /**
      * 课程列表
      */
-    private List<SubCourseAppVo> children;
+    private List<SubCourseAppVo> children = new ArrayList<SubCourseAppVo>();
 
     public Integer getMainCourseId() {
         return mainCourseId;

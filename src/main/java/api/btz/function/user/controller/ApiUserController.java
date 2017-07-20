@@ -2,21 +2,16 @@ package api.btz.function.user.controller;
 
 import api.btz.common.constant.SourceConstant;
 import api.btz.common.json.ApiJson;
-import api.btz.function.token.controller.ApiTokenController;
 import api.btz.function.user.vo.ApiUserVo;
 import api.btz.function.user.vo.CourseAuthorityVo;
 import app.btz.common.constant.SfynConstant;
 import com.alibaba.fastjson.JSON;
-import com.alibaba.fastjson.JSONArray;
-import com.btz.admin.entity.AdminEntity;
 import com.btz.user.entity.UserEntity;
 import com.btz.user.service.UserService;
 import org.apache.commons.collections.CollectionUtils;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.framework.core.common.controller.BaseController;
-import org.framework.core.common.model.json.AjaxJson;
-import org.framework.core.utils.BeanUtils;
 import org.framework.core.utils.PasswordUtil;
 import org.hibernate.criterion.DetachedCriteria;
 import org.hibernate.criterion.Restrictions;
@@ -26,14 +21,12 @@ import org.springframework.stereotype.Controller;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.HashSet;
 import java.util.List;
 
 /**
@@ -215,10 +208,10 @@ public class ApiUserController extends BaseController {
                     && apiUserVo.getState().intValue() < 3) {
                 userEntity.setState(apiUserVo.getState().intValue());
             }
-            if(CollectionUtils.isNotEmpty(apiUserVo.getAuthority())){
+            if (CollectionUtils.isNotEmpty(apiUserVo.getAuthority())) {
                 userEntity.setAuthority(JSON.toJSONString(apiUserVo.getAuthority()));
             }
-            if(StringUtils.hasText(apiUserVo.getArea())){
+            if (StringUtils.hasText(apiUserVo.getArea())) {
                 userEntity.setArea(apiUserVo.getArea());
             }
             userService.saveOrUpdate(userEntity);

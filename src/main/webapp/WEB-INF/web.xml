@@ -55,11 +55,11 @@
 
 	<!--APP跨域问题 end-->
 	<filter>
-		<filter-name>appCrossAomainFilter</filter-name>
+		<filter-name>appCrossDomainFilter</filter-name>
 		<filter-class>app.btz.filter.AppCrossAomainFilter</filter-class>
 	</filter>
 	<filter-mapping>
-		<filter-name>appCrossAomainFilter</filter-name>
+		<filter-name>appCrossDomainFilter</filter-name>
 		<url-pattern>/app/*</url-pattern>
 	</filter-mapping>
 	<!--APP跨域问题-->

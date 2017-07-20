@@ -701,6 +701,18 @@ public class DateUtils {
         return beginOfDate;
     }
 
+    public static Date getBeginOfDate(Date date) {
+        Calendar calendar2 = Calendar.getInstance();
+        calendar2.setTime(date);
+        calendar2.set(
+                calendar2.get(Calendar.YEAR),
+                calendar2.get(Calendar.MONTH),
+                calendar2.get(Calendar.DAY_OF_MONTH),
+                00, 00, 1);
+        Date endOfDate = calendar2.getTime();
+        return endOfDate;
+    }
+
     /**
      * 获取当天23点59分59秒Date
      *

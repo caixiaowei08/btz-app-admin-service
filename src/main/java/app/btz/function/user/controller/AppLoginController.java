@@ -1,11 +1,14 @@
 package app.btz.function.user.controller;
 
+import api.btz.function.user.controller.ApiUserController;
 import app.btz.common.ajax.AppAjax;
 import app.btz.function.user.service.AppUserService;
 import app.btz.function.user.vo.AppUserVo;
 import com.btz.user.entity.UserEntity;
 import com.btz.user.service.UserService;
 import org.apache.commons.collections.CollectionUtils;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.framework.core.common.constant.SystemConstant;
 import org.framework.core.common.controller.BaseController;
 import org.framework.core.utils.PasswordUtil;
@@ -28,6 +31,8 @@ import java.util.List;
 @Controller
 @RequestMapping("/app/loginController")
 public class AppLoginController extends BaseController {
+
+    private static Logger logger = LogManager.getLogger(AppLoginController.class.getName());
 
     @Autowired
     private UserService userService;

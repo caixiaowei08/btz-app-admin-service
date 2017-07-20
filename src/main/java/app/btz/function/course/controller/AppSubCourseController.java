@@ -1,21 +1,26 @@
-package app.btz.function.testModule.controller;
+package app.btz.function.course.controller;
 
 import api.btz.function.user.controller.ApiUserController;
 import app.btz.common.ajax.AppAjax;
-import app.btz.common.ajax.AppRequestHeader;
+import app.btz.common.authority.AuthorityPojo;
+import app.btz.common.authority.CourseAuthorityPojo;
+import app.btz.common.constant.SfynConstant;
+import app.btz.common.service.AppTokenService;
 import app.btz.function.testModule.service.AppTestModuleService;
-import app.btz.function.testModule.vo.*;
+import app.btz.function.testModule.vo.MainCourseAppVo;
+import app.btz.function.testModule.vo.SubCourseAppVo;
 import com.btz.course.entity.MainCourseEntity;
 import com.btz.course.entity.SubCourseEntity;
 import com.btz.course.service.MainCourseService;
 import com.btz.course.service.SubCourseService;
-import com.btz.module.entity.ModuleEntity;
 import com.btz.module.service.ModuleService;
+import com.btz.newsBulletin.carousel.entity.CarouselEntity;
 import com.btz.utils.Constant;
 import org.apache.commons.collections.CollectionUtils;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.framework.core.common.controller.BaseController;
+import org.framework.core.utils.DateUtils;
 import org.hibernate.criterion.DetachedCriteria;
 import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Restrictions;
@@ -27,24 +32,20 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 /**
- * Created by User on 2017/6/17.
+ * Created by User on 2017/7/20.
  */
 @Scope("prototype")
 @Controller
-@RequestMapping("/app/testModuleController")
-public class AppTestModuleController extends BaseController {
+@RequestMapping("/app/appSubCourseController")
+public class AppSubCourseController extends BaseController {
 
     private static Logger logger = LogManager.getLogger(ApiUserController.class.getName());
 
     @Autowired
-    private ModuleService moduleService;
-
-    @Autowired
-    private AppTestModuleService appTestModuleService;
+    private AppTokenService appTokenService;
 
     @Autowired
     private MainCourseService mainCourseService;
@@ -52,9 +53,9 @@ public class AppTestModuleController extends BaseController {
     @Autowired
     private SubCourseService subCourseService;
 
-    @RequestMapping(params = "getAllCourseInfoByToken")
+    @RequestMapping(params = "getTouristCourseInfo")
     @ResponseBody
-    public AppAjax getModuleByToken(AppRequestHeader requestHeader, HttpServletRequest request, HttpServletResponse response) {
+    public AppAjax getTouristCourseInfo(HttpServletRequest request, HttpServletResponse response) {
         AppAjax j = new AppAjax();
         DetachedCriteria mainCourseDetachedCriteria = DetachedCriteria.forClass(MainCourseEntity.class);
         mainCourseDetachedCriteria.add(Restrictions.eq("state", Constant.STATE_UNLOCK));
@@ -96,57 +97,65 @@ public class AppTestModuleController extends BaseController {
         return j;
     }
 
-
-    @RequestMapping(params = "getFirstModuleByToken")
+    @RequestMapping(params = "getCourseInfoByToken")
     @ResponseBody
-    public AppAjax getFirstModuleByToken(AppRequestHeader requestHeader, HttpServletRequest request, HttpServletResponse response) {
+    public AppAjax getCourseInfoByToken(HttpServletRequest request, HttpServletResponse response) {
         AppAjax j = new AppAjax();
-        DetachedCriteria subCourseDetachedCriteria = DetachedCriteria.forClass(SubCourseEntity.class);
-        subCourseDetachedCriteria.addOrder(Order.asc("orderNo"));
-        List<SubCourseEntity> subCourseAppVoList = subCourseService.getListByCriteriaQuery(subCourseDetachedCriteria);
-        SubCourseAppVo subCourseAppVo = new SubCourseAppVo();
-        SubCourseEntity subCourseEntity = subCourseAppVoList.get(0);
-        subCourseAppVo.setSubCourseId(subCourseEntity.getId());
-        subCourseAppVo.setSubCourseName(subCourseEntity.getSubName());
-        subCourseAppVo.setOrderNo(subCourseEntity.getOrderNo());
-        subCourseAppVo.setTryOut(subCourseEntity.getIsTryOut());
-        j.setContent(subCourseAppVo);
-        return j;
-    }
-
-
-
-    /**
-     * 根据课程号subCourseId 和 模块类型id 以及token值获取层级信息
-     */
-    @RequestMapping(params = "getModule")
-    @ResponseBody
-    public AppAjax getModuleTest(ModuleTestRequestVo moduleTestRequestVo, AppRequestHeader requestHeader, HttpServletRequest request, HttpServletResponse response) {
-        AppAjax j = new AppAjax();
-        Integer subCourseId = moduleTestRequestVo.getSubCourseId();
-        Integer moduleType = moduleTestRequestVo.getModuleType();
-        if (subCourseId == null || moduleType == null) {
+        AuthorityPojo authorityPojo = appTokenService.getAuthorityPojoByToken(request);
+        if (authorityPojo == null) {
             j.setReturnCode(AppAjax.FAIL);
-            j.setMsg("缺少请求参数课程主键或者模块类型！");
+            j.setMsg("token失效或者账户出现异常！");
             return j;
         }
-        DetachedCriteria moduleDetachedCriteria = DetachedCriteria.forClass(ModuleEntity.class);
-        moduleDetachedCriteria.add(Restrictions.eq("subCourseId", subCourseId));
-        moduleDetachedCriteria.add(Restrictions.eq("type", moduleType));
-        List<ModuleEntity> moduleEntities = moduleService.getListByCriteriaQuery(moduleDetachedCriteria);
-        if (CollectionUtils.isEmpty(moduleEntities)) {
+        List<CourseAuthorityPojo> courseAuthorityPojoList = authorityPojo.getAuthority();
+        if (CollectionUtils.isEmpty(courseAuthorityPojoList)) {
             j.setReturnCode(AppAjax.FAIL);
-            j.setMsg("该模块不存在！");
+            j.setMsg("未购买任何课程！");
             return j;
         }
-        List<ListInfoVo> listInfoVoList = appTestModuleService.getListInfoVoByModuleEntity(moduleEntities.get(0));
-        List<ExerciseVo> exerciseVoList = appTestModuleService.getExerciseVoListByListInfoVo(listInfoVoList);
-        ModuleVo<ExerciseVo, ListInfoVo> moduleVo = new ModuleVo<ExerciseVo, ListInfoVo>();
-        moduleVo.setVersion(moduleEntities.get(0).getVersionNo());
-        moduleVo.setExam(exerciseVoList);
-        moduleVo.setList(listInfoVoList);
+        Map<Integer, MainCourseAppVo> mainCourseMap = new HashMap<Integer, MainCourseAppVo>();
+        for (CourseAuthorityPojo courseAuthorityPojo : courseAuthorityPojoList) {
+            SubCourseEntity subCourseEntity = subCourseService.get(SubCourseEntity.class, courseAuthorityPojo.getSubCourseId());
+            if (subCourseEntity == null) {
+                continue;
+            }
+            if (mainCourseMap.get(subCourseEntity.getFid()) == null) {
+                MainCourseEntity mainCourseEntity = mainCourseService.get(MainCourseEntity.class, subCourseEntity.getFid());
+                if (mainCourseEntity == null || mainCourseEntity.getState().equals(Constant.STATE_LOCK)) {
+                    continue;
+                }
+                MainCourseAppVo mainCourseAppVo = new MainCourseAppVo();
+                mainCourseAppVo.setOrderNo(mainCourseEntity.getOrderNo());
+                mainCourseAppVo.setState(mainCourseEntity.getState());
+                mainCourseAppVo.setMainCourseAppName(mainCourseEntity.getName());
+                mainCourseAppVo.setMainCourseId(mainCourseEntity.getId());
+                SubCourseAppVo subCourseAppVo = new SubCourseAppVo();
+                subCourseAppVo.setSubCourseId(subCourseEntity.getId());
+                subCourseAppVo.setSubCourseName(subCourseEntity.getSubName());
+                subCourseAppVo.setOrderNo(subCourseEntity.getOrderNo());
+                subCourseAppVo.setTryOut(subCourseEntity.getIsTryOut());
+                mainCourseAppVo.getChildren().add(subCourseAppVo);
+                mainCourseMap.put(mainCourseEntity.getId(), mainCourseAppVo);
+            } else {
+                MainCourseAppVo mainCourseAppVo = mainCourseMap.get(subCourseEntity.getFid());
+                SubCourseAppVo subCourseAppVo = new SubCourseAppVo();
+                subCourseAppVo.setSubCourseId(subCourseEntity.getId());
+                subCourseAppVo.setSubCourseName(subCourseEntity.getSubName());
+                subCourseAppVo.setOrderNo(subCourseEntity.getOrderNo());
+                subCourseAppVo.setTryOut(subCourseEntity.getIsTryOut());
+                mainCourseAppVo.getChildren().add(subCourseAppVo);
+            }
+        }
+        List<MainCourseAppVo> mainCourseAppVoList = new ArrayList<MainCourseAppVo>(mainCourseMap.values());
+        Collections.sort(mainCourseAppVoList);
+        for (MainCourseAppVo mainCourseAppVo : mainCourseAppVoList) {
+            Collections.sort(mainCourseAppVo.getChildren());
+
+        }
         j.setReturnCode(AppAjax.SUCCESS);
-        j.setContent(moduleVo);
+        j.setContent(mainCourseAppVoList);
         return j;
     }
+
+
 }
