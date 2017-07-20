@@ -1,17 +1,14 @@
-package api.btz.function.user.service;
+package api.btz.function.token.service;
 
-import api.btz.function.user.vo.ApiUserVo;
-import app.btz.function.user.vo.AppUserVo;
+import api.btz.function.token.vo.ApiTokenVo;
 import com.btz.token.entity.SystemAccountEntity;
 import com.btz.token.entity.SystemTokenEntity;
-import com.btz.token.entity.UserTokenEntity;
-import com.btz.user.entity.UserEntity;
 import org.framework.core.common.service.BaseService;
 
 /**
  * Created by User on 2017/7/18.
  */
-public interface ApiUserService extends BaseService{
+public interface ApiTokenService extends BaseService{
 
     /**
      * token验证
@@ -21,7 +18,7 @@ public interface ApiUserService extends BaseService{
     public SystemTokenEntity checkUserToken(String tokenValue);
 
 
-    public ApiUserVo saveSysToken(SystemAccountEntity systemAccountEntity);
+    public ApiTokenVo saveSysToken(SystemAccountEntity systemAccountEntity);
 
 
 }

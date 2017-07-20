@@ -1,12 +1,9 @@
-package api.btz.function.user.service.impl;
+package api.btz.function.token.service.impl;
 
-import api.btz.function.user.service.ApiUserService;
-import api.btz.function.user.vo.ApiUserVo;
-import app.btz.function.user.vo.AppUserVo;
+import api.btz.function.token.service.ApiTokenService;
+import api.btz.function.token.vo.ApiTokenVo;
 import com.btz.token.entity.SystemAccountEntity;
 import com.btz.token.entity.SystemTokenEntity;
-import com.btz.token.entity.UserTokenEntity;
-import com.btz.token.service.SystemAccountService;
 import com.btz.token.service.SystemTokenService;
 import org.apache.commons.collections.CollectionUtils;
 import org.framework.core.common.service.impl.BaseServiceImpl;
@@ -23,12 +20,9 @@ import java.util.List;
 /**
  * Created by User on 2017/7/18.
  */
-@Service("apiUserService")
+@Service("apiTokenService")
 @Transactional
-public class ApiUserServiceImpl extends BaseServiceImpl implements ApiUserService {
-
-    @Autowired
-    private SystemAccountService systemAccountService;
+public class ApiTokenServiceImpl extends BaseServiceImpl implements ApiTokenService {
 
     @Autowired
     private SystemTokenService systemTokenService;
@@ -44,7 +38,7 @@ public class ApiUserServiceImpl extends BaseServiceImpl implements ApiUserServic
     }
 
 
-    public ApiUserVo saveSysToken(SystemAccountEntity systemAccountEntity) {
+    public ApiTokenVo saveSysToken(SystemAccountEntity systemAccountEntity) {
         String token = TokenGeneratorUtil.createTokenValue();
         SystemTokenEntity systemTokenEntity = new SystemTokenEntity();
         DetachedCriteria systemTokenDetachedCriteria = DetachedCriteria.forClass(SystemTokenEntity.class);
@@ -62,9 +56,9 @@ public class ApiUserServiceImpl extends BaseServiceImpl implements ApiUserServic
             systemTokenEntity.setUpdateTime(new Date());
             systemTokenService.save(systemTokenEntity);
         }
-        ApiUserVo apiUserVo = new ApiUserVo();
-        apiUserVo.setAccountId(systemAccountEntity.getAccountId());
-        apiUserVo.setToken(token);
-        return apiUserVo;
+        ApiTokenVo apiTokenVo = new ApiTokenVo();
+        apiTokenVo.setAccountId(systemAccountEntity.getAccountId());
+        apiTokenVo.setToken(token);
+        return apiTokenVo;
     }
 }

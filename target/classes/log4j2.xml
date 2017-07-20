@@ -8,13 +8,13 @@
 	</Properties>
 	<Appenders>
 		<Console name="Console" target="SYSTEM_OUT">
-			<PatternLayout pattern="[amazon-web-reptile-service] %date{yyyy-MM-dd HH:mm:ss.SSS} %level [%thread][%file:%line] - %msg%n" />
+			<PatternLayout pattern="[btz-app-admin-service] %date{yyyy-MM-dd HH:mm:ss.SSS} %level [%thread][%file:%line] - %msg%n" />
 		</Console>
 		<!-- 程序员调试日志 -->
 		<RollingRandomAccessFile name="appLog" append="true"
 								 fileName="${LOG_HOME}/${SERVER_NAME}"
 								 filePattern="${LOG_HOME}/${SERVER_NAME}.%d{yyyy-MM-dd-HH}-%i.log.gz">
-			<PatternLayout pattern="[amazon-web-reptile-service-dev] %date{yyyy-MM-dd HH:mm:ss.SSS} %level [%thread][%file:%line] - %msg%n" />
+			<PatternLayout pattern="[btz-app-admin-service] %date{yyyy-MM-dd HH:mm:ss.SSS} %level [%thread][%file:%line] - %msg%n" />
 			<Policies>
 				<TimeBasedTriggeringPolicy interval="24" modulate="true" />
 				<SizeBasedTriggeringPolicy size="200MB"/>

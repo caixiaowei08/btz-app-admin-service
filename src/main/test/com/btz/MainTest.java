@@ -8,9 +8,9 @@ import org.framework.core.easyui.hibernate.CriteriaQuery;
  */
 public class MainTest {
     public static void main(String[] args) {
-        CriteriaQuery criteriaQuery = new CriteriaQuery(AdminEntity.class,null,null);
-        //criteriaQuery.installHql();
-
-
+        Integer i = new Integer(12);
+        Integer j = new Integer(14);
+        System.out.println(i.hashCode());
+        System.out.println(j.hashCode());
     }
 }
