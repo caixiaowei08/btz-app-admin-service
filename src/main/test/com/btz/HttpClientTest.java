@@ -9,6 +9,7 @@ import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.BasicResponseHandler;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClients;
+import org.framework.core.utils.DateUtils;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -21,19 +22,19 @@ import java.util.List;
 public class HttpClientTest {
     public static void main(String[] args) {
         String returnValue = "这是默认返回值，接口调用失败";
-        String url = "http://localhost:8080/api/userController.do?doAdd&token=17cd3b8d8fd04c3aa236bed310c05faf";
+        String url = "http://localhost:8080/api/userController.do?doAddOrModifyCourseAuthorityByUserId&token=17cd3b8d8fd04c3aa236bed310c05faf";
         ApiUserVo apiUserVo = new ApiUserVo();
         apiUserVo.setUserId("caixiaowei08");
-        apiUserVo.setUserName("蔡晓伟");
-        apiUserVo.setUserPwd("123456");
-        apiUserVo.setPhone("13162302663");
-        apiUserVo.setArea("上海");
+       // apiUserVo.setUserName("蔡晓伟");
+        //apiUserVo.setUserPwd("123456");
+        //apiUserVo.setPhone("13162302663");
+       // apiUserVo.setArea("上海");
         List<CourseAuthorityVo> courseAuthorityVoList = new ArrayList<CourseAuthorityVo>();
-        for (int i = 10000; i < 10003; i++) {
+        for (int i = 10001; i < 10004; i++) {
             CourseAuthorityVo courseAuthorityVo = new CourseAuthorityVo();
             courseAuthorityVo.setSubCourseId(i);
-            courseAuthorityVo.setStartTime(new Date());
-            courseAuthorityVo.setEndTime(new Date());
+            courseAuthorityVo.setStartTime(DateUtils.addDay(new Date(),10));
+            courseAuthorityVo.setEndTime(DateUtils.addDay(new Date(),20));
             courseAuthorityVoList.add(courseAuthorityVo);
         }
         apiUserVo.setAuthority(courseAuthorityVoList);

@@ -116,7 +116,7 @@ public class ApiUserController extends BaseController {
 
     @RequestMapping(params = "doAddOrModifyCourseAuthorityByUserId")
     @ResponseBody
-    public ApiJson doAddOrModifyCourseAuthorityByUserId(ApiUserVo apiUserVo, HttpServletRequest request, HttpServletResponse response) {
+    public ApiJson doAddOrModifyCourseAuthorityByUserId(@RequestBody ApiUserVo apiUserVo, HttpServletRequest request, HttpServletResponse response) {
         ApiJson j = new ApiJson();
         DetachedCriteria detachedCriteria = DetachedCriteria.forClass(UserEntity.class);
         detachedCriteria.add(Restrictions.eq("userId", apiUserVo.getUserId()));
@@ -139,10 +139,10 @@ public class ApiUserController extends BaseController {
         }
         if (CollectionUtils.isNotEmpty(courseAuthorityVoList)) {
             for (CourseAuthorityVo courseAuthorityVo : courseAuthorityVoListReq) {
-                if(courseAuthorityVoList.contains(courseAuthorityVo)){
+                if (courseAuthorityVoList.contains(courseAuthorityVo)) {
                     courseAuthorityVoList.remove(courseAuthorityVo);
                     courseAuthorityVoList.add(courseAuthorityVo);
-                }else{
+                } else {
                     courseAuthorityVoList.add(courseAuthorityVo);
                 }
             }
@@ -151,7 +151,7 @@ public class ApiUserController extends BaseController {
             userEntity.setAuthority(JSON.toJSONString(courseAuthorityVoList));
             userEntity.setUpdateTime(new Date());
             userService.saveOrUpdate(userEntity);
-        }catch (Exception e){
+        } catch (Exception e) {
             logger.error(e.fillInStackTrace());
             j.setSuccess(ApiJson.FAIL);
             j.setMsg("用户课程权限修改失败!");
@@ -160,5 +160,78 @@ public class ApiUserController extends BaseController {
         j.setSuccess(ApiJson.SUCCESS);
         return j;
     }
+
+    @RequestMapping(params = "doDelByUserId")
+    @ResponseBody
+    public ApiJson doDel(ApiUserVo apiUserVo, HttpServletRequest request, HttpServletResponse response) {
+        ApiJson j = new ApiJson();
+        DetachedCriteria detachedCriteria = DetachedCriteria.forClass(UserEntity.class);
+        detachedCriteria.add(Restrictions.eq("userId", apiUserVo.getUserId()));
+        List<UserEntity> userEntityList = userService.getListByCriteriaQuery(detachedCriteria);
+        if (CollectionUtils.isEmpty(userEntityList)) {
+            j.setSuccess(ApiJson.FAIL);
+            j.setMsg("userId对应用户不存在或已被删除！");
+            return j;
+        }
+        UserEntity userEntity = userEntityList.get(0);
+        try {
+            userService.delete(userEntity);
+        } catch (Exception e) {
+            logger.error(e.fillInStackTrace());
+            j.setSuccess(ApiJson.FAIL);
+            j.setMsg("删除失败！");
+            return j;
+        }
+        j.setSuccess(ApiJson.SUCCESS);
+        j.setMsg("删除成功！");
+        return j;
+    }
+
+    @RequestMapping(params = "doUpdateByUserId")
+    @ResponseBody
+    public ApiJson doUpdateByUserId(@RequestBody ApiUserVo apiUserVo, HttpServletRequest request, HttpServletResponse response) {
+        ApiJson j = new ApiJson();
+        DetachedCriteria detachedCriteria = DetachedCriteria.forClass(UserEntity.class);
+        detachedCriteria.add(Restrictions.eq("userId", apiUserVo.getUserId()));
+        List<UserEntity> userEntityList = userService.getListByCriteriaQuery(detachedCriteria);
+        if (CollectionUtils.isEmpty(userEntityList)) {
+            j.setSuccess(ApiJson.FAIL);
+            j.setMsg("userId对应用户不存在或已被删除！");
+            return j;
+        }
+        UserEntity userEntity = userEntityList.get(0);
+        try {
+            if (StringUtils.hasText(apiUserVo.getUserPwd())) {
+                userEntity.setUserPwd(PasswordUtil.getMD5Encryp(apiUserVo.getUserPwd()));
+            }
+            if (StringUtils.hasText(apiUserVo.getUserName())) {
+                userEntity.setUserName(apiUserVo.getUserName());
+            }
+            if (StringUtils.hasText(apiUserVo.getPhone())) {
+                userEntity.setPhone(apiUserVo.getPhone());
+            }
+            if (apiUserVo.getState() != null
+                    && apiUserVo.getState().intValue() > 0
+                    && apiUserVo.getState().intValue() < 3) {
+                userEntity.setState(apiUserVo.getState().intValue());
+            }
+            if(CollectionUtils.isNotEmpty(apiUserVo.getAuthority())){
+                userEntity.setAuthority(JSON.toJSONString(apiUserVo.getAuthority()));
+            }
+            if(StringUtils.hasText(apiUserVo.getArea())){
+                userEntity.setArea(apiUserVo.getArea());
+            }
+            userService.saveOrUpdate(userEntity);
+        } catch (Exception e) {
+            logger.error(e.fillInStackTrace());
+            j.setSuccess(ApiJson.FAIL);
+            j.setMsg("删除失败！");
+            return j;
+        }
+        j.setSuccess(ApiJson.SUCCESS);
+        j.setMsg("删除成功！");
+        return j;
+    }
+
 
 }
