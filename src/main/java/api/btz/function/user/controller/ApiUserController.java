@@ -218,11 +218,11 @@ public class ApiUserController extends BaseController {
         } catch (Exception e) {
             logger.error(e.fillInStackTrace());
             j.setSuccess(ApiJson.FAIL);
-            j.setMsg("删除失败！");
+            j.setMsg("更新失败！");
             return j;
         }
         j.setSuccess(ApiJson.SUCCESS);
-        j.setMsg("删除成功！");
+        j.setMsg("更新成功！");
         return j;
     }
 
