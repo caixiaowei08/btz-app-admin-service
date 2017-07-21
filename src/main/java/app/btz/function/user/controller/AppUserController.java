@@ -30,15 +30,5 @@ import java.util.List;
 @RequestMapping("/app/userController")
 public class AppUserController extends BaseController {
 
-    @RequestMapping(params = "test")
-    @ResponseBody
-    public AjaxJson test(HttpServletRequest request) {
-        AjaxJson j = new AjaxJson();
-        return j;
-    }
-
-
-
-
 
 }

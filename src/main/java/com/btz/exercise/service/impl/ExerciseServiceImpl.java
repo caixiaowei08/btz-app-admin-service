@@ -26,10 +26,12 @@ public class ExerciseServiceImpl extends BaseServiceImpl implements ExerciseServ
     @Autowired
     private ModuleService moduleService;
 
-    public void batchExerciseSave(List<ExerciseEntity> exerciseEntityList) throws BusinessException {
+    public void batchExerciseSave(List<ExerciseEntity> exerciseEntityList) {
+
         for (ExerciseEntity exerciseEntity : exerciseEntityList) {
             moduleService.updateModuleEntityVersion(exerciseEntity);
             globalService.save(exerciseEntity);
         }
+
     }
 }

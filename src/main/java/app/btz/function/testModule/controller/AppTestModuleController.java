@@ -116,37 +116,5 @@ public class AppTestModuleController extends BaseController {
 
 
 
-    /**
-     * 根据课程号subCourseId 和 模块类型id 以及token值获取层级信息
-     */
-    @RequestMapping(params = "getModule")
-    @ResponseBody
-    public AppAjax getModuleTest(ModuleTestRequestVo moduleTestRequestVo, AppRequestHeader requestHeader, HttpServletRequest request, HttpServletResponse response) {
-        AppAjax j = new AppAjax();
-        Integer subCourseId = moduleTestRequestVo.getSubCourseId();
-        Integer moduleType = moduleTestRequestVo.getModuleType();
-        if (subCourseId == null || moduleType == null) {
-            j.setReturnCode(AppAjax.FAIL);
-            j.setMsg("缺少请求参数课程主键或者模块类型！");
-            return j;
-        }
-        DetachedCriteria moduleDetachedCriteria = DetachedCriteria.forClass(ModuleEntity.class);
-        moduleDetachedCriteria.add(Restrictions.eq("subCourseId", subCourseId));
-        moduleDetachedCriteria.add(Restrictions.eq("type", moduleType));
-        List<ModuleEntity> moduleEntities = moduleService.getListByCriteriaQuery(moduleDetachedCriteria);
-        if (CollectionUtils.isEmpty(moduleEntities)) {
-            j.setReturnCode(AppAjax.FAIL);
-            j.setMsg("该模块不存在！");
-            return j;
-        }
-        List<ListInfoVo> listInfoVoList = appTestModuleService.getListInfoVoByModuleEntity(moduleEntities.get(0));
-        List<ExerciseVo> exerciseVoList = appTestModuleService.getExerciseVoListByListInfoVo(listInfoVoList);
-        ModuleVo<ExerciseVo, ListInfoVo> moduleVo = new ModuleVo<ExerciseVo, ListInfoVo>();
-        moduleVo.setVersion(moduleEntities.get(0).getVersionNo());
-        moduleVo.setExam(exerciseVoList);
-        moduleVo.setList(listInfoVoList);
-        j.setReturnCode(AppAjax.SUCCESS);
-        j.setContent(moduleVo);
-        return j;
-    }
+
 }

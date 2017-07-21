@@ -1,5 +1,7 @@
 package app.btz.function.testModule.vo;
 
+import org.apache.commons.collections.CollectionUtils;
+
 import java.io.Serializable;
 import java.util.List;
 
@@ -32,10 +34,15 @@ public class ListInfoVo implements Serializable{
      * 该节题目总数
      */
     private Integer all = 0;
+
+
+    private Boolean tryOut = false;
     /**
      *
      */
     private List<ListInfoVo> sub;
+
+
 
     public String getTit() {
         return tit;
@@ -86,10 +93,18 @@ public class ListInfoVo implements Serializable{
     }
 
     public boolean isLeaf() {
-        return leaf;
+        return CollectionUtils.isEmpty(sub);
     }
 
     public void setLeaf(boolean leaf) {
         this.leaf = leaf;
+    }
+
+    public Boolean getTryOut() {
+        return tryOut;
+    }
+
+    public void setTryOut(Boolean tryOut) {
+        this.tryOut = tryOut;
     }
 }

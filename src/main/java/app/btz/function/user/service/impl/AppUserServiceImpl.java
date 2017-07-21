@@ -38,28 +38,26 @@ public class AppUserServiceImpl implements AppUserService {
     }
 
     public AppUserVo saveUserToken(UserEntity userEntity) {
-        String token = TokenGeneratorUtil.createTokenValue();
         UserTokenEntity userTokenEntity = new UserTokenEntity();
         DetachedCriteria userTokenDetachedCriteria = DetachedCriteria.forClass(UserTokenEntity.class);
         userTokenDetachedCriteria.add(Restrictions.eq("userId", userEntity.getId()));
         List<UserTokenEntity> userTokenList = userTokenService.getListByCriteriaQuery(userTokenDetachedCriteria);
+        AppUserVo appUserVo = new AppUserVo();
         if(CollectionUtils.isNotEmpty(userTokenList)){
             UserTokenEntity userTokenDb = userTokenList.get(0);
-            userTokenDb.setTokenValue(token);
-            userTokenDb.setUpdateTime(new Date());
-            userTokenService.saveOrUpdate(userTokenDb);
+            appUserVo.setToken(userTokenDb.getTokenValue());
         }else{
+            String token = TokenGeneratorUtil.createTokenValue();//第一次登录生成token值 支持多客户端登录
             userTokenEntity.setUserId(userEntity.getId());
             userTokenEntity.setTokenValue(token);
             userTokenEntity.setCreateTime(new Date());
             userTokenEntity.setUpdateTime(new Date());
             userTokenService.save(userTokenEntity);
+            appUserVo.setToken(token);
         }
-        AppUserVo appUserVo = new AppUserVo();
         appUserVo.setUserId(userEntity.getUserId());
         appUserVo.setUserName(userEntity.getUserName());
         appUserVo.setAuthority(userEntity.getAuthority());
-        appUserVo.setToken(token);
         return appUserVo;
     }
 }

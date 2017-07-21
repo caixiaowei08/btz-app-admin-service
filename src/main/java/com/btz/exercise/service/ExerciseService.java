@@ -10,6 +10,6 @@ import java.util.List;
  */
 public interface ExerciseService extends BaseService {
 
-    public void batchExerciseSave(List<ExerciseEntity> exerciseEntityList) throws BusinessException;
+    public void batchExerciseSave(List<ExerciseEntity> exerciseEntityList);
 
 }

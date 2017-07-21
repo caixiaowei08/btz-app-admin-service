@@ -16,12 +16,14 @@ import org.apache.commons.collections.CollectionUtils;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.framework.core.common.controller.BaseController;
+import org.framework.core.utils.TokenGeneratorUtil;
 import org.hibernate.criterion.DetachedCriteria;
 import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Restrictions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
+import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -81,6 +83,7 @@ public class AppSubCourseController extends BaseController {
                         subCourseAppVo.setSubCourseName(subCourseEntity.getSubName());
                         subCourseAppVo.setOrderNo(subCourseEntity.getOrderNo());
                         subCourseAppVo.setTryOut(subCourseEntity.getIsTryOut());
+                        subCourseAppVo.setExpirationTime(new Date(0));
                         subCourseAppVoList.add(subCourseAppVo);
                     }
                 }
@@ -96,10 +99,14 @@ public class AppSubCourseController extends BaseController {
     @ResponseBody
     public AppAjax getCourseInfoByToken(HttpServletRequest request, HttpServletResponse response) {
         AppAjax j = new AppAjax();
+        String token = request.getParameter(TokenGeneratorUtil.TOKEN_FLAG);
+        if(StringUtils.isEmpty(token)){ //游客登录
+          return getTouristCourseInfo(request,response);
+        }
         AuthorityPojo authorityPojo = appTokenService.getAuthorityPojoByToken(request);
         if (authorityPojo == null) {
             j.setReturnCode(AppAjax.FAIL);
-            j.setMsg("token失效或者账户出现异常！");
+            j.setMsg("登录信息无效或者账户已被注销！");
             return j;
         }
         List<CourseAuthorityPojo> courseAuthorityPojoList = authorityPojo.getAuthority();
@@ -129,6 +136,7 @@ public class AppSubCourseController extends BaseController {
                 subCourseAppVo.setSubCourseName(subCourseEntity.getSubName());
                 subCourseAppVo.setOrderNo(subCourseEntity.getOrderNo());
                 subCourseAppVo.setTryOut(subCourseEntity.getIsTryOut());
+                subCourseAppVo.setExpirationTime(courseAuthorityPojo.getEndTime());
                 mainCourseAppVo.getChildren().add(subCourseAppVo);
                 mainCourseMap.put(mainCourseEntity.getId(), mainCourseAppVo);
             } else {
@@ -138,6 +146,7 @@ public class AppSubCourseController extends BaseController {
                 subCourseAppVo.setSubCourseName(subCourseEntity.getSubName());
                 subCourseAppVo.setOrderNo(subCourseEntity.getOrderNo());
                 subCourseAppVo.setTryOut(subCourseEntity.getIsTryOut());
+                subCourseAppVo.setExpirationTime(courseAuthorityPojo.getEndTime());
                 mainCourseAppVo.getChildren().add(subCourseAppVo);
             }
         }

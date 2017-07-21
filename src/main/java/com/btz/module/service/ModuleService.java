@@ -10,6 +10,6 @@ import org.framework.core.common.system.BusinessException;
  */
 public interface ModuleService extends BaseService {
 
-    public ModuleEntity updateModuleEntityVersion(ExerciseEntity exerciseEntity) throws BusinessException;
+    public ModuleEntity updateModuleEntityVersion(ExerciseEntity exerciseEntity);
 
 }

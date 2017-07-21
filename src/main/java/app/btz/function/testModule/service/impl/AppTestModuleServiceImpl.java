@@ -1,6 +1,7 @@
 package app.btz.function.testModule.service.impl;
 
 import app.btz.common.ajax.AppAjax;
+import app.btz.common.constant.TryOutConstant;
 import app.btz.function.testModule.service.AppTestModuleService;
 import app.btz.function.testModule.vo.ExerciseVo;
 import app.btz.function.testModule.vo.ListInfoVo;
@@ -38,19 +39,33 @@ public class AppTestModuleServiceImpl implements AppTestModuleService {
     public List<ExerciseVo> getExerciseVoListByListInfoVo(List<ListInfoVo> listInfoVoList) {
         List<ExerciseVo> exerciseVoList = new ArrayList<ExerciseVo>();
         if (CollectionUtils.isNotEmpty(listInfoVoList)) {
+
+            int tryOut = TryOutConstant.APP_EXERCISE_TRY_OUT;
             for (ListInfoVo listInfoVoA : listInfoVoList) {
                 listInfoVoA.setBeg(exerciseVoList.size());
                 if (listInfoVoA.isLeaf()) {
+                    if (tryOut > 0) {
+                        listInfoVoA.setTryOut(true);
+                        tryOut--;
+                    }
                     findExerciseListByListInfoVo(exerciseVoList, listInfoVoA);
                 } else {
                     List<ListInfoVo> listInfoVosB = listInfoVoA.getSub();
                     for (ListInfoVo listInfoVoB : listInfoVosB) {
                         listInfoVoB.setBeg(exerciseVoList.size());
                         if (listInfoVoB.isLeaf()) {
+                            if (tryOut > 0) {
+                                listInfoVoB.setTryOut(true);
+                                tryOut--;
+                            }
                             findExerciseListByListInfoVo(exerciseVoList, listInfoVoB);
                         } else {
                             List<ListInfoVo> listInfoVosC = listInfoVoB.getSub();
                             for (ListInfoVo listInfoVoC : listInfoVosC) {
+                                if (tryOut > 0) {
+                                    listInfoVoC.setTryOut(true);
+                                    tryOut--;
+                                }
                                 listInfoVoC.setBeg(exerciseVoList.size());
                                 findExerciseListByListInfoVo(exerciseVoList, listInfoVoC);
                                 if (CollectionUtils.isNotEmpty(exerciseVoList)) {
@@ -102,11 +117,11 @@ public class AppTestModuleServiceImpl implements AppTestModuleService {
         chapterDetachedCriteria.add(Restrictions.eq("moduleId", moduleEntity.getId()));
         chapterDetachedCriteria.add(Restrictions.eq("moduleType", moduleEntity.getType()));
         chapterDetachedCriteria.addOrder(Order.asc("orderNo"));
-        List<ChapterEntity> chapterEntities = chapterService.getListByCriteriaQuery(chapterDetachedCriteria);
+        List<ChapterEntity> chapterEntityList = chapterService.getListByCriteriaQuery(chapterDetachedCriteria);
         List<ListInfoVo> listInfoVoList = new ArrayList<ListInfoVo>();
         //层次整理
-        if (CollectionUtils.isNotEmpty(chapterEntities)) {
-            for (ChapterEntity chapterEntityOne : chapterEntities) {
+        if (CollectionUtils.isNotEmpty(chapterEntityList)) {
+            for (ChapterEntity chapterEntityOne : chapterEntityList) {
                 if (chapterEntityOne.getLevel().equals(ConstantChapterLevel.ONE)) {
                     ListInfoVo listInfoVoOne = new ListInfoVo();
                     listInfoVoOne.setChapterId(chapterEntityOne.getId());
@@ -115,7 +130,7 @@ public class AppTestModuleServiceImpl implements AppTestModuleService {
                     listInfoVoList.add(listInfoVoOne);
                     List<ListInfoVo> listInfoVosTwo = new ArrayList<ListInfoVo>();
                     listInfoVoOne.setSub(listInfoVosTwo);
-                    for (ChapterEntity chapterEntityTwo : chapterEntities) {
+                    for (ChapterEntity chapterEntityTwo : chapterEntityList) {
                         if (chapterEntityTwo.getLevel().equals(ConstantChapterLevel.TWO)
                                 && chapterEntityTwo.getFid().equals(chapterEntityOne.getId())) {
                             ListInfoVo listInfoVoTwo = new ListInfoVo();
@@ -125,7 +140,7 @@ public class AppTestModuleServiceImpl implements AppTestModuleService {
                             listInfoVosTwo.add(listInfoVoTwo);
                             List<ListInfoVo> listInfoVosThree = new ArrayList<ListInfoVo>();
                             listInfoVoTwo.setSub(listInfoVosThree);
-                            for (ChapterEntity chapterEntityThree : chapterEntities) {
+                            for (ChapterEntity chapterEntityThree : chapterEntityList) {
                                 if (chapterEntityThree.getLevel().equals(ConstantChapterLevel.THREE)
                                         && chapterEntityThree.getFid().equals(chapterEntityTwo.getId())) {
                                     ListInfoVo listInfoVoThree = new ListInfoVo();

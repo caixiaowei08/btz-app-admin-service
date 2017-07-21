@@ -1,16 +1,17 @@
 package app.btz.function.testModule.vo;
 
 import java.io.Serializable;
+import java.util.Date;
 
 /**
  * Created by User on 2017/6/19.
  */
-public class SubCourseAppVo implements Serializable,Comparable<SubCourseAppVo>{
+public class SubCourseAppVo implements Serializable, Comparable<SubCourseAppVo> {
 
     /**
      * 课程主键
      */
-     private Integer subCourseId;
+    private Integer subCourseId;
 
     /**
      * 课程名称
@@ -20,12 +21,19 @@ public class SubCourseAppVo implements Serializable,Comparable<SubCourseAppVo>{
     /**
      * 排列序号
      */
-     private Integer orderNo;
+    private Integer orderNo;
 
     /**
      * 是否试用
      */
     private Integer tryOut;
+
+    /**
+     * 课程到期时间
+     *
+     * @return
+     */
+    private Date expirationTime;
 
     public int compareTo(SubCourseAppVo o) {
         return this.orderNo.compareTo(o.getOrderNo());
@@ -62,4 +70,13 @@ public class SubCourseAppVo implements Serializable,Comparable<SubCourseAppVo>{
     public void setTryOut(Integer tryOut) {
         this.tryOut = tryOut;
     }
+
+    public Date getExpirationTime() {
+        return expirationTime;
+    }
+
+    public void setExpirationTime(Date expirationTime) {
+        this.expirationTime = expirationTime;
+    }
+
 }
