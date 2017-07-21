@@ -70,6 +70,9 @@ public class ExerciseController extends BaseController {
     @Autowired
     private GlobalService globalService;
 
+    @Autowired
+    private ModuleService moduleService;
+
     @RequestMapping(params = "datagrid")
     public void datagrid(HttpServletRequest request, HttpServletResponse response, DataGrid dataGrid) {
         String subCourseId = request.getParameter("subCourseId");
@@ -167,7 +170,7 @@ public class ExerciseController extends BaseController {
                     exerciseEntity.setCreateTime(new Date());
                     exerciseEntity.setUpdateTime(new Date());
                 }
-                exerciseService.batchSave(exerciseEntityList);
+                exerciseService.batchExerciseSave(exerciseEntityList);
             }else{
                 j.setSuccess(AjaxJson.CODE_FAIL);
                 j.setMsg("数据保存错误，请检查数据是否完成整！");
@@ -189,11 +192,12 @@ public class ExerciseController extends BaseController {
         try {
             exerciseEntity.setUpdateTime(new Date());
             exerciseEntity.setCreateTime(new Date());
+            moduleService.updateModuleEntityVersion(exerciseEntity);
             exerciseService.save(exerciseEntity);
         } catch (Exception e) {
             e.printStackTrace();
             j.setSuccess(AjaxJson.CODE_FAIL);
-            j.setMsg("保存失败！");
+            j.setMsg("新增失败！");
         }
         return j;
     }
@@ -208,6 +212,7 @@ public class ExerciseController extends BaseController {
                 String[] id_array = ids.split(",");
                 for (int i = 0; i < id_array.length; i++) {
                     exerciseEntity = exerciseService.get(ExerciseEntity.class, Integer.parseInt(id_array[i]));
+                    moduleService.updateModuleEntityVersion(exerciseEntity);
                     exerciseService.delete(exerciseEntity);
                 }
             } else {
@@ -251,6 +256,7 @@ public class ExerciseController extends BaseController {
         try {
             exerciseEntity.setUpdateTime(new Date());
             BeanUtils.copyBeanNotNull2Bean(exerciseEntity, t);
+            moduleService.updateModuleEntityVersion(exerciseEntity);
             exerciseService.saveOrUpdate(t);
         } catch (Exception e) {
             e.printStackTrace();

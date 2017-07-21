@@ -54,10 +54,10 @@ public class ModuleController extends BaseController {
     @RequestMapping(params = "treeGrid")
     @ResponseBody
     public TreeGrid mainCourseTreeGrid(ModuleEntity moduleEntity, HttpServletRequest request, HttpServletResponse response) {
-        DetachedCriteria mainCourseDetachedCriteria = DetachedCriteria.forClass(ModuleEntity.class);
-        mainCourseDetachedCriteria.add(Restrictions.eq("subCourseId", moduleEntity.getSubCourseId()));
-        mainCourseDetachedCriteria.addOrder(Order.asc("type"));
-        List<ModuleEntity> mainCourseEntities = moduleService.getListByCriteriaQuery(mainCourseDetachedCriteria);
+        DetachedCriteria moduleDetachedCriteria = DetachedCriteria.forClass(ModuleEntity.class);
+        moduleDetachedCriteria.add(Restrictions.eq("subCourseId", moduleEntity.getSubCourseId()));
+        moduleDetachedCriteria.addOrder(Order.asc("type"));
+        List<ModuleEntity> mainCourseEntities = moduleService.getListByCriteriaQuery(moduleDetachedCriteria);
         TreeGrid treeGrid = new TreeGrid();
         treeGrid.setRows(mainCourseEntities);
         return treeGrid;
