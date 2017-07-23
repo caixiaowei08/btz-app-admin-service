@@ -60,6 +60,7 @@
 			<list>
 				<value>org.framework.*</value>
 				<value>com.btz.*</value>
+				<value>app.btz.*</value>
 			</list>
 		</property>
 	</bean>

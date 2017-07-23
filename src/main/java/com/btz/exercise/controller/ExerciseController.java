@@ -1,5 +1,6 @@
 package com.btz.exercise.controller;
 
+import com.alibaba.fastjson.JSON;
 import com.btz.course.entity.MainCourseEntity;
 import com.btz.course.entity.SubCourseEntity;
 import com.btz.course.service.ChapterService;
@@ -37,6 +38,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.commons.CommonsMultipartFile;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.*;
@@ -73,30 +75,23 @@ public class ExerciseController extends BaseController {
     @Autowired
     private ModuleService moduleService;
 
-    @RequestMapping(params = "datagrid")
-    public void datagrid(HttpServletRequest request, HttpServletResponse response, DataGrid dataGrid) {
+    @RequestMapping(params = "dataGrid")
+    public void dataGrid(HttpServletRequest request, HttpServletResponse response, DataGrid dataGrid) {
         String subCourseId = request.getParameter("subCourseId");
         String chapterId = request.getParameter("chapterId");
-        if(!StringUtils.hasText(subCourseId)){
-            DatagridJsonUtils.datagrid(response, new DataGridReturn(0,new ArrayList()));
+        String moduleType = request.getParameter("moduleType");
+        if (StringUtils.isEmpty(subCourseId) || StringUtils.isEmpty(moduleType)) {
+            DatagridJsonUtils.datagrid(response, new DataGridReturn(0, new ArrayList()));
             return;
         }
+        //按照题目类型
+        dataGrid.setSort("type");//排序
         CriteriaQuery criteriaQuery = new CriteriaQuery(ExerciseEntity.class, dataGrid, null);
-        criteriaQuery.installCriteria();
         DetachedCriteria detachedCriteria = criteriaQuery.getDetachedCriteria();
-        detachedCriteria.add(Restrictions.eq("subCourseId",Integer.parseInt(subCourseId.substring(1,subCourseId.length()))));
-        if(StringUtils.hasText(chapterId)&&!chapterId.contains("S")){
-            detachedCriteria.add(Restrictions.eq("chapterId",Integer.parseInt(chapterId.substring(1,chapterId.length()))));
-        }else{
-            SubCourseEntity subCourseEntity = globalService.get(SubCourseEntity.class, Integer.parseInt(subCourseId.substring(1,subCourseId.length())));
-            List<ExerciseExcelPojo> exerciseExcelPojoList = chapterService.getExcelTemplet(subCourseEntity, CHAPTER.getIndex());
-            if(CollectionUtils.isNotEmpty(exerciseExcelPojoList)){
-                List<Integer> params = new ArrayList<Integer>();
-                for (ExerciseExcelPojo exerciseExcelPojo: exerciseExcelPojoList ) {
-                    params.add(exerciseExcelPojo.getChapterId());
-                }
-                detachedCriteria.add(Restrictions.in("chapterId",params));
-            }
+        detachedCriteria.add(Restrictions.eq("subCourseId", Integer.parseInt(subCourseId.substring(1, subCourseId.length()))));
+        detachedCriteria.add(Restrictions.eq("moduleType", BelongToEnum.getBelongToEnum(Integer.parseInt(moduleType)).getIndex()));
+        if (StringUtils.hasText(chapterId) && !chapterId.contains("S")) {
+            detachedCriteria.add(Restrictions.eq("chapterId", Integer.parseInt(chapterId.substring(1, chapterId.length()))));
         }
         DataGridReturn dataGridReturn = exerciseService.getDataGridReturn(criteriaQuery);
         DatagridJsonUtils.listToObj(dataGridReturn, ExerciseEntity.class, dataGrid.getField());
@@ -109,12 +104,12 @@ public class ExerciseController extends BaseController {
         Integer moduleType = exerciseExcelPojo.getBelongTo();
         BelongToEnum belongToEnum = BelongToEnum.getBelongToEnum(moduleType);
         if (belongToEnum == null) {
-            downTestModuleExcel.downTestModuleExcel(null,request,response,"模块类型输入错误！",ALL);
+            downTestModuleExcel.downTestModuleExcel(null, request, response, "模块类型输入错误！", ALL);
             return;
         }
         SubCourseEntity subCourseEntity = globalService.get(SubCourseEntity.class, subCourseId);
         List<ExerciseExcelPojo> exerciseExcelPojoList = chapterService.getExcelTemplet(subCourseEntity, belongToEnum.getIndex());
-        downTestModuleExcel.downTestModuleExcel(exerciseExcelPojoList,request,response,subCourseEntity.getSubName(),belongToEnum);
+        downTestModuleExcel.downTestModuleExcel(exerciseExcelPojoList, request, response, subCourseEntity.getSubName(), belongToEnum);
     }
 
     @RequestMapping(params = "uploadExcel")
@@ -133,9 +128,9 @@ public class ExerciseController extends BaseController {
         List<ExerciseEntity> exerciseEntityList = null;
         String postfix = org.framework.core.utils.StringUtils.getPostfix(newFileName);
         try {
-            if(StringUtils.hasText(postfix)&&PoiConstant.OFFICE_EXCEL_2010_POSTFIX.equals(postfix)){
+            if (StringUtils.hasText(postfix) && PoiConstant.OFFICE_EXCEL_2010_POSTFIX.equals(postfix)) {
                 exerciseEntityList = downTestModuleExcel.readXlsxToExerciseEntityList(filelocal);//PoiExcelExerciseUtils.readXls(filelocal);
-            }else{
+            } else {
                 j.setSuccess(AjaxJson.CODE_FAIL);
                 j.setMsg("仅支持 Excel xlsx 2007文件！");
                 return j;
@@ -145,25 +140,24 @@ public class ExerciseController extends BaseController {
             j.setSuccess(AjaxJson.CODE_FAIL);
             j.setMsg("文档异常，请确认文档格式正确性！");
             return j;
-        }catch (BusinessException be){
+        } catch (BusinessException be) {
             logger.error(be.fillInStackTrace());
             j.setSuccess(AjaxJson.CODE_FAIL);
             j.setMsg(be.getMessage());
             return j;
-        }finally {
-            //删除临时文件
+        } finally {
             if (filelocal.isFile() && filelocal.exists()) {
                 filelocal.delete();
             }
         }
 
         try {
-            if(CollectionUtils.isNotEmpty(exerciseEntityList)){
+            if (CollectionUtils.isNotEmpty(exerciseEntityList)) {
                 for (int i = 0; i < exerciseEntityList.size(); i++) {
                     ExerciseEntity exerciseEntity = exerciseEntityList.get(i);
                     DetachedCriteria moduleCourseDetachedCriteria = DetachedCriteria.forClass(ModuleEntity.class);
-                    moduleCourseDetachedCriteria.add(Restrictions.eq("subCourseId",exerciseEntity.getSubCourseId()));
-                    moduleCourseDetachedCriteria.add(Restrictions.eq("type",exerciseEntity.getModuleType()));
+                    moduleCourseDetachedCriteria.add(Restrictions.eq("subCourseId", exerciseEntity.getSubCourseId()));
+                    moduleCourseDetachedCriteria.add(Restrictions.eq("type", exerciseEntity.getModuleType()));
                     List<ModuleEntity> moduleEntityList = globalService.getListByCriteriaQuery(moduleCourseDetachedCriteria);
                     exerciseEntity.setModuleId(moduleEntityList.get(0).getId());
                     exerciseEntity.setModuleType(moduleEntityList.get(0).getType());
@@ -171,7 +165,7 @@ public class ExerciseController extends BaseController {
                     exerciseEntity.setUpdateTime(new Date());
                 }
                 exerciseService.batchExerciseSave(exerciseEntityList);
-            }else{
+            } else {
                 j.setSuccess(AjaxJson.CODE_FAIL);
                 j.setMsg("数据保存错误，请检查数据是否完成整！");
                 return j;
@@ -189,6 +183,17 @@ public class ExerciseController extends BaseController {
     @ResponseBody
     public AjaxJson doAdd(ExerciseEntity exerciseEntity, HttpServletRequest request, HttpServletResponse response) {
         AjaxJson j = new AjaxJson();
+        DetachedCriteria moduleCourseDetachedCriteria = DetachedCriteria.forClass(ModuleEntity.class);
+        moduleCourseDetachedCriteria.add(Restrictions.eq("subCourseId", exerciseEntity.getSubCourseId()));
+        moduleCourseDetachedCriteria.add(Restrictions.eq("type", exerciseEntity.getModuleType()));
+        List<ModuleEntity> moduleEntityList = globalService.getListByCriteriaQuery(moduleCourseDetachedCriteria);
+        if (CollectionUtils.isEmpty(moduleEntityList)) {
+            j.setSuccess(AjaxJson.CODE_FAIL);
+            j.setMsg("该课程模块被删除！");
+            return j;
+        }
+        exerciseEntity.setModuleId(moduleEntityList.get(0).getId());
+        exerciseEntity.setModuleType(moduleEntityList.get(0).getType());
         try {
             exerciseEntity.setUpdateTime(new Date());
             exerciseEntity.setCreateTime(new Date());
@@ -197,7 +202,7 @@ public class ExerciseController extends BaseController {
         } catch (Exception e) {
             e.printStackTrace();
             j.setSuccess(AjaxJson.CODE_FAIL);
-            j.setMsg("新增失败！");
+            j.setMsg("新增题目失败！");
         }
         return j;
     }
@@ -256,7 +261,7 @@ public class ExerciseController extends BaseController {
         try {
             exerciseEntity.setUpdateTime(new Date());
             BeanUtils.copyBeanNotNull2Bean(exerciseEntity, t);
-            moduleService.updateModuleEntityVersion(exerciseEntity);
+            moduleService.updateModuleEntityVersion(t);
             exerciseService.saveOrUpdate(t);
         } catch (Exception e) {
             e.printStackTrace();

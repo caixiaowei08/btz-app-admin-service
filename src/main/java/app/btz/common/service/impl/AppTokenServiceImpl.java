@@ -49,4 +49,15 @@ public class AppTokenServiceImpl implements AppTokenService {
         return null;
     }
 
+    public UserEntity getUserEntityByToken(HttpServletRequest request) {
+        String token = request.getParameter(TokenGeneratorUtil.TOKEN_FLAG);
+        if (StringUtils.hasText(token)) {
+            UserTokenEntity userTokenEntity = appUserService.checkUserToken(token);
+            if (userTokenEntity != null) {
+                UserEntity appUserEntity = userService.get(UserEntity.class, userTokenEntity.getUserId());
+                return appUserEntity;
+            }
+        }
+        return null;
+    }
 }

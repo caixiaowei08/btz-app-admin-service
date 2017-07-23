@@ -1,7 +1,10 @@
 package com.btz.course.controller;
 
+import app.btz.function.exercise.controller.AppExerciseController;
 import com.btz.course.entity.SubCourseEntity;
 import com.btz.course.service.SubCourseService;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.framework.core.common.controller.BaseController;
 import org.framework.core.common.model.json.AjaxJson;
 import org.framework.core.common.model.json.DataGrid;
@@ -29,6 +32,8 @@ import java.util.Date;
 @RequestMapping("/subCourseController")
 public class SubCourseController extends BaseController {
 
+    private static Logger logger = LogManager.getLogger(SubCourseController.class.getName());
+
     @Autowired
     private SubCourseService subCourseService;
 
@@ -39,7 +44,7 @@ public class SubCourseController extends BaseController {
         try {
             fid = request.getParameterMap().get("fid")[0];
         } catch (Exception e) {
-            e.printStackTrace();
+            logger.info(e.fillInStackTrace());
         }
 
         if (StringUtils.hasText(fid)) {

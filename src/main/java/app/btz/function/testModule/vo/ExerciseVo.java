@@ -5,7 +5,7 @@ import java.io.Serializable;
 /**
  * Created by User on 2017/6/18.
  */
-public class ExerciseVo implements Serializable{
+public class ExerciseVo implements Serializable {
 
     private Integer id;
 
@@ -21,12 +21,14 @@ public class ExerciseVo implements Serializable{
 
     private Integer orderNo;
 
+    private String set = "";
+
     /**
-     *题目是否已做
+     * 题目是否已做
      */
     private Integer done = 0;
     /**
-     *题目是否收藏
+     * 题目是否收藏
      */
     private Integer get = 0;
 
@@ -100,5 +102,13 @@ public class ExerciseVo implements Serializable{
 
     public void setGet(Integer get) {
         this.get = get;
+    }
+
+    public String getSet() {
+        return set;
+    }
+
+    public void setSet(String set) {
+        this.set = set;
     }
 }

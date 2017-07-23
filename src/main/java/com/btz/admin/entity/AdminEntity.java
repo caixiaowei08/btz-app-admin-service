@@ -3,6 +3,7 @@ package com.btz.admin.entity;
 import com.alibaba.fastjson.annotation.JSONField;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.Date;
 
 /**
@@ -10,8 +11,7 @@ import java.util.Date;
  */
 @Entity
 @Table(name = "btz_administrator_account", schema = "", uniqueConstraints = {@UniqueConstraint(columnNames = {"accountId"})})
-@SuppressWarnings("serial")
-public class AdminEntity {
+public class AdminEntity implements Serializable {
     /**
      * 主键
      */

@@ -1,6 +1,7 @@
 package app.btz.common.service;
 
 import app.btz.common.authority.AuthorityPojo;
+import com.btz.user.entity.UserEntity;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -10,5 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 public interface AppTokenService {
 
     public AuthorityPojo getAuthorityPojoByToken(HttpServletRequest request);
+
+    public UserEntity getUserEntityByToken(HttpServletRequest request);
 
 }
