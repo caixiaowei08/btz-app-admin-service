@@ -80,7 +80,7 @@ public class CourseRecordedVideoController extends BaseController {
         criteriaQuery.installCriteria();
         DetachedCriteria detachedCriteria = criteriaQuery.getDetachedCriteria();
         detachedCriteria.add(Restrictions.eq("subCourseId", Integer.parseInt(subCourseId.substring(1, subCourseId.length()))));
-        if (StringUtils.hasText(chapterId) && chapterId.contains("A")) {
+        if (StringUtils.hasText(chapterId) && chapterId.contains("C")) {
             detachedCriteria.add(Restrictions.eq("chapterId", Integer.parseInt(chapterId.substring(1, chapterId.length()))));
         }
         detachedCriteria.addOrder(Order.asc("chapterId"));
@@ -230,7 +230,6 @@ public class CourseRecordedVideoController extends BaseController {
             j.setMsg(be.getMessage());
             return j;
         }finally {
-            //删除临时文件
             if (filelocal.isFile() && filelocal.exists()) {
                 filelocal.delete();
             }
@@ -263,5 +262,7 @@ public class CourseRecordedVideoController extends BaseController {
         }
         return j;
     }
+
+
 
 }

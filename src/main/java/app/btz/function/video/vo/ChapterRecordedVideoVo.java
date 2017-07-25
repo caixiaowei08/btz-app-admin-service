@@ -11,11 +11,11 @@ public class ChapterRecordedVideoVo implements Serializable {
 
     private Integer id;
 
-    private String chapterName;
+    private String title;
 
     private Integer orderNo;
 
-    private List<ItemRecordedVideoVo> children = new ArrayList<ItemRecordedVideoVo>();
+    private List<ItemRecordedVideoVo> list = new ArrayList<ItemRecordedVideoVo>();
 
     public Integer getId() {
         return id;
@@ -25,12 +25,12 @@ public class ChapterRecordedVideoVo implements Serializable {
         this.id = id;
     }
 
-    public String getChapterName() {
-        return chapterName;
+    public String getTitle() {
+        return title;
     }
 
-    public void setChapterName(String chapterName) {
-        this.chapterName = chapterName;
+    public void setTitle(String title) {
+        this.title = title;
     }
 
     public Integer getOrderNo() {
@@ -41,11 +41,11 @@ public class ChapterRecordedVideoVo implements Serializable {
         this.orderNo = orderNo;
     }
 
-    public List<ItemRecordedVideoVo> getChildren() {
-        return children;
+    public List<ItemRecordedVideoVo> getList() {
+        return list;
     }
 
-    public void setChildren(List<ItemRecordedVideoVo> children) {
-        this.children = children;
+    public void setList(List<ItemRecordedVideoVo> list) {
+        this.list = list;
     }
 }

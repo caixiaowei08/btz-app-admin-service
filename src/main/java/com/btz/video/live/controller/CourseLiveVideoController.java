@@ -4,6 +4,7 @@ import com.btz.course.entity.ChapterEntity;
 import com.btz.course.entity.SubCourseEntity;
 import com.btz.course.service.ChapterService;
 import com.btz.module.entity.ModuleEntity;
+import com.btz.module.service.ModuleService;
 import com.btz.system.global.GlobalService;
 import com.btz.utils.BelongToEnum;
 import com.btz.video.live.entity.CourseLiveVideoEntity;
@@ -66,10 +67,12 @@ public class CourseLiveVideoController extends BaseController {
     @Autowired
     private PoiVideoService poiVideoService;
 
+    @Autowired
+    private ModuleService moduleService;
+
     @RequestMapping(params = "dataGrid")
     public void dataGrid(HttpServletRequest request, HttpServletResponse response, DataGrid dataGrid) {
         String subCourseId = request.getParameter("subCourseId");
-        String chapterId = request.getParameter("chapterId");
         if (StringUtils.isEmpty(subCourseId)) {
             DatagridJsonUtils.datagrid(response, new DataGridReturn(0, new ArrayList()));
             return;
@@ -78,10 +81,6 @@ public class CourseLiveVideoController extends BaseController {
         criteriaQuery.installCriteria();
         DetachedCriteria detachedCriteria = criteriaQuery.getDetachedCriteria();
         detachedCriteria.add(Restrictions.eq("subCourseId", Integer.parseInt(subCourseId.substring(1, subCourseId.length()))));
-        if (StringUtils.hasText(chapterId) && chapterId.contains("A")) {
-            detachedCriteria.add(Restrictions.eq("chapterId", Integer.parseInt(chapterId.substring(1, chapterId.length()))));
-        }
-        detachedCriteria.addOrder(Order.asc("chapterId"));
         detachedCriteria.addOrder(Order.asc("orderNo"));
         DataGridReturn dataGridReturn = courseLiveVideoService.getDataGridReturn(criteriaQuery);
         DatagridJsonUtils.listToObj(dataGridReturn, CourseLiveVideoEntity.class, dataGrid.getField());
@@ -92,16 +91,19 @@ public class CourseLiveVideoController extends BaseController {
     @ResponseBody
     public AjaxJson doAdd(CourseLiveVideoEntity courseLiveVideoEntity, HttpServletRequest request, HttpServletResponse response) {
         AjaxJson j = new AjaxJson();
-        ChapterEntity chapterEntity = chapterService.get(ChapterEntity.class, courseLiveVideoEntity.getChapterId());
-        if (chapterEntity == null) {
+        DetachedCriteria detachedCriteria = DetachedCriteria.forClass(ModuleEntity.class);
+        detachedCriteria.add(Restrictions.eq("subCourseId",courseLiveVideoEntity.getSubCourseId()));
+        detachedCriteria.add(Restrictions.eq("type",BelongToEnum.LIVE_VIDEO.getIndex()));
+        List<ModuleEntity> moduleEntityList = moduleService.getListByCriteriaQuery(detachedCriteria);
+        if(CollectionUtils.isEmpty(moduleEntityList)){
             j.setSuccess(AjaxJson.CODE_FAIL);
-            j.setMsg("视频章节不存在或者已被删除！");
+            j.setMsg("该科目的无直播视频模块或已被删除！");
             return j;
         }
-        courseLiveVideoEntity.setSubCourseId(chapterEntity.getCourseId());
-        courseLiveVideoEntity.setModuleId(chapterEntity.getModuleId());
-        courseLiveVideoEntity.setModuleType(chapterEntity.getModuleType());
-        courseLiveVideoEntity.setChapterId(chapterEntity.getId());
+        ModuleEntity moduleEntity = moduleEntityList.get(0);
+        courseLiveVideoEntity.setModuleId(moduleEntity.getId());
+        courseLiveVideoEntity.setModuleType(moduleEntity.getType());
+        courseLiveVideoEntity.setChapterId(-1);
         courseLiveVideoEntity.setUpdateTime(new Date());
         courseLiveVideoEntity.setCreateTime(new Date());
         try {
@@ -110,6 +112,7 @@ public class CourseLiveVideoController extends BaseController {
             logger.error(e.fillInStackTrace());
             j.setSuccess(AjaxJson.CODE_FAIL);
             j.setMsg("新增失败！");
+            return j;
         }
         return j;
     }

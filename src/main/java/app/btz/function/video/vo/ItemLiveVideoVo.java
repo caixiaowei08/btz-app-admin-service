@@ -21,6 +21,8 @@ public class ItemLiveVideoVo implements Serializable {
 
     private Integer status;
 
+    private Boolean tryOut = false;
+
     private Integer orderNo;
 
     public Integer getId() {
@@ -85,5 +87,13 @@ public class ItemLiveVideoVo implements Serializable {
 
     public void setOrderNo(Integer orderNo) {
         this.orderNo = orderNo;
+    }
+
+    public Boolean getTryOut() {
+        return tryOut;
+    }
+
+    public void setTryOut(Boolean tryOut) {
+        this.tryOut = tryOut;
     }
 }

@@ -208,9 +208,9 @@ public class DownTestModuleExcelImpl implements DownTestModuleExcel {
                         throw new BusinessException("第" + rowNum + "行课程ID错误，请核实！");
                     }
                     try {
-                        Integer subCourseIdValue  = new Double(subCourseId.getNumericCellValue()).intValue();
+                        Integer subCourseIdValue = new Double(subCourseId.getNumericCellValue()).intValue();
                         exerciseEntity.setSubCourseId(subCourseIdValue);
-                    }catch (Exception e){
+                    } catch (Exception e) {
                         throw new BusinessException("第" + rowNum + "行课程ID错误，请核实！");
                     }
                     //chapterIdValue
@@ -218,19 +218,19 @@ public class DownTestModuleExcelImpl implements DownTestModuleExcel {
                         throw new BusinessException("第" + rowNum + "行章节ID错误，请核实！");
                     }
                     try {
-                        Integer chapterIdValue  = new Double(chapterId.getNumericCellValue()).intValue();
+                        Integer chapterIdValue = new Double(chapterId.getNumericCellValue()).intValue();
                         exerciseEntity.setChapterId(chapterIdValue);
-                    }catch (Exception e){
+                    } catch (Exception e) {
                         throw new BusinessException("第" + rowNum + "行章节ID错误，请核实！");
                     }
-                   //moduleType
+                    //moduleType
                     if (moduleType == null) {
                         throw new BusinessException("第" + rowNum + "行模块ID错误，请核实！");
                     }
                     try {
-                        Integer moduleTypeValue  = new Double(moduleType.getNumericCellValue()).intValue();
+                        Integer moduleTypeValue = new Double(moduleType.getNumericCellValue()).intValue();
                         exerciseEntity.setModuleType(moduleTypeValue);
-                    }catch (Exception e){
+                    } catch (Exception e) {
                         throw new BusinessException("第" + rowNum + "行模块ID错误，请核实！");
                     }
                     //type
@@ -238,9 +238,9 @@ public class DownTestModuleExcelImpl implements DownTestModuleExcel {
                         throw new BusinessException("第" + rowNum + "行题目类型ID错误，请核实！");
                     }
                     try {
-                        Integer typeValue  = new Double(type.getNumericCellValue()).intValue();
+                        Integer typeValue = new Double(type.getNumericCellValue()).intValue();
                         exerciseEntity.setType(typeValue);
-                    }catch (Exception e){
+                    } catch (Exception e) {
                         throw new BusinessException("第" + rowNum + "行题目类型ID错误，请核实！");
                     }
                     //title
@@ -248,9 +248,9 @@ public class DownTestModuleExcelImpl implements DownTestModuleExcel {
                         throw new BusinessException("第" + rowNum + "行题干错误，请核实！");
                     }
 
-                    if(StringUtils.hasText(title.getStringCellValue())){
+                    if (StringUtils.hasText(title.getStringCellValue())) {
                         exerciseEntity.setTitle(title.getStringCellValue());
-                    }else{
+                    } else {
                         throw new BusinessException("第" + rowNum + "行题干不能为空，请核实！");
                     }
                     //orderNo
@@ -258,14 +258,14 @@ public class DownTestModuleExcelImpl implements DownTestModuleExcel {
                         throw new BusinessException("第" + rowNum + "行显示顺序错误，请核实！");
                     }
                     try {
-                        Integer orderNoValue  = new Double(orderNo.getNumericCellValue()).intValue();
+                        Integer orderNoValue = new Double(orderNo.getNumericCellValue()).intValue();
                         exerciseEntity.setOrderNo(orderNoValue);
-                    }catch (Exception e){
+                    } catch (Exception e) {
                         throw new BusinessException("第" + rowNum + "行显示顺序错误，请核实！");
                     }
-                    exerciseEntity.setContent(content.getStringCellValue());
-                    exerciseEntity.setAnswer(answer.getStringCellValue());
-                    exerciseEntity.setAnswerKey(answerKey.getStringCellValue());
+                    exerciseEntity.setContent(content != null ? content.getStringCellValue() : "");
+                    exerciseEntity.setAnswer(answer != null ? answer.getStringCellValue() : "");
+                    exerciseEntity.setAnswerKey(answerKey != null ? answerKey.getStringCellValue() : "");
                     exerciseEntityList.add(exerciseEntity);
                 }
             }

@@ -4,10 +4,7 @@ import app.btz.common.ajax.AppAjax;
 import app.btz.common.constant.SfynConstant;
 import app.btz.common.constant.TryOutConstant;
 import app.btz.function.testModule.vo.ModuleTestRequestVo;
-import app.btz.function.video.vo.ChapterLiveVideoVo;
-import app.btz.function.video.vo.ChapterRecordedVideoVo;
-import app.btz.function.video.vo.ItemLiveVideoVo;
-import app.btz.function.video.vo.ItemRecordedVideoVo;
+import app.btz.function.video.vo.*;
 import com.btz.course.ConstantChapterLevel;
 import com.btz.course.entity.ChapterEntity;
 import com.btz.course.service.ChapterService;
@@ -66,48 +63,64 @@ public class AppRecordedVideoController extends BaseController {
         }
         ModuleEntity moduleEntity = moduleEntityList.get(0);
         DetachedCriteria chapterDetachedCriteria = DetachedCriteria.forClass(ChapterEntity.class);
+        chapterDetachedCriteria.add(Restrictions.eq("courseId", moduleEntity.getSubCourseId()));
         chapterDetachedCriteria.add(Restrictions.eq("moduleId", moduleEntity.getId()));
-        chapterDetachedCriteria.add(Restrictions.eq("level", ConstantChapterLevel.ONE));
         chapterDetachedCriteria.addOrder(Order.asc("orderNo"));
         List<ChapterEntity> chapterEntityList = chapterService.getListByCriteriaQuery(chapterDetachedCriteria);
-        List<ChapterRecordedVideoVo> chapterRecordedVideoVoList = new ArrayList<ChapterRecordedVideoVo>();
+        List<TimeRecordedVideoVo> timeRecordedVideoVoList = new ArrayList<TimeRecordedVideoVo>();
+        int tryOut = TryOutConstant.APP_RECORDED_VIDEO_TRY_OUT;
         if (CollectionUtils.isNotEmpty(chapterEntityList)) {
-            int tryOut = TryOutConstant.APP_RECORDED_VIDEO_TRY_OUT;
-            for (ChapterEntity chapterEntity : chapterEntityList) {
-                ChapterRecordedVideoVo chapterRecordedVideoVo = new ChapterRecordedVideoVo();
-                chapterRecordedVideoVo.setId(chapterEntity.getId());
-                chapterRecordedVideoVo.setChapterName(chapterEntity.getChapterName());
-                chapterRecordedVideoVo.setOrderNo(chapterEntity.getOrderNo());
-                DetachedCriteria courseRecordedDetachedCriteria = DetachedCriteria.forClass(CourseRecordedVideoEntity.class);
-                courseRecordedDetachedCriteria.add(Restrictions.eq("chapterId", chapterEntity.getId()));
-                courseRecordedDetachedCriteria.add(Restrictions.eq("moduleId", chapterEntity.getModuleId()));
-                courseRecordedDetachedCriteria.add(Restrictions.eq("moduleType", BelongToEnum.RECORDED_VIDEO.getIndex()));
-                courseRecordedDetachedCriteria.addOrder(Order.asc("orderNo"));
-                List<CourseRecordedVideoEntity> courseRecordedVideoEntityList = courseRecordedVideoService.getListByCriteriaQuery(courseRecordedDetachedCriteria);
-                if (CollectionUtils.isNotEmpty(courseRecordedVideoEntityList)) {
-                    for (CourseRecordedVideoEntity courseRecordedVideoEntity : courseRecordedVideoEntityList) {
-                        ItemRecordedVideoVo itemRecordedVideoVo = new ItemRecordedVideoVo();
-                        itemRecordedVideoVo.setId(courseRecordedVideoEntity.getId());
-                        itemRecordedVideoVo.setTitle(courseRecordedVideoEntity.getTitle());
-                        itemRecordedVideoVo.setVideoUrl(courseRecordedVideoEntity.getVideoUrl());
-                        itemRecordedVideoVo.setLectureUrl(courseRecordedVideoEntity.getLectureUrl());
-                        itemRecordedVideoVo.setOrderNo(courseRecordedVideoEntity.getOrderNo());
-                        itemRecordedVideoVo.setChapterId(chapterEntity.getId());
-                        itemRecordedVideoVo.setSubCourseId(chapterEntity.getCourseId());
-                        if (tryOut > 0) { //试用设置
-                            itemRecordedVideoVo.setTryOut(true);
-                            tryOut--;
+            for (ChapterEntity chapterA : chapterEntityList) {
+                if (chapterA.getLevel().equals(ConstantChapterLevel.ONE)) {
+                    TimeRecordedVideoVo timeRecordedVideoVo = new TimeRecordedVideoVo();
+                    timeRecordedVideoVo.setId(chapterA.getId());
+                    timeRecordedVideoVo.setTime(chapterA.getChapterName());
+                    for (ChapterEntity chapterB : chapterEntityList) {
+                        if (chapterB.getLevel().equals(ConstantChapterLevel.TWO) &&
+                                chapterA.getId().equals(chapterB.getFid())) {
+                            TitleRecordedVideoVo titleRecordedVideoVo = new TitleRecordedVideoVo();
+                            titleRecordedVideoVo.setTitle(chapterB.getChapterName());
+                            titleRecordedVideoVo.setTeach(chapterB.getChapterName());
+                            timeRecordedVideoVo.getList().add(titleRecordedVideoVo);
+                            for (ChapterEntity chapterC : chapterEntityList) {
+                                if (chapterC.getLevel().equals(ConstantChapterLevel.THREE) &&
+                                        chapterB.getId().equals(chapterC.getFid())) {
+                                    ChapterRecordedVideoVo chapterRecordedVideoVo = new ChapterRecordedVideoVo();
+                                    chapterRecordedVideoVo.setTitle(chapterC.getChapterName());
+                                    DetachedCriteria courseRecordedDetachedCriteria = DetachedCriteria.forClass(CourseRecordedVideoEntity.class);
+                                    courseRecordedDetachedCriteria.add(Restrictions.eq("chapterId", chapterC.getId()));
+                                    courseRecordedDetachedCriteria.add(Restrictions.eq("moduleId", chapterC.getModuleId()));
+                                    courseRecordedDetachedCriteria.add(Restrictions.eq("moduleType", BelongToEnum.RECORDED_VIDEO.getIndex()));
+                                    courseRecordedDetachedCriteria.addOrder(Order.asc("orderNo"));
+                                    List<CourseRecordedVideoEntity> courseRecordedVideoEntityList = courseRecordedVideoService.getListByCriteriaQuery(courseRecordedDetachedCriteria);
+                                    if (CollectionUtils.isNotEmpty(courseRecordedVideoEntityList)) {
+                                        for (CourseRecordedVideoEntity courseRecordedVideoEntity : courseRecordedVideoEntityList) {
+                                            ItemRecordedVideoVo itemRecordedVideoVo = new ItemRecordedVideoVo();
+                                            itemRecordedVideoVo.setId(courseRecordedVideoEntity.getId());
+                                            itemRecordedVideoVo.setTitle(courseRecordedVideoEntity.getTitle());
+                                            itemRecordedVideoVo.setVideoUrl(courseRecordedVideoEntity.getVideoUrl());
+                                            itemRecordedVideoVo.setLectureUrl(courseRecordedVideoEntity.getLectureUrl());
+                                            itemRecordedVideoVo.setOrderNo(courseRecordedVideoEntity.getOrderNo());
+                                            itemRecordedVideoVo.setChapterId(chapterC.getId());
+                                            itemRecordedVideoVo.setSubCourseId(chapterC.getCourseId());
+                                            if (tryOut > 0) { //试用设置
+                                                itemRecordedVideoVo.setTryOut(true);
+                                                tryOut--;
+                                            }
+                                            chapterRecordedVideoVo.getList().add(itemRecordedVideoVo);
+                                        }
+                                    }
+                                    titleRecordedVideoVo.getList().add(chapterRecordedVideoVo);
+                                }
+                            }
                         }
-                        chapterRecordedVideoVo.getChildren().add(itemRecordedVideoVo);
                     }
+                    timeRecordedVideoVoList.add(timeRecordedVideoVo);
                 }
-                chapterRecordedVideoVoList.add(chapterRecordedVideoVo);
             }
         }
         j.setReturnCode(AppAjax.SUCCESS);
-        j.setContent(chapterRecordedVideoVoList);
+        j.setContent(timeRecordedVideoVoList);
         return j;
     }
-
-
 }

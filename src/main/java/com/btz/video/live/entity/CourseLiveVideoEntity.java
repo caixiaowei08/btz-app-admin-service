@@ -31,6 +31,8 @@ public class CourseLiveVideoEntity implements Serializable {
 
     private Integer status;
 
+    private Integer tryOut;
+
     private Integer orderNo;
 
     @JSONField(format = "yyyy-MM-dd HH:mm:ss")
@@ -129,6 +131,15 @@ public class CourseLiveVideoEntity implements Serializable {
 
     public void setOrderNo(Integer orderNo) {
         this.orderNo = orderNo;
+    }
+
+    @Column(name = "tryOut", nullable = false, length = 11)
+    public Integer getTryOut() {
+        return tryOut;
+    }
+
+    public void setTryOut(Integer tryOut) {
+        this.tryOut = tryOut;
     }
 
     @Column(name = "createTime", nullable = true, length = 20)

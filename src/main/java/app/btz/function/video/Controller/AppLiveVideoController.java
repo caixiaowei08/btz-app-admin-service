@@ -41,65 +41,33 @@ public class AppLiveVideoController extends BaseController {
     @Autowired
     private CourseLiveVideoService courseLiveVideoService;
 
-    @Autowired
-    private ChapterService chapterService;
-
-    @Autowired
-    private ModuleService moduleService;
-
     @RequestMapping(params = "getLiveVideoListBySubCourseId")
     @ResponseBody
     public AppAjax getLiveVideoListBySubCourseId(ModuleTestRequestVo moduleTestRequestVo, HttpServletRequest request, HttpServletResponse response) {
         AppAjax j = new AppAjax();
-        DetachedCriteria moduleDetachedCriteria = DetachedCriteria.forClass(ModuleEntity.class);
-        moduleDetachedCriteria.add(Restrictions.eq("subCourseId", moduleTestRequestVo.getSubCourseId()));
-        moduleDetachedCriteria.add(Restrictions.eq("type", BelongToEnum.LIVE_VIDEO.getIndex()));
-        List<ModuleEntity> moduleEntityList = moduleService.getListByCriteriaQuery(moduleDetachedCriteria);
-        if (CollectionUtils.isEmpty(moduleEntityList)) {
-            j.setReturnCode(AppAjax.FAIL);
-            j.setMsg("该课程暂无直播！");
-            return j;
-        }
-        ModuleEntity moduleEntity = moduleEntityList.get(0);
-        DetachedCriteria chapterDetachedCriteria = DetachedCriteria.forClass(ChapterEntity.class);
-        chapterDetachedCriteria.add(Restrictions.eq("moduleId", moduleEntity.getId()));
-        chapterDetachedCriteria.add(Restrictions.eq("level", ConstantChapterLevel.ONE));
-        chapterDetachedCriteria.addOrder(Order.asc("orderNo"));
-        List<ChapterEntity> chapterEntityList = chapterService.getListByCriteriaQuery(chapterDetachedCriteria);
-        List<ChapterLiveVideoVo>  chapterLiveVideoVoList = new ArrayList<ChapterLiveVideoVo>();
-        if (CollectionUtils.isNotEmpty(chapterEntityList)) {
-            for (ChapterEntity chapterEntity : chapterEntityList) {
-                ChapterLiveVideoVo chapterLiveVideoVo = new ChapterLiveVideoVo();
-                chapterLiveVideoVo.setId(chapterEntity.getId());
-                chapterLiveVideoVo.setChapterName(chapterEntity.getChapterName());
-                chapterLiveVideoVo.setOrderNo(chapterEntity.getOrderNo());
-                DetachedCriteria courseLiveDetachedCriteria = DetachedCriteria.forClass(CourseLiveVideoEntity.class);
-                courseLiveDetachedCriteria.add(Restrictions.eq("chapterId", chapterEntity.getId()));
-                courseLiveDetachedCriteria.add(Restrictions.eq("status", SfynConstant.SFYN_Y));
-                courseLiveDetachedCriteria.add(Restrictions.eq("moduleType", BelongToEnum.LIVE_VIDEO.getIndex()));
-                courseLiveDetachedCriteria.addOrder(Order.asc("orderNo"));
-                List<CourseLiveVideoEntity> courseLiveVideoEntityList = courseLiveVideoService.getListByCriteriaQuery(courseLiveDetachedCriteria);
-                if(CollectionUtils.isNotEmpty(courseLiveVideoEntityList)){
-                    for (CourseLiveVideoEntity courseLiveVideoEntity :courseLiveVideoEntityList) {
-                        ItemLiveVideoVo itemLiveVideoVo = new ItemLiveVideoVo();
-                        itemLiveVideoVo.setId(courseLiveVideoEntity.getId());
-                        itemLiveVideoVo.setTitle(courseLiveVideoEntity.getTitle());
-                        itemLiveVideoVo.setTeacherName(courseLiveVideoEntity.getTeacherName());
-                        itemLiveVideoVo.setVideoUrl(courseLiveVideoEntity.getVideoUrl());
-                        itemLiveVideoVo.setOrderNo(courseLiveVideoEntity.getOrderNo());
-                        itemLiveVideoVo.setStatus(courseLiveVideoEntity.getStatus());
-                        itemLiveVideoVo.setChapterId(chapterEntity.getId());
-                        itemLiveVideoVo.setSubCourseId(chapterEntity.getCourseId());
-                        chapterLiveVideoVo.getChildren().add(itemLiveVideoVo);
-                    }
-                }
-                chapterLiveVideoVoList.add(chapterLiveVideoVo);
+        DetachedCriteria courseLiveDetachedCriteria = DetachedCriteria.forClass(CourseLiveVideoEntity.class);
+        courseLiveDetachedCriteria.add(Restrictions.eq("subCourseId", moduleTestRequestVo.getSubCourseId()));
+        courseLiveDetachedCriteria.add(Restrictions.eq("status", SfynConstant.SFYN_Y));
+        courseLiveDetachedCriteria.add(Restrictions.eq("moduleType", BelongToEnum.LIVE_VIDEO.getIndex()));
+        courseLiveDetachedCriteria.addOrder(Order.asc("orderNo"));
+        List<CourseLiveVideoEntity> courseLiveVideoEntityList = courseLiveVideoService.getListByCriteriaQuery(courseLiveDetachedCriteria);
+        List<ItemLiveVideoVo> itemLiveVideoVoList = new ArrayList<ItemLiveVideoVo>();
+        if (CollectionUtils.isNotEmpty(courseLiveVideoEntityList)) {
+            for (CourseLiveVideoEntity courseLiveVideoEntity : courseLiveVideoEntityList) {
+                ItemLiveVideoVo itemLiveVideoVo = new ItemLiveVideoVo();
+                itemLiveVideoVo.setId(courseLiveVideoEntity.getId());
+                itemLiveVideoVo.setTitle(courseLiveVideoEntity.getTitle());
+                itemLiveVideoVo.setTeacherName(courseLiveVideoEntity.getTeacherName());
+                itemLiveVideoVo.setVideoUrl(courseLiveVideoEntity.getVideoUrl());
+                itemLiveVideoVo.setOrderNo(courseLiveVideoEntity.getOrderNo());
+                itemLiveVideoVo.setStatus(courseLiveVideoEntity.getStatus());
+                itemLiveVideoVo.setTryOut(courseLiveVideoEntity.getTryOut().intValue() == 1 ? true : false);
+                itemLiveVideoVo.setSubCourseId(courseLiveVideoEntity.getSubCourseId());
+                itemLiveVideoVoList.add(itemLiveVideoVo);
             }
         }
         j.setReturnCode(AppAjax.SUCCESS);
-        j.setContent(chapterLiveVideoVoList);
+        j.setContent(itemLiveVideoVoList);
         return j;
     }
-
-
 }

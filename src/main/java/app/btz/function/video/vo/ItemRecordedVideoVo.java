@@ -25,6 +25,12 @@ public class ItemRecordedVideoVo implements Serializable{
 
     private Boolean tryOut = false;
 
+    private Integer done = 0;
+
+    private Integer time = 0;
+
+    private Integer down = 0;
+
     public Integer getId() {
         return id;
     }
@@ -87,5 +93,29 @@ public class ItemRecordedVideoVo implements Serializable{
 
     public void setTryOut(Boolean tryOut) {
         this.tryOut = tryOut;
+    }
+
+    public Integer getDone() {
+        return done;
+    }
+
+    public void setDone(Integer done) {
+        this.done = done;
+    }
+
+    public Integer getTime() {
+        return time;
+    }
+
+    public void setTime(Integer time) {
+        this.time = time;
+    }
+
+    public Integer getDown() {
+        return down;
+    }
+
+    public void setDown(Integer down) {
+        this.down = down;
     }
 }
