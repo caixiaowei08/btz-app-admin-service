@@ -1,29 +1,21 @@
 package app.btz.function.notes.controller;
 
-import app.btz.common.ajax.AppAjax;
 import app.btz.common.constant.NotesConstant;
-import app.btz.common.constant.SfynConstant;
 import app.btz.common.service.AppTokenService;
 import app.btz.function.exercise.controller.AppExerciseController;
 import app.btz.function.notes.entity.NotesEntity;
+import app.btz.function.notes.entity.ThumbsUpEntity;
 import app.btz.function.notes.service.NotesService;
 import app.btz.function.notes.vo.NotesVo;
-import com.btz.admin.entity.AdminEntity;
 import com.btz.exercise.entity.ExerciseEntity;
 import com.btz.exercise.service.ExerciseService;
-import com.btz.newsBulletin.carousel.entity.CarouselEntity;
+import com.btz.system.global.GlobalService;
 import com.btz.user.entity.UserEntity;
-import com.btz.utils.BelongToEnum;
 import org.apache.commons.collections.CollectionUtils;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.framework.core.common.controller.BaseController;
 import org.framework.core.common.model.json.AjaxJson;
-import org.framework.core.common.model.json.DataGrid;
-import org.framework.core.common.model.json.DataGridReturn;
-import org.framework.core.easyui.hibernate.CriteriaQuery;
-import org.framework.core.utils.DatagridJsonUtils;
-import org.framework.core.utils.PasswordUtil;
 import org.hibernate.criterion.DetachedCriteria;
 import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Restrictions;
@@ -36,7 +28,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -49,6 +40,9 @@ import java.util.List;
 public class AppNotesController extends BaseController {
 
     private static Logger logger = LogManager.getLogger(AppExerciseController.class.getName());
+
+    @Autowired
+    private GlobalService globalService;
 
     @Autowired
     private NotesService notesService;
@@ -89,6 +83,7 @@ public class AppNotesController extends BaseController {
         notesEntity.setExerciseId(exerciseEntity.getId());
         notesEntity.setNotes(notesVo.getNotes());
         notesEntity.setUserId(userEntity.getId());
+        notesEntity.setThumbsUp(0);
         notesEntity.setUserName(userEntity.getUserId());
         notesEntity.setStatus(NotesConstant.PENDING);
         notesEntity.setCreateTime(new Date());
@@ -172,6 +167,64 @@ public class AppNotesController extends BaseController {
         j.setContent(notesEntityList);
         return j;
     }
+
+    @RequestMapping(params = "doGetNotesByTokenAndSubCourseId")
+    @ResponseBody
+    public AjaxJson doGetNotesByToken(NotesVo notesVo, HttpServletRequest request, HttpServletResponse response) {
+        AjaxJson j = new AjaxJson();
+        UserEntity userEntity = appTokenService.getUserEntityByToken(request);
+        if (userEntity == null) {
+            j.setSuccess(AjaxJson.CODE_FAIL);
+            j.setMsg("登录失效！");
+            return j;
+        }
+        DetachedCriteria detachedCriteria = DetachedCriteria.forClass(NotesEntity.class);
+        detachedCriteria.add(Restrictions.eq("subCourseId",notesVo.getSubCourseId()));
+        detachedCriteria.add(Restrictions.eq("userId",userEntity.getId()));
+        detachedCriteria.addOrder(Order.desc("createTime"));
+        List<NotesEntity> notesEntityList = notesService.getListByCriteriaQuery(detachedCriteria);
+        j.setSuccess(AjaxJson.CODE_SUCCESS);
+        j.setContent(notesEntityList);
+        return j;
+    }
+
+    @RequestMapping(params = "doClickThumbsUp")
+    @ResponseBody
+    public AjaxJson doClickThumbsUp(NotesVo notesVo, HttpServletRequest request, HttpServletResponse response) {
+        AjaxJson j = new AjaxJson();
+        UserEntity userEntity = appTokenService.getUserEntityByToken(request);
+        if (userEntity == null) {
+            j.setSuccess(AjaxJson.CODE_FAIL);
+            j.setMsg("登录失效！");
+            return j;
+        }
+        DetachedCriteria thumbsUpDetachedCriteria = DetachedCriteria.forClass(ThumbsUpEntity.class);
+        thumbsUpDetachedCriteria.add(Restrictions.eq("notesId",notesVo.getId()));
+        thumbsUpDetachedCriteria.add(Restrictions.eq("userId",userEntity.getId()));
+        List<ThumbsUpEntity> thumbsUpEntityList = globalService.getListByCriteriaQuery(thumbsUpDetachedCriteria);
+
+
+
+        NotesEntity notesEntity = notesService.get(NotesEntity.class,notesVo.getId());
+        if(CollectionUtils.isNotEmpty(thumbsUpEntityList)){
+            j.setContent(notesEntity.getThumbsUp());
+            return j;
+        }
+        notesEntity.setThumbsUp(notesEntity.getThumbsUp()+1);
+        ThumbsUpEntity thumbsUpEntity = new ThumbsUpEntity();
+        thumbsUpEntity.setNotesId(notesVo.getId());
+        thumbsUpEntity.setUserId(userEntity.getId());
+        try {
+            globalService.save(thumbsUpEntity);
+            notesService.saveOrUpdate(notesEntity);
+        }catch (Exception e){
+            logger.error(e.fillInStackTrace());
+        }
+       j.setContent(notesEntity.getThumbsUp());
+        return j;
+    }
+
+
 
 
 }

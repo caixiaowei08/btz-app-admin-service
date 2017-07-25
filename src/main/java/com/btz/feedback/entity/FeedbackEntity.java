@@ -1,4 +1,4 @@
-package app.btz.function.notes.entity;
+package com.btz.feedback.entity;
 
 import com.alibaba.fastjson.annotation.JSONField;
 
@@ -7,11 +7,12 @@ import java.io.Serializable;
 import java.util.Date;
 
 /**
- * Created by User on 2017/7/22.
+ * Created by User on 2017/7/25.
  */
 @Entity
-@Table(name = "btz_exercise_notes_table")
-public class NotesEntity implements Serializable{
+@Table(name = "btz_exercise_feedback_table")
+public class FeedbackEntity implements Serializable{
+
     /**
      *主键
      */
@@ -37,9 +38,14 @@ public class NotesEntity implements Serializable{
      */
     private Integer exerciseId;
     /**
-     *笔记内容
+     *题目简述
      */
-    private String notes;
+    private String  resume;
+    /**
+     *反馈内容
+     */
+    private String content;
+
     /**
      *用户ID
      */
@@ -48,17 +54,17 @@ public class NotesEntity implements Serializable{
      *用户名称
      */
     private String userName;
+
     /**
-     *1-待审核  2-审核通过  3-审核不通过
+     * 处理状态  1-未处理 2-已处理 3-反馈有误
      */
     private Integer status;
 
-    private Integer thumbsUp;
     /**
      *审核时间
      */
     @JSONField(format = "yyyy-MM-dd HH:mm:ss")
-    private Date checkTime;
+    private Date dealTime;
     /**
      *创建时间
      */
@@ -113,10 +119,10 @@ public class NotesEntity implements Serializable{
         return moduleType;
     }
 
+
     public void setModuleType(Integer moduleType) {
         this.moduleType = moduleType;
     }
-
     @Column(name = "exerciseId", nullable = false, length = 20)
     public Integer getExerciseId() {
         return exerciseId;
@@ -126,13 +132,22 @@ public class NotesEntity implements Serializable{
         this.exerciseId = exerciseId;
     }
 
-    @Column(name = "notes", nullable = false)
-    public String getNotes() {
-        return notes;
+    @Column(name = "resume", nullable = false)
+    public String getResume() {
+        return resume;
     }
 
-    public void setNotes(String notes) {
-        this.notes = notes;
+    public void setResume(String resume) {
+        this.resume = resume;
+    }
+
+    @Column(name = "content", nullable = false)
+    public String getContent() {
+        return content;
+    }
+
+    public void setContent(String content) {
+        this.content = content;
     }
 
     @Column(name = "userId", nullable = false, length = 20)
@@ -162,16 +177,15 @@ public class NotesEntity implements Serializable{
         this.status = status;
     }
 
-    @Column(name = "checkTime", nullable = true, length = 20)
-    public Date getCheckTime() {
-        return checkTime;
+    @Column(name = "dealTime", nullable = true, length = 20)
+    public Date getDealTime() {
+        return dealTime;
     }
 
-    public void setCheckTime(Date checkTime) {
-        this.checkTime = checkTime;
+    public void setDealTime(Date dealTime) {
+        this.dealTime = dealTime;
     }
-
-    @Column(name = "createTime", nullable = false, length = 20)
+    @Column(name = "createTime", nullable = true, length = 20)
     public Date getCreateTime() {
         return createTime;
     }
@@ -187,14 +201,5 @@ public class NotesEntity implements Serializable{
 
     public void setUpdateTime(Date updateTime) {
         this.updateTime = updateTime;
-    }
-
-    @Column(name = "thumbsUp", nullable = false, length = 11)
-    public Integer getThumbsUp() {
-        return thumbsUp;
-    }
-
-    public void setThumbsUp(Integer thumbsUp) {
-        this.thumbsUp = thumbsUp;
     }
 }

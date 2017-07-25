@@ -11,6 +11,8 @@ public class NotesVo implements Serializable{
 
     private Integer exerciseId;
 
+    private Integer subCourseId;
+
     private String notes;
 
     private String token;
@@ -46,5 +48,13 @@ public class NotesVo implements Serializable{
 
     public void setToken(String token) {
         this.token = token;
+    }
+
+    public Integer getSubCourseId() {
+        return subCourseId;
+    }
+
+    public void setSubCourseId(Integer subCourseId) {
+        this.subCourseId = subCourseId;
     }
 }
