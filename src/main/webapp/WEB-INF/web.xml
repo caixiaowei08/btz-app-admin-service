@@ -52,17 +52,6 @@
 		<description>request监听器</description>
 		<listener-class>org.springframework.web.context.request.RequestContextListener</listener-class>
 	</listener>
-
-	<!--APP跨域问题 end-->
-	<filter>
-		<filter-name>appCrossDomainFilter</filter-name>
-		<filter-class>app.btz.filter.AppCrossAomainFilter</filter-class>
-	</filter>
-	<filter-mapping>
-		<filter-name>appCrossDomainFilter</filter-name>
-		<url-pattern>/app/*</url-pattern>
-	</filter-mapping>
-	<!--APP跨域问题-->
 	<!--<filter>
 		<filter-name>delegatingAppFilterProxy</filter-name>
 		<filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
@@ -80,6 +69,14 @@
 		<url-pattern>/app/*</url-pattern>
 	</filter-mapping>-->
 	<filter>
+		<filter-name>managerLoginFilter</filter-name>
+		<filter-class>com.btz.common.filter.ManagerLoginFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>managerLoginFilter</filter-name>
+		<url-pattern>/admin/*</url-pattern>
+	</filter-mapping>
+	<filter>
 		<filter-name>delegatingApiFilterProxy</filter-name>
 		<filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
 		<init-param>
@@ -95,10 +92,16 @@
 		<filter-name>delegatingApiFilterProxy</filter-name>
 		<url-pattern>/api/*</url-pattern>
 	</filter-mapping>
-
+	<filter>
+		<filter-name>appCrossDomainFilter</filter-name>
+		<filter-class>app.btz.filter.AppCrossAomainFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>appCrossDomainFilter</filter-name>
+		<url-pattern>/app/*</url-pattern>
+	</filter-mapping>
 	<!--session超时10分钟-->
 	<session-config>
 		<session-timeout>10</session-timeout>
 	</session-config>
-
 </web-app>

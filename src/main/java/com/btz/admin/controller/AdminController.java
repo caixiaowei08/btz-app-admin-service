@@ -2,6 +2,7 @@ package com.btz.admin.controller;
 
 import com.btz.admin.entity.AdminEntity;
 import com.btz.admin.service.AdminService;
+import com.btz.common.constant.AdminConstants;
 import com.btz.utils.SessionConstants;
 import org.apache.commons.collections.CollectionUtils;
 import org.apache.logging.log4j.LogManager;
@@ -36,7 +37,7 @@ import java.util.List;
  */
 @Scope("prototype")
 @Controller
-@RequestMapping("/adminController")
+@RequestMapping("/admin/adminController")
 public class AdminController extends BaseController {
 
     private static Logger logger = LogManager.getLogger(AdminController.class.getName());
@@ -46,7 +47,6 @@ public class AdminController extends BaseController {
 
     @Autowired
     private SystemService systemService;
-
 
     @RequestMapping(params = "doLogin", method = RequestMethod.POST)
     @ResponseBody
@@ -81,14 +81,12 @@ public class AdminController extends BaseController {
         AjaxJson j = new AjaxJson();
         String password = request.getParameter("password");
         String newpassword = request.getParameter("newpassword");
-
         AdminEntity adminSession = systemService.getAdminEntityFromSession();
         if (adminSession == null) {
             j.setSuccess(AjaxJson.CODE_LOGIN);
-            j.setMsg("登录超时！");
+            j.setMsg("请重新登录！");
             return j;
         }
-
         DetachedCriteria detachedCriteria = DetachedCriteria.forClass(AdminEntity.class);
         detachedCriteria.add(Restrictions.eq("accountId", adminSession.getAccountId()));
         detachedCriteria.add(Restrictions.eq("accountPwd", PasswordUtil.getMD5Encryp(password)));
@@ -113,8 +111,43 @@ public class AdminController extends BaseController {
         return j;
     }
 
-    @RequestMapping(params = "datagrid")
-    public void datagrid(AdminEntity adminEntity, HttpServletRequest request, HttpServletResponse response, DataGrid dataGrid) {
+    @RequestMapping(params = "changeAdminPwdByAdmin")
+    @ResponseBody
+    public AjaxJson changeAdminPwdByAdmin(AdminEntity adminEntity, HttpServletRequest request) {
+        AjaxJson j = new AjaxJson();
+        String accountPwd = request.getParameter("accountPwd");
+        AdminEntity adminSession = systemService.getAdminEntityFromSession();
+        if (adminSession == null) {
+            j.setSuccess(AjaxJson.CODE_LOGIN);
+            j.setMsg("请重新登录!");
+            return j;
+        }
+        if (!adminSession.getType().equals(AdminConstants.ROLE_ADMIN)) {
+            j.setSuccess(AjaxJson.CODE_FAIL);
+            j.setMsg("只有管理员才能做此操作!");
+            return j;
+        }
+        AdminEntity adminDb = adminService.get(AdminEntity.class, adminEntity.getId());
+        if (adminDb == null) {
+            j.setSuccess(AjaxJson.CODE_FAIL);
+            j.setMsg("用户不存在或已被删除！");
+            return j;
+        }
+        try {
+            adminDb.setAccountPwd(PasswordUtil.getMD5Encryp(accountPwd));
+            adminDb.setUpdateTime(new Date());
+            adminService.saveOrUpdate(adminDb);
+        } catch (Exception e) {
+            e.printStackTrace();
+            j.setSuccess(AjaxJson.CODE_FAIL);
+            j.setMsg("修改密码失败！");
+            return j;
+        }
+        return j;
+    }
+
+    @RequestMapping(params = "dataGrid")
+    public void dataGrid(AdminEntity adminEntity, HttpServletRequest request, HttpServletResponse response, DataGrid dataGrid) {
         CriteriaQuery criteriaQuery = new CriteriaQuery(AdminEntity.class, dataGrid, request.getParameterMap());
         criteriaQuery.installCriteria();
         DataGridReturn dataGridReturn = adminService.getDataGridReturn(criteriaQuery);
@@ -126,6 +159,17 @@ public class AdminController extends BaseController {
     @ResponseBody
     public AjaxJson doAdd(AdminEntity adminEntity, HttpServletRequest request, HttpServletResponse response) {
         AjaxJson j = new AjaxJson();
+        AdminEntity adminSession = systemService.getAdminEntityFromSession();
+        if (adminSession == null) {
+            j.setSuccess(AjaxJson.CODE_LOGIN);
+            j.setMsg("请重新登录!");
+            return j;
+        }
+        if (!adminSession.getType().equals(AdminConstants.ROLE_ADMIN)) {
+            j.setSuccess(AjaxJson.CODE_FAIL);
+            j.setMsg("只有管理员才能做此操作!");
+            return j;
+        }
         DetachedCriteria detachedCriteria = DetachedCriteria.forClass(AdminEntity.class);
         detachedCriteria.add(Restrictions.eq("accountId", adminEntity.getAccountId()));
         List adminEntityList = adminService.getListByCriteriaQuery(detachedCriteria);
@@ -137,6 +181,7 @@ public class AdminController extends BaseController {
         try {
             adminEntity.setUpdateTime(new Date());
             adminEntity.setCreateTime(new Date());
+            adminEntity.setState(AdminConstants.ROLE_OPR);
             adminEntity.setAccountPwd(PasswordUtil.getMD5Encryp(adminEntity.getAccountPwd()));
             adminService.save(adminEntity);
         } catch (Exception e) {
@@ -155,6 +200,17 @@ public class AdminController extends BaseController {
     @ResponseBody
     public AjaxJson doUpdate(AdminEntity adminEntity, HttpServletRequest request) {
         AjaxJson j = new AjaxJson();
+        AdminEntity adminSession = systemService.getAdminEntityFromSession();
+        if (adminSession == null) {
+            j.setSuccess(AjaxJson.CODE_LOGIN);
+            j.setMsg("请重新登录!");
+            return j;
+        }
+        if (!adminSession.getType().equals(AdminConstants.ROLE_ADMIN)) {
+            j.setSuccess(AjaxJson.CODE_FAIL);
+            j.setMsg("只有管理员才能做此操作!");
+            return j;
+        }
         AdminEntity t = adminService.get(AdminEntity.class, adminEntity.getId());
         try {
             adminEntity.setUpdateTime(new Date());
@@ -172,6 +228,17 @@ public class AdminController extends BaseController {
     @ResponseBody
     public AjaxJson doDel(AdminEntity adminEntity, HttpServletRequest request) {
         AjaxJson j = new AjaxJson();
+        AdminEntity adminSession = systemService.getAdminEntityFromSession();
+        if (adminSession == null) {
+            j.setSuccess(AjaxJson.CODE_LOGIN);
+            j.setMsg("请重新登录!");
+            return j;
+        }
+        if (!adminSession.getType().equals(AdminConstants.ROLE_ADMIN)) {
+            j.setSuccess(AjaxJson.CODE_FAIL);
+            j.setMsg("只有管理员才能做此操作!");
+            return j;
+        }
         String ids = request.getParameter("ids");
         try {
             if (StringUtils.hasText(ids)) {
@@ -197,14 +264,7 @@ public class AdminController extends BaseController {
     @ResponseBody
     public AjaxJson get(AdminEntity adminEntity, HttpServletRequest request, HttpServletResponse response) {
         AjaxJson j = new AjaxJson();
-        Integer id = adminEntity.getId();
-        if (id == null) {
-            j.setSuccess(AjaxJson.CODE_FAIL);
-            j.setMsg("请输入需要修改的账户ID！");
-            return j;
-        }
-
-        AdminEntity adminDb = adminService.get(AdminEntity.class, id);
+        AdminEntity adminDb = adminService.get(AdminEntity.class, adminEntity.getId());
         if (adminDb == null) {
             j.setSuccess(AjaxJson.CODE_FAIL);
             j.setMsg("该账户不存在！");
@@ -229,6 +289,4 @@ public class AdminController extends BaseController {
         j.setMsg("操作成功！");
         return j;
     }
-
-
 }

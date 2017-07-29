@@ -28,16 +28,17 @@ import java.util.List;
  */
 @Scope("prototype")
 @Controller
-@RequestMapping("/carouselController")
+@RequestMapping("/admin/carouselController")
 public class CarouselController extends BaseController{
 
     @Autowired
     private CarouselService carouselService;
 
-    @RequestMapping(params = "datagrid")
-    public void datagrid(CarouselEntity carouselEntity, HttpServletRequest request, HttpServletResponse response, DataGrid dataGrid) {
+    @RequestMapping(params = "dataGrid")
+    public void dataGrid(CarouselEntity carouselEntity, HttpServletRequest request, HttpServletResponse response, DataGrid dataGrid) {
         CriteriaQuery criteriaQuery = new CriteriaQuery(CarouselEntity.class, dataGrid, request.getParameterMap());
         criteriaQuery.installCriteria();
+
         DataGridReturn dataGridReturn = carouselService.getDataGridReturn(criteriaQuery);
         DatagridJsonUtils.listToObj(dataGridReturn, CarouselEntity.class, dataGrid.getField());
         DatagridJsonUtils.datagrid(response, dataGridReturn);

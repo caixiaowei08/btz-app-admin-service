@@ -29,7 +29,7 @@ import java.util.Date;
  */
 @Scope("prototype")
 @Controller
-@RequestMapping("/subCourseController")
+@RequestMapping("/admin/subCourseController")
 public class SubCourseController extends BaseController {
 
     private static Logger logger = LogManager.getLogger(SubCourseController.class.getName());

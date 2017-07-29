@@ -32,6 +32,11 @@ public class ExerciseVo implements Serializable {
      */
     private Integer get = 0;
 
+    /**
+     * 题目是否收藏
+     */
+    private Integer sb = 0;
+
     public Integer getId() {
         return id;
     }
@@ -110,5 +115,13 @@ public class ExerciseVo implements Serializable {
 
     public void setSet(String set) {
         this.set = set;
+    }
+
+    public Integer getSb() {
+        return sb;
+    }
+
+    public void setSb(Integer sb) {
+        this.sb = sb;
     }
 }

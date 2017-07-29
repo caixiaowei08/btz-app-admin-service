@@ -1,13 +1,9 @@
 package com.btz.exercise.controller;
 
-import com.alibaba.fastjson.JSON;
-import com.btz.course.entity.MainCourseEntity;
 import com.btz.course.entity.SubCourseEntity;
 import com.btz.course.service.ChapterService;
-import com.btz.course.vo.MainCourseVo;
 import com.btz.exercise.entity.ExerciseEntity;
 import com.btz.exercise.service.ExerciseService;
-import com.btz.exercise.utils.PoiExcelExerciseUtils;
 import com.btz.module.entity.ModuleEntity;
 import com.btz.module.service.ModuleService;
 import com.btz.poi.pojo.ExerciseExcelPojo;
@@ -41,21 +37,21 @@ import org.springframework.web.multipart.commons.CommonsMultipartFile;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.io.*;
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.UUID;
 
 import static com.btz.utils.BelongToEnum.ALL;
-import static com.btz.utils.BelongToEnum.CHAPTER;
 
 /**
  * Created by User on 2017/6/12.
  */
 @Scope("prototype")
 @Controller
-@RequestMapping("/exerciseController")
+@RequestMapping("/admin/exerciseController")
 public class ExerciseController extends BaseController {
 
     private static Logger logger = LogManager.getLogger(ExerciseController.class.getName());
@@ -85,8 +81,10 @@ public class ExerciseController extends BaseController {
             return;
         }
         //按照题目类型
-        dataGrid.setSort("type");//排序
+        dataGrid.setSort("updateTime");//排序
         CriteriaQuery criteriaQuery = new CriteriaQuery(ExerciseEntity.class, dataGrid, null);
+        criteriaQuery.getDetachedCriteria().addOrder(Order.asc("type"));
+        criteriaQuery.getDetachedCriteria().addOrder(Order.asc("orderNo"));
         DetachedCriteria detachedCriteria = criteriaQuery.getDetachedCriteria();
         detachedCriteria.add(Restrictions.eq("subCourseId", Integer.parseInt(subCourseId.substring(1, subCourseId.length()))));
         detachedCriteria.add(Restrictions.eq("moduleType", BelongToEnum.getBelongToEnum(Integer.parseInt(moduleType)).getIndex()));

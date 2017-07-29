@@ -39,7 +39,7 @@ import java.util.List;
  */
 @Scope("prototype")
 @Controller
-@RequestMapping("/moduleController")
+@RequestMapping("/admin/moduleController")
 public class ModuleController extends BaseController {
 
     private static Logger logger = LogManager.getLogger(ModuleController.class.getName());

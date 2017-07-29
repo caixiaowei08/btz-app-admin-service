@@ -34,7 +34,7 @@ import java.util.List;
  */
 @Scope("prototype")
 @Controller
-@RequestMapping("/chapterController")
+@RequestMapping("/admin/chapterController")
 public class ChapterController extends BaseController {
 
     @Autowired

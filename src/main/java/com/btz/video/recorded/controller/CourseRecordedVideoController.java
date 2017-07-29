@@ -51,7 +51,7 @@ import java.util.UUID;
  */
 @Scope("prototype")
 @Controller
-@RequestMapping("/courseRecordedVideoController")
+@RequestMapping("/admin/courseRecordedVideoController")
 public class CourseRecordedVideoController extends BaseController {
 
     private static Logger logger = LogManager.getLogger(CourseRecordedVideoController.class.getName());

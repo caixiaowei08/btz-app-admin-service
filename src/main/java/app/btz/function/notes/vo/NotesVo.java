@@ -17,7 +17,6 @@ public class NotesVo implements Serializable{
 
     private String token;
 
-
     public Integer getId() {
         return id;
     }

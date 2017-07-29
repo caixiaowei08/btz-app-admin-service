@@ -36,6 +36,8 @@ public class ApiLoginFilter implements Filter {
     }
 
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
+        System.out.println("-------ApiLoginFilter--------");
+
         HttpServletRequest req = (HttpServletRequest) request;
         HttpServletResponse rsp = (HttpServletResponse) response;
         String url = req.getServletPath();

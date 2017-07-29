@@ -1,5 +1,6 @@
 package app.btz.function.notes.controller;
 
+import app.btz.common.ajax.AppAjax;
 import app.btz.common.constant.NotesConstant;
 import app.btz.common.service.AppTokenService;
 import app.btz.function.exercise.controller.AppExerciseController;
@@ -23,6 +24,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 import org.springframework.util.StringUtils;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -56,22 +58,27 @@ public class AppNotesController extends BaseController {
 
     @RequestMapping(params = "doAdd")
     @ResponseBody
-    public AjaxJson doAdd(NotesVo notesVo, HttpServletRequest request, HttpServletResponse response) {
-        AjaxJson j = new AjaxJson();
+    public AppAjax doAdd(@RequestBody NotesVo notesVo, HttpServletRequest request, HttpServletResponse response) {
+        AppAjax j = new AppAjax();
         UserEntity userEntity = appTokenService.getUserEntityByToken(request);
         if (userEntity == null) {
-            j.setSuccess(AjaxJson.CODE_FAIL);
+            j.setReturnCode(AppAjax.FAIL);
             j.setMsg("登录失效！");
             return j;
         }
         if (StringUtils.isEmpty(notesVo.getNotes())) {
-            j.setSuccess(AjaxJson.CODE_FAIL);
+            j.setReturnCode(AppAjax.FAIL);
             j.setMsg("笔记内容不能为空！");
             return j;
         }
+
+        if(StringUtils.isEmpty(notesVo.getExerciseId())){
+           return doAddWithoutExerciseId(userEntity,notesVo);
+        }
+
         ExerciseEntity exerciseEntity = exerciseService.get(ExerciseEntity.class, notesVo.getExerciseId());
         if (exerciseEntity == null) {
-            j.setSuccess(AjaxJson.CODE_FAIL);
+            j.setReturnCode(AppAjax.FAIL);
             j.setMsg("题目已被删除！");
             return j;
         }
@@ -92,34 +99,62 @@ public class AppNotesController extends BaseController {
             notesService.save(notesEntity);
         } catch (Exception e) {
             logger.error(e.fillInStackTrace());
-            j.setSuccess(AjaxJson.CODE_FAIL);
+            j.setReturnCode(AppAjax.FAIL);
             j.setMsg("添加笔记失败！");
             return j;
         }
-        j.setSuccess(AjaxJson.CODE_SUCCESS);
+        j.setReturnCode(AppAjax.SUCCESS);
+        j.setMsg("添加笔记成功！");
+        return j;
+    }
+
+    public AppAjax doAddWithoutExerciseId(UserEntity userEntity,NotesVo notesVo) {
+        AppAjax j = new AppAjax();
+        NotesEntity notesEntity = new NotesEntity();
+        notesEntity.setSubCourseId(notesVo.getSubCourseId());
+        notesEntity.setChapterId(-1);
+        notesEntity.setModuleId(-1);
+        notesEntity.setModuleType(-1);
+        notesEntity.setExerciseId(-1);
+        notesEntity.setNotes(notesVo.getNotes());
+        notesEntity.setUserId(userEntity.getId());
+        notesEntity.setThumbsUp(0);
+        notesEntity.setUserName(userEntity.getUserId());
+        notesEntity.setStatus(NotesConstant.SELF);
+        notesEntity.setCreateTime(new Date());
+        notesEntity.setUpdateTime(new Date());
+        try {
+            notesService.save(notesEntity);
+        } catch (Exception e) {
+            logger.error(e.fillInStackTrace());
+            j.setReturnCode(AppAjax.FAIL);
+            j.setMsg("添加笔记失败！");
+            return j;
+        }
+        j.setReturnCode(AppAjax.SUCCESS);
         j.setMsg("添加笔记成功！");
         return j;
     }
 
     @RequestMapping(params = "doDel")
     @ResponseBody
-    public AjaxJson doDel(NotesVo notesVo, HttpServletRequest request, HttpServletResponse response) {
-        AjaxJson j = new AjaxJson();
+    public AppAjax doDel(NotesVo notesVo, HttpServletRequest request, HttpServletResponse response) {
+        AppAjax j = new AppAjax();
         UserEntity userEntity = appTokenService.getUserEntityByToken(request);
         if (userEntity == null) {
-            j.setSuccess(AjaxJson.CODE_FAIL);
+            j.setReturnCode(AppAjax.FAIL);
             j.setMsg("登录失效！");
             return j;
         }
         NotesEntity notesEntity = notesService.get(NotesEntity.class,notesVo.getId());
         if (notesEntity == null) {
-            j.setSuccess(AjaxJson.CODE_FAIL);
+            j.setReturnCode(AppAjax.FAIL);
             j.setMsg("题目已被删除！");
             return j;
         }
 
         if(!userEntity.getId().equals(notesEntity.getUserId())){
-            j.setSuccess(AjaxJson.CODE_FAIL);
+            j.setReturnCode(AppAjax.FAIL);
             j.setMsg("用户只能删除自己的笔记！");
             return j;
         }
@@ -127,11 +162,11 @@ public class AppNotesController extends BaseController {
             notesService.delete(notesEntity);
         }catch (Exception e){
             logger.error(e.fillInStackTrace());
-            j.setSuccess(AjaxJson.CODE_FAIL);
+            j.setReturnCode(AppAjax.FAIL);
             j.setMsg("删除笔记失败！");
             return j;
         }
-        j.setSuccess(AjaxJson.CODE_SUCCESS);
+        j.setReturnCode(AppAjax.SUCCESS);
         j.setMsg("删除笔记成功！");
         return j;
     }
@@ -151,19 +186,23 @@ public class AppNotesController extends BaseController {
 
     @RequestMapping(params = "doGetNotesByExerciseIdAndToken")
     @ResponseBody
-    public AjaxJson doGetNotesByExerciseIdAndToken(NotesVo notesVo, HttpServletRequest request, HttpServletResponse response) {
-        AjaxJson j = new AjaxJson();
+    public AppAjax doGetNotesByExerciseIdAndToken(NotesVo notesVo, HttpServletRequest request, HttpServletResponse response) {
+        AppAjax j = new AppAjax();
         UserEntity userEntity = appTokenService.getUserEntityByToken(request);
         if (userEntity == null) {
-            j.setSuccess(AjaxJson.CODE_FAIL);
+            j.setReturnCode(AppAjax.FAIL);
             j.setMsg("登录失效！");
             return j;
         }
         DetachedCriteria detachedCriteria = DetachedCriteria.forClass(NotesEntity.class);
         detachedCriteria.add(Restrictions.eq("exerciseId",notesVo.getExerciseId()));
-        detachedCriteria.add(Restrictions.eq("userId",userEntity.getId()));
+        detachedCriteria.add(Restrictions.or(
+                Restrictions.eq("userId",userEntity.getId()),
+                Restrictions.eq("status",NotesConstant.PASS)
+        ));
+        detachedCriteria.addOrder(Order.desc("createTime"));
         List<NotesEntity> notesEntityList = notesService.getListByCriteriaQuery(detachedCriteria);
-        j.setSuccess(AjaxJson.CODE_SUCCESS);
+        j.setReturnCode(AppAjax.SUCCESS);
         j.setContent(notesEntityList);
         return j;
     }
@@ -202,8 +241,6 @@ public class AppNotesController extends BaseController {
         thumbsUpDetachedCriteria.add(Restrictions.eq("notesId",notesVo.getId()));
         thumbsUpDetachedCriteria.add(Restrictions.eq("userId",userEntity.getId()));
         List<ThumbsUpEntity> thumbsUpEntityList = globalService.getListByCriteriaQuery(thumbsUpDetachedCriteria);
-
-
 
         NotesEntity notesEntity = notesService.get(NotesEntity.class,notesVo.getId());
         if(CollectionUtils.isNotEmpty(thumbsUpEntityList)){

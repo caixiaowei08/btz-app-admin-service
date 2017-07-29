@@ -15,6 +15,7 @@ import org.framework.core.common.model.json.DataGridReturn;
 import org.framework.core.easyui.hibernate.CriteriaQuery;
 import org.framework.core.utils.BeanUtils;
 import org.framework.core.utils.DatagridJsonUtils;
+import org.hibernate.criterion.Restrictions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
@@ -31,7 +32,7 @@ import java.util.Date;
  */
 @Scope("prototype")
 @Controller
-@RequestMapping("/notesController")
+@RequestMapping("/admin/notesController")
 public class NotesController extends BaseController {
 
     private static Logger logger = LogManager.getLogger(AdminController.class.getName());
@@ -43,6 +44,7 @@ public class NotesController extends BaseController {
     public void dataGrid(HttpServletRequest request, HttpServletResponse response, DataGrid dataGrid) {
         CriteriaQuery criteriaQuery = new CriteriaQuery(NotesEntity.class, dataGrid, request.getParameterMap());
         criteriaQuery.installCriteria();
+        criteriaQuery.getDetachedCriteria().add(Restrictions.ne("status",NotesConstant.SELF));
         DataGridReturn dataGridReturn = notesService.getDataGridReturn(criteriaQuery);
         DatagridJsonUtils.listToObj(dataGridReturn, NotesEntity.class, dataGrid.getField());
         DatagridJsonUtils.datagrid(response, dataGridReturn);
@@ -59,6 +61,7 @@ public class NotesController extends BaseController {
                 for (int i = 0; i < id_array.length ; i++) {
                     NotesEntity t = notesService.get(NotesEntity.class,Integer.parseInt(id_array[i]));
                     notesEntity.setStatus(NotesConstant.PASS);
+                    notesEntity.setCheckTime(new Date());
                     notesEntity.setUpdateTime(new Date());
                     BeanUtils.copyBeanNotNull2Bean(notesEntity, t);
                     notesService.saveOrUpdate(t);
@@ -86,6 +89,7 @@ public class NotesController extends BaseController {
                     NotesEntity t = notesService.get(NotesEntity.class,Integer.parseInt(id_array[i]));
                     notesEntity.setStatus(NotesConstant.REJECT);
                     notesEntity.setUpdateTime(new Date());
+                    notesEntity.setCheckTime(new Date());
                     BeanUtils.copyBeanNotNull2Bean(notesEntity, t);
                     notesService.saveOrUpdate(t);
                 }

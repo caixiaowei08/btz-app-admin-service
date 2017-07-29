@@ -26,7 +26,7 @@ import java.util.Date;
  */
 @Scope("prototype")
 @Controller
-@RequestMapping("/mainCourseController")
+@RequestMapping("/admin/mainCourseController")
 public class MainCourseController extends BaseController {
     @Autowired
     private MainCourseService mainCourseService;

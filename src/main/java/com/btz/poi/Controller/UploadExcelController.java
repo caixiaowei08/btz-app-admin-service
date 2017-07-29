@@ -25,7 +25,7 @@ import java.util.List;
  */
 @Scope("prototype")
 @Controller
-@RequestMapping("/uploadExcelController")
+@RequestMapping("/admin/uploadExcelController")
 public class UploadExcelController extends BaseController {
 
     @RequestMapping(params = "uploadExcel")

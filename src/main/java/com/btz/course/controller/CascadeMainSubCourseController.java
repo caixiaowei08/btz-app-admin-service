@@ -36,7 +36,7 @@ import java.util.List;
  */
 @Scope("prototype")
 @Controller
-@RequestMapping("/cascadeMainSubCourseController")
+@RequestMapping("/admin/cascadeMainSubCourseController")
 public class CascadeMainSubCourseController extends BaseController {
 
     @Autowired

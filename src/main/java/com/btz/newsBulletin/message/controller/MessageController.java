@@ -28,7 +28,7 @@ import java.util.Date;
  */
 @Scope("prototype")
 @Controller
-@RequestMapping("/messageController")
+@RequestMapping("/admin/messageController")
 public class MessageController extends BaseController {
 
     @Autowired

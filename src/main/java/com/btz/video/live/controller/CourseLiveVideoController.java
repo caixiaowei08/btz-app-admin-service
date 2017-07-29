@@ -1,6 +1,5 @@
 package com.btz.video.live.controller;
 
-import com.btz.course.entity.ChapterEntity;
 import com.btz.course.entity.SubCourseEntity;
 import com.btz.course.service.ChapterService;
 import com.btz.module.entity.ModuleEntity;
@@ -50,7 +49,7 @@ import java.util.UUID;
  */
 @Scope("prototype")
 @Controller
-@RequestMapping("/courseLiveVideoController")
+@RequestMapping("/admin/courseLiveVideoController")
 public class CourseLiveVideoController extends BaseController {
 
     private static Logger logger = LogManager.getLogger(com.btz.video.recorded.controller.CourseRecordedVideoController.class.getName());

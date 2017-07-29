@@ -1,6 +1,5 @@
 package com.btz.user.controller;
 
-import com.btz.admin.entity.AdminEntity;
 import com.btz.user.entity.UserEntity;
 import com.btz.user.service.UserService;
 import com.btz.utils.Constant;
@@ -28,14 +27,14 @@ import java.util.Date;
  */
 @Scope("prototype")
 @Controller
-@RequestMapping("/userController")
+@RequestMapping("/admin/userController")
 public class UserController extends BaseController {
 
     @Autowired
     private UserService userService;
 
-    @RequestMapping(params = "datagrid")
-    public void datagrid(UserEntity userEntity, HttpServletRequest request, HttpServletResponse response, DataGrid dataGrid) {
+    @RequestMapping(params = "dataGrid")
+    public void dataGrid(UserEntity userEntity, HttpServletRequest request, HttpServletResponse response, DataGrid dataGrid) {
         CriteriaQuery criteriaQuery = new CriteriaQuery(UserEntity.class, dataGrid, request.getParameterMap());
         criteriaQuery.installCriteria();
         DataGridReturn dataGridReturn = userService.getDataGridReturn(criteriaQuery);
