@@ -1,7 +1,354 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="d011a689-1738-441b-9536-fda59732bb4a" name="Default" comment="" />
+    <list default="true" id="d011a689-1738-441b-9536-fda59732bb4a" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/btz-app-service-snapshot-1.0.war" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/btz-app-service-snapshot-1.0/WEB-INF/classes/api/btz/common/constant/SourceConstant.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/btz-app-service-snapshot-1.0/WEB-INF/classes/api/btz/common/json/ApiJson.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/btz-app-service-snapshot-1.0/WEB-INF/classes/api/btz/filter/ApiLoginFilter.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/btz-app-service-snapshot-1.0/WEB-INF/classes/api/btz/function/token/controller/ApiTokenController.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/btz-app-service-snapshot-1.0/WEB-INF/classes/api/btz/function/token/service/ApiTokenService.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/btz-app-service-snapshot-1.0/WEB-INF/classes/api/btz/function/token/service/impl/ApiTokenServiceImpl.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/btz-app-service-snapshot-1.0/WEB-INF/classes/api/btz/function/token/vo/ApiTokenVo.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/btz-app-service-snapshot-1.0/WEB-INF/classes/api/btz/function/user/controller/ApiUserController.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/btz-app-service-snapshot-1.0/WEB-INF/classes/api/btz/function/user/vo/ApiUserVo.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/btz-app-service-snapshot-1.0/WEB-INF/classes/api/btz/function/user/vo/CourseAuthorityVo.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/btz-app-service-snapshot-1.0/WEB-INF/classes/app/btz/common/ajax/AppAjax.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/btz-app-service-snapshot-1.0/WEB-INF/classes/app/btz/common/ajax/AppRequestHeader.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/btz-app-service-snapshot-1.0/WEB-INF/classes/app/btz/common/authority/AuthorityPojo.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/btz-app-service-snapshot-1.0/WEB-INF/classes/app/btz/common/authority/CourseAuthorityPojo.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/btz-app-service-snapshot-1.0/WEB-INF/classes/app/btz/common/authority/CourseAuthorityVo.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/btz-app-service-snapshot-1.0/WEB-INF/classes/app/btz/common/constant/FeedbackConstant.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/btz-app-service-snapshot-1.0/WEB-INF/classes/app/btz/common/constant/NotesConstant.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/btz-app-service-snapshot-1.0/WEB-INF/classes/app/btz/common/constant/SfynConstant.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/btz-app-service-snapshot-1.0/WEB-INF/classes/app/btz/common/constant/TryOutConstant.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/btz-app-service-snapshot-1.0/WEB-INF/classes/app/btz/common/service/AppTokenService.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/btz-app-service-snapshot-1.0/WEB-INF/classes/app/btz/common/service/impl/AppTokenServiceImpl.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/btz-app-service-snapshot-1.0/WEB-INF/classes/app/btz/filter/AppCrossAomainFilter.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/btz-app-service-snapshot-1.0/WEB-INF/classes/app/btz/filter/AppLoginFilter.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/btz-app-service-snapshot-1.0/WEB-INF/classes/app/btz/function/carousel/controller/AppCarouselController.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/btz-app-service-snapshot-1.0/WEB-INF/classes/app/btz/function/course/controller/AppSubCourseController.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/btz-app-service-snapshot-1.0/WEB-INF/classes/app/btz/function/exercise/controller/AppExerciseController.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/btz-app-service-snapshot-1.0/WEB-INF/classes/app/btz/function/feedback/controller/AppFeedbackController.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/btz-app-service-snapshot-1.0/WEB-INF/classes/app/btz/function/feedback/vo/FeedbackVo.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/btz-app-service-snapshot-1.0/WEB-INF/classes/app/btz/function/module/controller/AppModuleController.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/btz-app-service-snapshot-1.0/WEB-INF/classes/app/btz/function/notes/controller/AppNotesController.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/btz-app-service-snapshot-1.0/WEB-INF/classes/app/btz/function/notes/entity/NotesEntity.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/btz-app-service-snapshot-1.0/WEB-INF/classes/app/btz/function/notes/entity/ThumbsUpEntity.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/btz-app-service-snapshot-1.0/WEB-INF/classes/app/btz/function/notes/service/NotesService.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/btz-app-service-snapshot-1.0/WEB-INF/classes/app/btz/function/notes/service/impl/NotesServiceImpl.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/btz-app-service-snapshot-1.0/WEB-INF/classes/app/btz/function/notes/vo/NotesVo.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/btz-app-service-snapshot-1.0/WEB-INF/classes/app/btz/function/testModule/controller/AppTestModuleController.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/btz-app-service-snapshot-1.0/WEB-INF/classes/app/btz/function/testModule/service/AppTestModuleService.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/btz-app-service-snapshot-1.0/WEB-INF/classes/app/btz/function/testModule/service/impl/AppTestModuleServiceImpl.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/btz-app-service-snapshot-1.0/WEB-INF/classes/app/btz/function/testModule/vo/ExerciseVo.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/btz-app-service-snapshot-1.0/WEB-INF/classes/app/btz/function/testModule/vo/ListInfoVo.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/btz-app-service-snapshot-1.0/WEB-INF/classes/app/btz/function/testModule/vo/MainCourseAppVo.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/btz-app-service-snapshot-1.0/WEB-INF/classes/app/btz/function/testModule/vo/ModuleTestRequestVo.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/btz-app-service-snapshot-1.0/WEB-INF/classes/app/btz/function/testModule/vo/ModuleVo.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/btz-app-service-snapshot-1.0/WEB-INF/classes/app/btz/function/testModule/vo/SubCourseAppVo.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/btz-app-service-snapshot-1.0/WEB-INF/classes/app/btz/function/user/controller/AppLoginController.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/btz-app-service-snapshot-1.0/WEB-INF/classes/app/btz/function/user/controller/AppUserController.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/btz-app-service-snapshot-1.0/WEB-INF/classes/app/btz/function/user/service/AppUserService.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/btz-app-service-snapshot-1.0/WEB-INF/classes/app/btz/function/user/service/impl/AppUserServiceImpl.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/btz-app-service-snapshot-1.0/WEB-INF/classes/app/btz/function/user/vo/AppUserVo.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/btz-app-service-snapshot-1.0/WEB-INF/classes/app/btz/function/video/Controller/AppLiveVideoController.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/btz-app-service-snapshot-1.0/WEB-INF/classes/app/btz/function/video/Controller/AppRecordedVideoController.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/btz-app-service-snapshot-1.0/WEB-INF/classes/app/btz/function/video/vo/ChapterLiveVideoVo.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/btz-app-service-snapshot-1.0/WEB-INF/classes/app/btz/function/video/vo/ChapterRecordedVideoVo.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/btz-app-service-snapshot-1.0/WEB-INF/classes/app/btz/function/video/vo/ItemLiveVideoVo.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/btz-app-service-snapshot-1.0/WEB-INF/classes/app/btz/function/video/vo/ItemRecordedVideoVo.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/btz-app-service-snapshot-1.0/WEB-INF/classes/app/btz/function/video/vo/TimeRecordedVideoVo.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/btz-app-service-snapshot-1.0/WEB-INF/classes/app/btz/function/video/vo/TitleRecordedVideoVo.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/btz-app-service-snapshot-1.0/WEB-INF/classes/com/btz/admin/controller/AdminController.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/btz-app-service-snapshot-1.0/WEB-INF/classes/com/btz/admin/entity/AdminEntity.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/btz-app-service-snapshot-1.0/WEB-INF/classes/com/btz/admin/service/AdminService.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/btz-app-service-snapshot-1.0/WEB-INF/classes/com/btz/admin/service/impl/AdminServiceImpl.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/btz-app-service-snapshot-1.0/WEB-INF/classes/com/btz/common/constant/AdminConstants.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/btz-app-service-snapshot-1.0/WEB-INF/classes/com/btz/common/filter/ManagerLoginFilter.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/btz-app-service-snapshot-1.0/WEB-INF/classes/com/btz/contants/QuestionType.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/btz-app-service-snapshot-1.0/WEB-INF/classes/com/btz/course/ConstantChapterLevel.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/btz-app-service-snapshot-1.0/WEB-INF/classes/com/btz/course/controller/CascadeMainSubCourseController.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/btz-app-service-snapshot-1.0/WEB-INF/classes/com/btz/course/controller/ChapterController.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/btz-app-service-snapshot-1.0/WEB-INF/classes/com/btz/course/controller/MainCourseController.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/btz-app-service-snapshot-1.0/WEB-INF/classes/com/btz/course/controller/SubCourseController.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/btz-app-service-snapshot-1.0/WEB-INF/classes/com/btz/course/entity/ChapterEntity.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/btz-app-service-snapshot-1.0/WEB-INF/classes/com/btz/course/entity/MainCourseEntity.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/btz-app-service-snapshot-1.0/WEB-INF/classes/com/btz/course/entity/SubCourseEntity.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/btz-app-service-snapshot-1.0/WEB-INF/classes/com/btz/course/service/ChapterService.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/btz-app-service-snapshot-1.0/WEB-INF/classes/com/btz/course/service/MainCourseService.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/btz-app-service-snapshot-1.0/WEB-INF/classes/com/btz/course/service/SubCourseService.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/btz-app-service-snapshot-1.0/WEB-INF/classes/com/btz/course/service/impl/ChapterServiceImpl.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/btz-app-service-snapshot-1.0/WEB-INF/classes/com/btz/course/service/impl/MainCourseServiceImpl.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/btz-app-service-snapshot-1.0/WEB-INF/classes/com/btz/course/service/impl/SubCourseServiceImpl.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/btz-app-service-snapshot-1.0/WEB-INF/classes/com/btz/course/vo/ChapterPojo.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/btz-app-service-snapshot-1.0/WEB-INF/classes/com/btz/course/vo/ChapterVo.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/btz-app-service-snapshot-1.0/WEB-INF/classes/com/btz/course/vo/MainCourseVo.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/btz-app-service-snapshot-1.0/WEB-INF/classes/com/btz/course/vo/SubCourseVo.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/btz-app-service-snapshot-1.0/WEB-INF/classes/com/btz/exercise/controller/ExerciseController.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/btz-app-service-snapshot-1.0/WEB-INF/classes/com/btz/exercise/entity/ExerciseEntity.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/btz-app-service-snapshot-1.0/WEB-INF/classes/com/btz/exercise/service/ExerciseService.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/btz-app-service-snapshot-1.0/WEB-INF/classes/com/btz/exercise/service/impl/ExerciseServiceImpl.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/btz-app-service-snapshot-1.0/WEB-INF/classes/com/btz/exercise/utils/PoiExcelExerciseUtils.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/btz-app-service-snapshot-1.0/WEB-INF/classes/com/btz/exercise/vo/ChapterVo.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/btz-app-service-snapshot-1.0/WEB-INF/classes/com/btz/exercise/vo/SubCourseVo.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/btz-app-service-snapshot-1.0/WEB-INF/classes/com/btz/feedback/controller/FeedbackController.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/btz-app-service-snapshot-1.0/WEB-INF/classes/com/btz/feedback/entity/FeedbackEntity.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/btz-app-service-snapshot-1.0/WEB-INF/classes/com/btz/feedback/service/FeedbackService.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/btz-app-service-snapshot-1.0/WEB-INF/classes/com/btz/feedback/service/impl/FeedbackServiceImpl.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/btz-app-service-snapshot-1.0/WEB-INF/classes/com/btz/module/controller/ModuleController.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/btz-app-service-snapshot-1.0/WEB-INF/classes/com/btz/module/entity/ModuleEntity.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/btz-app-service-snapshot-1.0/WEB-INF/classes/com/btz/module/service/ModuleService.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/btz-app-service-snapshot-1.0/WEB-INF/classes/com/btz/module/service/impl/ModuleServiceImpl.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/btz-app-service-snapshot-1.0/WEB-INF/classes/com/btz/newsBulletin/carousel/controller/CarouselController.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/btz-app-service-snapshot-1.0/WEB-INF/classes/com/btz/newsBulletin/carousel/entity/CarouselEntity.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/btz-app-service-snapshot-1.0/WEB-INF/classes/com/btz/newsBulletin/carousel/service/CarouselService.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/btz-app-service-snapshot-1.0/WEB-INF/classes/com/btz/newsBulletin/carousel/service/impl/CarouselServiceImpl.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/btz-app-service-snapshot-1.0/WEB-INF/classes/com/btz/newsBulletin/message/controller/MessageController.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/btz-app-service-snapshot-1.0/WEB-INF/classes/com/btz/newsBulletin/message/entity/MessageEntity.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/btz-app-service-snapshot-1.0/WEB-INF/classes/com/btz/newsBulletin/message/service/MessageService.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/btz-app-service-snapshot-1.0/WEB-INF/classes/com/btz/newsBulletin/message/service/impl/MessageServiceImpl.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/btz-app-service-snapshot-1.0/WEB-INF/classes/com/btz/notes/controller/NotesController.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/btz-app-service-snapshot-1.0/WEB-INF/classes/com/btz/poi/Controller/UploadExcelController.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/btz-app-service-snapshot-1.0/WEB-INF/classes/com/btz/poi/pojo/ExerciseExcelPojo.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/btz-app-service-snapshot-1.0/WEB-INF/classes/com/btz/poi/service/DownTestModuleExcel.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/btz-app-service-snapshot-1.0/WEB-INF/classes/com/btz/poi/service/impl/DownTestModuleExcelImpl.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/btz-app-service-snapshot-1.0/WEB-INF/classes/com/btz/poi/utils/CellTypeDataDealUtil.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/btz-app-service-snapshot-1.0/WEB-INF/classes/com/btz/system/global/GlobalService.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/btz-app-service-snapshot-1.0/WEB-INF/classes/com/btz/system/global/impl/GlobalServiceImpl.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/btz-app-service-snapshot-1.0/WEB-INF/classes/com/btz/token/entity/SystemAccountEntity.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/btz-app-service-snapshot-1.0/WEB-INF/classes/com/btz/token/entity/SystemTokenEntity.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/btz-app-service-snapshot-1.0/WEB-INF/classes/com/btz/token/entity/UserTokenEntity.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/btz-app-service-snapshot-1.0/WEB-INF/classes/com/btz/token/service/SystemAccountService.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/btz-app-service-snapshot-1.0/WEB-INF/classes/com/btz/token/service/SystemTokenService.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/btz-app-service-snapshot-1.0/WEB-INF/classes/com/btz/token/service/UserTokenService.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/btz-app-service-snapshot-1.0/WEB-INF/classes/com/btz/token/service/impl/SystemAccountServiceImpl.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/btz-app-service-snapshot-1.0/WEB-INF/classes/com/btz/token/service/impl/SystemTokenServiceImpl.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/btz-app-service-snapshot-1.0/WEB-INF/classes/com/btz/token/service/impl/UserTokenServiceImpl.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/btz-app-service-snapshot-1.0/WEB-INF/classes/com/btz/user/controller/UserController.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/btz-app-service-snapshot-1.0/WEB-INF/classes/com/btz/user/entity/UserEntity.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/btz-app-service-snapshot-1.0/WEB-INF/classes/com/btz/user/service/UserService.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/btz-app-service-snapshot-1.0/WEB-INF/classes/com/btz/user/service/impl/UserServiceImpl.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/btz-app-service-snapshot-1.0/WEB-INF/classes/com/btz/utils/BelongToEnum.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/btz-app-service-snapshot-1.0/WEB-INF/classes/com/btz/utils/Constant.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/btz-app-service-snapshot-1.0/WEB-INF/classes/com/btz/utils/ExerciseTypeEnum.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/btz-app-service-snapshot-1.0/WEB-INF/classes/com/btz/utils/SessionConstants.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/btz-app-service-snapshot-1.0/WEB-INF/classes/com/btz/video/live/controller/CourseLiveVideoController.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/btz-app-service-snapshot-1.0/WEB-INF/classes/com/btz/video/live/entity/CourseLiveVideoEntity.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/btz-app-service-snapshot-1.0/WEB-INF/classes/com/btz/video/live/service/CourseLiveVideoService.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/btz-app-service-snapshot-1.0/WEB-INF/classes/com/btz/video/live/service/impl/CourseLiveVideoServiceImpl.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/btz-app-service-snapshot-1.0/WEB-INF/classes/com/btz/video/live/vo/LiveVideoPojo.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/btz-app-service-snapshot-1.0/WEB-INF/classes/com/btz/video/poi/service/PoiVideoService.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/btz-app-service-snapshot-1.0/WEB-INF/classes/com/btz/video/poi/service/impl/PoiVideoServiceImpl.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/btz-app-service-snapshot-1.0/WEB-INF/classes/com/btz/video/recorded/controller/CourseRecordedVideoController.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/btz-app-service-snapshot-1.0/WEB-INF/classes/com/btz/video/recorded/entity/CourseRecordedVideoEntity.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/btz-app-service-snapshot-1.0/WEB-INF/classes/com/btz/video/recorded/service/CourseRecordedVideoService.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/btz-app-service-snapshot-1.0/WEB-INF/classes/com/btz/video/recorded/service/impl/CourseRecordedVideoServiceImpl.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/btz-app-service-snapshot-1.0/WEB-INF/classes/com/btz/video/recorded/vo/RecordedVideoPojo.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/btz-app-service-snapshot-1.0/WEB-INF/classes/org/framework/core/common/constant/PoiConstant.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/btz-app-service-snapshot-1.0/WEB-INF/classes/org/framework/core/common/constant/SortDirection.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/btz-app-service-snapshot-1.0/WEB-INF/classes/org/framework/core/common/constant/SystemConstant.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/btz-app-service-snapshot-1.0/WEB-INF/classes/org/framework/core/common/controller/BaseController.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/btz-app-service-snapshot-1.0/WEB-INF/classes/org/framework/core/common/dao/BaseDao.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/btz-app-service-snapshot-1.0/WEB-INF/classes/org/framework/core/common/dao/impl/BaseDaoImpl.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/btz-app-service-snapshot-1.0/WEB-INF/classes/org/framework/core/common/entity/IdEntity.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/btz-app-service-snapshot-1.0/WEB-INF/classes/org/framework/core/common/model/json/AjaxJson.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/btz-app-service-snapshot-1.0/WEB-INF/classes/org/framework/core/common/model/json/DataGrid.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/btz-app-service-snapshot-1.0/WEB-INF/classes/org/framework/core/common/model/json/DataGridReturn.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/btz-app-service-snapshot-1.0/WEB-INF/classes/org/framework/core/common/model/json/FilterAjaxJson.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/btz-app-service-snapshot-1.0/WEB-INF/classes/org/framework/core/common/model/json/TreeGrid.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/btz-app-service-snapshot-1.0/WEB-INF/classes/org/framework/core/common/service/BaseService.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/btz-app-service-snapshot-1.0/WEB-INF/classes/org/framework/core/common/service/impl/BaseServiceImpl.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/btz-app-service-snapshot-1.0/WEB-INF/classes/org/framework/core/common/system/BusinessException.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/btz-app-service-snapshot-1.0/WEB-INF/classes/org/framework/core/easyui/hibernate/CriteriaQuery.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/btz-app-service-snapshot-1.0/WEB-INF/classes/org/framework/core/excel/ExportExcelUtil.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/btz-app-service-snapshot-1.0/WEB-INF/classes/org/framework/core/utils/BeanUtils.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/btz-app-service-snapshot-1.0/WEB-INF/classes/org/framework/core/utils/ContextHolderUtils.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/btz-app-service-snapshot-1.0/WEB-INF/classes/org/framework/core/utils/DatagridJsonUtils.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/btz-app-service-snapshot-1.0/WEB-INF/classes/org/framework/core/utils/DateStyle.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/btz-app-service-snapshot-1.0/WEB-INF/classes/org/framework/core/utils/DateUtils.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/btz-app-service-snapshot-1.0/WEB-INF/classes/org/framework/core/utils/PasswordUtil.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/btz-app-service-snapshot-1.0/WEB-INF/classes/org/framework/core/utils/StringUtils.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/btz-app-service-snapshot-1.0/WEB-INF/classes/org/framework/core/utils/TokenGeneratorUtil.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/btz-app-service-snapshot-1.0/WEB-INF/classes/org/framework/core/utils/Week.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/btz-app-service-snapshot-1.0/WEB-INF/classes/org/framework/web/service/SystemService.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/btz-app-service-snapshot-1.0/WEB-INF/classes/org/framework/web/service/impl/SystemServiceImpl.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/btz-app-service-snapshot-1.0/WEB-INF/lib/ant-1.8.2.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/btz-app-service-snapshot-1.0/WEB-INF/lib/ant-launcher-1.8.2.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/btz-app-service-snapshot-1.0/WEB-INF/lib/antlr-2.7.7.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/btz-app-service-snapshot-1.0/WEB-INF/lib/cdi-api-1.1.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/btz-app-service-snapshot-1.0/WEB-INF/lib/classmate-1.3.0.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/btz-app-service-snapshot-1.0/WEB-INF/lib/commons-beanutils-1.9.3.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/btz-app-service-snapshot-1.0/WEB-INF/lib/commons-codec-1.10.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/btz-app-service-snapshot-1.0/WEB-INF/lib/commons-collections-3.2.1.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/btz-app-service-snapshot-1.0/WEB-INF/lib/commons-collections4-4.1.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/btz-app-service-snapshot-1.0/WEB-INF/lib/commons-fileupload-1.3.1.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/btz-app-service-snapshot-1.0/WEB-INF/lib/commons-io-2.2.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/btz-app-service-snapshot-1.0/WEB-INF/lib/commons-lang-2.4.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/btz-app-service-snapshot-1.0/WEB-INF/lib/commons-logging-1.2.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/btz-app-service-snapshot-1.0/WEB-INF/lib/commons-pool-1.6.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/btz-app-service-snapshot-1.0/WEB-INF/lib/curvesapi-1.04.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/btz-app-service-snapshot-1.0/WEB-INF/lib/dom4j-1.6.1.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/btz-app-service-snapshot-1.0/WEB-INF/lib/druid-1.0.17.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/btz-app-service-snapshot-1.0/WEB-INF/lib/el-api-2.2.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/btz-app-service-snapshot-1.0/WEB-INF/lib/fastjson-1.2.25.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/btz-app-service-snapshot-1.0/WEB-INF/lib/geronimo-jta_1.1_spec-1.1.1.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/btz-app-service-snapshot-1.0/WEB-INF/lib/hibernate-commons-annotations-5.0.1.Final.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/btz-app-service-snapshot-1.0/WEB-INF/lib/hibernate-core-5.2.5.Final.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/btz-app-service-snapshot-1.0/WEB-INF/lib/hibernate-jpa-2.1-api-1.0.0.Final.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/btz-app-service-snapshot-1.0/WEB-INF/lib/httpclient-4.5.2.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/btz-app-service-snapshot-1.0/WEB-INF/lib/httpcore-4.4.4.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/btz-app-service-snapshot-1.0/WEB-INF/lib/jandex-2.0.3.Final.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/btz-app-service-snapshot-1.0/WEB-INF/lib/javassist-3.20.0-GA.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/btz-app-service-snapshot-1.0/WEB-INF/lib/javax.inject-1.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/btz-app-service-snapshot-1.0/WEB-INF/lib/jboss-interceptors-api_1.1_spec-1.0.0.Beta1.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/btz-app-service-snapshot-1.0/WEB-INF/lib/jboss-logging-3.3.0.Final.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/btz-app-service-snapshot-1.0/WEB-INF/lib/jsr250-api-1.0.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/btz-app-service-snapshot-1.0/WEB-INF/lib/jstl-1.2.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/btz-app-service-snapshot-1.0/WEB-INF/lib/log4j-api-2.6.2.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/btz-app-service-snapshot-1.0/WEB-INF/lib/log4j-core-2.6.2.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/btz-app-service-snapshot-1.0/WEB-INF/lib/log4j-web-2.6.2.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/btz-app-service-snapshot-1.0/WEB-INF/lib/mysql-connector-java-5.1.38.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/btz-app-service-snapshot-1.0/WEB-INF/lib/poi-3.15.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/btz-app-service-snapshot-1.0/WEB-INF/lib/poi-examples-3.15.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/btz-app-service-snapshot-1.0/WEB-INF/lib/poi-excelant-3.15.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/btz-app-service-snapshot-1.0/WEB-INF/lib/poi-ooxml-3.15.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/btz-app-service-snapshot-1.0/WEB-INF/lib/poi-ooxml-schemas-3.15.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/btz-app-service-snapshot-1.0/WEB-INF/lib/poi-scratchpad-3.15.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/btz-app-service-snapshot-1.0/WEB-INF/lib/spring-aop-4.3.6.RELEASE.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/btz-app-service-snapshot-1.0/WEB-INF/lib/spring-beans-4.3.6.RELEASE.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/btz-app-service-snapshot-1.0/WEB-INF/lib/spring-context-4.3.6.RELEASE.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/btz-app-service-snapshot-1.0/WEB-INF/lib/spring-core-4.3.6.RELEASE.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/btz-app-service-snapshot-1.0/WEB-INF/lib/spring-expression-4.3.6.RELEASE.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/btz-app-service-snapshot-1.0/WEB-INF/lib/spring-jdbc-4.3.6.RELEASE.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/btz-app-service-snapshot-1.0/WEB-INF/lib/spring-orm-4.3.6.RELEASE.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/btz-app-service-snapshot-1.0/WEB-INF/lib/spring-tx-4.3.6.RELEASE.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/btz-app-service-snapshot-1.0/WEB-INF/lib/spring-web-4.3.6.RELEASE.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/btz-app-service-snapshot-1.0/WEB-INF/lib/spring-webmvc-4.3.6.RELEASE.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/btz-app-service-snapshot-1.0/WEB-INF/lib/stax-api-1.0.1.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/btz-app-service-snapshot-1.0/WEB-INF/lib/xmlbeans-2.6.0.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/api/btz/common/constant/SourceConstant.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/api/btz/common/json/ApiJson.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/api/btz/filter/ApiLoginFilter.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/api/btz/function/token/controller/ApiTokenController.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/api/btz/function/token/service/ApiTokenService.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/api/btz/function/token/service/impl/ApiTokenServiceImpl.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/api/btz/function/token/vo/ApiTokenVo.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/api/btz/function/user/controller/ApiUserController.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/api/btz/function/user/vo/ApiUserVo.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/api/btz/function/user/vo/CourseAuthorityVo.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/app/btz/common/ajax/AppAjax.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/app/btz/common/ajax/AppRequestHeader.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/app/btz/common/authority/AuthorityPojo.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/app/btz/common/authority/CourseAuthorityPojo.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/app/btz/common/authority/CourseAuthorityVo.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/app/btz/common/constant/FeedbackConstant.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/app/btz/common/constant/NotesConstant.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/app/btz/common/constant/SfynConstant.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/app/btz/common/constant/TryOutConstant.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/app/btz/common/service/AppTokenService.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/app/btz/common/service/impl/AppTokenServiceImpl.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/app/btz/filter/AppCrossAomainFilter.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/app/btz/filter/AppLoginFilter.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/app/btz/function/carousel/controller/AppCarouselController.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/app/btz/function/course/controller/AppSubCourseController.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/app/btz/function/exercise/controller/AppExerciseController.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/app/btz/function/feedback/controller/AppFeedbackController.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/app/btz/function/feedback/vo/FeedbackVo.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/app/btz/function/module/controller/AppModuleController.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/app/btz/function/notes/controller/AppNotesController.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/app/btz/function/notes/entity/NotesEntity.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/app/btz/function/notes/entity/ThumbsUpEntity.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/app/btz/function/notes/service/NotesService.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/app/btz/function/notes/service/impl/NotesServiceImpl.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/app/btz/function/notes/vo/NotesVo.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/app/btz/function/testModule/controller/AppTestModuleController.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/app/btz/function/testModule/service/AppTestModuleService.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/app/btz/function/testModule/service/impl/AppTestModuleServiceImpl.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/app/btz/function/testModule/vo/ExerciseVo.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/app/btz/function/testModule/vo/ListInfoVo.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/app/btz/function/testModule/vo/MainCourseAppVo.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/app/btz/function/testModule/vo/ModuleTestRequestVo.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/app/btz/function/testModule/vo/ModuleVo.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/app/btz/function/testModule/vo/SubCourseAppVo.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/app/btz/function/user/controller/AppLoginController.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/app/btz/function/user/controller/AppUserController.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/app/btz/function/user/service/AppUserService.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/app/btz/function/user/service/impl/AppUserServiceImpl.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/app/btz/function/user/vo/AppUserVo.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/app/btz/function/video/Controller/AppLiveVideoController.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/app/btz/function/video/Controller/AppRecordedVideoController.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/app/btz/function/video/vo/ChapterLiveVideoVo.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/app/btz/function/video/vo/ChapterRecordedVideoVo.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/app/btz/function/video/vo/ItemLiveVideoVo.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/app/btz/function/video/vo/ItemRecordedVideoVo.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/app/btz/function/video/vo/TimeRecordedVideoVo.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/app/btz/function/video/vo/TitleRecordedVideoVo.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/com/btz/common/constant/AdminConstants.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/com/btz/common/filter/ManagerLoginFilter.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/com/btz/contants/QuestionType.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/com/btz/exercise/vo/ChapterVo.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/com/btz/exercise/vo/SubCourseVo.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/com/btz/feedback/controller/FeedbackController.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/com/btz/feedback/entity/FeedbackEntity.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/com/btz/feedback/service/FeedbackService.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/com/btz/feedback/service/impl/FeedbackServiceImpl.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/com/btz/module/controller/ModuleController.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/com/btz/module/entity/ModuleEntity.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/com/btz/module/service/ModuleService.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/com/btz/module/service/impl/ModuleServiceImpl.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/com/btz/notes/controller/NotesController.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/com/btz/poi/pojo/ExerciseExcelPojo.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/com/btz/poi/service/DownTestModuleExcel.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/com/btz/poi/service/impl/DownTestModuleExcelImpl.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/com/btz/poi/utils/CellTypeDataDealUtil.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/com/btz/token/entity/SystemAccountEntity.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/com/btz/token/entity/SystemTokenEntity.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/com/btz/token/entity/UserTokenEntity.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/com/btz/token/service/SystemAccountService.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/com/btz/token/service/SystemTokenService.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/com/btz/token/service/UserTokenService.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/com/btz/token/service/impl/SystemAccountServiceImpl.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/com/btz/token/service/impl/SystemTokenServiceImpl.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/com/btz/token/service/impl/UserTokenServiceImpl.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/com/btz/utils/BelongToEnum.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/com/btz/utils/ExerciseTypeEnum.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/com/btz/utils/SessionConstants.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/com/btz/video/live/controller/CourseLiveVideoController.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/com/btz/video/live/entity/CourseLiveVideoEntity.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/com/btz/video/live/service/CourseLiveVideoService.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/com/btz/video/live/service/impl/CourseLiveVideoServiceImpl.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/com/btz/video/live/vo/LiveVideoPojo.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/com/btz/video/poi/service/PoiVideoService.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/com/btz/video/poi/service/impl/PoiVideoServiceImpl.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/com/btz/video/recorded/controller/CourseRecordedVideoController.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/com/btz/video/recorded/entity/CourseRecordedVideoEntity.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/com/btz/video/recorded/service/CourseRecordedVideoService.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/com/btz/video/recorded/service/impl/CourseRecordedVideoServiceImpl.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/com/btz/video/recorded/vo/RecordedVideoPojo.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/org/framework/core/common/constant/SystemConstant.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/org/framework/core/common/model/json/FilterAjaxJson.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/org/framework/core/common/system/BusinessException.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/org/framework/core/excel/ExportExcelUtil.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/org/framework/core/utils/ContextHolderUtils.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/org/framework/core/utils/DateStyle.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/org/framework/core/utils/TokenGeneratorUtil.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/org/framework/core/utils/Week.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/test-classes/com/btz/HttpClientTest.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/test-classes/com/btz/QuestionTypeTest.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/btz-app-service-snapshot-1.0/META-INF/MANIFEST.MF" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/btz-app-service-snapshot-1.0/WEB-INF/classes/DBConfig.properties" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/btz-app-service-snapshot-1.0/WEB-INF/classes/log4j2.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/btz-app-service-snapshot-1.0/WEB-INF/classes/spring-context.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/btz-app-service-snapshot-1.0/WEB-INF/classes/spring-mvc.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/btz-app-service-snapshot-1.0/WEB-INF/web.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/btz-app-service-snapshot-1.0/index.jsp" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/maven-archiver/pom.properties" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+    </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -108,7 +455,7 @@
       <file leaf-file-name="MainCourseController.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/btz/course/controller/MainCourseController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="372">
+            <state relative-caret-position="102">
               <caret line="27" column="38" lean-forward="false" selection-start-line="27" selection-start-column="18" selection-end-line="27" selection-end-column="38" />
               <folding />
             </state>
@@ -146,6 +493,9 @@
       <find>AdminEntity</find>
       <find>state</find>
     </findStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="GradleLocalSettings">
     <option name="externalProjectsViewState">
@@ -236,10 +586,10 @@
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="935" />
-    <option name="y" value="33" />
-    <option name="width" value="1807" />
-    <option name="height" value="1236" />
+    <option name="x" value="-8" />
+    <option name="y" value="-8" />
+    <option name="width" value="2576" />
+    <option name="height" value="1416" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -275,6 +625,7 @@
       <foldersAlwaysOnTop value="false" />
     </navigator>
     <panes>
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -287,9 +638,75 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="btz-app-admin-service" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="btz-app-admin-service" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="btz-app-admin-service" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="btz-app-admin-service" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="btz-app-admin-service" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="btz-app-admin-service" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="btz" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
-      <pane id="Scratches" />
+      <pane id="Scope" />
       <pane id="PackagesPane">
         <subPane>
           <PATH>
@@ -304,7 +721,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -858,11 +1274,13 @@
       <workItem from="1496832506225" duration="8000" />
       <workItem from="1496832652667" duration="97000" />
       <workItem from="1496832986394" duration="139000" />
+      <workItem from="1501403560969" duration="209000" />
+      <workItem from="1501403792354" duration="258000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="135080000" />
+    <option name="totallyTimeSpent" value="135547000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -874,12 +1292,12 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="935" y="33" width="1807" height="1236" extended-state="0" />
+    <frame x="-8" y="-8" width="2576" height="1416" extended-state="0" />
     <editor active="false" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Nl-Palette" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3285985" sideWeight="0.5020313" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.28119937" sideWeight="0.50160515" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32847896" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="CDI" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -892,16 +1310,15 @@
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.5409524" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32928804" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.27750808" sideWeight="0.48916534" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32928804" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.51704544" sideWeight="0.71038884" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32901135" sideWeight="0.49839488" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32928804" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3285985" sideWeight="0.49796867" order="12" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.36796287" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" x="1524" y="225" width="492" height="781" />
+      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32901135" sideWeight="0.49564713" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.26243982" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" x="1524" y="225" width="492" height="781" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="true" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -909,12 +1326,43 @@
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.27750808" sideWeight="0.48916534" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="processedProjectFiles" value="true" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="LONG_EDGES_VISIBLE" value="true" />
+              <option name="RECENTLY_FILTERED_USER_GROUPS">
+                <collection />
+              </option>
+              <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
+                <collection />
+              </option>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="master" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
@@ -1299,7 +1747,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/btz/course/controller/MainCourseController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="372">
+        <state relative-caret-position="102">
           <caret line="27" column="38" lean-forward="false" selection-start-line="27" selection-start-column="18" selection-end-line="27" selection-end-column="38" />
           <folding />
         </state>
