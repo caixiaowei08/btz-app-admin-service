@@ -4,7 +4,7 @@
 		<!--定义变量-->
 		<property name="LOG_HOME">${sys:catalina.home}/../log</property>
 		<property name="BACKUP_HOME">{LOG_HOME}/../backup</property>
-		<property name="SERVER_NAME">app</property>
+		<property name="SERVER_NAME">btz-app-admin-service</property>
 	</Properties>
 	<Appenders>
 		<Console name="Console" target="SYSTEM_OUT">
@@ -30,7 +30,7 @@
 		<logger name="org.eclipse.jetty" level="ERROR" />
 		<Root level="ALL">
 			<appender-ref ref="appLog" />
-			<AppenderRef ref="Console"/>
+			<!--<AppenderRef ref="Console"/>-->
 		</Root>
 	</Loggers>
 </Configuration>
