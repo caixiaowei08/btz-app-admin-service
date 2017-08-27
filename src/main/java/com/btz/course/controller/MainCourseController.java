@@ -1,5 +1,6 @@
 package com.btz.course.controller;
 
+import com.btz.cascade.service.CascadeDataService;
 import com.btz.course.entity.MainCourseEntity;
 import com.btz.course.service.MainCourseService;
 import com.btz.system.global.GlobalService;
@@ -30,6 +31,9 @@ import java.util.Date;
 public class MainCourseController extends BaseController {
     @Autowired
     private MainCourseService mainCourseService;
+
+    @Autowired
+    private CascadeDataService cascadeDataService;
 
     @RequestMapping(params = "datagrid")
     public void datagrid(MainCourseEntity mainCourseEntity, HttpServletRequest request, HttpServletResponse response, DataGrid dataGrid) {
@@ -93,7 +97,8 @@ public class MainCourseController extends BaseController {
                 String[] id_array = ids.split(",");
                 for (int i = 0; i < id_array.length; i++) {
                     mainCourseEntity = mainCourseService.get(MainCourseEntity.class, Integer.parseInt(id_array[i]));
-                    mainCourseService.delete(mainCourseEntity);
+                    //mainCourseService.delete(mainCourseEntity);
+                    cascadeDataService.deleteMainCourseByMainCourseId(mainCourseEntity);
                 }
             } else {
                 j.setSuccess(AjaxJson.CODE_FAIL);

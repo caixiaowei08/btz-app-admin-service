@@ -10,6 +10,7 @@ import com.btz.system.global.GlobalService;
 import com.btz.utils.BelongToEnum;
 import com.btz.video.poi.service.PoiVideoService;
 import com.btz.video.recorded.entity.CourseRecordedVideoEntity;
+import com.btz.video.recorded.pojo.CoursePojo;
 import com.btz.video.recorded.service.CourseRecordedVideoService;
 import com.btz.video.recorded.vo.RecordedVideoPojo;
 import org.apache.commons.collections.CollectionUtils;
@@ -172,14 +173,14 @@ public class CourseRecordedVideoController extends BaseController {
     public AjaxJson get(CourseRecordedVideoEntity courseRecordedVideoEntity, HttpServletRequest request, HttpServletResponse response) {
         AjaxJson j = new AjaxJson();
         Integer id = courseRecordedVideoEntity.getId();
-        if(id == null){
+        if (id == null) {
             j.setSuccess(AjaxJson.CODE_FAIL);
             j.setMsg("请输入需要修改的数据ID！");
             return j;
         }
 
         CourseRecordedVideoEntity courseRecordedVideoDb = courseRecordedVideoService.get(CourseRecordedVideoEntity.class, id);
-        if(courseRecordedVideoDb == null){
+        if (courseRecordedVideoDb == null) {
             j.setSuccess(AjaxJson.CODE_FAIL);
             j.setMsg("该视频信息不存在或者被删除！");
             return j;
@@ -190,10 +191,10 @@ public class CourseRecordedVideoController extends BaseController {
     }
 
     @RequestMapping(params = "downLoadExcel")
-    public void downLoadExcel(CourseRecordedVideoEntity courseRecordedVideoEntity , HttpServletRequest request, HttpServletResponse response) {
+    public void downLoadExcel(CourseRecordedVideoEntity courseRecordedVideoEntity, HttpServletRequest request, HttpServletResponse response) {
         SubCourseEntity subCourseEntity = globalService.get(SubCourseEntity.class, courseRecordedVideoEntity.getSubCourseId());
-        List<RecordedVideoPojo> recordedVideoPojoList = courseRecordedVideoService.getExcelTemplet(subCourseEntity);
-        poiVideoService.downLoadCourseRecordedVideoExcel(recordedVideoPojoList,request,response,subCourseEntity.getSubName());
+        CoursePojo coursePojo = courseRecordedVideoService.getExcelTemplet(subCourseEntity);
+        poiVideoService.downLoadCourseRecordedVideoExcel(coursePojo, request, response, subCourseEntity.getSubName());
     }
 
     @RequestMapping(params = "uploadExcel")
@@ -212,9 +213,9 @@ public class CourseRecordedVideoController extends BaseController {
         List<CourseRecordedVideoEntity> courseRecordedVideoEntityList = null;
         String postfix = org.framework.core.utils.StringUtils.getPostfix(newFileName);
         try {
-            if(StringUtils.hasText(postfix)&& PoiConstant.OFFICE_EXCEL_2010_POSTFIX.equals(postfix)){
+            if (StringUtils.hasText(postfix) && PoiConstant.OFFICE_EXCEL_2010_POSTFIX.equals(postfix)) {
                 courseRecordedVideoEntityList = courseRecordedVideoService.readXlsxToCourseRecordedVideoEntity(filelocal);
-            }else{
+            } else {
                 j.setSuccess(AjaxJson.CODE_FAIL);
                 j.setMsg("仅支持 Excel xlsx 2007文件！");
                 return j;
@@ -224,32 +225,21 @@ public class CourseRecordedVideoController extends BaseController {
             j.setSuccess(AjaxJson.CODE_FAIL);
             j.setMsg("文档异常，请确认文档格式正确性！");
             return j;
-        }catch (BusinessException be){
+        } catch (BusinessException be) {
             logger.error(be.fillInStackTrace());
             j.setSuccess(AjaxJson.CODE_FAIL);
             j.setMsg(be.getMessage());
             return j;
-        }finally {
+        } finally {
             if (filelocal.isFile() && filelocal.exists()) {
                 filelocal.delete();
             }
         }
 
         try {
-            if(CollectionUtils.isNotEmpty(courseRecordedVideoEntityList)){
-                for (int i = 0; i < courseRecordedVideoEntityList.size(); i++) {
-                    CourseRecordedVideoEntity  courseRecordedVideoEntity = courseRecordedVideoEntityList.get(i);
-                    DetachedCriteria moduleCourseDetachedCriteria = DetachedCriteria.forClass(ModuleEntity.class);
-                    moduleCourseDetachedCriteria.add(Restrictions.eq("subCourseId",courseRecordedVideoEntity.getSubCourseId()));
-                    moduleCourseDetachedCriteria.add(Restrictions.eq("type",BelongToEnum.RECORDED_VIDEO.getIndex()));
-                    List<ModuleEntity> moduleEntityList = globalService.getListByCriteriaQuery(moduleCourseDetachedCriteria);
-                    courseRecordedVideoEntity.setModuleId(moduleEntityList.get(0).getId());
-                    courseRecordedVideoEntity.setModuleType(moduleEntityList.get(0).getType());
-                    courseRecordedVideoEntity.setCreateTime(new Date());
-                    courseRecordedVideoEntity.setUpdateTime(new Date());
-                }
+            if (CollectionUtils.isNotEmpty(courseRecordedVideoEntityList)) {
                 courseRecordedVideoService.batchSave(courseRecordedVideoEntityList);
-            }else{
+            } else {
                 j.setSuccess(AjaxJson.CODE_FAIL);
                 j.setMsg("数据保存错误，请检查数据是否完成整！");
                 return j;
@@ -262,7 +252,6 @@ public class CourseRecordedVideoController extends BaseController {
         }
         return j;
     }
-
 
 
 }

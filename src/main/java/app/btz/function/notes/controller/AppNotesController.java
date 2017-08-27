@@ -72,8 +72,8 @@ public class AppNotesController extends BaseController {
             return j;
         }
 
-        if(StringUtils.isEmpty(notesVo.getExerciseId())){
-           return doAddWithoutExerciseId(userEntity,notesVo);
+        if (StringUtils.isEmpty(notesVo.getExerciseId())) {
+            return doAddWithoutExerciseId(userEntity, notesVo);
         }
 
         ExerciseEntity exerciseEntity = exerciseService.get(ExerciseEntity.class, notesVo.getExerciseId());
@@ -108,7 +108,7 @@ public class AppNotesController extends BaseController {
         return j;
     }
 
-    public AppAjax doAddWithoutExerciseId(UserEntity userEntity,NotesVo notesVo) {
+    public AppAjax doAddWithoutExerciseId(UserEntity userEntity, NotesVo notesVo) {
         AppAjax j = new AppAjax();
         NotesEntity notesEntity = new NotesEntity();
         notesEntity.setSubCourseId(notesVo.getSubCourseId());
@@ -146,21 +146,21 @@ public class AppNotesController extends BaseController {
             j.setMsg("登录失效！");
             return j;
         }
-        NotesEntity notesEntity = notesService.get(NotesEntity.class,notesVo.getId());
+        NotesEntity notesEntity = notesService.get(NotesEntity.class, notesVo.getId());
         if (notesEntity == null) {
             j.setReturnCode(AppAjax.FAIL);
             j.setMsg("题目已被删除！");
             return j;
         }
 
-        if(!userEntity.getId().equals(notesEntity.getUserId())){
+        if (!userEntity.getId().equals(notesEntity.getUserId())) {
             j.setReturnCode(AppAjax.FAIL);
             j.setMsg("用户只能删除自己的笔记！");
             return j;
         }
         try {
             notesService.delete(notesEntity);
-        }catch (Exception e){
+        } catch (Exception e) {
             logger.error(e.fillInStackTrace());
             j.setReturnCode(AppAjax.FAIL);
             j.setMsg("删除笔记失败！");
@@ -173,13 +173,13 @@ public class AppNotesController extends BaseController {
 
     @RequestMapping(params = "doGetAllNotesByExerciseId")
     @ResponseBody
-    public AjaxJson doGetNotesByExerciseId(NotesVo notesVo, HttpServletRequest request, HttpServletResponse response) {
-        AjaxJson j = new AjaxJson();
+    public AppAjax doGetNotesByExerciseId(NotesVo notesVo, HttpServletRequest request, HttpServletResponse response) {
+        AppAjax j = new AppAjax();
         DetachedCriteria detachedCriteria = DetachedCriteria.forClass(NotesEntity.class);
-        detachedCriteria.add(Restrictions.eq("status",NotesConstant.PASS));
-        detachedCriteria.add(Restrictions.eq("exerciseId",notesVo.getExerciseId()));
+        detachedCriteria.add(Restrictions.eq("status", NotesConstant.PASS));
+        detachedCriteria.add(Restrictions.eq("exerciseId", notesVo.getExerciseId()));
         List<NotesEntity> notesEntityList = notesService.getListByCriteriaQuery(detachedCriteria);
-        j.setSuccess(AjaxJson.CODE_SUCCESS);
+        j.setReturnCode(AppAjax.SUCCESS);
         j.setContent(notesEntityList);
         return j;
     }
@@ -195,10 +195,10 @@ public class AppNotesController extends BaseController {
             return j;
         }
         DetachedCriteria detachedCriteria = DetachedCriteria.forClass(NotesEntity.class);
-        detachedCriteria.add(Restrictions.eq("exerciseId",notesVo.getExerciseId()));
+        detachedCriteria.add(Restrictions.eq("exerciseId", notesVo.getExerciseId()));
         detachedCriteria.add(Restrictions.or(
-                Restrictions.eq("userId",userEntity.getId()),
-                Restrictions.eq("status",NotesConstant.PASS)
+                Restrictions.eq("userId", userEntity.getId()),
+                Restrictions.eq("status", NotesConstant.PASS)
         ));
         detachedCriteria.addOrder(Order.desc("createTime"));
         List<NotesEntity> notesEntityList = notesService.getListByCriteriaQuery(detachedCriteria);
@@ -218,8 +218,8 @@ public class AppNotesController extends BaseController {
             return j;
         }
         DetachedCriteria detachedCriteria = DetachedCriteria.forClass(NotesEntity.class);
-        detachedCriteria.add(Restrictions.eq("subCourseId",notesVo.getSubCourseId()));
-        detachedCriteria.add(Restrictions.eq("userId",userEntity.getId()));
+        detachedCriteria.add(Restrictions.eq("subCourseId", notesVo.getSubCourseId()));
+        detachedCriteria.add(Restrictions.eq("userId", userEntity.getId()));
         detachedCriteria.addOrder(Order.desc("createTime"));
         List<NotesEntity> notesEntityList = notesService.getListByCriteriaQuery(detachedCriteria);
         j.setSuccess(AjaxJson.CODE_SUCCESS);
@@ -238,30 +238,28 @@ public class AppNotesController extends BaseController {
             return j;
         }
         DetachedCriteria thumbsUpDetachedCriteria = DetachedCriteria.forClass(ThumbsUpEntity.class);
-        thumbsUpDetachedCriteria.add(Restrictions.eq("notesId",notesVo.getId()));
-        thumbsUpDetachedCriteria.add(Restrictions.eq("userId",userEntity.getId()));
+        thumbsUpDetachedCriteria.add(Restrictions.eq("notesId", notesVo.getId()));
+        thumbsUpDetachedCriteria.add(Restrictions.eq("userId", userEntity.getId()));
         List<ThumbsUpEntity> thumbsUpEntityList = globalService.getListByCriteriaQuery(thumbsUpDetachedCriteria);
 
-        NotesEntity notesEntity = notesService.get(NotesEntity.class,notesVo.getId());
-        if(CollectionUtils.isNotEmpty(thumbsUpEntityList)){
+        NotesEntity notesEntity = notesService.get(NotesEntity.class, notesVo.getId());
+        if (CollectionUtils.isNotEmpty(thumbsUpEntityList)) {
             j.setContent(notesEntity.getThumbsUp());
             return j;
         }
-        notesEntity.setThumbsUp(notesEntity.getThumbsUp()+1);
+        notesEntity.setThumbsUp(notesEntity.getThumbsUp() + 1);
         ThumbsUpEntity thumbsUpEntity = new ThumbsUpEntity();
         thumbsUpEntity.setNotesId(notesVo.getId());
         thumbsUpEntity.setUserId(userEntity.getId());
         try {
             globalService.save(thumbsUpEntity);
             notesService.saveOrUpdate(notesEntity);
-        }catch (Exception e){
+        } catch (Exception e) {
             logger.error(e.fillInStackTrace());
         }
-       j.setContent(notesEntity.getThumbsUp());
+        j.setContent(notesEntity.getThumbsUp());
         return j;
     }
-
-
 
 
 }

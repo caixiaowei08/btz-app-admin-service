@@ -1,6 +1,7 @@
 package com.btz.course.controller;
 
 import app.btz.function.exercise.controller.AppExerciseController;
+import com.btz.cascade.service.CascadeDataService;
 import com.btz.course.entity.SubCourseEntity;
 import com.btz.course.service.SubCourseService;
 import org.apache.logging.log4j.LogManager;
@@ -36,6 +37,9 @@ public class SubCourseController extends BaseController {
 
     @Autowired
     private SubCourseService subCourseService;
+
+    @Autowired
+    private CascadeDataService cascadeDataService;
 
     @RequestMapping(params = "datagrid")
     public void datagrid(SubCourseEntity subCourseEntity, HttpServletRequest request, HttpServletResponse response, DataGrid dataGrid) {
@@ -111,7 +115,8 @@ public class SubCourseController extends BaseController {
                 String[] id_array = ids.split(",");
                 for (int i = 0; i < id_array.length; i++) {
                     subCourseEntity = subCourseService.get(SubCourseEntity.class, Integer.parseInt(id_array[i]));
-                    subCourseService.delete(subCourseEntity);
+                    //subCourseService.delete(subCourseEntity);
+                    cascadeDataService.deleteSubCourseBySubCourseId(subCourseEntity);
                 }
             } else {
                 j.setSuccess(AjaxJson.CODE_FAIL);

@@ -1,5 +1,6 @@
 package com.btz.course.controller;
 
+import com.btz.cascade.service.CascadeDataService;
 import com.btz.course.ConstantChapterLevel;
 import com.btz.course.entity.ChapterEntity;
 import com.btz.course.entity.MainCourseEntity;
@@ -42,6 +43,9 @@ public class ChapterController extends BaseController {
 
     @Autowired
     private ModuleService moduleService;
+
+    @Autowired
+    private CascadeDataService cascadeDataService;
 
 
     @RequestMapping(params = "doAdd")
@@ -204,7 +208,8 @@ public class ChapterController extends BaseController {
                 String[] id_array = ids.split(",");
                 for (int i = 0; i < id_array.length; i++) {
                     chapterEntity = chapterService.get(ChapterEntity.class, Integer.parseInt(id_array[i].substring(1)));
-                    chapterService.delete(chapterEntity);
+                    //chapterService.delete(chapterEntity);
+                    cascadeDataService.deleteChapterClassDataByChapterId(chapterEntity);
                 }
             } else {
                 j.setSuccess(AjaxJson.CODE_FAIL);

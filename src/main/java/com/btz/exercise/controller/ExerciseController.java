@@ -3,6 +3,7 @@ package com.btz.exercise.controller;
 import com.btz.course.entity.SubCourseEntity;
 import com.btz.course.service.ChapterService;
 import com.btz.exercise.entity.ExerciseEntity;
+import com.btz.exercise.pojo.ExcelExercisePojo;
 import com.btz.exercise.service.ExerciseService;
 import com.btz.module.entity.ModuleEntity;
 import com.btz.module.service.ModuleService;
@@ -76,6 +77,7 @@ public class ExerciseController extends BaseController {
         String subCourseId = request.getParameter("subCourseId");
         String chapterId = request.getParameter("chapterId");
         String moduleType = request.getParameter("moduleType");
+        String examType = request.getParameter("examType");
         if (StringUtils.isEmpty(subCourseId) || StringUtils.isEmpty(moduleType)) {
             DatagridJsonUtils.datagrid(response, new DataGridReturn(0, new ArrayList()));
             return;
@@ -86,6 +88,9 @@ public class ExerciseController extends BaseController {
         criteriaQuery.getDetachedCriteria().addOrder(Order.asc("type"));
         criteriaQuery.getDetachedCriteria().addOrder(Order.asc("orderNo"));
         DetachedCriteria detachedCriteria = criteriaQuery.getDetachedCriteria();
+        if(StringUtils.hasText(examType)){
+            detachedCriteria.add(Restrictions.eq("type",Integer.parseInt(examType)));
+        }
         detachedCriteria.add(Restrictions.eq("subCourseId", Integer.parseInt(subCourseId.substring(1, subCourseId.length()))));
         detachedCriteria.add(Restrictions.eq("moduleType", BelongToEnum.getBelongToEnum(Integer.parseInt(moduleType)).getIndex()));
         if (StringUtils.hasText(chapterId) && !chapterId.contains("S")) {
@@ -101,13 +106,13 @@ public class ExerciseController extends BaseController {
         Integer subCourseId = exerciseExcelPojo.getSubCourseId();
         Integer moduleType = exerciseExcelPojo.getBelongTo();
         BelongToEnum belongToEnum = BelongToEnum.getBelongToEnum(moduleType);
+        SubCourseEntity subCourseEntity = globalService.get(SubCourseEntity.class, subCourseId);
         if (belongToEnum == null) {
-            downTestModuleExcel.downTestModuleExcel(null, request, response, "模块类型输入错误！", ALL);
+            downTestModuleExcel.downTestModuleExcel(subCourseEntity,null, request, response, "模块类型输入错误！", ALL);
             return;
         }
-        SubCourseEntity subCourseEntity = globalService.get(SubCourseEntity.class, subCourseId);
         List<ExerciseExcelPojo> exerciseExcelPojoList = chapterService.getExcelTemplet(subCourseEntity, belongToEnum.getIndex());
-        downTestModuleExcel.downTestModuleExcel(exerciseExcelPojoList, request, response, subCourseEntity.getSubName(), belongToEnum);
+        downTestModuleExcel.downTestModuleExcel(subCourseEntity,exerciseExcelPojoList, request, response, subCourseEntity.getSubName(), belongToEnum);
     }
 
     @RequestMapping(params = "uploadExcel")
@@ -123,11 +128,12 @@ public class ExerciseController extends BaseController {
             j.setMsg("请选择上传文件！");
             return j;
         }
-        List<ExerciseEntity> exerciseEntityList = null;
+
+        ExcelExercisePojo  excelExercisePojo = null;
         String postfix = org.framework.core.utils.StringUtils.getPostfix(newFileName);
         try {
             if (StringUtils.hasText(postfix) && PoiConstant.OFFICE_EXCEL_2010_POSTFIX.equals(postfix)) {
-                exerciseEntityList = downTestModuleExcel.readXlsxToExerciseEntityList(filelocal);//PoiExcelExerciseUtils.readXls(filelocal);
+                excelExercisePojo = downTestModuleExcel.readXlsxToExerciseEntityList(filelocal);//PoiExcelExerciseUtils.readXls(filelocal);
             } else {
                 j.setSuccess(AjaxJson.CODE_FAIL);
                 j.setMsg("仅支持 Excel xlsx 2007文件！");
@@ -148,17 +154,11 @@ public class ExerciseController extends BaseController {
                 filelocal.delete();
             }
         }
-
+        List<ExerciseEntity> exerciseEntityList = excelExercisePojo.getExerciseEntityList();
         try {
             if (CollectionUtils.isNotEmpty(exerciseEntityList)) {
                 for (int i = 0; i < exerciseEntityList.size(); i++) {
                     ExerciseEntity exerciseEntity = exerciseEntityList.get(i);
-                    DetachedCriteria moduleCourseDetachedCriteria = DetachedCriteria.forClass(ModuleEntity.class);
-                    moduleCourseDetachedCriteria.add(Restrictions.eq("subCourseId", exerciseEntity.getSubCourseId()));
-                    moduleCourseDetachedCriteria.add(Restrictions.eq("type", exerciseEntity.getModuleType()));
-                    List<ModuleEntity> moduleEntityList = globalService.getListByCriteriaQuery(moduleCourseDetachedCriteria);
-                    exerciseEntity.setModuleId(moduleEntityList.get(0).getId());
-                    exerciseEntity.setModuleType(moduleEntityList.get(0).getType());
                     exerciseEntity.setCreateTime(new Date());
                     exerciseEntity.setUpdateTime(new Date());
                 }
@@ -227,6 +227,20 @@ public class ExerciseController extends BaseController {
             e.printStackTrace();
             j.setSuccess(AjaxJson.CODE_FAIL);
             j.setMsg("删除失败！");
+        }
+        return j;
+    }
+
+    @RequestMapping(params = "doDelAll")
+    @ResponseBody
+    public AjaxJson doDelAll(ExerciseEntity exerciseEntity, HttpServletRequest request) {
+        AjaxJson j = new AjaxJson();
+        try {
+            exerciseService.doDelAllBySubCourseIdAndModuleId(exerciseEntity);
+        } catch (Exception e) {
+            e.printStackTrace();
+            j.setSuccess(AjaxJson.CODE_FAIL);
+            j.setMsg("全部删除失败！");
         }
         return j;
     }

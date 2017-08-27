@@ -12,4 +12,7 @@ public interface ExerciseService extends BaseService {
 
     public void batchExerciseSave(List<ExerciseEntity> exerciseEntityList);
 
+
+    public void doDelAllBySubCourseIdAndModuleId(ExerciseEntity exerciseEntity);
+
 }

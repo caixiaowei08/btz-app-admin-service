@@ -8,8 +8,7 @@ import com.btz.contants.QuestionType;
 public class QuestionTypeTest {
     public static void main(String[] args) {
         for (QuestionType questionType :QuestionType.values()) {
-            System.out.println(questionType.getCode());
-            System.out.println(questionType.getDesc());
+
         }
     }
 }

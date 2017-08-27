@@ -9,6 +9,10 @@ public class ExerciseVo implements Serializable {
 
     private Integer id;
 
+    private String typeName;
+
+    private Integer typeShow;
+
     private Integer type;
 
     private String title;
@@ -123,5 +127,21 @@ public class ExerciseVo implements Serializable {
 
     public void setSb(Integer sb) {
         this.sb = sb;
+    }
+
+    public String getTypeName() {
+        return typeName;
+    }
+
+    public void setTypeName(String typeName) {
+        this.typeName = typeName;
+    }
+
+    public Integer getTypeShow() {
+        return typeShow;
+    }
+
+    public void setTypeShow(Integer typeShow) {
+        this.typeShow = typeShow;
     }
 }

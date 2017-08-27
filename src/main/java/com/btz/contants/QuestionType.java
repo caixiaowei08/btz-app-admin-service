@@ -4,39 +4,98 @@ package com.btz.contants;
  * Created by User on 2017/7/3.
  */
 public enum QuestionType {
-    Q1(1,"单选题"),
-    Q2(2,"多选题"),
-    Q3(3,"判断题"),
-    Q4(4,"填空题"),
-    Q5(5,"分录题(数字)"),
-    Q6(6,"分录题(固定格式)"),
-    Q7(7,"材料分析题(完形填空、阅读理解等)"),
-    Q8(8,"长文本题(长文本题（综合题、作文题等)"),
-    Q9(9,"短文本题(中译英、英译中)"),
-    Q10(10,"公式题(中级计算题、综合练习题等)");
 
-    private Integer code;
+    Q1(1, "单选题", "每小题只有一个正确答案，请从每小题的备选答案中选出一个你认为正确的答案。", 1),
+    Q2(2, "多选题", "每小题均有多个正确答案，请从每小题的备选答案中选出你认为正确的答案。", 2),
+    Q3(3, "不定项选择题", "每小题有一个或一个以上正确答案，请从每小题的备选答案中选出你认为正确的答案。", 6),
+    Q4(4, "判断题", "每小题只有一个正确答案，请从每小题的备选答案中选出一个你认为正确的答案。", 3),
+    Q5(5, "分录题(数字)", "每小题只有唯一答案，请点击“答题”按钮进行答题。", 4),
+    Q6(6, "分录题(固定)", "每小题只有唯一答案，请点击“答题”按钮进行答题。", 5),
+    Q7(7, "简答题", "请在下方的方框内输入你认为正确的答案。", 5),
+    Q8(8, "综合题", "请在下方的方框内输入你认为正确的答案。", 5),
+    Q9(9, "计算题", "请在下方的方框内输入你认为正确的答案。", 5),
+    Q10(10, "案例分析题", "请在下方的方框内输入你认为正确的答案。", 8),
+    Q11(11, "补全短文", "每小题只有一个正确答案，请从每小题的备选答案中选出一个你认为正确的答案。", 4),
+    Q12(12, "概括大意与完成句子", "每小题只有一个正确答案，请从每小题的备选答案中选出一个你认为正确的答案。", 7),
+    Q13(13, "完型填空", "每小题只有一个正确答案，请从每小题的备选答案中选出一个你认为正确的答案。", 6),
+    Q14(14, "阅读理解", "每小题只有一个正确答案，请从每小题的备选答案中选出一个你认为正确的答案。", 6),
+    Q15(15, "阅读判断", "每小题只有一个正确答案，请从每小题的备选答案中选出一个你认为正确的答案。", 3),
+    Q16(16, "作文题", "请在下方的方框内输入你认为正确的答案。", 8),
+    Q17(17, "英译中", "请在下方的方框内输入你认为正确的答案。", 8),
+    Q18(18, "交际英语", "每小题只有一个正确答案，请从每小题的备选答案中选出一个你认为正确的答案。", 1),
+    Q19(19, "词汇与结构", "每小题只有一个正确答案，请从每小题的备选答案中选出一个你认为正确的答案。", 1),
+    Q20(20, "组合单选题", "每小题只有一个正确答案，请从每小题的备选答案中选出一个你认为正确的答案。", 1),
+    Q21(21, "中级计算题", "请在下方的方框内输入你认为正确的答案。", 5),
+    Q22(22, "中级简答题", "请在下方的方框内输入你认为正确的答案。", 8),
+    Q23(23, "填空题", "请在方框内输入你认为正确的答案", 5),
+    Q24(24, "活动设计题", "活动设计题", 8),
+    Q25(25, "论述题", "论述题", 8),
+    Q26(26, "教学设计题", "教学设计", 8),
+    Q27(27, "材料分析题", "阅读提供的材料，回答问题", 8);
 
-    private String desc;
+    private Integer examType;
 
-    QuestionType(Integer code, String desc) {
-        this.code = code;
-        this.desc = desc;
+    private String examName;
+
+    private String examIntroduce;
+
+    private Integer examShow;
+
+    QuestionType(Integer examType, String examName, String examIntroduce, Integer examShow) {
+        this.examType = examType;
+        this.examName = examName;
+        this.examIntroduce = examIntroduce;
+        this.examShow = examShow;
     }
 
-    public Integer getCode() {
-        return code;
+    public Integer getExamType() {
+        return examType;
     }
 
-    public void setCode(Integer code) {
-        this.code = code;
+    public void setExamType(Integer examType) {
+        this.examType = examType;
     }
 
-    public String getDesc() {
-        return desc;
+    public String getExamName() {
+        return examName;
     }
 
-    public void setDesc(String desc) {
-        this.desc = desc;
+    public void setExamName(String examName) {
+        this.examName = examName;
     }
+
+    public String getExamIntroduce() {
+        return examIntroduce;
+    }
+
+    public void setExamIntroduce(String examIntroduce) {
+        this.examIntroduce = examIntroduce;
+    }
+
+    public Integer getExamShow() {
+        return examShow;
+    }
+
+    public void setExamShow(Integer examShow) {
+        this.examShow = examShow;
+    }
+
+    public static QuestionType getExamTypeByExamName(String examName) {
+        for (QuestionType questionType : QuestionType.values()) {
+            if(examName.trim().equals(questionType.getExamName().trim())){
+                return questionType;
+            }
+        }
+        return null;
+    }
+
+    public static QuestionType getExamTypeByExamType(Integer examType) {
+        for (QuestionType questionType : QuestionType.values()) {
+            if(examType.equals(questionType.getExamType())){
+                return questionType;
+            }
+        }
+        return null;
+    }
+
 }

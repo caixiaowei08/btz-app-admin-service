@@ -1,13 +1,17 @@
 package com.btz;
 
+import api.btz.function.user.json.ApiUserInfoJson;
+import app.btz.common.http.ApiHttpClient;
 import app.btz.function.feedback.vo.FeedbackVo;
 import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONObject;
 import org.apache.http.client.ResponseHandler;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.BasicResponseHandler;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClients;
+import org.junit.Test;
 
 import java.io.IOException;
 
@@ -46,20 +50,28 @@ public class HttpClientTest {
             HttpPost httpPost = new HttpPost(url);
             String json = JSON.toJSONString(feedbackVo);
             System.out.println(json);
-            StringEntity requestEntity = new StringEntity(json,"utf-8");
+            StringEntity requestEntity = new StringEntity(json, "utf-8");
             requestEntity.setContentEncoding("UTF-8");
             httpPost.setHeader("Content-type", "application/json");
             httpPost.setEntity(requestEntity);
-            returnValue = httpClient.execute(httpPost,responseHandler); //调接口获取返回值时，
+            returnValue = httpClient.execute(httpPost, responseHandler); //调接口获取返回值时，
             System.out.println(returnValue);
-        }catch(Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
-        }finally {
+        } finally {
             try {
                 httpClient.close();
-            }catch (IOException e){
+            } catch (IOException e) {
                 e.printStackTrace();
             }
         }
+    }
+
+    @Test
+    public void test01() {
+        String url = "http://api.baitizhan.com/index.php?c=User&a=info&token=3ZI3Bt2CyMpimPzC&username=chuji";
+        String result = ApiHttpClient.doGet(url);
+        System.out.println("result:" + result);
+        ApiUserInfoJson apiUserInfoJson = JSON.parseObject(result, ApiUserInfoJson.class);
     }
 }

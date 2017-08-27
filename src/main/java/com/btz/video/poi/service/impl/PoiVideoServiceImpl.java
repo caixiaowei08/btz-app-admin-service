@@ -6,6 +6,10 @@ import com.btz.utils.BelongToEnum;
 import com.btz.video.live.vo.LiveVideoPojo;
 import com.btz.video.poi.service.PoiVideoService;
 import com.btz.video.recorded.controller.CourseRecordedVideoController;
+import com.btz.video.recorded.pojo.ChapterPojo;
+import com.btz.video.recorded.pojo.ClassPojo;
+import com.btz.video.recorded.pojo.CoursePojo;
+import com.btz.video.recorded.pojo.YearPojo;
 import com.btz.video.recorded.vo.RecordedVideoPojo;
 import org.apache.commons.collections.CollectionUtils;
 import org.apache.logging.log4j.LogManager;
@@ -33,23 +37,24 @@ public class PoiVideoServiceImpl extends BaseServiceImpl implements PoiVideoServ
     private static Logger logger = LogManager.getLogger(PoiVideoServiceImpl.class.getName());
 
     public void downLoadCourseRecordedVideoExcel(
-            List<RecordedVideoPojo> recordedVideoPojoList,
+            CoursePojo coursePojo,
             HttpServletRequest request,
             HttpServletResponse response,
             String excelFileName
     ) {
         XSSFWorkbook workBook = new XSSFWorkbook();//一个excel文档对象
         XSSFSheet sheet = workBook.createSheet();// 创建一个工作薄对象
+
         String[] columns = {
-                "课程ID*", "课程名称", "章节ID*", "章节名称",
-                "模块类型ID*", "模块类型名称", "录播视频名称", "录播视频地址",
-                "讲义地址", "显示顺序"
+                "章节名称", "视频名称", "视频播放链接", "视频讲义链接",
+                "显示顺序", "", "",""
         };
+
         int[] columnsColumnWidth = {
-                2000, 4000, 2000, 4000,
-                4000, 4000, 10000, 10000,
-                10000, 4000
+                10000, 10000, 10000, 10000,
+                10000, 10000, 10000, 10000,
         };
+        //表头样式
         CellStyle headStyle = workBook.createCellStyle();
         headStyle.setAlignment(CellStyle.ALIGN_CENTER);
         headStyle.setVerticalAlignment(CellStyle.VERTICAL_CENTER);
@@ -64,53 +69,118 @@ public class PoiVideoServiceImpl extends BaseServiceImpl implements PoiVideoServ
         headStyle.setFillForegroundColor(IndexedColors.SEA_GREEN.getIndex());
         headStyle.setFillPattern(CellStyle.SOLID_FOREGROUND);
         headStyle.setWrapText(true);
+        //课程模块样式
+        CellStyle courseStyle = workBook.createCellStyle();
+        courseStyle.setAlignment(CellStyle.ALIGN_CENTER);
+        courseStyle.setVerticalAlignment(CellStyle.VERTICAL_CENTER);
+        courseStyle.setBorderTop(CellStyle.BORDER_THIN);
+        courseStyle.setTopBorderColor(IndexedColors.RED.getIndex());
+        courseStyle.setBorderLeft(CellStyle.BORDER_THIN); // 左边边框
+        courseStyle.setLeftBorderColor(IndexedColors.BLACK.getIndex()); // 左边边框颜色
+        courseStyle.setBorderRight(CellStyle.BORDER_THIN); // 右边边框
+        courseStyle.setRightBorderColor(IndexedColors.BLACK.getIndex()); // 右边边框颜色
+        courseStyle.setBorderBottom(CellStyle.BORDER_THIN); // 下边框
+        courseStyle.setBottomBorderColor(IndexedColors.BLACK.getIndex());
+        courseStyle.setFillForegroundColor(IndexedColors.ROSE.getIndex());
+        courseStyle.setFillPattern(CellStyle.SOLID_FOREGROUND);
+        courseStyle.setWrapText(true);
         Cell cell = null;
-        Row row = sheet.createRow(0); //表头
+
+        /**
+         * 表头标题
+         */
+        Row row = sheet.createRow(0);
         for (int i = 0; i < columnsColumnWidth.length; i++) {
             sheet.setColumnWidth(i, columnsColumnWidth[i]);
             cell = row.createCell(i);
             cell.setCellValue(columns[i]);
             cell.setCellStyle(headStyle);
         }
-        //填充数据
-        if (CollectionUtils.isNotEmpty(recordedVideoPojoList)) {
-            int rowNum = 1;
-            for (int i = 0; i < recordedVideoPojoList.size(); i++) {
-                RecordedVideoPojo recordedVideoPojo = recordedVideoPojoList.get(i);
-                row = sheet.createRow(rowNum);
-                cell = row.createCell(0);
-                cell.setCellType(CellType.NUMERIC);
-                cell.setCellValue(recordedVideoPojo.getSubCourseId());
-                cell = row.createCell(1);
-                cell.setCellType(CellType.STRING);
-                cell.setCellValue(recordedVideoPojo.getSubCourseName());
-                cell = row.createCell(2);
-                cell.setCellType(CellType.NUMERIC);
-                cell.setCellValue(recordedVideoPojo.getChapterId());
-                cell = row.createCell(3);
-                cell.setCellType(CellType.STRING);
-                cell.setCellValue(recordedVideoPojo.getChapterName());
-                cell = row.createCell(4);
-                cell.setCellType(CellType.NUMERIC);
-                cell.setCellValue(BelongToEnum.RECORDED_VIDEO.getIndex());
-                cell = row.createCell(5);
-                cell.setCellType(CellType.STRING);
-                cell.setCellValue(BelongToEnum.RECORDED_VIDEO.getTypeName());
-                cell = row.createCell(6);
-                cell.setCellType(CellType.STRING);
-                cell.setCellValue("录播视频名称");
-                cell = row.createCell(7);
-                cell.setCellType(CellType.STRING);
-                cell.setCellValue("录播视频地址");
-                cell = row.createCell(8);
-                cell.setCellType(CellType.STRING);
-                cell.setCellValue("录播视频讲义");
-                cell = row.createCell(9);
-                cell.setCellType(CellType.NUMERIC);
-                cell.setCellValue(rowNum);
-                rowNum++;
+
+        int count = 1;
+        List<YearPojo> yearPojoList = coursePojo.getYears();
+        if (CollectionUtils.isNotEmpty(yearPojoList)) {
+            for (YearPojo yearPojo : yearPojoList) {
+                List<ClassPojo> classPojoList = yearPojo.getClasses();
+                if (CollectionUtils.isNotEmpty(classPojoList)) {
+                    for (ClassPojo classPojo : classPojoList) {
+                        List<ChapterPojo> chapterPojoList = classPojo.getChapters();
+                        if (CollectionUtils.isNotEmpty(chapterPojoList)) {
+                            row = sheet.createRow(count);
+                            cell = row.createCell(0);
+                            cell.setCellType(CellType.STRING);
+                            cell.setCellValue("课程名称：");
+                            cell.setCellStyle(courseStyle);
+
+                            cell = row.createCell(1);
+                            cell.setCellType(CellType.STRING);
+                            cell.setCellValue(coursePojo.getName());
+                            cell.setCellStyle(courseStyle);
+
+                            cell = row.createCell(2);
+                            cell.setCellType(CellType.STRING);
+                            cell.setCellValue("视频年份：");
+                            cell.setCellStyle(courseStyle);
+
+                            cell = row.createCell(3);
+                            cell.setCellType(CellType.STRING);
+                            cell.setCellValue(yearPojo.getName());
+                            cell.setCellStyle(courseStyle);
+
+                            cell = row.createCell(4);
+                            cell.setCellType(CellType.STRING);
+                            cell.setCellValue("视频班次：");
+                            cell.setCellStyle(courseStyle);
+
+                            cell = row.createCell(5);
+                            cell.setCellType(CellType.STRING);
+                            cell.setCellValue(classPojo.getName());
+                            cell.setCellStyle(courseStyle);
+
+                            cell = row.createCell(6);
+                            cell.setCellType(CellType.STRING);
+                            cell.setCellValue("视频班次编号：");
+                            cell.setCellStyle(courseStyle);
+
+                            cell = row.createCell(7);
+                            cell.setCellType(CellType.STRING);
+                            cell.setCellValue(classPojo.getId());
+                            cell.setCellStyle(courseStyle);
+
+                            count++;
+
+                            for (int i = 0; i < chapterPojoList.size(); i++) {
+                                ChapterPojo chapterPojo = chapterPojoList.get(i);
+
+                                row = sheet.createRow(count);
+                                cell = row.createCell(0);
+                                cell.setCellType(CellType.STRING);
+                                cell.setCellValue(chapterPojo.getName());
+
+                                cell = row.createCell(1);
+                                cell.setCellType(CellType.STRING);
+                                cell.setCellValue("----视频名称----");
+
+                                cell = row.createCell(2);
+                                cell.setCellType(CellType.STRING);
+                                cell.setCellValue("----视频播放链接----");
+
+                                cell = row.createCell(3);
+                                cell.setCellType(CellType.STRING);
+                                cell.setCellValue("----视频讲义链接----");
+
+                                cell = row.createCell(4);
+                                cell.setCellType(CellType.NUMERIC);
+                                cell.setCellValue(i + 1);
+
+                                count++;
+                            }
+                        }
+                    }
+                }
             }
         }
+
         ByteArrayOutputStream os = new ByteArrayOutputStream();
         try {
             workBook.write(os);

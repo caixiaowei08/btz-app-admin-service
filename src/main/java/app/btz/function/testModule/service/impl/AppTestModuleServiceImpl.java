@@ -39,7 +39,6 @@ public class AppTestModuleServiceImpl implements AppTestModuleService {
     public List<ExerciseVo> getExerciseVoListByListInfoVo(List<ListInfoVo> listInfoVoList) {
         List<ExerciseVo> exerciseVoList = new ArrayList<ExerciseVo>();
         if (CollectionUtils.isNotEmpty(listInfoVoList)) {
-
             int tryOut = TryOutConstant.APP_EXERCISE_TRY_OUT;
             for (ListInfoVo listInfoVoA : listInfoVoList) {
                 listInfoVoA.setBeg(exerciseVoList.size());

@@ -2,6 +2,7 @@ package com.btz.video.recorded.service;
 
 import com.btz.course.entity.SubCourseEntity;
 import com.btz.video.recorded.entity.CourseRecordedVideoEntity;
+import com.btz.video.recorded.pojo.CoursePojo;
 import com.btz.video.recorded.vo.RecordedVideoPojo;
 import org.framework.core.common.service.BaseService;
 import org.framework.core.common.system.BusinessException;
@@ -15,7 +16,7 @@ import java.util.List;
  */
 public interface CourseRecordedVideoService extends BaseService{
 
-   public List<RecordedVideoPojo> getExcelTemplet(SubCourseEntity subCourseEntity);
+   public CoursePojo getExcelTemplet(SubCourseEntity subCourseEntity);
 
    public List<CourseRecordedVideoEntity>  readXlsxToCourseRecordedVideoEntity(File file) throws IOException, BusinessException;
 

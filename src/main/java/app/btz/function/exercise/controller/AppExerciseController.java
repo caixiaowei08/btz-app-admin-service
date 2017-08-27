@@ -6,6 +6,7 @@ import app.btz.function.testModule.vo.ExerciseVo;
 import app.btz.function.testModule.vo.ListInfoVo;
 import app.btz.function.testModule.vo.ModuleTestRequestVo;
 import app.btz.function.testModule.vo.ModuleVo;
+import com.btz.contants.QuestionType;
 import com.btz.module.entity.ModuleEntity;
 import com.btz.module.service.ModuleService;
 import org.apache.commons.collections.CollectionUtils;
@@ -61,6 +62,15 @@ public class AppExerciseController extends BaseController {
         }
         List<ListInfoVo> listInfoVoList = appTestModuleService.getListInfoVoByModuleEntity(moduleEntityList.get(0));
         List<ExerciseVo> exerciseVoList = appTestModuleService.getExerciseVoListByListInfoVo(listInfoVoList);
+        for (ExerciseVo exerciseVo : exerciseVoList) {
+            QuestionType questionType = QuestionType.getExamTypeByExamType(exerciseVo.getType());
+            if (questionType == null) {
+                exerciseVo.setTypeName("未知题型");
+                exerciseVo.setTypeShow(0);
+            }
+            exerciseVo.setTypeShow(questionType.getExamShow());
+            exerciseVo.setTypeName(questionType.getExamName());
+        }
         ModuleVo<ExerciseVo, ListInfoVo> moduleVo = new ModuleVo<ExerciseVo, ListInfoVo>();
         moduleVo.setVersion(moduleEntityList.get(0).getVersionNo());
         moduleVo.setExam(exerciseVoList);

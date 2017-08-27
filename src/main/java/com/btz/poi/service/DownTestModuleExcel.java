@@ -1,6 +1,8 @@
 package com.btz.poi.service;
 
+import com.btz.course.entity.SubCourseEntity;
 import com.btz.exercise.entity.ExerciseEntity;
+import com.btz.exercise.pojo.ExcelExercisePojo;
 import com.btz.poi.pojo.ExerciseExcelPojo;
 import com.btz.utils.BelongToEnum;
 import org.framework.core.common.system.BusinessException;
@@ -16,13 +18,14 @@ import java.util.List;
  */
 public interface DownTestModuleExcel {
 
-    public void downTestModuleExcel(List<ExerciseExcelPojo> promotOrderEntityList,
+    public void downTestModuleExcel(SubCourseEntity subCourseEntity,
+                                    List<ExerciseExcelPojo> exerciseExcelPojoList,
                                     HttpServletRequest request,
                                     HttpServletResponse response,
                                     String excelFileName,
                                     BelongToEnum belongToEnum
                                     );
 
-    public List<ExerciseEntity> readXlsxToExerciseEntityList(File file) throws IOException, BusinessException;
+    public ExcelExercisePojo readXlsxToExerciseEntityList(File file) throws IOException, BusinessException;
 
 }

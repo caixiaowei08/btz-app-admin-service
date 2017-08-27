@@ -100,8 +100,8 @@
 		<filter-name>appCrossDomainFilter</filter-name>
 		<url-pattern>/app/*</url-pattern>
 	</filter-mapping>
-	<!--session超时10分钟-->
+	<!--session超时60分钟-->
 	<session-config>
-		<session-timeout>10</session-timeout>
+		<session-timeout>60</session-timeout>
 	</session-config>
 </web-app>
