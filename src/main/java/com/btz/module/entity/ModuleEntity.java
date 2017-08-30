@@ -34,6 +34,12 @@ public class ModuleEntity implements Serializable {
      * 状态 1-有效 2-禁用
      */
     private Integer s_state;
+
+    /**
+     * 模块别名 主要用于考前押题 取另外的名称
+     */
+    private String alias;
+
     /**
      * 模块类型 1-章节练习 2 -核心考点 3-考前押题 4-授课视频 5-直播视频
      */
@@ -41,17 +47,17 @@ public class ModuleEntity implements Serializable {
     /**
      * 创建时间
      */
-    @JSONField(format="yyyy-MM-dd HH:mm:ss")
+    @JSONField(format = "yyyy-MM-dd HH:mm:ss")
     private Date createTime;
     /**
      * 修改时间
      */
-    @JSONField(format="yyyy-MM-dd HH:mm:ss")
+    @JSONField(format = "yyyy-MM-dd HH:mm:ss")
     private Date updateTime;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name ="id",nullable=false,length=20)
+    @Column(name = "id", nullable = false, length = 20)
     public Integer getId() {
         return id;
     }
@@ -60,7 +66,7 @@ public class ModuleEntity implements Serializable {
         this.id = id;
     }
 
-    @Column(name ="subCourseId",nullable=false,length=20)
+    @Column(name = "subCourseId", nullable = false, length = 20)
     public Integer getSubCourseId() {
         return subCourseId;
     }
@@ -69,7 +75,7 @@ public class ModuleEntity implements Serializable {
         this.subCourseId = subCourseId;
     }
 
-    @Column(name ="versionNo",nullable=false,length=11)
+    @Column(name = "versionNo", nullable = false, length = 11)
     public Integer getVersionNo() {
         return versionNo;
     }
@@ -78,7 +84,7 @@ public class ModuleEntity implements Serializable {
         this.versionNo = versionNo;
     }
 
-    @Column(name ="state",nullable=false,length=11)
+    @Column(name = "state", nullable = false, length = 11)
     public Integer getS_state() {
         return s_state;
     }
@@ -88,7 +94,7 @@ public class ModuleEntity implements Serializable {
     }
 
 
-    @Column(name ="type",nullable=false,length=11)
+    @Column(name = "type", nullable = false, length = 11)
     public Integer getType() {
         return type;
     }
@@ -97,7 +103,7 @@ public class ModuleEntity implements Serializable {
         this.type = type;
     }
 
-    @Column(name ="createTime",nullable=true,length=20)
+    @Column(name = "createTime", nullable = true, length = 20)
     public Date getCreateTime() {
         return createTime;
     }
@@ -105,7 +111,8 @@ public class ModuleEntity implements Serializable {
     public void setCreateTime(Date createTime) {
         this.createTime = createTime;
     }
-    @Column(name ="updateTime",nullable=true,length=20)
+
+    @Column(name = "updateTime", nullable = true, length = 20)
     public Date getUpdateTime() {
         return updateTime;
     }
@@ -114,12 +121,21 @@ public class ModuleEntity implements Serializable {
         this.updateTime = updateTime;
     }
 
-    @Column(name ="mainCourseId",nullable=false,length=20)
+    @Column(name = "mainCourseId", nullable = false, length = 20)
     public Integer getMainCourseId() {
         return mainCourseId;
     }
 
     public void setMainCourseId(Integer mainCourseId) {
         this.mainCourseId = mainCourseId;
+    }
+
+    @Column(name = "alias", nullable = true, length = 50)
+    public String getAlias() {
+        return alias;
+    }
+
+    public void setAlias(String alias) {
+        this.alias = alias;
     }
 }

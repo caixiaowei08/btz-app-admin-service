@@ -178,6 +178,8 @@ public class AppNotesController extends BaseController {
         DetachedCriteria detachedCriteria = DetachedCriteria.forClass(NotesEntity.class);
         detachedCriteria.add(Restrictions.eq("status", NotesConstant.PASS));
         detachedCriteria.add(Restrictions.eq("exerciseId", notesVo.getExerciseId()));
+        detachedCriteria.addOrder(Order.desc("thumbsUp"));
+        detachedCriteria.addOrder(Order.desc("createTime"));
         List<NotesEntity> notesEntityList = notesService.getListByCriteriaQuery(detachedCriteria);
         j.setReturnCode(AppAjax.SUCCESS);
         j.setContent(notesEntityList);

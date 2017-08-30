@@ -1,8 +1,10 @@
 package com.btz.feedback.controller;
 
 import app.btz.common.constant.FeedbackConstant;
+import com.btz.exercise.entity.ExerciseEntity;
 import com.btz.feedback.entity.FeedbackEntity;
 import com.btz.feedback.service.FeedbackService;
+import com.btz.utils.Constant;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.framework.core.common.controller.BaseController;
@@ -47,14 +49,14 @@ public class FeedbackController extends BaseController {
 
     @RequestMapping(params = "doPass")
     @ResponseBody
-    public AjaxJson doPass(FeedbackEntity feedbackEntity,HttpServletRequest request, HttpServletResponse response) {
+    public AjaxJson doPass(FeedbackEntity feedbackEntity, HttpServletRequest request, HttpServletResponse response) {
         AjaxJson j = new AjaxJson();
         String ids = request.getParameter("ids");
         try {
             if (StringUtils.hasText(ids)) {
-                String [] id_array = ids.split(",");
-                for (int i = 0; i < id_array.length ; i++) {
-                    FeedbackEntity t = feedbackService.get(FeedbackEntity.class,Integer.parseInt(id_array[i]));
+                String[] id_array = ids.split(",");
+                for (int i = 0; i < id_array.length; i++) {
+                    FeedbackEntity t = feedbackService.get(FeedbackEntity.class, Integer.parseInt(id_array[i]));
                     feedbackEntity.setStatus(FeedbackConstant.PASS);
                     feedbackEntity.setUpdateTime(new Date());
                     feedbackEntity.setDealTime(new Date());
@@ -66,6 +68,7 @@ public class FeedbackController extends BaseController {
             logger.error(e.fillInStackTrace());
             j.setSuccess(AjaxJson.CODE_FAIL);
             j.setMsg("处理失败！");
+            return j;
         }
         j.setSuccess(AjaxJson.CODE_SUCCESS);
         j.setMsg("处理完成!");
@@ -79,9 +82,9 @@ public class FeedbackController extends BaseController {
         String ids = request.getParameter("ids");
         try {
             if (StringUtils.hasText(ids)) {
-                String [] id_array = ids.split(",");
-                for (int i = 0; i < id_array.length ; i++) {
-                    FeedbackEntity t = feedbackService.get(FeedbackEntity.class,Integer.parseInt(id_array[i]));
+                String[] id_array = ids.split(",");
+                for (int i = 0; i < id_array.length; i++) {
+                    FeedbackEntity t = feedbackService.get(FeedbackEntity.class, Integer.parseInt(id_array[i]));
                     feedbackEntity.setStatus(FeedbackConstant.REJECT);
                     feedbackEntity.setUpdateTime(new Date());
                     feedbackEntity.setDealTime(new Date());
@@ -93,9 +96,74 @@ public class FeedbackController extends BaseController {
             logger.error(e.fillInStackTrace());
             j.setSuccess(AjaxJson.CODE_FAIL);
             j.setMsg("反馈有误失败！");
+            return j;
         }
         j.setSuccess(AjaxJson.CODE_SUCCESS);
         j.setMsg("处理成功!");
+        return j;
+    }
+
+    @RequestMapping(params = "doGet")
+    @ResponseBody
+    public AjaxJson doGet(FeedbackEntity feedbackEntity, HttpServletRequest request, HttpServletResponse response) {
+        AjaxJson j = new AjaxJson();
+        try {
+            FeedbackEntity t = feedbackService.get(FeedbackEntity.class, feedbackEntity.getId());
+            j.setContent(t);
+        } catch (Exception e) {
+            logger.error(e.fillInStackTrace());
+            j.setSuccess(AjaxJson.CODE_FAIL);
+            j.setMsg("问题反馈不存在或者已被删除！");
+            return j;
+        }
+        j.setSuccess(AjaxJson.CODE_SUCCESS);
+        j.setMsg("获取问题反馈成功！");
+        return j;
+    }
+
+    @RequestMapping(params = "doUpdate")
+    @ResponseBody
+    public AjaxJson doUpdate(FeedbackEntity feedbackEntity, HttpServletRequest request, HttpServletResponse response) {
+        AjaxJson j = new AjaxJson();
+        try {
+            feedbackEntity.setDealTime(new Date());
+            feedbackEntity.setStatus(FeedbackConstant.PASS);
+            FeedbackEntity t = feedbackService.get(FeedbackEntity.class,feedbackEntity.getId());
+            BeanUtils.copyBeanNotNull2Bean(feedbackEntity, t);
+            feedbackService.saveOrUpdate(t);
+        } catch (Exception e) {
+            logger.error(e.fillInStackTrace());
+            j.setSuccess(AjaxJson.CODE_FAIL);
+            j.setMsg("问题回复失败！");
+            return j;
+        }
+        j.setSuccess(AjaxJson.CODE_SUCCESS);
+        j.setMsg("问题回复完成!");
+        return j;
+    }
+
+    @RequestMapping(params = "doDel")
+    @ResponseBody
+    public AjaxJson doDel(FeedbackEntity feedbackEntity, HttpServletRequest request) {
+        AjaxJson j = new AjaxJson();
+        String ids = request.getParameter("ids");
+        try {
+            if (StringUtils.hasText(ids)) {
+                String[] id_array = ids.split(",");
+                for (int i = 0; i < id_array.length; i++) {
+                    feedbackEntity = feedbackService.get(FeedbackEntity.class, Integer.parseInt(id_array[i]));
+                    feedbackService.delete(feedbackEntity);
+                }
+            } else {
+                j.setSuccess(AjaxJson.CODE_FAIL);
+                j.setMsg("请选择需要删除的数据！");
+                return j;
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            j.setSuccess(AjaxJson.CODE_FAIL);
+            j.setMsg("删除失败！");
+        }
         return j;
     }
 

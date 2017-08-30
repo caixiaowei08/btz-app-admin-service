@@ -12,6 +12,7 @@ import com.btz.course.vo.SubCourseVo;
 import com.btz.exercise.controller.ExerciseController;
 import com.btz.module.entity.ModuleEntity;
 import com.btz.module.service.ModuleService;
+import com.btz.utils.BelongToEnum;
 import org.apache.commons.collections.CollectionUtils;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -143,6 +144,22 @@ public class ModuleController extends BaseController {
             return j;
         }
         j.setContent(moduleEntityDb);
+        return j;
+    }
+
+    @RequestMapping(params = "doGetBySubCourseId")
+    @ResponseBody
+    public AjaxJson doGetBySubCourseId(ModuleEntity moduleEntity, HttpServletRequest request, HttpServletResponse response) {
+        AjaxJson j = new AjaxJson();
+        DetachedCriteria moduleDetachedCriteria = DetachedCriteria.forClass(ModuleEntity.class);
+        moduleDetachedCriteria.add(Restrictions.eq("subCourseId", moduleEntity.getSubCourseId()));
+        moduleDetachedCriteria.add(Restrictions.eq("type", BelongToEnum.EXAM_TIPS.getIndex()));
+        List<ModuleEntity> moduleEntityList = moduleService.getListByCriteriaQuery(moduleDetachedCriteria);
+        if(CollectionUtils.isEmpty(moduleEntityList)){
+            j.setContent(new ModuleEntity());
+            return j;
+        }
+        j.setContent(moduleEntityList.get(0));
         return j;
     }
 

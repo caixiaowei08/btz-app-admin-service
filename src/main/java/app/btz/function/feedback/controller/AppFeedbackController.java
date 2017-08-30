@@ -64,7 +64,7 @@ public class AppFeedbackController extends BaseController {
         UserEntity userEntity = appTokenService.getUserEntityByToken(request);
         if (userEntity == null) {
             j.setReturnCode(AppAjax.FAIL);
-            j.setMsg("登录失效！");
+            j.setMsg("请先登录,再反馈问题！");
             return j;
         }
         if (StringUtils.isEmpty(feedbackVo.getContent())) {
@@ -89,9 +89,9 @@ public class AppFeedbackController extends BaseController {
             feedbackEntity.setModuleType(exerciseEntity.getModuleType());
             feedbackEntity.setStatus(FeedbackConstant.PENDING);
             feedbackEntity.setExerciseId(exerciseEntity.getId());
-            feedbackEntity.setResume("课程：" + subCourseEntity.getSubName()
-                    + "   章节：" + chapterEntity.getChapterName()
-                    + "    题目：" + exerciseEntity.getTitle()
+            feedbackEntity.setResume("*课程：" + subCourseEntity.getSubName()
+                    + "   *章节：" + chapterEntity.getChapterName()
+                    + "   *题目：" + exerciseEntity.getTitle().substring(0, exerciseEntity.getTitle().length() > 10 ? 10 : exerciseEntity.getTitle().length())
             );
 
             feedbackEntity.setContent(feedbackVo.getContent());
@@ -110,6 +110,8 @@ public class AppFeedbackController extends BaseController {
         j.setMsg("问题反馈成功！");
         return j;
     }
+
+
 
 
 }

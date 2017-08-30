@@ -47,6 +47,11 @@ public class FeedbackEntity implements Serializable{
     private String content;
 
     /**
+     *问题反馈回复
+     */
+    private String answer;
+
+    /**
      *用户ID
      */
     private Integer userId;
@@ -56,7 +61,7 @@ public class FeedbackEntity implements Serializable{
     private String userName;
 
     /**
-     * 处理状态  1-未处理 2-已处理 3-反馈有误
+     * 处理状态  1-未处理 2-已回复
      */
     private Integer status;
 
@@ -65,6 +70,7 @@ public class FeedbackEntity implements Serializable{
      */
     @JSONField(format = "yyyy-MM-dd HH:mm:ss")
     private Date dealTime;
+
     /**
      *创建时间
      */
@@ -201,5 +207,14 @@ public class FeedbackEntity implements Serializable{
 
     public void setUpdateTime(Date updateTime) {
         this.updateTime = updateTime;
+    }
+
+    @Column(name = "answer", nullable = true, length = 20)
+    public String getAnswer() {
+        return answer;
+    }
+
+    public void setAnswer(String answer) {
+        this.answer = answer;
     }
 }

@@ -44,7 +44,7 @@ public class NotesController extends BaseController {
     public void dataGrid(HttpServletRequest request, HttpServletResponse response, DataGrid dataGrid) {
         CriteriaQuery criteriaQuery = new CriteriaQuery(NotesEntity.class, dataGrid, request.getParameterMap());
         criteriaQuery.installCriteria();
-        criteriaQuery.getDetachedCriteria().add(Restrictions.ne("status",NotesConstant.SELF));
+        criteriaQuery.getDetachedCriteria().add(Restrictions.ne("status", NotesConstant.SELF));
         DataGridReturn dataGridReturn = notesService.getDataGridReturn(criteriaQuery);
         DatagridJsonUtils.listToObj(dataGridReturn, NotesEntity.class, dataGrid.getField());
         DatagridJsonUtils.datagrid(response, dataGridReturn);
@@ -57,9 +57,9 @@ public class NotesController extends BaseController {
         String ids = request.getParameter("ids");
         try {
             if (StringUtils.hasText(ids)) {
-                String [] id_array = ids.split(",");
-                for (int i = 0; i < id_array.length ; i++) {
-                    NotesEntity t = notesService.get(NotesEntity.class,Integer.parseInt(id_array[i]));
+                String[] id_array = ids.split(",");
+                for (int i = 0; i < id_array.length; i++) {
+                    NotesEntity t = notesService.get(NotesEntity.class, Integer.parseInt(id_array[i]));
                     notesEntity.setStatus(NotesConstant.PASS);
                     notesEntity.setCheckTime(new Date());
                     notesEntity.setUpdateTime(new Date());
@@ -84,9 +84,9 @@ public class NotesController extends BaseController {
         String ids = request.getParameter("ids");
         try {
             if (StringUtils.hasText(ids)) {
-                String [] id_array = ids.split(",");
-                for (int i = 0; i < id_array.length ; i++) {
-                    NotesEntity t = notesService.get(NotesEntity.class,Integer.parseInt(id_array[i]));
+                String[] id_array = ids.split(",");
+                for (int i = 0; i < id_array.length; i++) {
+                    NotesEntity t = notesService.get(NotesEntity.class, Integer.parseInt(id_array[i]));
                     notesEntity.setStatus(NotesConstant.REJECT);
                     notesEntity.setUpdateTime(new Date());
                     notesEntity.setCheckTime(new Date());
@@ -101,6 +101,31 @@ public class NotesController extends BaseController {
         }
         j.setSuccess(AjaxJson.CODE_SUCCESS);
         j.setMsg("审核驳回成功!");
+        return j;
+    }
+
+    @RequestMapping(params = "doDel")
+    @ResponseBody
+    public AjaxJson doDel(NotesEntity notesEntity, HttpServletRequest request, HttpServletResponse response) {
+        AjaxJson j = new AjaxJson();
+        String ids = request.getParameter("ids");
+        try {
+            if (StringUtils.hasText(ids)) {
+                String[] id_array = ids.split(",");
+                for (int i = 0; i < id_array.length; i++) {
+                    NotesEntity t = notesService.get(NotesEntity.class, Integer.parseInt(id_array[i]));
+                    if (t != null) {
+                        notesService.delete(t);
+                    }
+                }
+            }
+        } catch (Exception e) {
+            logger.error(e.fillInStackTrace());
+            j.setSuccess(AjaxJson.CODE_FAIL);
+            j.setMsg("删除失败！");
+        }
+        j.setSuccess(AjaxJson.CODE_SUCCESS);
+        j.setMsg("删除成功!");
         return j;
     }
 

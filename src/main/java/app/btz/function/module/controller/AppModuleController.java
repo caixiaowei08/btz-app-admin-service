@@ -4,6 +4,7 @@ import app.btz.common.ajax.AppAjax;
 import app.btz.function.testModule.vo.ModuleTestRequestVo;
 import com.btz.module.entity.ModuleEntity;
 import com.btz.module.service.ModuleService;
+import com.btz.utils.BelongToEnum;
 import org.apache.commons.collections.CollectionUtils;
 import org.framework.core.common.controller.BaseController;
 import org.hibernate.criterion.DetachedCriteria;
@@ -11,6 +12,7 @@ import org.hibernate.criterion.Restrictions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
+import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -49,7 +51,13 @@ public class AppModuleController extends BaseController {
             j.setMsg("模块被删除删除或者不存在！");
             return j;
         }
-        j.setContent(moduleEntityList.get(0));
+        ModuleEntity moduleEntity = moduleEntityList.get(0);
+        if(StringUtils.isEmpty(moduleEntity.getAlias())){
+            BelongToEnum belongToEnum = BelongToEnum.getBelongToEnum(moduleEntity.getType());
+            moduleEntity.setAlias(belongToEnum.getTypeName());
+        }
+
+        j.setContent(moduleEntity);
         j.setReturnCode(AppAjax.SUCCESS);
         return j;
     }
