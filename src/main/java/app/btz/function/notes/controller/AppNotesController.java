@@ -10,6 +10,8 @@ import app.btz.function.notes.service.NotesService;
 import app.btz.function.notes.vo.NotesVo;
 import com.btz.exercise.entity.ExerciseEntity;
 import com.btz.exercise.service.ExerciseService;
+import com.btz.notes.entity.NoteKeywordEntity;
+import com.btz.notes.service.NoteKeywordService;
 import com.btz.system.global.GlobalService;
 import com.btz.user.entity.UserEntity;
 import org.apache.commons.collections.CollectionUtils;
@@ -56,6 +58,9 @@ public class AppNotesController extends BaseController {
     @Autowired
     private AppTokenService appTokenService;
 
+    @Autowired
+    private NoteKeywordService noteKeywordService;
+
     @RequestMapping(params = "doAdd")
     @ResponseBody
     public AppAjax doAdd(@RequestBody NotesVo notesVo, HttpServletRequest request, HttpServletResponse response) {
@@ -82,6 +87,7 @@ public class AppNotesController extends BaseController {
             j.setMsg("题目已被删除！");
             return j;
         }
+
         NotesEntity notesEntity = new NotesEntity();
         notesEntity.setSubCourseId(exerciseEntity.getSubCourseId());
         notesEntity.setChapterId(exerciseEntity.getChapterId());
@@ -92,7 +98,18 @@ public class AppNotesController extends BaseController {
         notesEntity.setUserId(userEntity.getId());
         notesEntity.setThumbsUp(0);
         notesEntity.setUserName(userEntity.getUserId());
-        notesEntity.setStatus(NotesConstant.PENDING);
+        notesEntity.setStatus(NotesConstant.PASS);
+
+        DetachedCriteria detachedCriteria = DetachedCriteria.forClass(NoteKeywordEntity.class);
+        List<NoteKeywordEntity> noteKeywordEntityList = noteKeywordService.getListByCriteriaQuery(detachedCriteria);
+        if(CollectionUtils.isNotEmpty(noteKeywordEntityList)){
+            for (NoteKeywordEntity noteKeywordEntity:noteKeywordEntityList) {
+                if(notesEntity.getNotes().contains(noteKeywordEntity.getKeyword())){
+                    notesEntity.setStatus(NotesConstant.PENDING);
+                    break;
+                }
+            }
+        }
         notesEntity.setCreateTime(new Date());
         notesEntity.setUpdateTime(new Date());
         try {
@@ -202,6 +219,7 @@ public class AppNotesController extends BaseController {
                 Restrictions.eq("userId", userEntity.getId()),
                 Restrictions.eq("status", NotesConstant.PASS)
         ));
+        detachedCriteria.addOrder(Order.desc("thumbsUp"));
         detachedCriteria.addOrder(Order.desc("createTime"));
         List<NotesEntity> notesEntityList = notesService.getListByCriteriaQuery(detachedCriteria);
         j.setReturnCode(AppAjax.SUCCESS);

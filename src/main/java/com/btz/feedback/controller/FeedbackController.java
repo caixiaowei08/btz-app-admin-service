@@ -2,9 +2,10 @@ package com.btz.feedback.controller;
 
 import app.btz.common.constant.FeedbackConstant;
 import com.btz.exercise.entity.ExerciseEntity;
+import com.btz.exercise.service.ExerciseService;
 import com.btz.feedback.entity.FeedbackEntity;
 import com.btz.feedback.service.FeedbackService;
-import com.btz.utils.Constant;
+import com.btz.feedback.vo.FeedbackVo;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.framework.core.common.controller.BaseController;
@@ -14,6 +15,7 @@ import org.framework.core.common.model.json.DataGridReturn;
 import org.framework.core.easyui.hibernate.CriteriaQuery;
 import org.framework.core.utils.BeanUtils;
 import org.framework.core.utils.DatagridJsonUtils;
+import org.hibernate.criterion.Order;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
@@ -38,10 +40,14 @@ public class FeedbackController extends BaseController {
     @Autowired
     private FeedbackService feedbackService;
 
+    @Autowired
+    private ExerciseService exerciseService;
+
     @RequestMapping(params = "dataGrid")
     public void dataGrid(HttpServletRequest request, HttpServletResponse response, DataGrid dataGrid) {
         CriteriaQuery criteriaQuery = new CriteriaQuery(FeedbackEntity.class, dataGrid, request.getParameterMap());
         criteriaQuery.installCriteria();
+        criteriaQuery.getDetachedCriteria().addOrder(Order.desc("createTime"));
         DataGridReturn dataGridReturn = feedbackService.getDataGridReturn(criteriaQuery);
         DatagridJsonUtils.listToObj(dataGridReturn, FeedbackEntity.class, dataGrid.getField());
         DatagridJsonUtils.datagrid(response, dataGridReturn);
@@ -108,8 +114,22 @@ public class FeedbackController extends BaseController {
     public AjaxJson doGet(FeedbackEntity feedbackEntity, HttpServletRequest request, HttpServletResponse response) {
         AjaxJson j = new AjaxJson();
         try {
-            FeedbackEntity t = feedbackService.get(FeedbackEntity.class, feedbackEntity.getId());
-            j.setContent(t);
+            FeedbackEntity feedback = feedbackService.get(FeedbackEntity.class, feedbackEntity.getId());
+            if (feedback == null) {
+                j.setSuccess(AjaxJson.CODE_FAIL);
+                j.setMsg("问题反馈不存在或者已被删除！");
+                return j;
+            }
+            ExerciseEntity exercise = exerciseService.get(ExerciseEntity.class, feedback.getExerciseId());
+            if (exercise == null) {
+                j.setSuccess(AjaxJson.CODE_FAIL);
+                j.setMsg("问题反馈对应题目已被删除");
+                return j;
+            }
+            FeedbackVo feedbackVo = new FeedbackVo();
+            feedbackVo.setExerciseEntity(exercise);
+            feedbackVo.setFeedbackEntity(feedback);
+            j.setContent(feedbackVo);
         } catch (Exception e) {
             logger.error(e.fillInStackTrace());
             j.setSuccess(AjaxJson.CODE_FAIL);
@@ -128,7 +148,7 @@ public class FeedbackController extends BaseController {
         try {
             feedbackEntity.setDealTime(new Date());
             feedbackEntity.setStatus(FeedbackConstant.PASS);
-            FeedbackEntity t = feedbackService.get(FeedbackEntity.class,feedbackEntity.getId());
+            FeedbackEntity t = feedbackService.get(FeedbackEntity.class, feedbackEntity.getId());
             BeanUtils.copyBeanNotNull2Bean(feedbackEntity, t);
             feedbackService.saveOrUpdate(t);
         } catch (Exception e) {

@@ -3,9 +3,6 @@ package com.btz.notes.controller;
 import app.btz.common.constant.NotesConstant;
 import app.btz.function.notes.entity.NotesEntity;
 import app.btz.function.notes.service.NotesService;
-import com.btz.admin.controller.AdminController;
-import com.btz.user.entity.UserEntity;
-import com.btz.utils.Constant;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.framework.core.common.controller.BaseController;
@@ -35,7 +32,7 @@ import java.util.Date;
 @RequestMapping("/admin/notesController")
 public class NotesController extends BaseController {
 
-    private static Logger logger = LogManager.getLogger(AdminController.class.getName());
+    private static Logger logger = LogManager.getLogger(NotesController.class.getName());
 
     @Autowired
     private NotesService notesService;
