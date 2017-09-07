@@ -198,17 +198,23 @@ public class CourseRecordedVideoServiceImpl extends BaseServiceImpl implements C
                         throw new BusinessException("第" + rowNum + "行频播放链接有误，请核实！");
                     }
 
-                    if (lectureUrl == null) {
+                    /*if (lectureUrl == null) {
                         throw new BusinessException("第" + rowNum + "行视频讲义链接为空，请核实！");
                     }
                     try {
-                        String lectureUrlValue = videoUrl.getStringCellValue();
+                        String lectureUrlValue = lectureUrl.getStringCellValue();
                         if (StringUtils.isEmpty(lectureUrlValue)) {
                             throw new BusinessException("第" + rowNum + "行视频讲义链接为空，请核实！");
                         }
                         courseRecordedVideoEntity.setLectureUrl(lectureUrlValue);
                     } catch (Exception e) {
                         throw new BusinessException("第" + rowNum + "行视频讲义链接有误，请核实！");
+                    }*/
+                    if(lectureUrl != null){
+                        String lectureUrlValue = lectureUrl.getStringCellValue();
+                        if (StringUtils.hasText(lectureUrlValue)) {
+                            courseRecordedVideoEntity.setLectureUrl(lectureUrlValue);
+                        }
                     }
 
                     if (orderNo == null) {

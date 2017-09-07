@@ -2,6 +2,7 @@ package com.btz.newsBulletin.carousel.controller;
 
 import com.btz.newsBulletin.carousel.entity.CarouselEntity;
 import com.btz.newsBulletin.carousel.service.CarouselService;
+import org.apache.commons.collections.CollectionUtils;
 import org.framework.core.common.controller.BaseController;
 import org.framework.core.common.model.json.AjaxJson;
 import org.framework.core.common.model.json.DataGrid;
@@ -9,6 +10,7 @@ import org.framework.core.common.model.json.DataGridReturn;
 import org.framework.core.easyui.hibernate.CriteriaQuery;
 import org.framework.core.utils.BeanUtils;
 import org.framework.core.utils.DatagridJsonUtils;
+import org.hibernate.criterion.Restrictions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
@@ -20,6 +22,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -29,7 +32,7 @@ import java.util.List;
 @Scope("prototype")
 @Controller
 @RequestMapping("/admin/carouselController")
-public class CarouselController extends BaseController{
+public class CarouselController extends BaseController {
 
     @Autowired
     private CarouselService carouselService;
@@ -37,16 +40,46 @@ public class CarouselController extends BaseController{
     @RequestMapping(params = "dataGrid")
     public void dataGrid(CarouselEntity carouselEntity, HttpServletRequest request, HttpServletResponse response, DataGrid dataGrid) {
         CriteriaQuery criteriaQuery = new CriteriaQuery(CarouselEntity.class, dataGrid, request.getParameterMap());
-        criteriaQuery.installCriteria();
-
+        String subCourseId = request.getParameter("subCourseId");
+        String sfyn = request.getParameter("sfyn");
+        if (StringUtils.isEmpty(subCourseId)) {
+            DatagridJsonUtils.datagrid(response, new DataGridReturn(0, new ArrayList()));
+            return;
+        }
+        criteriaQuery.getDetachedCriteria().add(
+                Restrictions.or(
+                        Restrictions.eq("subCourseId",Integer.parseInt(subCourseId)),
+                        Restrictions.eq("flag",2)
+                )
+        );
+        if (StringUtils.hasText(sfyn)) {
+            criteriaQuery.getDetachedCriteria().add(Restrictions.eq("sfyn", Integer.parseInt(sfyn)));
+        }
         DataGridReturn dataGridReturn = carouselService.getDataGridReturn(criteriaQuery);
         DatagridJsonUtils.listToObj(dataGridReturn, CarouselEntity.class, dataGrid.getField());
         DatagridJsonUtils.datagrid(response, dataGridReturn);
     }
 
-    @RequestMapping(params = "doAdd")
+    @RequestMapping(params = "doAddCourseCarousel")
     @ResponseBody
-    public AjaxJson doAdd(@RequestBody CarouselEntity carouselEntity, HttpServletRequest request, HttpServletResponse response) {
+    public AjaxJson doAddCourseCarousel(@RequestBody CarouselEntity carouselEntity, HttpServletRequest request, HttpServletResponse response) {
+        AjaxJson j = new AjaxJson();
+        try {
+            carouselEntity.setUpdateTime(new Date());
+            carouselEntity.setCreateTime(new Date());
+            carouselService.save(carouselEntity);
+        } catch (Exception e) {
+            e.printStackTrace();
+            j.setSuccess(AjaxJson.CODE_FAIL);
+            j.setMsg("保存失败！");
+            return j;
+        }
+        return j;
+    }
+
+    @RequestMapping(params = "doAddGlobalCarousel")
+    @ResponseBody
+    public AjaxJson doAddGlobalCarousel(@RequestBody CarouselEntity carouselEntity, HttpServletRequest request, HttpServletResponse response) {
         AjaxJson j = new AjaxJson();
         try {
             carouselEntity.setUpdateTime(new Date());
@@ -92,7 +125,7 @@ public class CarouselController extends BaseController{
     public AjaxJson doUpdate(CarouselEntity carouselEntity, HttpServletRequest request) {
         AjaxJson j = new AjaxJson();
         CarouselEntity t = carouselService.get(CarouselEntity.class, carouselEntity.getId());
-        if(t == null){
+        if (t == null) {
             j.setSuccess(AjaxJson.CODE_FAIL);
             j.setMsg("修改的轮播信息不存在！");
             return j;
@@ -117,12 +150,12 @@ public class CarouselController extends BaseController{
         String ids = request.getParameter("ids");
         try {
             if (StringUtils.hasText(ids)) {
-                String [] id_array = ids.split(",");
-                for (int i = 0; i < id_array.length ; i++) {
-                    carouselEntity = carouselService.get(CarouselEntity.class,Integer.parseInt(id_array[i]));
+                String[] id_array = ids.split(",");
+                for (int i = 0; i < id_array.length; i++) {
+                    carouselEntity = carouselService.get(CarouselEntity.class, Integer.parseInt(id_array[i]));
                     carouselService.delete(carouselEntity);
                 }
-            }else{
+            } else {
                 j.setSuccess(AjaxJson.CODE_FAIL);
                 j.setMsg("未输入需要删除的数据ID！");
                 return j;

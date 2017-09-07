@@ -4,6 +4,8 @@ import app.btz.common.ajax.AppAjax;
 import app.btz.common.ajax.AppRequestHeader;
 import app.btz.common.constant.SfynConstant;
 import com.btz.course.entity.MainCourseEntity;
+import com.btz.course.entity.SubCourseEntity;
+import com.btz.exercise.vo.SubCourseVo;
 import com.btz.newsBulletin.carousel.entity.CarouselEntity;
 import com.btz.newsBulletin.carousel.service.CarouselService;
 import com.btz.utils.Constant;
@@ -35,15 +37,20 @@ public class AppCarouselController extends BaseController {
 
     @RequestMapping(params = "getCarousel")
     @ResponseBody
-    public AppAjax getCarousel(HttpServletRequest request, HttpServletResponse response) {
+    public AppAjax getCarousel(CarouselEntity carouselEntity, HttpServletRequest request, HttpServletResponse response) {
         AppAjax j = new AppAjax();
         DetachedCriteria carouselDetachedCriteria = DetachedCriteria.forClass(CarouselEntity.class);
         carouselDetachedCriteria.add(Restrictions.eq("sfyn", SfynConstant.SFYN_Y));
+        carouselDetachedCriteria.add(
+                Restrictions.or(
+                        Restrictions.eq("subCourseId",carouselEntity.getSubCourseId()),
+                        Restrictions.eq("flag",2)
+                )
+        );
         carouselDetachedCriteria.addOrder(Order.asc("orderNo"));
         List<CarouselEntity> carouselEntityList = carouselService.getListByCriteriaQuery(carouselDetachedCriteria);
         j.setContent(carouselEntityList);
         return j;
     }
-
 
 }

@@ -16,10 +16,14 @@ import com.btz.exercise.entity.ExerciseEntity;
 import com.btz.exercise.service.ExerciseService;
 import com.btz.feedback.entity.FeedbackEntity;
 import com.btz.feedback.service.FeedbackService;
+import com.btz.module.entity.ModuleEntity;
 import com.btz.user.entity.UserEntity;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.framework.core.common.controller.BaseController;
+import org.hibernate.criterion.DetachedCriteria;
+import org.hibernate.criterion.Order;
+import org.hibernate.criterion.Restrictions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
@@ -31,6 +35,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.util.Date;
+import java.util.List;
 
 /**
  * Created by User on 2017/7/25.
@@ -67,6 +72,7 @@ public class AppFeedbackController extends BaseController {
             j.setMsg("请先登录,再反馈问题！");
             return j;
         }
+
         if (StringUtils.isEmpty(feedbackVo.getContent())) {
             j.setReturnCode(AppAjax.FAIL);
             j.setMsg("反馈内容不能为空！");
@@ -111,7 +117,21 @@ public class AppFeedbackController extends BaseController {
         return j;
     }
 
-
-
+    @RequestMapping(params = "doGetFeedBackInfo")
+    @ResponseBody
+    public AppAjax doAdd(HttpServletRequest request, HttpServletResponse response) {
+        AppAjax j = new AppAjax();
+        UserEntity userEntity = appTokenService.getUserEntityByToken(request);
+        if (userEntity == null) {
+            return j;
+        }
+        DetachedCriteria feedbackEntityDetachedCriteria = DetachedCriteria.forClass(FeedbackEntity.class);
+        feedbackEntityDetachedCriteria.add(Restrictions.eq("userId", userEntity.getId()));
+        feedbackEntityDetachedCriteria.add(Restrictions.eq("status", FeedbackConstant.PASS));
+        feedbackEntityDetachedCriteria.addOrder(Order.desc("dealTime"));
+        List<FeedbackEntity> feedbackEntityList = feedbackService.getListByCriteriaQuery(feedbackEntityDetachedCriteria);
+        j.setContent(feedbackEntityList);
+        return j;
+    }
 
 }
