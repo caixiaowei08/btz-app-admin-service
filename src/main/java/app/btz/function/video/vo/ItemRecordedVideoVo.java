@@ -7,7 +7,7 @@ import java.io.Serializable;
 /**
  * Created by User on 2017/7/21.
  */
-public class ItemRecordedVideoVo implements Serializable{
+public class ItemRecordedVideoVo implements Serializable {
 
     private Integer id;
 
@@ -15,11 +15,11 @@ public class ItemRecordedVideoVo implements Serializable{
 
     private Integer chapterId;
 
-    private String title;
+    private String title = "";
 
-    private String videoUrl;
+    private String videoUrl = "";
 
-    private String lectureUrl;
+    private String lectureUrl = "";
 
     private Integer orderNo;
 

@@ -1,4 +1,4 @@
-package com.btz.poi.Controller;
+package com.btz.poi.controller;
 
 import com.btz.poi.pojo.ExerciseExcelPojo;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.commons.CommonsMultipartFile;
-import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletRequest;

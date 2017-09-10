@@ -78,6 +78,7 @@ public class ExerciseController extends BaseController {
         String chapterId = request.getParameter("chapterId");
         String moduleType = request.getParameter("moduleType");
         String examType = request.getParameter("examType");
+        String title = request.getParameter("title");
         if (StringUtils.isEmpty(subCourseId) || StringUtils.isEmpty(moduleType)) {
             DatagridJsonUtils.datagrid(response, new DataGridReturn(0, new ArrayList()));
             return;
@@ -88,10 +89,14 @@ public class ExerciseController extends BaseController {
         criteriaQuery.getDetachedCriteria().addOrder(Order.asc("type"));
         criteriaQuery.getDetachedCriteria().addOrder(Order.asc("orderNo"));
         DetachedCriteria detachedCriteria = criteriaQuery.getDetachedCriteria();
-        if(StringUtils.hasText(examType)){
-            detachedCriteria.add(Restrictions.eq("type",Integer.parseInt(examType)));
+        if (StringUtils.hasText(examType)) {
+            detachedCriteria.add(Restrictions.eq("type", Integer.parseInt(examType)));
         }
         detachedCriteria.add(Restrictions.eq("subCourseId", Integer.parseInt(subCourseId.substring(1, subCourseId.length()))));
+
+        if(StringUtils.hasText(title)){
+            detachedCriteria.add(Restrictions.like("title", "%" + title + "%"));
+        }
         detachedCriteria.add(Restrictions.eq("moduleType", BelongToEnum.getBelongToEnum(Integer.parseInt(moduleType)).getIndex()));
         if (StringUtils.hasText(chapterId) && !chapterId.contains("S")) {
             detachedCriteria.add(Restrictions.eq("chapterId", Integer.parseInt(chapterId.substring(1, chapterId.length()))));
@@ -108,11 +113,11 @@ public class ExerciseController extends BaseController {
         BelongToEnum belongToEnum = BelongToEnum.getBelongToEnum(moduleType);
         SubCourseEntity subCourseEntity = globalService.get(SubCourseEntity.class, subCourseId);
         if (belongToEnum == null) {
-            downTestModuleExcel.downTestModuleExcel(subCourseEntity,null, request, response, "模块类型输入错误！", ALL);
+            downTestModuleExcel.downTestModuleExcel(subCourseEntity, null, request, response, "模块类型输入错误！", ALL);
             return;
         }
         List<ExerciseExcelPojo> exerciseExcelPojoList = chapterService.getExcelTemplet(subCourseEntity, belongToEnum.getIndex());
-        downTestModuleExcel.downTestModuleExcel(subCourseEntity,exerciseExcelPojoList, request, response, subCourseEntity.getSubName(), belongToEnum);
+        downTestModuleExcel.downTestModuleExcel(subCourseEntity, exerciseExcelPojoList, request, response, subCourseEntity.getSubName(), belongToEnum);
     }
 
     @RequestMapping(params = "uploadExcel")
@@ -129,7 +134,7 @@ public class ExerciseController extends BaseController {
             return j;
         }
 
-        ExcelExercisePojo  excelExercisePojo = null;
+        ExcelExercisePojo excelExercisePojo = null;
         String postfix = org.framework.core.utils.StringUtils.getPostfix(newFileName);
         try {
             if (StringUtils.hasText(postfix) && PoiConstant.OFFICE_EXCEL_2010_POSTFIX.equals(postfix)) {
@@ -157,11 +162,6 @@ public class ExerciseController extends BaseController {
         List<ExerciseEntity> exerciseEntityList = excelExercisePojo.getExerciseEntityList();
         try {
             if (CollectionUtils.isNotEmpty(exerciseEntityList)) {
-                for (int i = 0; i < exerciseEntityList.size(); i++) {
-                    ExerciseEntity exerciseEntity = exerciseEntityList.get(i);
-                    exerciseEntity.setCreateTime(new Date());
-                    exerciseEntity.setUpdateTime(new Date());
-                }
                 exerciseService.batchExerciseSave(exerciseEntityList);
             } else {
                 j.setSuccess(AjaxJson.CODE_FAIL);
