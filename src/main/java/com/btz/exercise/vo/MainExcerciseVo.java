@@ -29,6 +29,8 @@ public class MainExcerciseVo implements Serializable{
 
     private Integer orderNo;
 
+    private Double point;
+
     public Integer getSequenceNumber() {
         return sequenceNumber;
     }
@@ -115,5 +117,13 @@ public class MainExcerciseVo implements Serializable{
 
     public void setOrderNo(Integer orderNo) {
         this.orderNo = orderNo;
+    }
+
+    public Double getPoint() {
+        return point;
+    }
+
+    public void setPoint(Double point) {
+        this.point = point;
     }
 }

@@ -71,6 +71,8 @@ public class AppTokenServiceImpl implements AppTokenService {
                         courseAuthorityPojo.setSubCourseId(authUserInfoJson.getId());
                         courseAuthorityPojo.setStartTime(authUserInfoJson.getStart());
                         courseAuthorityPojo.setEndTime(authUserInfoJson.getEnd());
+                        courseAuthorityPojo.setVideoAuth(authUserInfoJson.getVideo_auth());
+                        courseAuthorityPojo.setExamAuth(authUserInfoJson.getExam_auth());
                         courseAuthorityPojoList.add(courseAuthorityPojo);
                     }
                 }

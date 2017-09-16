@@ -7,6 +7,8 @@ import app.btz.function.testModule.vo.ListInfoVo;
 import app.btz.function.testModule.vo.ModuleTestRequestVo;
 import app.btz.function.testModule.vo.ModuleVo;
 import com.btz.contants.QuestionType;
+import com.btz.exercise.entity.ExerciseEntity;
+import com.btz.exercise.service.ExerciseService;
 import com.btz.module.entity.ModuleEntity;
 import com.btz.module.service.ModuleService;
 import org.apache.commons.collections.CollectionUtils;
@@ -36,6 +38,9 @@ public class AppExerciseController extends BaseController {
 
     @Autowired
     private ModuleService moduleService;
+
+    @Autowired
+    private ExerciseService exerciseService;
 
     @Autowired
     private AppTestModuleService appTestModuleService;
@@ -79,4 +84,21 @@ public class AppExerciseController extends BaseController {
         j.setContent(moduleVo);
         return j;
     }
+
+    @RequestMapping(params = "doGetExerciseByExerciseId")
+    @ResponseBody
+    public AppAjax doGetExerciseByExerciseId(ExerciseEntity exerciseEntity, HttpServletRequest request, HttpServletResponse response) {
+        AppAjax j = new AppAjax();
+        ExerciseEntity exerciseDb = exerciseService.get(ExerciseEntity.class, exerciseEntity.getId());
+        if (exerciseDb == null) {
+            j.setReturnCode(AppAjax.FAIL);
+            j.setMsg("题目不存在或者已被删除！");
+            return j;
+        }
+        j.setReturnCode(AppAjax.SUCCESS);
+        j.setContent(exerciseDb);
+        return j;
+    }
+
+
 }

@@ -41,12 +41,6 @@ public class AppTestModuleController extends BaseController {
     private static Logger logger = LogManager.getLogger(ApiUserController.class.getName());
 
     @Autowired
-    private ModuleService moduleService;
-
-    @Autowired
-    private AppTestModuleService appTestModuleService;
-
-    @Autowired
     private MainCourseService mainCourseService;
 
     @Autowired

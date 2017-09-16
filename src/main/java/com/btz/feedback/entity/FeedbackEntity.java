@@ -66,6 +66,11 @@ public class FeedbackEntity implements Serializable{
     private Integer status;
 
     /**
+     * 查看标识
+     */
+    private Integer flag;
+
+    /**
      *审核时间
      */
     @JSONField(format = "yyyy-MM-dd HH:mm:ss")
@@ -216,5 +221,14 @@ public class FeedbackEntity implements Serializable{
 
     public void setAnswer(String answer) {
         this.answer = answer;
+    }
+
+    @Column(name = "flag", nullable = false, length = 11)
+    public Integer getFlag() {
+        return flag;
+    }
+
+    public void setFlag(Integer flag) {
+        this.flag = flag;
     }
 }

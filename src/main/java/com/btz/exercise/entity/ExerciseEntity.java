@@ -11,65 +11,71 @@ import java.util.Date;
  */
 @Entity
 @Table(name = "btz_exercise_question_info")
-public class ExerciseEntity implements Serializable{
+public class ExerciseEntity implements Serializable {
     /**
      * 主键
      */
     private Integer id;
     /**
-     *所属课程主键
+     * 所属课程主键
      */
     private Integer subCourseId;
     /**
-     *章节主键
+     * 章节主键
      */
     private Integer chapterId;
     /**
-     *题目类型 1-单选题 2-多选题 3-判断题 4-分录题 5-不定项分析题 6-长文本题 7-短文本题 8-公式题 9-不定项表格
+     * 题目类型 1-单选题 2-多选题 3-判断题 4-分录题 5-不定项分析题 6-长文本题 7-短文本题 8-公式题 9-不定项表格
      */
     private Integer type;
     /**
-     *模块主键
+     * 模块主键
      */
     private Integer moduleId;
     /**
-     *模块类型
+     * 模块类型
      */
     private Integer moduleType;
     /**
-     *题干
+     * 题干
      */
     private String title;
     /**
-     *题目内容
+     * 题目内容
      */
     private String content;
     /**
-     *答案
+     * 答案
      */
     private String answer;
     /**
-     *答案解析
+     * 答案解析
      */
     private String answerKey;
     /**
-     *显示顺序
+     * 显示顺序
      */
     private Integer orderNo;
+
     /**
-     *创建时间
+     * 题目分值
      */
-    @JSONField(format="yyyy-MM-dd HH:mm:ss")
+    private Double point;
+
+    /**
+     * 创建时间
+     */
+    @JSONField(format = "yyyy-MM-dd HH:mm:ss")
     private Date createTime;
     /**
-     *更新时间
+     * 更新时间
      */
-    @JSONField(format="yyyy-MM-dd HH:mm:ss")
+    @JSONField(format = "yyyy-MM-dd HH:mm:ss")
     private Date updateTime;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name ="id",nullable=false,length=20)
+    @Column(name = "id", nullable = false, length = 20)
     public Integer getId() {
         return id;
     }
@@ -78,7 +84,7 @@ public class ExerciseEntity implements Serializable{
         this.id = id;
     }
 
-    @Column(name ="moduleId",nullable=false,length=11)
+    @Column(name = "moduleId", nullable = false, length = 11)
     public Integer getModuleId() {
         return moduleId;
     }
@@ -87,7 +93,7 @@ public class ExerciseEntity implements Serializable{
         this.moduleId = moduleId;
     }
 
-    @Column(name ="moduleType",nullable=false,length=11)
+    @Column(name = "moduleType", nullable = false, length = 11)
     public Integer getModuleType() {
         return moduleType;
     }
@@ -96,7 +102,7 @@ public class ExerciseEntity implements Serializable{
         this.moduleType = moduleType;
     }
 
-    @Column(name ="subCourseId",nullable=false,length=20)
+    @Column(name = "subCourseId", nullable = false, length = 20)
     public Integer getSubCourseId() {
         return subCourseId;
     }
@@ -105,7 +111,7 @@ public class ExerciseEntity implements Serializable{
         this.subCourseId = subCourseId;
     }
 
-    @Column(name ="chapterId",nullable=false,length=20)
+    @Column(name = "chapterId", nullable = false, length = 20)
     public Integer getChapterId() {
         return chapterId;
     }
@@ -114,7 +120,7 @@ public class ExerciseEntity implements Serializable{
         this.chapterId = chapterId;
     }
 
-    @Column(name ="type",nullable=false,length=11)
+    @Column(name = "type", nullable = false, length = 11)
     public Integer getType() {
         return type;
     }
@@ -123,7 +129,7 @@ public class ExerciseEntity implements Serializable{
         this.type = type;
     }
 
-    @Column(name ="title",nullable=false)
+    @Column(name = "title", nullable = false)
     public String getTitle() {
         return title;
     }
@@ -132,7 +138,7 @@ public class ExerciseEntity implements Serializable{
         this.title = title;
     }
 
-    @Column(name ="content",nullable=false)
+    @Column(name = "content", nullable = false)
     public String getContent() {
         return content;
     }
@@ -140,7 +146,8 @@ public class ExerciseEntity implements Serializable{
     public void setContent(String content) {
         this.content = content;
     }
-    @Column(name ="answer",nullable=false)
+
+    @Column(name = "answer", nullable = false)
     public String getAnswer() {
         return answer;
     }
@@ -148,7 +155,8 @@ public class ExerciseEntity implements Serializable{
     public void setAnswer(String answer) {
         this.answer = answer;
     }
-    @Column(name ="answerKey",nullable=false)
+
+    @Column(name = "answerKey", nullable = false)
     public String getAnswerKey() {
         return answerKey;
     }
@@ -157,7 +165,7 @@ public class ExerciseEntity implements Serializable{
         this.answerKey = answerKey;
     }
 
-    @Column(name ="orderNo",nullable=false,length=11)
+    @Column(name = "orderNo", nullable = false, length = 11)
     public Integer getOrderNo() {
         return orderNo;
     }
@@ -166,7 +174,15 @@ public class ExerciseEntity implements Serializable{
         this.orderNo = orderNo;
     }
 
-    @Column(name ="createTime",nullable=true,length=20)
+    public Double getPoint() {
+        return point;
+    }
+    @Column(name = "point", nullable = true)
+    public void setPoint(Double point) {
+        this.point = point;
+    }
+
+    @Column(name = "createTime", nullable = true, length = 20)
     public Date getCreateTime() {
         return createTime;
     }
@@ -175,7 +191,7 @@ public class ExerciseEntity implements Serializable{
         this.createTime = createTime;
     }
 
-    @Column(name ="updateTime",nullable=true,length=20)
+    @Column(name = "updateTime", nullable = true, length = 20)
     public Date getUpdateTime() {
         return updateTime;
     }
@@ -183,4 +199,6 @@ public class ExerciseEntity implements Serializable{
     public void setUpdateTime(Date updateTime) {
         this.updateTime = updateTime;
     }
+
+
 }

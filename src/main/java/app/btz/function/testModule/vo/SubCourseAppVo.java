@@ -35,6 +35,16 @@ public class SubCourseAppVo implements Serializable, Comparable<SubCourseAppVo> 
      */
     private Date expirationTime;
 
+    /**
+     * 试题权限
+     */
+    private Integer examAuth;
+
+    /**
+     * 视频权限
+     */
+    private Integer videoAuth;
+
     public int compareTo(SubCourseAppVo o) {
         return this.orderNo.compareTo(o.getOrderNo());
     }
@@ -79,4 +89,19 @@ public class SubCourseAppVo implements Serializable, Comparable<SubCourseAppVo> 
         this.expirationTime = expirationTime;
     }
 
+    public Integer getExamAuth() {
+        return examAuth;
+    }
+
+    public void setExamAuth(Integer examAuth) {
+        this.examAuth = examAuth;
+    }
+
+    public Integer getVideoAuth() {
+        return videoAuth;
+    }
+
+    public void setVideoAuth(Integer videoAuth) {
+        this.videoAuth = videoAuth;
+    }
 }

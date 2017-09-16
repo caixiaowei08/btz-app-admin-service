@@ -14,5 +14,13 @@ public class FeedbackConstant {
     //驳回
     public static final Integer REJECT = 3;
 
+    //已查阅
+    public static final Integer LOOK = 1;
+
+    //未查阅
+    public static final Integer UNLOOK = 0;
+
+
+
 
 }

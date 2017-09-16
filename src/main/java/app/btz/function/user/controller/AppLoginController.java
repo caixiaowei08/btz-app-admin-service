@@ -65,6 +65,9 @@ public class AppLoginController extends BaseController {
         } catch (Exception e) {
             e.printStackTrace();
             logger.error(e);
+            j.setReturnCode(AppAjax.FAIL);
+            j.setMsg("获取登录信息失败！");
+            return j;
         }
 
         if (StringUtils.hasText(result) && !result.equals("null")) {
@@ -86,6 +89,8 @@ public class AppLoginController extends BaseController {
                     courseAuthorityPojo.setSubCourseId(authUserInfoJson.getId());
                     courseAuthorityPojo.setStartTime(authUserInfoJson.getStart());
                     courseAuthorityPojo.setEndTime(authUserInfoJson.getEnd());
+                    courseAuthorityPojo.setExamAuth(authUserInfoJson.getExam_auth());
+                    courseAuthorityPojo.setVideoAuth(authUserInfoJson.getVideo_auth());
                     courseAuthorityPojoList.add(courseAuthorityPojo);
                 }
             }

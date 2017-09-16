@@ -153,7 +153,7 @@ public class ModuleController extends BaseController {
         AjaxJson j = new AjaxJson();
         DetachedCriteria moduleDetachedCriteria = DetachedCriteria.forClass(ModuleEntity.class);
         moduleDetachedCriteria.add(Restrictions.eq("subCourseId", moduleEntity.getSubCourseId()));
-        moduleDetachedCriteria.add(Restrictions.eq("type", BelongToEnum.EXAM_TIPS.getIndex()));
+        moduleDetachedCriteria.add(Restrictions.eq("type", moduleEntity.getType()));
         List<ModuleEntity> moduleEntityList = moduleService.getListByCriteriaQuery(moduleDetachedCriteria);
         if(CollectionUtils.isEmpty(moduleEntityList)){
             j.setContent(new ModuleEntity());

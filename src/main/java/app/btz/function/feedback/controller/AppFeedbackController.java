@@ -18,6 +18,7 @@ import com.btz.feedback.entity.FeedbackEntity;
 import com.btz.feedback.service.FeedbackService;
 import com.btz.module.entity.ModuleEntity;
 import com.btz.user.entity.UserEntity;
+import org.apache.commons.collections.CollectionUtils;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.framework.core.common.controller.BaseController;
@@ -94,6 +95,7 @@ public class AppFeedbackController extends BaseController {
             feedbackEntity.setModuleId(exerciseEntity.getModuleId());
             feedbackEntity.setModuleType(exerciseEntity.getModuleType());
             feedbackEntity.setStatus(FeedbackConstant.PENDING);
+            feedbackEntity.setFlag(FeedbackConstant.UNLOOK);
             feedbackEntity.setExerciseId(exerciseEntity.getId());
             feedbackEntity.setResume("*课程：" + subCourseEntity.getSubName()
                     + "   *章节：" + chapterEntity.getChapterName()
@@ -131,6 +133,36 @@ public class AppFeedbackController extends BaseController {
         feedbackEntityDetachedCriteria.addOrder(Order.desc("dealTime"));
         List<FeedbackEntity> feedbackEntityList = feedbackService.getListByCriteriaQuery(feedbackEntityDetachedCriteria);
         j.setContent(feedbackEntityList);
+        return j;
+    }
+
+    @RequestMapping(params = "doUpdateLookStateByToken")
+    @ResponseBody
+    public AppAjax doUpdateLookStateByToken(HttpServletRequest request, HttpServletResponse response) {
+        AppAjax j = new AppAjax();
+        UserEntity userEntity = appTokenService.getUserEntityByToken(request);
+        if (userEntity == null) {
+            return j;
+        }
+        DetachedCriteria feedbackEntityDetachedCriteria = DetachedCriteria.forClass(FeedbackEntity.class);
+        feedbackEntityDetachedCriteria.add(Restrictions.eq("userId", userEntity.getId()));
+        feedbackEntityDetachedCriteria.add(Restrictions.eq("status", FeedbackConstant.PASS));
+        feedbackEntityDetachedCriteria.addOrder(Order.desc("dealTime"));
+        List<FeedbackEntity> feedbackEntityList = feedbackService.getListByCriteriaQuery(feedbackEntityDetachedCriteria);
+        try {
+            if (CollectionUtils.isNotEmpty(feedbackEntityList)) {
+                for (FeedbackEntity feedbackEntity : feedbackEntityList) {
+                    feedbackEntity.setFlag(FeedbackConstant.LOOK);
+                    feedbackService.saveOrUpdate(feedbackEntity);
+                }
+            }
+        }catch (Exception e){
+            j.setReturnCode(AppAjax.FAIL);
+            j.setContent("更新查看状态失败！");
+            return j;
+        }
+        j.setReturnCode(AppAjax.SUCCESS);
+        j.setContent("更新查看状态成功！");
         return j;
     }
 

@@ -5,14 +5,14 @@ package com.btz.utils;
  */
 public enum BelongToEnum {
 
-    ALL("所有模块 ", 0),CHAPTER("章节练习 ", 1), CORE_POINT("核心考点", 2),SIMULATION_TEST("模拟考场", 3),EXAM_TIPS("考前押题", 4),
-    RECORDED_VIDEO("录播视频", 5),LIVE_VIDEO("直播视频 ", 6);
+    ALL("所有模块 ", 0), CHAPTER("章节练习 ", 1), CORE_POINT("核心考点", 2), SIMULATION_TEST("模拟考场", 3), EXAM_TIPS("考前押题", 4),
+    RECORDED_VIDEO("录播视频", 5), LIVE_VIDEO("直播视频 ", 6), YEARS_REAL_EXAM("历年真题 ", 7);
 
     private String typeName;
 
     private int index;
 
-    BelongToEnum(String typeName,int index){
+    BelongToEnum(String typeName, int index) {
         this.typeName = typeName;
         this.index = index;
     }
@@ -36,7 +36,6 @@ public enum BelongToEnum {
         }
         return null;
     }
-
 
 
     public String getTypeName() {

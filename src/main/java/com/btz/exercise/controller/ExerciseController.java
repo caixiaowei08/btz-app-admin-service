@@ -138,7 +138,7 @@ public class ExerciseController extends BaseController {
         String postfix = org.framework.core.utils.StringUtils.getPostfix(newFileName);
         try {
             if (StringUtils.hasText(postfix) && PoiConstant.OFFICE_EXCEL_2010_POSTFIX.equals(postfix)) {
-                excelExercisePojo = downTestModuleExcel.readXlsxToExerciseEntityList(filelocal);//PoiExcelExerciseUtils.readXls(filelocal);
+                excelExercisePojo = downTestModuleExcel.readXlsxToExerciseEntityList(filelocal);
             } else {
                 j.setSuccess(AjaxJson.CODE_FAIL);
                 j.setMsg("仅支持 Excel xlsx 2007文件！");

@@ -112,7 +112,7 @@ public class AppSubCourseController extends BaseController {
         List<CourseAuthorityPojo> courseAuthorityPojoList = authorityPojo.getAuthority();
         if (CollectionUtils.isEmpty(courseAuthorityPojoList)) {
             j.setReturnCode(AppAjax.FAIL);
-            j.setMsg("未购买任何课程！");
+            j.setMsg("您未购买任何课程！");
             return j;
         }
         Map<Integer, MainCourseAppVo> mainCourseMap = new HashMap<Integer, MainCourseAppVo>();
@@ -137,6 +137,8 @@ public class AppSubCourseController extends BaseController {
                 subCourseAppVo.setOrderNo(subCourseEntity.getOrderNo());
                 subCourseAppVo.setTryOut(subCourseEntity.getIsTryOut());
                 subCourseAppVo.setExpirationTime(courseAuthorityPojo.getEndTime());
+                subCourseAppVo.setExamAuth(courseAuthorityPojo.getExamAuth());
+                subCourseAppVo.setVideoAuth(courseAuthorityPojo.getVideoAuth());
                 mainCourseAppVo.getChildren().add(subCourseAppVo);
                 mainCourseMap.put(mainCourseEntity.getId(), mainCourseAppVo);
             } else {
@@ -147,6 +149,8 @@ public class AppSubCourseController extends BaseController {
                 subCourseAppVo.setOrderNo(subCourseEntity.getOrderNo());
                 subCourseAppVo.setTryOut(subCourseEntity.getIsTryOut());
                 subCourseAppVo.setExpirationTime(courseAuthorityPojo.getEndTime());
+                subCourseAppVo.setExamAuth(courseAuthorityPojo.getExamAuth());
+                subCourseAppVo.setVideoAuth(courseAuthorityPojo.getVideoAuth());
                 mainCourseAppVo.getChildren().add(subCourseAppVo);
             }
         }
@@ -154,12 +158,10 @@ public class AppSubCourseController extends BaseController {
         Collections.sort(mainCourseAppVoList);
         for (MainCourseAppVo mainCourseAppVo : mainCourseAppVoList) {
             Collections.sort(mainCourseAppVo.getChildren());
-
         }
         j.setReturnCode(AppAjax.SUCCESS);
         j.setContent(mainCourseAppVoList);
         return j;
     }
-
 
 }

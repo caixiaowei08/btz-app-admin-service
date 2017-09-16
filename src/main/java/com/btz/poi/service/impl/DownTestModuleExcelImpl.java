@@ -15,6 +15,7 @@ import com.btz.poi.pojo.ExerciseExcelPojo;
 import com.btz.poi.service.DownTestModuleExcel;
 import com.btz.poi.utils.QecollatorQuestion;
 import com.btz.utils.BelongToEnum;
+import javafx.beans.binding.DoubleExpression;
 import org.apache.commons.collections.CollectionUtils;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -123,11 +124,13 @@ public class DownTestModuleExcelImpl implements DownTestModuleExcel {
         XSSFSheet sheet = workBook.createSheet("题目工作表");// 创建一个工作薄对象
         String[] columns = {
                 "题号", "章节名称", "题目类型", "题干",
-                "内容", "答案", "解析", "显示顺序"
+                "内容", "答案", "解析", "显示顺序",
+                "题目分值"
         };
         int[] columnsColumnWidth = {
                 10000, 10000, 10000, 10000,
-                10000, 10000, 10000, 10000
+                10000, 10000, 10000, 10000,
+                10000
         };
         //表头样式
         CellStyle headStyle = workBook.createCellStyle();
@@ -200,6 +203,7 @@ public class DownTestModuleExcelImpl implements DownTestModuleExcel {
             int rowNum = 2;
             for (int i = 0; i < exerciseExcelPojoList.size(); i++) {
                 ExerciseExcelPojo exerciseExcelPojo = exerciseExcelPojoList.get(i);
+                QuestionType questionType[] = QuestionType.values();
                 for (int j = 0; j < QuestionType.values().length; j++) {
                     row = sheet.createRow(rowNum);
                     cell = row.createCell(0);
@@ -216,16 +220,19 @@ public class DownTestModuleExcelImpl implements DownTestModuleExcel {
                     cell.setCellValue("--------题干--------");
                     cell = row.createCell(4);
                     cell.setCellType(CellType.STRING);
-                    cell.setCellValue("--------内容-</br></br>-题目分割-<br/>-题目内容分割------");
+                    cell.setCellValue("--------内容-------");
                     cell = row.createCell(5);
                     cell.setCellType(CellType.STRING);
-                    cell.setCellValue("--------答案-</br></br>----小题答案分割-------");
+                    cell.setCellValue("--------答案-------");
                     cell = row.createCell(6);
                     cell.setCellType(CellType.STRING);
-                    cell.setCellValue("--------解析-</br></br>----小题解析分割------");
+                    cell.setCellValue("--------解析-------");
                     cell = row.createCell(7);
                     cell.setCellType(CellType.NUMERIC);
                     cell.setCellValue(rowNum - 1);
+                    cell = row.createCell(8);
+                    cell.setCellType(CellType.NUMERIC);
+                    cell.setCellValue(0.00);
                     rowNum++;
                 }
             }
@@ -301,7 +308,7 @@ public class DownTestModuleExcelImpl implements DownTestModuleExcel {
                 cell.setCellValue("--------小题干--------");
                 cell = row.createCell(3);
                 cell.setCellType(CellType.STRING);
-                cell.setCellValue("--------内容-----------");
+                cell.setCellValue("--------小题内容-----------");
                 cell = row.createCell(4);
                 cell.setCellType(CellType.STRING);
                 cell.setCellValue("--------答案-----------");
@@ -314,7 +321,7 @@ public class DownTestModuleExcelImpl implements DownTestModuleExcel {
     }
 
     private boolean checkShortQuestion(Integer parseType) {
-        Integer values[] = {2, 3, 4};
+        Integer values[] = {2, 4};
         for (Integer value : values) {
             if (value.equals(parseType)) {
                 return true;
@@ -383,6 +390,7 @@ public class DownTestModuleExcelImpl implements DownTestModuleExcel {
                         XSSFCell answer = xssfRow.getCell(5);
                         XSSFCell answerKey = xssfRow.getCell(6);
                         XSSFCell orderNo = xssfRow.getCell(7);
+                        XSSFCell point = xssfRow.getCell(8);
 
                         if ((sequenceNumber == null) &&
                                 (chapterName == null || StringUtils.isEmpty(chapterName.getStringCellValue().trim())) &&
@@ -391,7 +399,8 @@ public class DownTestModuleExcelImpl implements DownTestModuleExcel {
                                 (content == null || StringUtils.isEmpty(content.getStringCellValue().trim())) &&
                                 (answer == null || StringUtils.isEmpty(answer.getStringCellValue().trim())) &&
                                 (answerKey == null || StringUtils.isEmpty(answerKey.getStringCellValue().trim())) &&
-                                (orderNo == null)
+                                (orderNo == null) ||
+                                (point == null)
                                 ) {
                             continue;
                         }
@@ -466,6 +475,14 @@ public class DownTestModuleExcelImpl implements DownTestModuleExcel {
                             throw new BusinessException("第" + (rowNum + 1) + "行，题目显示序号有误，请核实！");
                         }
 
+                        Double pointValue = null;
+                        try {
+                            java.text.DecimalFormat df = new java.text.DecimalFormat("#.00");
+                            pointValue = point == null ? 0 : Double.parseDouble(df.format(point.getNumericCellValue()));
+                        } catch (Exception e) {
+                            throw new BusinessException("第" + (rowNum + 1) + "行，题目有误，请核实！");
+                        }
+
                         //获取章节信息
                         DetachedCriteria chapterDetachedCriteria = DetachedCriteria.forClass(ChapterEntity.class);
                         chapterDetachedCriteria.add(Restrictions.eq("chapterName", chapterNameValue));
@@ -489,6 +506,7 @@ public class DownTestModuleExcelImpl implements DownTestModuleExcel {
                         mainExcerciseVo.setAnswer(answerValue);
                         mainExcerciseVo.setAnswerKey(answerKeyValue);
                         mainExcerciseVo.setOrderNo(orderNoValue);
+                        mainExcerciseVo.setPoint(pointValue);
                         mainExcerciseVoList.add(mainExcerciseVo);
                     }
                 }
@@ -642,6 +660,7 @@ public class DownTestModuleExcelImpl implements DownTestModuleExcel {
         exerciseEntity.setAnswer(mainExcerciseVo.getAnswer());
         exerciseEntity.setAnswerKey(mainExcerciseVo.getAnswerKey());
         exerciseEntity.setOrderNo(mainExcerciseVo.getOrderNo());
+        exerciseEntity.setPoint(mainExcerciseVo.getPoint());
         exerciseEntity.setCreateTime(new Date());
         exerciseEntity.setUpdateTime(new Date());
     }
@@ -684,6 +703,8 @@ public class DownTestModuleExcelImpl implements DownTestModuleExcel {
         exerciseEntity.setAnswer(answer);
         exerciseEntity.setAnswerKey(answerKey);
         exerciseEntity.setOrderNo(mainExcerciseVo.getOrderNo());
+        exerciseEntity.setOrderNo(mainExcerciseVo.getOrderNo());
+        exerciseEntity.setPoint(mainExcerciseVo.getPoint());
         exerciseEntity.setCreateTime(new Date());
         exerciseEntity.setUpdateTime(new Date());
     }
@@ -737,11 +758,12 @@ public class DownTestModuleExcelImpl implements DownTestModuleExcel {
         exerciseEntity.setAnswer(answer);
         exerciseEntity.setAnswerKey(answerKey);
         exerciseEntity.setOrderNo(mainExcerciseVo.getOrderNo());
+        exerciseEntity.setPoint(mainExcerciseVo.getPoint());
         exerciseEntity.setCreateTime(new Date());
         exerciseEntity.setUpdateTime(new Date());
     }
 
-    private void parseQuestionTypeFour(ExerciseEntity exerciseEntity, MainExcerciseVo mainExcerciseVo, List<SubExerciseVo> subExerciseVoList) throws BusinessException{
+    private void parseQuestionTypeFour(ExerciseEntity exerciseEntity, MainExcerciseVo mainExcerciseVo, List<SubExerciseVo> subExerciseVoList) throws BusinessException {
         exerciseEntity.setSubCourseId(mainExcerciseVo.getSubCourseId());
         exerciseEntity.setChapterId(mainExcerciseVo.getChapterId());
         exerciseEntity.setType(mainExcerciseVo.getType());
@@ -789,6 +811,7 @@ public class DownTestModuleExcelImpl implements DownTestModuleExcel {
         exerciseEntity.setAnswer(answer);
         exerciseEntity.setAnswerKey(answerKey);
         exerciseEntity.setOrderNo(mainExcerciseVo.getOrderNo());
+        mainExcerciseVo.setPoint(mainExcerciseVo.getPoint());
         exerciseEntity.setCreateTime(new Date());
         exerciseEntity.setUpdateTime(new Date());
     }

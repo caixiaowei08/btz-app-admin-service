@@ -21,6 +21,18 @@ public class CourseAuthorityPojo implements Serializable{
     @JSONField(format="yyyy-MM-dd")
     private Date endTime;
 
+    /**
+     * 试题权限
+     */
+    private Integer examAuth = 0;
+
+    /**
+     * 视频权限
+     */
+    private Integer videoAuth = 0;
+
+
+
     public Integer getSubCourseId() {
         return subCourseId;
     }
@@ -43,5 +55,21 @@ public class CourseAuthorityPojo implements Serializable{
 
     public void setEndTime(Date endTime) {
         this.endTime = endTime;
+    }
+
+    public Integer getExamAuth() {
+        return examAuth;
+    }
+
+    public void setExamAuth(Integer examAuth) {
+        this.examAuth = examAuth;
+    }
+
+    public Integer getVideoAuth() {
+        return videoAuth;
+    }
+
+    public void setVideoAuth(Integer videoAuth) {
+        this.videoAuth = videoAuth;
     }
 }
