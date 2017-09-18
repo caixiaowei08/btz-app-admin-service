@@ -493,7 +493,10 @@ public class DownTestModuleExcelImpl implements DownTestModuleExcel {
                         }
                         ChapterEntity chapterEntity = chapterEntityList.get(0);
                         //根据题目类型名称获取题目类型
-                        QuestionType questionType = QuestionType.getExamTypeByExamName(examTypeNameValue);
+                        QuestionType questionType = QuestionType.getExamTypeByExamName(examTypeNameValue.trim());
+                        if (questionType == null) {
+                            throw new BusinessException("第" + (rowNum + 1) + "行，系统未能获取对应题型，请核实！");
+                        }
                         mainExcerciseVo = new MainExcerciseVo();
                         mainExcerciseVo.setSequenceNumber(sequenceNumberValue);
                         mainExcerciseVo.setSubCourseId(chapterEntity.getCourseId());

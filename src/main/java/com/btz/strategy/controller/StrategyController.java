@@ -46,7 +46,7 @@ public class StrategyController extends BaseController {
             return;
         }
         CriteriaQuery criteriaQuery = new CriteriaQuery(ItemStrategyEntity.class, dataGrid, request.getParameterMap());
-        criteriaQuery.getDetachedCriteria().addOrder(Order.asc("examType"));
+        criteriaQuery.getDetachedCriteria().addOrder(Order.asc("orderNo"));
         criteriaQuery.getDetachedCriteria().add(Restrictions.eq("subCourseId", itemStrategyEntity.getSubCourseId()));
         DataGridReturn dataGridReturn = strategyService.getDataGridReturn(criteriaQuery);
         DatagridJsonUtils.listToObj(dataGridReturn, ItemStrategyEntity.class, dataGrid.getField());
@@ -57,15 +57,6 @@ public class StrategyController extends BaseController {
     @ResponseBody
     public AjaxJson doAddItem(ItemStrategyEntity itemStrategyEntity, HttpServletRequest request, HttpServletResponse response) {
         AjaxJson j = new AjaxJson();
-        DetachedCriteria itemStrategyEntityDetachedCriteria = DetachedCriteria.forClass(ItemStrategyEntity.class);
-        itemStrategyEntityDetachedCriteria.add(Restrictions.eq("subCourseId", itemStrategyEntity.getSubCourseId()));
-        itemStrategyEntityDetachedCriteria.add(Restrictions.eq("examType", itemStrategyEntity.getExamType()));
-        List<ItemStrategyEntity> itemStrategyEntityList = strategyService.getListByCriteriaQuery(itemStrategyEntityDetachedCriteria);
-        if (CollectionUtils.isNotEmpty(itemStrategyEntityList)) {
-            j.setSuccess(AjaxJson.CODE_FAIL);
-            j.setMsg("不能重复添加！");
-            return j;
-        }
         try {
             itemStrategyEntity.setType(StrategyConstants.ITEM_STRATEGY);
             itemStrategyEntity.setUpdateTime(new Date());

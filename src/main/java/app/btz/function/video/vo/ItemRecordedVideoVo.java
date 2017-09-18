@@ -1,7 +1,5 @@
 package app.btz.function.video.vo;
 
-import com.sun.org.apache.xpath.internal.operations.Bool;
-
 import java.io.Serializable;
 
 /**

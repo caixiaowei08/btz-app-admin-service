@@ -38,6 +38,12 @@ public class ItemStrategyEntity implements Serializable {
      * 题目个数
      */
     private Integer examNo;
+
+    /**
+     *排列顺序
+     */
+    private Integer orderNo;
+
     /**
      * 创建时间
      */
@@ -123,5 +129,14 @@ public class ItemStrategyEntity implements Serializable {
 
     public void setUpdateTime(Date updateTime) {
         this.updateTime = updateTime;
+    }
+
+    @Column(name = "orderNo", nullable = false, length = 20)
+    public Integer getOrderNo() {
+        return orderNo;
+    }
+
+    public void setOrderNo(Integer orderNo) {
+        this.orderNo = orderNo;
     }
 }

@@ -15,6 +15,8 @@ public class ItemStrategyVo implements Serializable {
 
     private Integer examNo;
 
+    private Integer orderNo;
+
     public Integer getSubCourseId() {
         return subCourseId;
     }
@@ -45,5 +47,13 @@ public class ItemStrategyVo implements Serializable {
 
     public void setExamNo(Integer examNo) {
         this.examNo = examNo;
+    }
+
+    public Integer getOrderNo() {
+        return orderNo;
+    }
+
+    public void setOrderNo(Integer orderNo) {
+        this.orderNo = orderNo;
     }
 }

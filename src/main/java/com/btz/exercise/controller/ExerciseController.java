@@ -94,7 +94,7 @@ public class ExerciseController extends BaseController {
         }
         detachedCriteria.add(Restrictions.eq("subCourseId", Integer.parseInt(subCourseId.substring(1, subCourseId.length()))));
 
-        if(StringUtils.hasText(title)){
+        if (StringUtils.hasText(title)) {
             detachedCriteria.add(Restrictions.like("title", "%" + title + "%"));
         }
         detachedCriteria.add(Restrictions.eq("moduleType", BelongToEnum.getBelongToEnum(Integer.parseInt(moduleType)).getIndex()));
@@ -153,6 +153,11 @@ public class ExerciseController extends BaseController {
             logger.error(be.fillInStackTrace());
             j.setSuccess(AjaxJson.CODE_FAIL);
             j.setMsg(be.getMessage());
+            return j;
+        } catch (Exception ye) {
+            logger.error(ye.fillInStackTrace());
+            j.setSuccess(AjaxJson.CODE_FAIL);
+            j.setMsg(ye.getMessage());
             return j;
         } finally {
             if (filelocal.isFile() && filelocal.exists()) {

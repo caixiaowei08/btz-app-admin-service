@@ -32,7 +32,7 @@ public class AppStrategyController extends BaseController {
     @Autowired
     private AppStrategyService appStrategyService;
 
-    @RequestMapping(params = "doGetAllNotesByExerciseId")
+    @RequestMapping(params = "doGetStrategyBySubCourseId")
     @ResponseBody
     public AppAjax doGetStrategyBySubCourseId(
             MainStrategyVo mainStrategyVo, HttpServletRequest request, HttpServletResponse response) {
@@ -57,7 +57,7 @@ public class AppStrategyController extends BaseController {
         t.setSubCourseId(mainStrategyEntity.getSubCourseId());
         DetachedCriteria itemStrategyEntityDetachedCriteria = DetachedCriteria.forClass(ItemStrategyEntity.class);
         itemStrategyEntityDetachedCriteria.add(Restrictions.eq("subCourseId", mainStrategyVo.getSubCourseId()));
-        itemStrategyEntityDetachedCriteria.addOrder(Order.asc("examType"));
+        itemStrategyEntityDetachedCriteria.addOrder(Order.asc("orderNo"));
         List<ItemStrategyEntity> itemStrategyEntityList = appStrategyService.getListByCriteriaQuery(itemStrategyEntityDetachedCriteria);
         if (CollectionUtils.isEmpty(itemStrategyEntityList)) {
             j.setReturnCode(AppAjax.FAIL);
@@ -70,6 +70,7 @@ public class AppStrategyController extends BaseController {
             itemStrategyVo.setExamNo(itemStrategyEntity.getExamNo());
             itemStrategyVo.setExamType(itemStrategyEntity.getExamType());
             itemStrategyVo.setPoint(itemStrategyEntity.getPoint());
+            itemStrategyVo.setOrderNo(itemStrategyEntity.getOrderNo());
             t.getQuestions().add(itemStrategyVo);
         }
         j.setReturnCode(AppAjax.SUCCESS);

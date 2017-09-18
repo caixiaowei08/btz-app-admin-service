@@ -9,28 +9,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d011a689-1738-441b-9536-fda59732bb4a" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/btz/exercise/entity/ExerciseEntity.class" afterPath="$PROJECT_DIR$/target/classes/com/btz/exercise/entity/ExerciseEntity.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/btz/exercise/controller/ExerciseController.class" afterPath="$PROJECT_DIR$/target/classes/com/btz/exercise/controller/ExerciseController.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/api/btz/function/user/json/ApiUserInfoJson.java" afterPath="$PROJECT_DIR$/src/main/java/api/btz/function/user/json/ApiUserInfoJson.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/api/btz/function/user/json/AuthUserInfoJson.java" afterPath="$PROJECT_DIR$/src/main/java/api/btz/function/user/json/AuthUserInfoJson.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/app/btz/common/authority/CourseAuthorityPojo.java" afterPath="$PROJECT_DIR$/src/main/java/app/btz/common/authority/CourseAuthorityPojo.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/app/btz/common/constant/FeedbackConstant.java" afterPath="$PROJECT_DIR$/src/main/java/app/btz/common/constant/FeedbackConstant.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/app/btz/common/constant/TryOutConstant.java" afterPath="$PROJECT_DIR$/src/main/java/app/btz/common/constant/TryOutConstant.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/app/btz/common/service/impl/AppTokenServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/app/btz/common/service/impl/AppTokenServiceImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/app/btz/function/course/controller/AppSubCourseController.java" afterPath="$PROJECT_DIR$/src/main/java/app/btz/function/course/controller/AppSubCourseController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/app/btz/function/exercise/controller/AppExerciseController.java" afterPath="$PROJECT_DIR$/src/main/java/app/btz/function/exercise/controller/AppExerciseController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/app/btz/function/feedback/controller/AppFeedbackController.java" afterPath="$PROJECT_DIR$/src/main/java/app/btz/function/feedback/controller/AppFeedbackController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/app/btz/function/testModule/controller/AppTestModuleController.java" afterPath="$PROJECT_DIR$/src/main/java/app/btz/function/testModule/controller/AppTestModuleController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/app/btz/function/testModule/vo/SubCourseAppVo.java" afterPath="$PROJECT_DIR$/src/main/java/app/btz/function/testModule/vo/SubCourseAppVo.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/app/btz/function/user/controller/AppLoginController.java" afterPath="$PROJECT_DIR$/src/main/java/app/btz/function/user/controller/AppLoginController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/app/btz/function/strategy/controller/AppStrategyController.java" afterPath="$PROJECT_DIR$/src/main/java/app/btz/function/strategy/controller/AppStrategyController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/app/btz/function/strategy/vo/ItemStrategyVo.java" afterPath="$PROJECT_DIR$/src/main/java/app/btz/function/strategy/vo/ItemStrategyVo.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/app/btz/function/video/vo/ItemRecordedVideoVo.java" afterPath="$PROJECT_DIR$/src/main/java/app/btz/function/video/vo/ItemRecordedVideoVo.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/btz/contants/QuestionType.java" afterPath="$PROJECT_DIR$/src/main/java/com/btz/contants/QuestionType.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/btz/exercise/controller/ExerciseController.java" afterPath="$PROJECT_DIR$/src/main/java/com/btz/exercise/controller/ExerciseController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/btz/exercise/entity/ExerciseEntity.java" afterPath="$PROJECT_DIR$/src/main/java/com/btz/exercise/entity/ExerciseEntity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/btz/exercise/vo/MainExcerciseVo.java" afterPath="$PROJECT_DIR$/src/main/java/com/btz/exercise/vo/MainExcerciseVo.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/btz/feedback/entity/FeedbackEntity.java" afterPath="$PROJECT_DIR$/src/main/java/com/btz/feedback/entity/FeedbackEntity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/btz/module/controller/ModuleController.java" afterPath="$PROJECT_DIR$/src/main/java/com/btz/module/controller/ModuleController.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/btz/poi/service/impl/DownTestModuleExcelImpl.java" afterPath="$PROJECT_DIR$/src/main/java/com/btz/poi/service/impl/DownTestModuleExcelImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/btz/utils/BelongToEnum.java" afterPath="$PROJECT_DIR$/src/main/java/com/btz/utils/BelongToEnum.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/btz/strategy/controller/StrategyController.java" afterPath="$PROJECT_DIR$/src/main/java/com/btz/strategy/controller/StrategyController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/btz/strategy/entity/ItemStrategyEntity.java" afterPath="$PROJECT_DIR$/src/main/java/com/btz/strategy/entity/ItemStrategyEntity.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/index.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/index.jsp" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -55,109 +44,111 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="450">
-      <file leaf-file-name="AppExerciseController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/app/btz/function/exercise/controller/AppExerciseController.java">
+      <file leaf-file-name="DownTestModuleExcel.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/btz/poi/service/DownTestModuleExcel.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-50">
-              <caret line="87" column="13" lean-forward="true" selection-start-line="87" selection-start-column="13" selection-end-line="87" selection-end-column="13" />
+            <state relative-caret-position="765">
+              <caret line="28" column="29" lean-forward="false" selection-start-line="28" selection-start-column="29" selection-end-line="28" selection-end-column="29" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AppSubCourseController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/app/btz/function/course/controller/AppSubCourseController.java">
+      <file leaf-file-name="DownTestModuleExcelImpl.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/btz/poi/service/impl/DownTestModuleExcelImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3915">
-              <caret line="152" column="80" lean-forward="false" selection-start-line="152" selection-start-column="80" selection-end-line="152" selection-end-column="80" />
+            <state relative-caret-position="-7315">
+              <caret line="342" column="17" lean-forward="false" selection-start-line="342" selection-start-column="17" selection-end-line="342" selection-end-column="17" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AppCarouselController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/app/btz/function/carousel/controller/AppCarouselController.java">
+      <file leaf-file-name="index.jsp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/index.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-291">
-              <caret line="32" column="13" lean-forward="false" selection-start-line="32" selection-start-column="13" selection-end-line="32" selection-end-column="13" />
+            <state relative-caret-position="90">
+              <caret line="2" column="24" lean-forward="false" selection-start-line="2" selection-start-column="24" selection-end-line="2" selection-end-column="24" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AppLiveVideoController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/app/btz/function/video/Controller/AppLiveVideoController.java">
+      <file leaf-file-name="ExerciseEntity.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/btz/exercise/entity/ExerciseEntity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="95">
-              <caret line="55" column="30" lean-forward="true" selection-start-line="55" selection-start-column="30" selection-end-line="55" selection-end-column="30" />
+            <state relative-caret-position="727">
+              <caret line="179" column="43" lean-forward="false" selection-start-line="179" selection-start-column="43" selection-end-line="179" selection-end-column="43" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ItemStrategyEntity.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/btz/strategy/entity/ItemStrategyEntity.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="434">
+              <caret line="133" column="46" lean-forward="false" selection-start-line="133" selection-start-column="41" selection-end-line="133" selection-end-column="46" />
               <folding>
-                <element signature="e#2550#2567#0" expanded="true" />
+                <element signature="e#2853#2854#0" expanded="true" />
+                <element signature="e#2883#2884#0" expanded="true" />
+                <element signature="e#2930#2931#0" expanded="true" />
+                <element signature="e#2968#2969#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AppRecordedVideoController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/app/btz/function/video/Controller/AppRecordedVideoController.java">
+      <file leaf-file-name="QuestionType.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/btz/contants/QuestionType.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="230">
-              <caret line="97" column="56" lean-forward="false" selection-start-line="97" selection-start-column="56" selection-end-line="97" selection-end-column="56" />
+            <state relative-caret-position="376">
+              <caret line="21" column="61" lean-forward="false" selection-start-line="21" selection-start-column="61" selection-end-line="21" selection-end-column="61" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ItemRecordedVideoVo.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/app/btz/function/video/vo/ItemRecordedVideoVo.java">
+      <file leaf-file-name="DBConfig.properties" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/DBConfig.properties">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="384">
-              <caret line="27" column="29" lean-forward="true" selection-start-line="27" selection-start-column="29" selection-end-line="27" selection-end-column="29" />
+            <state relative-caret-position="315">
+              <caret line="7" column="30" lean-forward="true" selection-start-line="7" selection-start-column="30" selection-end-line="7" selection-end-column="30" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AppFeedbackController.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/app/btz/function/feedback/controller/AppFeedbackController.java">
+      <file leaf-file-name="StrategyController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/btz/strategy/controller/StrategyController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="137" column="0" lean-forward="true" selection-start-line="137" selection-start-column="0" selection-end-line="137" selection-end-column="0" />
+            <state relative-caret-position="390">
+              <caret line="48" column="71" lean-forward="false" selection-start-line="48" selection-start-column="71" selection-end-line="48" selection-end-column="71" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="FeedbackConstant.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/app/btz/common/constant/FeedbackConstant.java">
+      <file leaf-file-name="AppStrategyController.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/app/btz/function/strategy/controller/AppStrategyController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="511">
-              <caret line="19" column="9" lean-forward="false" selection-start-line="19" selection-start-column="9" selection-end-line="19" selection-end-column="9" />
+            <state relative-caret-position="629">
+              <caret line="72" column="71" lean-forward="true" selection-start-line="72" selection-start-column="71" selection-end-line="72" selection-end-column="71" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="FeedbackEntity.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/btz/feedback/entity/FeedbackEntity.java">
+      <file leaf-file-name="ItemStrategyVo.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/app/btz/function/strategy/vo/ItemStrategyVo.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="331">
-              <caret line="225" column="56" lean-forward="false" selection-start-line="225" selection-start-column="56" selection-end-line="225" selection-end-column="56" />
+            <state relative-caret-position="470">
+              <caret line="51" column="33" lean-forward="false" selection-start-line="51" selection-start-column="33" selection-end-line="51" selection-end-column="33" />
               <folding>
-                <element signature="e#4714#4715#0" expanded="true" />
-                <element signature="e#4741#4742#0" expanded="true" />
-                <element signature="e#4782#4783#0" expanded="true" />
-                <element signature="e#4814#4815#0" expanded="true" />
+                <element signature="e#988#989#0" expanded="true" />
+                <element signature="e#1035#1036#0" expanded="true" />
+                <element signature="e#1073#1074#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="TryOutConstant.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/app/btz/common/constant/TryOutConstant.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="241">
-              <caret line="7" column="62" lean-forward="false" selection-start-line="7" selection-start-column="62" selection-end-line="7" selection-end-column="62" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -176,7 +167,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>List</find>
       <find>pSendTime</find>
       <find>AdminEntity</find>
       <find>state</find>
@@ -206,6 +196,7 @@
       <find>name</find>
       <find>考前押题</find>
       <find>辨析题</find>
+      <find>计算分析题</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -219,11 +210,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/com/btz/video/poi/service/PoiVideoService.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/btz/video/poi/service/impl/PoiVideoServiceImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/btz/video/recorded/service/CourseRecordedVideoService.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/btz/video/recorded/controller/CourseRecordedVideoController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/btz/course/service/impl/MainCourseServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/btz/course/service/MainCourseService.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/btz/course/controller/ChapterController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/btz/course/controller/SubCourseController.java" />
@@ -249,14 +235,10 @@
         <option value="$PROJECT_DIR$/src/main/java/com/btz/exercise/pojo/ExcelExercisePojo.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/btz/poi/utils/CellTypeDataDealUtil.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/btz/poi/utils/QecollatorQuestion.java" />
-        <option value="$PROJECT_DIR$/src/main/java/app/btz/function/video/vo/ItemRecordedVideoVo.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/btz/utils/BelongToEnum.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/btz/module/controller/ModuleController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/btz/exercise/controller/ExerciseController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/btz/exercise/entity/ExerciseEntity.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/btz/exercise/vo/MainExcerciseVo.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/btz/poi/service/impl/DownTestModuleExcelImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/btz/contants/QuestionType.java" />
         <option value="$PROJECT_DIR$/src/main/java/api/btz/function/user/json/ApiUserInfoJson.java" />
         <option value="$PROJECT_DIR$/src/main/java/api/btz/function/user/json/AuthUserInfoJson.java" />
         <option value="$PROJECT_DIR$/src/main/java/app/btz/function/user/controller/AppLoginController.java" />
@@ -270,6 +252,15 @@
         <option value="$PROJECT_DIR$/src/main/java/com/btz/feedback/entity/FeedbackEntity.java" />
         <option value="$PROJECT_DIR$/src/main/java/app/btz/common/constant/FeedbackConstant.java" />
         <option value="$PROJECT_DIR$/src/main/java/app/btz/function/feedback/controller/AppFeedbackController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/btz/exercise/controller/ExerciseController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/btz/poi/service/impl/DownTestModuleExcelImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/app/btz/function/video/vo/ItemRecordedVideoVo.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/index.jsp" />
+        <option value="$PROJECT_DIR$/src/main/java/com/btz/strategy/entity/ItemStrategyEntity.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/btz/contants/QuestionType.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/btz/strategy/controller/StrategyController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/app/btz/function/strategy/vo/ItemStrategyVo.java" />
+        <option value="$PROJECT_DIR$/src/main/java/app/btz/function/strategy/controller/AppStrategyController.java" />
       </list>
     </option>
   </component>
@@ -328,10 +319,10 @@
     </treeState>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="170" />
-    <option name="y" value="114" />
-    <option name="width" value="1676" />
-    <option name="height" value="1160" />
+    <option name="x" value="-8" />
+    <option name="y" value="-8" />
+    <option name="width" value="2576" />
+    <option name="height" value="1416" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -371,6 +362,20 @@
     </navigator>
     <panes>
       <pane id="Scratches" />
+      <pane id="PackagesPane">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="btz-app-admin-service" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="btz-app-admin-service" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewModuleNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -380,54 +385,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="btz-app-admin-service" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="btz-app-admin-service" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="btz-app-admin-service" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="webapp" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="WEB-INF" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="btz-app-admin-service" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="btz-app-admin-service" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="webapp" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -518,8 +475,34 @@
               <option name="myItemId" value="btz" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
+          </PATH>
+          <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="function" />
+              <option name="myItemId" value="btz-app-admin-service" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="btz-app-admin-service" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="btz" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="strategy" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -549,45 +532,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="function" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="feedback" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="btz-app-admin-service" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="btz-app-admin-service" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="btz" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="function" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="feedback" />
+              <option name="myItemId" value="strategy" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -624,8 +569,38 @@
               <option name="myItemId" value="function" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
+          </PATH>
+          <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="exercise" />
+              <option name="myItemId" value="btz-app-admin-service" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="btz-app-admin-service" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="btz" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="function" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="strategy" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -659,151 +634,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="exercise" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="controller" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="btz-app-admin-service" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="btz-app-admin-service" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="btz" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="function" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="course" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="btz-app-admin-service" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="btz-app-admin-service" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="btz" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="function" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="course" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="controller" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="btz-app-admin-service" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="btz-app-admin-service" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="btz" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="function" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="carousel" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="btz-app-admin-service" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="btz-app-admin-service" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="btz" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="function" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="carousel" />
+              <option name="myItemId" value="strategy" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -861,50 +692,6 @@
             <PATH_ELEMENT>
               <option name="myItemId" value="btz" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="function" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="btz-app-admin-service" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="btz-app-admin-service" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="btz" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-        </subPane>
-      </pane>
-      <pane id="PackagesPane">
-        <subPane>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="btz-app-admin-service" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="btz-app-admin-service" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewModuleNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
@@ -1647,7 +1434,11 @@
       <workItem from="1505385361405" duration="11546000" />
       <workItem from="1505398877283" duration="697000" />
       <workItem from="1505481094694" duration="670000" />
-      <workItem from="1505530931970" duration="7425000" />
+      <workItem from="1505530931970" duration="11512000" />
+      <workItem from="1505553052745" duration="300000" />
+      <workItem from="1505642265091" duration="16000" />
+      <workItem from="1505694816525" duration="14000" />
+      <workItem from="1505697584851" duration="6889000" />
     </task>
     <servers />
   </component>
@@ -1672,7 +1463,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="956357000" />
+    <option name="totallyTimeSpent" value="967663000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1684,44 +1475,44 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="170" y="114" width="1676" height="1160" extended-state="1" />
-    <editor active="false" />
+    <frame x="-8" y="-8" width="2576" height="1416" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Nl-Palette" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.6118314" sideWeight="0.30337077" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.27993527" sideWeight="0.49839488" order="13" side_tool="false" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2562814" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.14486356" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="CDI" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32985553" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.23555276" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32945424" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2495647" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.18579455" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2811861" sideWeight="0.6966292" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.21474878" sideWeight="0.6966292" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32901135" sideWeight="0.49678972" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.19448946" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.22366288" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3285985" sideWeight="0.49796867" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3249595" sideWeight="0.6749599" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.26580226" sideWeight="0.4923756" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.4601227" sideWeight="0.6749599" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2471637" sideWeight="0.49796867" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.21069692" sideWeight="0.6396469" order="12" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17839196" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" x="1524" y="225" width="492" height="781" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.16693678" sideWeight="0.6396469" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16773675" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" x="1524" y="225" width="492" height="781" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="true" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3298217" sideWeight="0.4951846" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.23555276" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Thumbnails" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3298217" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3298217" sideWeight="0.4951846" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -1889,23 +1680,17 @@
           <properties />
           <option name="timeStamp" value="230" />
         </line-breakpoint>
-        <line-breakpoint type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/btz/poi/service/impl/DownTestModuleExcelImpl.java</url>
-          <line>295</line>
-          <properties />
-          <option name="timeStamp" value="233" />
-        </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/btz/poi/service/impl/DownTestModuleExcelImpl.java</url>
-          <line>668</line>
-          <properties />
-          <option name="timeStamp" value="247" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/btz/poi/service/impl/DownTestModuleExcelImpl.java</url>
-          <line>712</line>
+          <line>715</line>
           <properties />
           <option name="timeStamp" value="249" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/btz/poi/service/impl/DownTestModuleExcelImpl.java</url>
+          <line>339</line>
+          <properties />
+          <option name="timeStamp" value="263" />
         </line-breakpoint>
         <line-breakpoint type="java-method">
           <url>file://$PROJECT_DIR$/src/main/java/com/btz/poi/service/impl/DownTestModuleExcelImpl.java</url>
@@ -1917,7 +1702,7 @@
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
-      <option name="time" value="258" />
+      <option name="time" value="264" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -1926,655 +1711,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/btz/cascade/service/CascadeDataService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-788">
-          <caret line="11" column="17" lean-forward="false" selection-start-line="11" selection-start-column="17" selection-end-line="11" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/btz/course/controller/CascadeMainSubCourseController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="358">
-          <caret line="67" column="25" lean-forward="false" selection-start-line="67" selection-start-column="25" selection-end-line="67" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://E:/btz/maven/repository/commons-collections/commons-collections/3.2.1/commons-collections-3.2.1.jar!/org/apache/commons/collections/CollectionUtils.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-810">
-          <caret line="31" column="13" lean-forward="false" selection-start-line="31" selection-start-column="13" selection-end-line="31" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://E:/btz/maven/repository/commons-collections/commons-collections/3.2.1/commons-collections-3.2.1-sources.jar!/org/apache/commons/collections/CollectionUtils.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1485">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="uml://MAVEN/com.btz:btz-app-service-snapshot-1.0:1.0-SNAPSHOT">
-      <provider selected="true" editor-type-id="UmlEditorProvider">
-        <state>
-          <ID>MAVEN</ID>
-          <OriginalElement>com.btz:btz-app-service-snapshot-1.0:1.0-SNAPSHOT</OriginalElement>
-          <nodes>
-            <node x="0.0" y="1259.1380952380955">com.btz:btz-app-service-snapshot-1.0:1.0-SNAPSHOT</node>
-            <node x="459.5" y="1302.1380952380955">junit:junit:jar:4.7</node>
-            <node x="410.0" y="86.00000000000011">javax.servlet:javax.servlet-api:jar:3.1.0</node>
-            <node x="449.0" y="172.0000000000001">javax.servlet:jsp-api:jar:2.0</node>
-            <node x="466.5" y="862.1714285714288">javax.servlet:jstl:jar:1.2</node>
-            <node x="412.0" y="258.0000000000001">org.springframework:spring-webmvc:jar:4.3.6.RELEASE</node>
-            <node x="1566.0" y="262.79166666666674">org.springframework:spring-webmvc:jar:4.3.6.RELEASE/org.springframework:spring-aop:jar:4.3.6.RELEASE</node>
-            <node x="1840.0" y="360.4163236943724">org.springframework:spring-webmvc:jar:4.3.6.RELEASE/org.springframework:spring-beans:jar:4.3.6.RELEASE</node>
-            <node x="1188.5" y="303.09162199589">org.springframework:spring-webmvc:jar:4.3.6.RELEASE/org.springframework:spring-context:jar:4.3.6.RELEASE</node>
-            <node x="2083.0" y="248.96938686877695">org.springframework:spring-webmvc:jar:4.3.6.RELEASE/org.springframework:spring-core:jar:4.3.6.RELEASE</node>
-            <node x="1537.0" y="134.97222222222229">org.springframework:spring-webmvc:jar:4.3.6.RELEASE/org.springframework:spring-expression:jar:4.3.6.RELEASE</node>
-            <node x="795.0" y="236.09162199589002">org.springframework:spring-webmvc:jar:4.3.6.RELEASE/org.springframework:spring-web:jar:4.3.6.RELEASE</node>
-            <node x="795.5" y="1658.1437046467533">org.springframework:spring-orm:jar:4.3.6.RELEASE</node>
-            <node x="1201.5" y="1630.3937046467533">org.springframework:spring-orm:jar:4.3.6.RELEASE/org.springframework:spring-jdbc:jar:4.3.6.RELEASE</node>
-            <node x="1574.5" y="1663.8937046467533">org.springframework:spring-orm:jar:4.3.6.RELEASE/org.springframework:spring-tx:jar:4.3.6.RELEASE</node>
-            <node x="446.0" y="948.1714285714288">com.alibaba:fastjson:jar:1.2.25</node>
-            <node x="389.5" y="548.6630505673187">commons-fileupload:commons-fileupload:jar:1.3.1</node>
-            <node x="790.5" y="548.6630505673187">commons-fileupload:commons-fileupload:jar:1.3.1/commons-io:commons-io:jar:2.2</node>
-            <node x="800.0" y="656.6630505673187">org.apache.logging.log4j:log4j-core:jar:2.6.2</node>
-            <node x="1212.5" y="661.8214285714288">org.apache.logging.log4j:log4j-api:jar:2.6.2</node>
-            <node x="435.0" y="634.6630505673187">org.apache.logging.log4j:log4j-web:jar:2.6.2</node>
-            <node x="413.5" y="2072.036653364702">commons-pool:commons-pool:jar:1.6</node>
-            <node x="455.5" y="424.8214285714288">com.alibaba:druid:jar:1.0.17</node>
-            <node x="809.5" y="376.6630505673187">com.alibaba:druid:jar:1.0.17/com.alibaba:jconsole:jar:1.8.0</node>
-            <node x="823.5" y="462.6630505673187">com.alibaba:druid:jar:1.0.17/com.alibaba:tools:jar:1.8.0</node>
-            <node x="385.0" y="2244.036653364702">mysql:mysql-connector-java:jar:5.1.38</node>
-            <node x="415.0" y="1046.7380952380954">org.hibernate:hibernate-core:jar:5.2.5.Final</node>
-            <node x="1192.0" y="904.1852060315476">org.hibernate:hibernate-core:jar:5.2.5.Final/org.jboss.logging:jboss-logging:jar:3.3.0.Final</node>
-            <node x="751.0" y="930.2437046467534">org.hibernate:hibernate-core:jar:5.2.5.Final/org.hibernate.javax.persistence:hibernate-jpa-2.1-api:jar:1.0.0.Final</node>
-            <node x="809.5" y="758.2437046467534">org.hibernate:hibernate-core:jar:5.2.5.Final/org.javassist:javassist:jar:3.20.0-GA</node>
-            <node x="824.5" y="1102.2437046467535">org.hibernate:hibernate-core:jar:5.2.5.Final/antlr:antlr:jar:2.7.7</node>
-            <node x="747.0" y="844.2437046467534">org.hibernate:hibernate-core:jar:5.2.5.Final/org.apache.geronimo.specs:geronimo-jta_1.1_spec:jar:1.1.1</node>
-            <node x="816.0" y="1360.2437046467535">org.hibernate:hibernate-core:jar:5.2.5.Final/org.jboss:jandex:jar:2.0.3.Final</node>
-            <node x="802.5" y="1188.2437046467535">org.hibernate:hibernate-core:jar:5.2.5.Final/com.fasterxml:classmate:jar:1.3.0</node>
-            <node x="816.5" y="1274.2437046467535">org.hibernate:hibernate-core:jar:5.2.5.Final/dom4j:dom4j:jar:1.6.1</node>
-            <node x="702.0" y="1016.2437046467534">org.hibernate:hibernate-core:jar:5.2.5.Final/org.hibernate.common:hibernate-commons-annotations:jar:5.0.1.Final</node>
-            <node x="814.0" y="1446.2437046467535">org.hibernate:hibernate-core:jar:5.2.5.Final/javax.enterprise:cdi-api:jar:1.1</node>
-            <node x="1227.0" y="1219.1630505673188">org.hibernate:hibernate-core:jar:5.2.5.Final/javax.enterprise:cdi-api:jar:1.1/javax.el:el-api:jar:2.2</node>
-            <node x="1116.0" y="1476.7380952380954">org.hibernate:hibernate-core:jar:5.2.5.Final/javax.enterprise:cdi-api:jar:1.1/org.jboss.spec.javax.interceptor:jboss-interceptors-api_1.1_spec:jar:1.0.0.Beta1</node>
-            <node x="1208.0" y="1390.7380952380954">org.hibernate:hibernate-core:jar:5.2.5.Final/javax.enterprise:cdi-api:jar:1.1/javax.annotation:jsr250-api:jar:1.0</node>
-            <node x="1205.0" y="1562.7380952380954">org.hibernate:hibernate-core:jar:5.2.5.Final/javax.enterprise:cdi-api:jar:1.1/javax.inject:javax.inject:jar:1</node>
-            <node x="414.0" y="1388.1380952380955">commons-lang:commons-lang:jar:2.4</node>
-            <node x="387.5" y="776.1714285714288">commons-collections:commons-collections:jar:3.2.1</node>
-            <node x="393.5" y="0.0">commons-beanutils:commons-beanutils:jar:1.9.3</node>
-            <node x="2312.0" y="248.96938686877695">commons-beanutils:commons-beanutils:jar:1.9.3/commons-logging:commons-logging:jar:1.2</node>
-            <node x="753.0" y="16.75">commons-beanutils:commons-beanutils:jar:1.9.3/commons-collections:commons-collections:jar:3.2.2</node>
-            <node x="1238.0" y="1931.1020379800866">org.apache.poi:poi:jar:3.15</node>
-            <node x="1542.5" y="2073.3630505673186">org.apache.poi:poi:jar:3.15/commons-codec:commons-codec:jar:1.10</node>
-            <node x="420.5" y="1955.4020379800868">org.apache.poi:poi-examples:jar:3.15</node>
-            <node x="425.5" y="1869.8187046467533">org.apache.poi:poi-excelant:jar:3.15</node>
-            <node x="830.5" y="1748.5187046467533">org.apache.poi:poi-excelant:jar:3.15/org.apache.ant:ant:jar:1.8.2</node>
-            <node x="1197.0" y="1748.5187046467533">org.apache.poi:poi-excelant:jar:3.15/org.apache.ant:ant:jar:1.8.2/org.apache.ant:ant-launcher:jar:1.8.2</node>
-            <node x="800.0" y="1903.3187046467533">org.apache.poi:poi-ooxml:jar:3.15</node>
-            <node x="1211.5" y="1824.6020379800866">org.apache.poi:poi-ooxml:jar:3.15/com.github.virtuald:curvesapi:jar:1.04</node>
-            <node x="1167.0" y="2027.036653364702">org.apache.poi:poi-ooxml-schemas:jar:3.15</node>
-            <node x="1573.0" y="1962.946383900652">org.apache.poi:poi-ooxml-schemas:jar:3.15/org.apache.xmlbeans:xmlbeans:jar:2.6.0</node>
-            <node x="1862.5" y="1962.946383900652">org.apache.poi:poi-ooxml-schemas:jar:3.15/org.apache.xmlbeans:xmlbeans:jar:2.6.0/stax:stax-api:jar:1.0.1</node>
-            <node x="779.0" y="2003.267422595471">org.apache.poi:poi-scratchpad:jar:3.15</node>
-            <node x="1517.0" y="1853.946383900652">org.apache.commons:commons-collections4:jar:4.1</node>
-            <node x="437.0" y="2158.036653364702">org.apache.httpcomponents:httpclient:jar:4.5.2</node>
-            <node x="807.5" y="2098.097710622711">org.apache.httpcomponents:httpclient:jar:4.5.2/org.apache.httpcomponents:httpcore:jar:4.4.4</node>
-            <node x="1180.5" y="2157.847710622711">org.apache.httpcomponents:httpclient:jar:4.5.2/commons-codec:commons-codec:jar:1.9</node>
-          </nodes>
-          <notes />
-          <edges>
-            <edge source="org.hibernate:hibernate-core:jar:5.2.5.Final" target="org.hibernate:hibernate-core:jar:5.2.5.Final/antlr:antlr:jar:2.7.7">
-              <point x="88.5" y="2.3000000000000114" />
-              <point x="622.0" y="1072.0380952380954" />
-              <point x="702.0" y="1125.2437046467535" />
-              <point x="-44.5" y="-0.0" />
-            </edge>
-            <edge source="org.hibernate:hibernate-core:jar:5.2.5.Final" target="org.hibernate:hibernate-core:jar:5.2.5.Final/org.hibernate.common:hibernate-commons-annotations:jar:5.0.1.Final">
-              <point x="88.5" y="-2.3000000000000114" />
-              <point x="622.0" y="1067.4380952380955" />
-              <point x="-167.0" y="-0.0" />
-            </edge>
-            <edge source="com.alibaba:druid:jar:1.0.17" target="com.alibaba:druid:jar:1.0.17/com.alibaba:tools:jar:1.8.0">
-              <point x="48.0" y="11.5" />
-              <point x="622.0" y="459.3214285714288" />
-              <point x="702.0" y="485.6630505673187" />
-              <point x="-45.5" y="-0.0" />
-            </edge>
-            <edge source="org.springframework:spring-webmvc:jar:4.3.6.RELEASE" target="org.springframework:spring-webmvc:jar:4.3.6.RELEASE/org.springframework:spring-context:jar:4.3.6.RELEASE">
-              <point x="91.5" y="11.5" />
-              <point x="622.0" y="292.5000000000001" />
-              <point x="702.0" y="337.59162199589" />
-              <point x="-88.0" y="11.5" />
-            </edge>
-            <edge source="com.btz:btz-app-service-snapshot-1.0:1.0-SNAPSHOT" target="commons-beanutils:commons-beanutils:jar:1.9.3">
-              <point x="152.5" y="-22.115384615384528" />
-              <point x="-110.0" y="-0.0" />
-            </edge>
-            <edge source="org.apache.poi:poi:jar:3.15" target="org.apache.commons:commons-collections4:jar:4.1">
-              <point x="38.5" y="-11.5" />
-              <point x="1437.0" y="1942.6020379800866" />
-              <point x="-121.5" y="11.5" />
-            </edge>
-            <edge source="commons-beanutils:commons-beanutils:jar:1.9.3" target="commons-beanutils:commons-beanutils:jar:1.9.3/commons-logging:commons-logging:jar:1.2">
-              <point x="110.0" y="-11.5" />
-              <point x="702.0" y="6.25" />
-              <point x="2232.0" y="6.25" />
-              <point x="-104.5" y="-15.333333333333258" />
-            </edge>
-            <edge source="com.btz:btz-app-service-snapshot-1.0:1.0-SNAPSHOT" target="junit:junit:jar:4.7">
-              <point x="152.5" y="0.8846153846154721" />
-              <point x="385.0" y="1325.1380952380955" />
-              <point x="-44.0" y="-0.0" />
-            </edge>
-            <edge source="org.springframework:spring-webmvc:jar:4.3.6.RELEASE" target="org.springframework:spring-webmvc:jar:4.3.6.RELEASE/org.springframework:spring-beans:jar:4.3.6.RELEASE">
-              <point x="91.5" y="19.166666666666742" />
-              <point x="622.0" y="300.16666666666686" />
-              <point x="702.0" y="366.1630505673187" />
-              <point x="1760.0" y="366.1630505673187" />
-              <point x="-81.5" y="-0.0" />
-            </edge>
-            <edge source="org.springframework:spring-webmvc:jar:4.3.6.RELEASE/org.springframework:spring-aop:jar:4.3.6.RELEASE" target="org.springframework:spring-webmvc:jar:4.3.6.RELEASE/org.springframework:spring-beans:jar:4.3.6.RELEASE">
-              <point x="72.5" y="11.5" />
-              <point x="1760.0" y="297.29166666666674" />
-              <point x="-81.5" y="-19.71428571428578" />
-            </edge>
-            <edge source="org.apache.poi:poi-ooxml-schemas:jar:3.15/org.apache.xmlbeans:xmlbeans:jar:2.6.0" target="org.apache.poi:poi-ooxml-schemas:jar:3.15/org.apache.xmlbeans:xmlbeans:jar:2.6.0/stax:stax-api:jar:1.0.1">
-              <point x="65.5" y="-0.0" />
-              <point x="-59.0" y="-0.0" />
-            </edge>
-            <edge source="org.springframework:spring-webmvc:jar:4.3.6.RELEASE/org.springframework:spring-context:jar:4.3.6.RELEASE" target="org.springframework:spring-webmvc:jar:4.3.6.RELEASE/org.springframework:spring-beans:jar:4.3.6.RELEASE">
-              <point x="88.0" y="17.25" />
-              <point x="1437.0" y="343.34162199589" />
-              <point x="1517.0" y="348.1809077101758" />
-              <point x="1760.0" y="348.1809077101758" />
-              <point x="-81.5" y="-13.14285714285711" />
-            </edge>
-            <edge source="com.btz:btz-app-service-snapshot-1.0:1.0-SNAPSHOT" target="commons-fileupload:commons-fileupload:jar:1.3.1">
-              <point x="152.5" y="-13.269230769230717" />
-              <point x="-114.0" y="-0.0" />
-            </edge>
-            <edge source="org.springframework:spring-orm:jar:4.3.6.RELEASE" target="org.springframework:spring-webmvc:jar:4.3.6.RELEASE/org.springframework:spring-beans:jar:4.3.6.RELEASE">
-              <point x="73.5" y="-17.25" />
-              <point x="1036.0" y="1663.8937046467533" />
-              <point x="1116.0" y="1619.8937046467533" />
-              <point x="1760.0" y="1619.8937046467533" />
-              <point x="-81.5" y="6.571428571428669" />
-            </edge>
-            <edge source="com.btz:btz-app-service-snapshot-1.0:1.0-SNAPSHOT" target="org.apache.poi:poi-excelant:jar:3.15">
-              <point x="152.5" y="7.9615384615385665" />
-              <point x="385.0" y="1892.8187046467533" />
-              <point x="-78.0" y="-0.0" />
-            </edge>
-            <edge source="com.btz:btz-app-service-snapshot-1.0:1.0-SNAPSHOT" target="mysql:mysql-connector-java:jar:5.1.38">
-              <point x="152.5" y="22.115384615384528" />
-              <point x="-118.5" y="-0.0" />
-            </edge>
-            <edge source="org.apache.poi:poi-ooxml-schemas:jar:3.15" target="org.apache.poi:poi-ooxml-schemas:jar:3.15/org.apache.xmlbeans:xmlbeans:jar:2.6.0">
-              <point x="109.5" y="-0.0" />
-              <point x="1437.0" y="2050.036653364702" />
-              <point x="1517.0" y="1985.946383900652" />
-              <point x="-65.5" y="-0.0" />
-            </edge>
-            <edge source="com.btz:btz-app-service-snapshot-1.0:1.0-SNAPSHOT" target="javax.servlet:jstl:jar:1.2">
-              <point x="152.5" y="-4.423076923076906" />
-              <point x="385.0" y="885.1714285714288" />
-              <point x="-37.0" y="-0.0" />
-            </edge>
-            <edge source="org.apache.poi:poi-ooxml:jar:3.15" target="org.apache.poi:poi-ooxml:jar:3.15/com.github.virtuald:curvesapi:jar:1.04">
-              <point x="69.0" y="-15.333333333333258" />
-              <point x="1036.0" y="1910.98537131342" />
-              <point x="1116.0" y="1847.6020379800866" />
-              <point x="-65.0" y="-0.0" />
-            </edge>
-            <edge source="org.springframework:spring-webmvc:jar:4.3.6.RELEASE/org.springframework:spring-web:jar:4.3.6.RELEASE" target="org.springframework:spring-webmvc:jar:4.3.6.RELEASE/org.springframework:spring-aop:jar:4.3.6.RELEASE">
-              <point x="74.0" y="-5.75" />
-              <point x="1437.0" y="253.34162199589002" />
-              <point x="1517.0" y="270.4583333333335" />
-              <point x="-72.5" y="-15.333333333333258" />
-            </edge>
-            <edge source="org.springframework:spring-orm:jar:4.3.6.RELEASE" target="org.springframework:spring-orm:jar:4.3.6.RELEASE/org.springframework:spring-jdbc:jar:4.3.6.RELEASE">
-              <point x="73.5" y="-5.75" />
-              <point x="1036.0" y="1675.3937046467533" />
-              <point x="1116.0" y="1653.3937046467533" />
-              <point x="-75.0" y="-0.0" />
-            </edge>
-            <edge source="com.btz:btz-app-service-snapshot-1.0:1.0-SNAPSHOT" target="org.hibernate:hibernate-core:jar:5.2.5.Final">
-              <point x="152.5" y="-0.8846153846154721" />
-              <point x="385.0" y="1069.7380952380954" />
-              <point x="-88.5" y="-0.0" />
-            </edge>
-            <edge source="org.apache.logging.log4j:log4j-web:jar:2.6.2" target="org.apache.logging.log4j:log4j-core:jar:2.6.2">
-              <point x="68.5" y="11.5" />
-              <point x="-69.0" y="-11.5" />
-            </edge>
-            <edge source="org.apache.httpcomponents:httpclient:jar:4.5.2" target="org.apache.httpcomponents:httpclient:jar:4.5.2/org.apache.httpcomponents:httpcore:jar:4.4.4">
-              <point x="66.5" y="-15.333333333333371" />
-              <point x="622.0" y="2165.703320031369" />
-              <point x="702.0" y="2121.097710622711" />
-              <point x="-61.5" y="-0.0" />
-            </edge>
-            <edge source="org.apache.logging.log4j:log4j-web:jar:2.6.2" target="org.apache.logging.log4j:log4j-api:jar:2.6.2">
-              <point x="68.5" y="-11.5" />
-              <point x="1036.0" y="646.1630505673187" />
-              <point x="1116.0" y="669.4880952380955" />
-              <point x="-64.0" y="-15.333333333333258" />
-            </edge>
-            <edge source="org.hibernate:hibernate-core:jar:5.2.5.Final/javax.enterprise:cdi-api:jar:1.1" target="org.hibernate:hibernate-core:jar:5.2.5.Final/javax.enterprise:cdi-api:jar:1.1/javax.el:el-api:jar:2.2">
-              <point x="55.0" y="-17.25" />
-              <point x="1036.0" y="1451.9937046467535" />
-              <point x="1116.0" y="1242.1630505673188" />
-              <point x="-49.5" y="-0.0" />
-            </edge>
-            <edge source="org.apache.poi:poi-ooxml:jar:3.15" target="org.apache.poi:poi:jar:3.15">
-              <point x="69.0" y="-0.0" />
-              <point x="1036.0" y="1926.3187046467533" />
-              <point x="1116.0" y="1944.9020379800868" />
-              <point x="-38.5" y="-9.200000000000045" />
-            </edge>
-            <edge source="org.apache.poi:poi-ooxml:jar:3.15" target="org.apache.poi:poi-ooxml-schemas:jar:3.15">
-              <point x="69.0" y="15.333333333333258" />
-              <point x="1036.0" y="1941.6520379800866" />
-              <point x="1116.0" y="2038.536653364702" />
-              <point x="-109.5" y="-11.5" />
-            </edge>
-            <edge source="org.springframework:spring-orm:jar:4.3.6.RELEASE" target="org.springframework:spring-orm:jar:4.3.6.RELEASE/org.springframework:spring-tx:jar:4.3.6.RELEASE">
-              <point x="73.5" y="5.75" />
-              <point x="1036.0" y="1686.8937046467533" />
-              <point x="1116.0" y="1698.3937046467533" />
-              <point x="-64.0" y="11.5" />
-            </edge>
-            <edge source="org.springframework:spring-orm:jar:4.3.6.RELEASE/org.springframework:spring-jdbc:jar:4.3.6.RELEASE" target="org.springframework:spring-orm:jar:4.3.6.RELEASE/org.springframework:spring-tx:jar:4.3.6.RELEASE">
-              <point x="75.0" y="15.333333333333258" />
-              <point x="1437.0" y="1668.7270379800866" />
-              <point x="1517.0" y="1675.3937046467533" />
-              <point x="-64.0" y="-11.5" />
-            </edge>
-            <edge source="org.springframework:spring-webmvc:jar:4.3.6.RELEASE/org.springframework:spring-web:jar:4.3.6.RELEASE" target="org.springframework:spring-webmvc:jar:4.3.6.RELEASE/org.springframework:spring-core:jar:4.3.6.RELEASE">
-              <point x="74.0" y="-17.25" />
-              <point x="1036.0" y="241.84162199589002" />
-              <point x="1116.0" y="124.47222222222229" />
-              <point x="2003.0" y="124.47222222222229" />
-              <point x="-74.5" y="-15.333333333333258" />
-            </edge>
-            <edge source="com.btz:btz-app-service-snapshot-1.0:1.0-SNAPSHOT" target="commons-pool:commons-pool:jar:1.6">
-              <point x="152.5" y="18.576923076923094" />
-              <point x="385.0" y="2095.036653364702" />
-              <point x="-90.0" y="-0.0" />
-            </edge>
-            <edge source="org.springframework:spring-webmvc:jar:4.3.6.RELEASE" target="org.springframework:spring-webmvc:jar:4.3.6.RELEASE/org.springframework:spring-expression:jar:4.3.6.RELEASE">
-              <point x="91.5" y="-11.5" />
-              <point x="622.0" y="269.5000000000001" />
-              <point x="702.0" y="146.47222222222229" />
-              <point x="-101.5" y="-11.5" />
-            </edge>
-            <edge source="org.hibernate:hibernate-core:jar:5.2.5.Final" target="org.hibernate:hibernate-core:jar:5.2.5.Final/javax.enterprise:cdi-api:jar:1.1">
-              <point x="88.5" y="20.69999999999999" />
-              <point x="622.0" y="1090.4380952380955" />
-              <point x="702.0" y="1469.2437046467535" />
-              <point x="-55.0" y="-0.0" />
-            </edge>
-            <edge source="org.hibernate:hibernate-core:jar:5.2.5.Final" target="org.hibernate:hibernate-core:jar:5.2.5.Final/org.jboss:jandex:jar:2.0.3.Final">
-              <point x="88.5" y="16.100000000000023" />
-              <point x="622.0" y="1085.8380952380953" />
-              <point x="702.0" y="1383.2437046467535" />
-              <point x="-53.0" y="-0.0" />
-            </edge>
-            <edge source="org.springframework:spring-webmvc:jar:4.3.6.RELEASE" target="org.springframework:spring-webmvc:jar:4.3.6.RELEASE/org.springframework:spring-core:jar:4.3.6.RELEASE">
-              <point x="91.5" y="-19.166666666666742" />
-              <point x="622.0" y="261.83333333333337" />
-              <point x="702.0" y="119.3611111111112" />
-              <point x="2003.0" y="119.3611111111112" />
-              <point x="-74.5" y="-20.444444444444343" />
-            </edge>
-            <edge source="org.hibernate:hibernate-core:jar:5.2.5.Final" target="org.hibernate:hibernate-core:jar:5.2.5.Final/org.hibernate.javax.persistence:hibernate-jpa-2.1-api:jar:1.0.0.Final">
-              <point x="88.5" y="-6.899999999999977" />
-              <point x="622.0" y="1062.8380952380953" />
-              <point x="702.0" y="953.2437046467534" />
-              <point x="-118.0" y="-0.0" />
-            </edge>
-            <edge source="org.hibernate:hibernate-core:jar:5.2.5.Final" target="org.hibernate:hibernate-core:jar:5.2.5.Final/org.apache.geronimo.specs:geronimo-jta_1.1_spec:jar:1.1.1">
-              <point x="88.5" y="-11.5" />
-              <point x="622.0" y="1058.2380952380954" />
-              <point x="702.0" y="867.2437046467534" />
-              <point x="-122.0" y="-0.0" />
-            </edge>
-            <edge source="org.hibernate:hibernate-core:jar:5.2.5.Final/org.hibernate.common:hibernate-commons-annotations:jar:5.0.1.Final" target="org.hibernate:hibernate-core:jar:5.2.5.Final/org.jboss.logging:jboss-logging:jar:3.3.0.Final">
-              <point x="167.0" y="-0.0" />
-              <point x="1116.0" y="938.6852060315476" />
-              <point x="-84.5" y="11.5" />
-            </edge>
-            <edge source="org.springframework:spring-orm:jar:4.3.6.RELEASE/org.springframework:spring-tx:jar:4.3.6.RELEASE" target="org.springframework:spring-webmvc:jar:4.3.6.RELEASE/org.springframework:spring-beans:jar:4.3.6.RELEASE">
-              <point x="64.0" y="-11.5" />
-              <point x="1760.0" y="1675.3937046467533" />
-              <point x="-81.5" y="19.71428571428578" />
-            </edge>
-            <edge source="org.springframework:spring-webmvc:jar:4.3.6.RELEASE/org.springframework:spring-web:jar:4.3.6.RELEASE" target="org.springframework:spring-webmvc:jar:4.3.6.RELEASE/org.springframework:spring-context:jar:4.3.6.RELEASE">
-              <point x="74.0" y="5.75" />
-              <point x="1036.0" y="264.84162199589" />
-              <point x="1116.0" y="314.59162199589" />
-              <point x="-88.0" y="-11.5" />
-            </edge>
-            <edge source="com.btz:btz-app-service-snapshot-1.0:1.0-SNAPSHOT" target="com.alibaba:druid:jar:1.0.17">
-              <point x="152.5" y="-15.038461538461434" />
-              <point x="385.0" y="447.8214285714288" />
-              <point x="-48.0" y="-0.0" />
-            </edge>
-            <edge source="commons-beanutils:commons-beanutils:jar:1.9.3" target="commons-beanutils:commons-beanutils:jar:1.9.3/commons-collections:commons-collections:jar:3.2.2">
-              <point x="110.0" y="11.5" />
-              <point x="702.0" y="39.75" />
-              <point x="-116.0" y="-0.0" />
-            </edge>
-            <edge source="com.btz:btz-app-service-snapshot-1.0:1.0-SNAPSHOT" target="commons-lang:commons-lang:jar:2.4">
-              <point x="152.5" y="2.653846153846189" />
-              <point x="385.0" y="1411.1380952380955" />
-              <point x="-89.5" y="-0.0" />
-            </edge>
-            <edge source="org.hibernate:hibernate-core:jar:5.2.5.Final/javax.enterprise:cdi-api:jar:1.1" target="org.hibernate:hibernate-core:jar:5.2.5.Final/javax.enterprise:cdi-api:jar:1.1/javax.annotation:jsr250-api:jar:1.0">
-              <point x="55.0" y="-5.75" />
-              <point x="1036.0" y="1463.4937046467535" />
-              <point x="1116.0" y="1413.7380952380954" />
-              <point x="-68.5" y="-0.0" />
-            </edge>
-            <edge source="org.apache.poi:poi-scratchpad:jar:3.15" target="org.apache.poi:poi:jar:3.15">
-              <point x="90.0" y="-0.0" />
-              <point x="1036.0" y="2026.267422595471" />
-              <point x="1116.0" y="1963.3020379800869" />
-              <point x="-38.5" y="9.200000000000045" />
-            </edge>
-            <edge source="org.springframework:spring-webmvc:jar:4.3.6.RELEASE/org.springframework:spring-expression:jar:4.3.6.RELEASE" target="org.springframework:spring-webmvc:jar:4.3.6.RELEASE/org.springframework:spring-core:jar:4.3.6.RELEASE">
-              <point x="101.5" y="-0.0" />
-              <point x="2003.0" y="157.97222222222229" />
-              <point x="-74.5" y="-10.222222222222172" />
-            </edge>
-            <edge source="org.springframework:spring-webmvc:jar:4.3.6.RELEASE/org.springframework:spring-core:jar:4.3.6.RELEASE" target="commons-beanutils:commons-beanutils:jar:1.9.3/commons-logging:commons-logging:jar:1.2">
-              <point x="74.5" y="-0.0" />
-              <point x="-104.5" y="-0.0" />
-            </edge>
-            <edge source="com.btz:btz-app-service-snapshot-1.0:1.0-SNAPSHOT" target="org.apache.commons:commons-collections4:jar:4.1">
-              <point x="152.5" y="6.192307692307622" />
-              <point x="385.0" y="1805.0187046467533" />
-              <point x="1437.0" y="1805.0187046467533" />
-              <point x="-121.5" y="-11.5" />
-            </edge>
-            <edge source="org.springframework:spring-webmvc:jar:4.3.6.RELEASE" target="org.springframework:spring-webmvc:jar:4.3.6.RELEASE/org.springframework:spring-aop:jar:4.3.6.RELEASE">
-              <point x="91.5" y="3.8333333333332575" />
-              <point x="622.0" y="284.83333333333337" />
-              <point x="702.0" y="292.59162199589" />
-              <point x="1437.0" y="292.59162199589" />
-              <point x="1517.0" y="285.79166666666674" />
-              <point x="-72.5" y="-0.0" />
-            </edge>
-            <edge source="com.btz:btz-app-service-snapshot-1.0:1.0-SNAPSHOT" target="org.apache.poi:poi:jar:3.15">
-              <point x="152.5" y="15.038461538461434" />
-              <point x="385.0" y="2059.767422595471" />
-              <point x="1036.0" y="2059.767422595471" />
-              <point x="1116.0" y="1972.5020379800867" />
-              <point x="-38.5" y="18.40000000000009" />
-            </edge>
-            <edge source="org.apache.logging.log4j:log4j-core:jar:2.6.2" target="org.apache.logging.log4j:log4j-api:jar:2.6.2">
-              <point x="69.0" y="-0.0" />
-              <point x="1036.0" y="679.6630505673187" />
-              <point x="1116.0" y="684.8214285714288" />
-              <point x="-64.0" y="-0.0" />
-            </edge>
-            <edge source="com.btz:btz-app-service-snapshot-1.0:1.0-SNAPSHOT" target="org.apache.poi:poi-scratchpad:jar:3.15">
-              <point x="152.5" y="13.269230769230717" />
-              <point x="385.0" y="2037.767422595471" />
-              <point x="-90.0" y="11.5" />
-            </edge>
-            <edge source="commons-fileupload:commons-fileupload:jar:1.3.1" target="commons-fileupload:commons-fileupload:jar:1.3.1/commons-io:commons-io:jar:2.2">
-              <point x="114.0" y="-0.0" />
-              <point x="-78.5" y="-0.0" />
-            </edge>
-            <edge source="org.springframework:spring-webmvc:jar:4.3.6.RELEASE/org.springframework:spring-context:jar:4.3.6.RELEASE" target="org.springframework:spring-webmvc:jar:4.3.6.RELEASE/org.springframework:spring-aop:jar:4.3.6.RELEASE">
-              <point x="88.0" y="-5.75" />
-              <point x="1437.0" y="320.34162199589" />
-              <point x="1517.0" y="301.125" />
-              <point x="-72.5" y="15.333333333333258" />
-            </edge>
-            <edge source="org.springframework:spring-orm:jar:4.3.6.RELEASE/org.springframework:spring-jdbc:jar:4.3.6.RELEASE" target="org.springframework:spring-webmvc:jar:4.3.6.RELEASE/org.springframework:spring-beans:jar:4.3.6.RELEASE">
-              <point x="75.0" y="-15.333333333333258" />
-              <point x="1437.0" y="1638.06037131342" />
-              <point x="1517.0" y="1634.4294189324676" />
-              <point x="1760.0" y="1634.4294189324676" />
-              <point x="-81.5" y="13.14285714285711" />
-            </edge>
-            <edge source="org.apache.poi:poi-excelant:jar:3.15/org.apache.ant:ant:jar:1.8.2" target="org.apache.poi:poi-excelant:jar:3.15/org.apache.ant:ant:jar:1.8.2/org.apache.ant:ant-launcher:jar:1.8.2">
-              <point x="38.5" y="-0.0" />
-              <point x="-79.5" y="-0.0" />
-            </edge>
-            <edge source="org.hibernate:hibernate-core:jar:5.2.5.Final/javax.enterprise:cdi-api:jar:1.1" target="org.hibernate:hibernate-core:jar:5.2.5.Final/javax.enterprise:cdi-api:jar:1.1/org.jboss.spec.javax.interceptor:jboss-interceptors-api_1.1_spec:jar:1.0.0.Beta1">
-              <point x="55.0" y="5.75" />
-              <point x="1036.0" y="1474.9937046467535" />
-              <point x="-160.5" y="-0.0" />
-            </edge>
-            <edge source="com.btz:btz-app-service-snapshot-1.0:1.0-SNAPSHOT" target="org.apache.poi:poi-ooxml-schemas:jar:3.15">
-              <point x="152.5" y="16.807692307692378" />
-              <point x="385.0" y="2061.536653364702" />
-              <point x="-109.5" y="11.5" />
-            </edge>
-            <edge source="org.hibernate:hibernate-core:jar:5.2.5.Final/javax.enterprise:cdi-api:jar:1.1" target="org.hibernate:hibernate-core:jar:5.2.5.Final/javax.enterprise:cdi-api:jar:1.1/javax.inject:javax.inject:jar:1">
-              <point x="55.0" y="17.25" />
-              <point x="1036.0" y="1486.4937046467535" />
-              <point x="1116.0" y="1585.7380952380954" />
-              <point x="-71.5" y="-0.0" />
-            </edge>
-            <edge source="org.apache.poi:poi-examples:jar:3.15" target="org.apache.poi:poi-ooxml:jar:3.15">
-              <point x="83.0" y="-15.333333333333258" />
-              <point x="622.0" y="1963.0687046467533" />
-              <point x="702.0" y="1941.6520379800866" />
-              <point x="-69.0" y="15.333333333333258" />
-            </edge>
-            <edge source="com.btz:btz-app-service-snapshot-1.0:1.0-SNAPSHOT" target="commons-collections:commons-collections:jar:3.2.1">
-              <point x="152.5" y="-6.192307692307622" />
-              <point x="-116.0" y="-0.0" />
-            </edge>
-            <edge source="org.springframework:spring-webmvc:jar:4.3.6.RELEASE/org.springframework:spring-aop:jar:4.3.6.RELEASE" target="org.springframework:spring-webmvc:jar:4.3.6.RELEASE/org.springframework:spring-core:jar:4.3.6.RELEASE">
-              <point x="72.5" y="-11.5" />
-              <point x="2003.0" y="274.29166666666674" />
-              <point x="-74.5" y="-5.111111111111086" />
-            </edge>
-            <edge source="com.btz:btz-app-service-snapshot-1.0:1.0-SNAPSHOT" target="org.apache.httpcomponents:httpclient:jar:4.5.2">
-              <point x="152.5" y="20.34615384615381" />
-              <point x="385.0" y="2181.036653364702" />
-              <point x="-66.5" y="-0.0" />
-            </edge>
-            <edge source="org.hibernate:hibernate-core:jar:5.2.5.Final" target="org.hibernate:hibernate-core:jar:5.2.5.Final/dom4j:dom4j:jar:1.6.1">
-              <point x="88.5" y="11.5" />
-              <point x="622.0" y="1081.2380952380954" />
-              <point x="702.0" y="1297.2437046467535" />
-              <point x="-52.5" y="-0.0" />
-            </edge>
-            <edge source="com.btz:btz-app-service-snapshot-1.0:1.0-SNAPSHOT" target="org.apache.logging.log4j:log4j-core:jar:2.6.2">
-              <point x="152.5" y="-9.730769230769283" />
-              <point x="385.0" y="691.1630505673187" />
-              <point x="-69.0" y="11.5" />
-            </edge>
-            <edge source="org.apache.poi:poi-examples:jar:3.15" target="org.apache.poi:poi-scratchpad:jar:3.15">
-              <point x="83.0" y="15.333333333333258" />
-              <point x="622.0" y="1993.7353713134198" />
-              <point x="702.0" y="2014.767422595471" />
-              <point x="-90.0" y="-11.5" />
-            </edge>
-            <edge source="org.apache.poi:poi-excelant:jar:3.15" target="org.apache.poi:poi:jar:3.15">
-              <point x="78.0" y="-0.0" />
-              <point x="1036.0" y="1892.8187046467533" />
-              <point x="1116.0" y="1935.7020379800865" />
-              <point x="-38.5" y="-18.40000000000009" />
-            </edge>
-            <edge source="org.springframework:spring-webmvc:jar:4.3.6.RELEASE/org.springframework:spring-web:jar:4.3.6.RELEASE" target="org.springframework:spring-webmvc:jar:4.3.6.RELEASE/org.springframework:spring-beans:jar:4.3.6.RELEASE">
-              <point x="74.0" y="17.25" />
-              <point x="1036.0" y="276.34162199589" />
-              <point x="1116.0" y="359.59162199589" />
-              <point x="1760.0" y="359.59162199589" />
-              <point x="-81.5" y="-6.571428571428669" />
-            </edge>
-            <edge source="com.btz:btz-app-service-snapshot-1.0:1.0-SNAPSHOT" target="com.alibaba:fastjson:jar:1.2.25">
-              <point x="152.5" y="-2.653846153846189" />
-              <point x="385.0" y="971.1714285714288" />
-              <point x="-57.5" y="-0.0" />
-            </edge>
-            <edge source="org.springframework:spring-webmvc:jar:4.3.6.RELEASE/org.springframework:spring-beans:jar:4.3.6.RELEASE" target="org.springframework:spring-webmvc:jar:4.3.6.RELEASE/org.springframework:spring-core:jar:4.3.6.RELEASE">
-              <point x="81.5" y="-0.0" />
-              <point x="-74.5" y="5.111111111111086" />
-            </edge>
-            <edge source="com.btz:btz-app-service-snapshot-1.0:1.0-SNAPSHOT" target="org.apache.poi:poi-ooxml:jar:3.15">
-              <point x="152.5" y="9.730769230769283" />
-              <point x="385.0" y="1926.3187046467533" />
-              <point x="-69.0" y="-0.0" />
-            </edge>
-            <edge source="com.btz:btz-app-service-snapshot-1.0:1.0-SNAPSHOT" target="org.apache.logging.log4j:log4j-web:jar:2.6.2">
-              <point x="152.5" y="-11.5" />
-              <point x="385.0" y="657.6630505673187" />
-              <point x="-68.5" y="-0.0" />
-            </edge>
-            <edge source="org.hibernate:hibernate-core:jar:5.2.5.Final" target="org.hibernate:hibernate-core:jar:5.2.5.Final/org.jboss.logging:jboss-logging:jar:3.3.0.Final">
-              <point x="88.5" y="-20.69999999999999" />
-              <point x="622.0" y="1049.0380952380954" />
-              <point x="702.0" y="747.7437046467534" />
-              <point x="1036.0" y="747.7437046467534" />
-              <point x="1116.0" y="915.6852060315476" />
-              <point x="-84.5" y="-11.5" />
-            </edge>
-            <edge source="org.apache.poi:poi-excelant:jar:3.15" target="org.apache.poi:poi-ooxml:jar:3.15">
-              <point x="78.0" y="15.333333333333258" />
-              <point x="702.0" y="1910.98537131342" />
-              <point x="-69.0" y="-15.333333333333258" />
-            </edge>
-            <edge source="com.btz:btz-app-service-snapshot-1.0:1.0-SNAPSHOT" target="org.springframework:spring-orm:jar:4.3.6.RELEASE">
-              <point x="152.5" y="4.423076923076906" />
-              <point x="385.0" y="1681.1437046467533" />
-              <point x="-73.5" y="-0.0" />
-            </edge>
-            <edge source="com.alibaba:druid:jar:1.0.17" target="com.alibaba:druid:jar:1.0.17/com.alibaba:jconsole:jar:1.8.0">
-              <point x="48.0" y="-11.5" />
-              <point x="622.0" y="436.3214285714288" />
-              <point x="702.0" y="399.6630505673187" />
-              <point x="-59.5" y="-0.0" />
-            </edge>
-            <edge source="com.btz:btz-app-service-snapshot-1.0:1.0-SNAPSHOT" target="javax.servlet:jsp-api:jar:2.0">
-              <point x="152.5" y="-18.576923076923094" />
-              <point x="385.0" y="195.0000000000001" />
-              <point x="-54.5" y="-0.0" />
-            </edge>
-            <edge source="com.btz:btz-app-service-snapshot-1.0:1.0-SNAPSHOT" target="org.apache.poi:poi-examples:jar:3.15">
-              <point x="152.5" y="11.5" />
-              <point x="385.0" y="1978.4020379800868" />
-              <point x="-83.0" y="-0.0" />
-            </edge>
-            <edge source="org.apache.poi:poi-excelant:jar:3.15" target="org.apache.poi:poi-excelant:jar:3.15/org.apache.ant:ant:jar:1.8.2">
-              <point x="78.0" y="-15.333333333333258" />
-              <point x="622.0" y="1877.48537131342" />
-              <point x="702.0" y="1771.5187046467533" />
-              <point x="-38.5" y="-0.0" />
-            </edge>
-            <edge source="org.springframework:spring-webmvc:jar:4.3.6.RELEASE/org.springframework:spring-context:jar:4.3.6.RELEASE" target="org.springframework:spring-webmvc:jar:4.3.6.RELEASE/org.springframework:spring-expression:jar:4.3.6.RELEASE">
-              <point x="88.0" y="-17.25" />
-              <point x="1437.0" y="308.84162199589" />
-              <point x="1517.0" y="169.47222222222229" />
-              <point x="-101.5" y="11.5" />
-            </edge>
-            <edge source="org.hibernate:hibernate-core:jar:5.2.5.Final" target="org.hibernate:hibernate-core:jar:5.2.5.Final/com.fasterxml:classmate:jar:1.3.0">
-              <point x="88.5" y="6.899999999999977" />
-              <point x="622.0" y="1076.6380952380955" />
-              <point x="702.0" y="1211.2437046467535" />
-              <point x="-66.5" y="-0.0" />
-            </edge>
-            <edge source="org.hibernate:hibernate-core:jar:5.2.5.Final" target="org.hibernate:hibernate-core:jar:5.2.5.Final/org.javassist:javassist:jar:3.20.0-GA">
-              <point x="88.5" y="-16.100000000000023" />
-              <point x="622.0" y="1053.6380952380955" />
-              <point x="702.0" y="781.2437046467534" />
-              <point x="-59.5" y="-0.0" />
-            </edge>
-            <edge source="org.springframework:spring-orm:jar:4.3.6.RELEASE/org.springframework:spring-tx:jar:4.3.6.RELEASE" target="org.springframework:spring-webmvc:jar:4.3.6.RELEASE/org.springframework:spring-core:jar:4.3.6.RELEASE">
-              <point x="64.0" y="11.5" />
-              <point x="2003.0" y="1698.3937046467533" />
-              <point x="-74.5" y="15.333333333333258" />
-            </edge>
-            <edge source="org.springframework:spring-webmvc:jar:4.3.6.RELEASE" target="org.springframework:spring-webmvc:jar:4.3.6.RELEASE/org.springframework:spring-web:jar:4.3.6.RELEASE">
-              <point x="91.5" y="-3.8333333333332575" />
-              <point x="622.0" y="277.16666666666686" />
-              <point x="702.0" y="259.09162199589" />
-              <point x="-74.0" y="-0.0" />
-            </edge>
-            <edge source="com.btz:btz-app-service-snapshot-1.0:1.0-SNAPSHOT" target="javax.servlet:javax.servlet-api:jar:3.1.0">
-              <point x="152.5" y="-20.34615384615381" />
-              <point x="385.0" y="109.00000000000011" />
-              <point x="-93.5" y="-0.0" />
-            </edge>
-            <edge source="com.btz:btz-app-service-snapshot-1.0:1.0-SNAPSHOT" target="org.apache.logging.log4j:log4j-api:jar:2.6.2">
-              <point x="152.5" y="-7.9615384615385665" />
-              <point x="385.0" y="713.1630505673187" />
-              <point x="1036.0" y="713.1630505673187" />
-              <point x="1116.0" y="700.154761904762" />
-              <point x="-64.0" y="15.333333333333258" />
-            </edge>
-            <edge source="org.springframework:spring-orm:jar:4.3.6.RELEASE" target="org.springframework:spring-webmvc:jar:4.3.6.RELEASE/org.springframework:spring-core:jar:4.3.6.RELEASE">
-              <point x="73.5" y="17.25" />
-              <point x="1036.0" y="1698.3937046467533" />
-              <point x="1116.0" y="1732.1130952380954" />
-              <point x="2003.0" y="1732.1130952380954" />
-              <point x="-74.5" y="20.444444444444343" />
-            </edge>
-            <edge source="org.apache.poi:poi-examples:jar:3.15" target="org.apache.poi:poi:jar:3.15">
-              <point x="83.0" y="-0.0" />
-              <point x="1036.0" y="1978.4020379800868" />
-              <point x="1116.0" y="1954.1020379800866" />
-              <point x="-38.5" y="-0.0" />
-            </edge>
-            <edge source="org.apache.httpcomponents:httpclient:jar:4.5.2" target="commons-beanutils:commons-beanutils:jar:1.9.3/commons-logging:commons-logging:jar:1.2">
-              <point x="66.5" y="15.333333333333258" />
-              <point x="622.0" y="2196.3699866980355" />
-              <point x="702.0" y="2214.347710622711" />
-              <point x="2232.0" y="2214.347710622711" />
-              <point x="-104.5" y="15.333333333333258" />
-            </edge>
-            <edge source="org.springframework:spring-webmvc:jar:4.3.6.RELEASE/org.springframework:spring-context:jar:4.3.6.RELEASE" target="org.springframework:spring-webmvc:jar:4.3.6.RELEASE/org.springframework:spring-core:jar:4.3.6.RELEASE">
-              <point x="88.0" y="5.75" />
-              <point x="2003.0" y="332.09162199589" />
-              <point x="-74.5" y="-0.0" />
-            </edge>
-            <edge source="com.btz:btz-app-service-snapshot-1.0:1.0-SNAPSHOT" target="org.springframework:spring-webmvc:jar:4.3.6.RELEASE">
-              <point x="152.5" y="-16.807692307692378" />
-              <point x="385.0" y="281.0000000000001" />
-              <point x="-91.5" y="-0.0" />
-            </edge>
-            <edge source="org.springframework:spring-orm:jar:4.3.6.RELEASE/org.springframework:spring-jdbc:jar:4.3.6.RELEASE" target="org.springframework:spring-webmvc:jar:4.3.6.RELEASE/org.springframework:spring-core:jar:4.3.6.RELEASE">
-              <point x="75.0" y="-0.0" />
-              <point x="2003.0" y="1653.3937046467533" />
-              <point x="-74.5" y="10.222222222222172" />
-            </edge>
-            <edge source="org.apache.httpcomponents:httpclient:jar:4.5.2" target="org.apache.httpcomponents:httpclient:jar:4.5.2/commons-codec:commons-codec:jar:1.9">
-              <point x="66.5" y="-0.0" />
-              <point x="-96.0" y="-0.0" />
-            </edge>
-            <edge source="org.apache.poi:poi:jar:3.15" target="org.apache.poi:poi:jar:3.15/commons-codec:commons-codec:jar:1.10">
-              <point x="38.5" y="11.5" />
-              <point x="1437.0" y="1965.6020379800866" />
-              <point x="1517.0" y="2084.8630505673186" />
-              <point x="-96.0" y="-11.5" />
-            </edge>
-          </edges>
-          <settings layout="Hierarchic Group" zoom="0.9002163565556036" x="940.0" y="1166.0" />
-          <SelectedNodes>
-            <node>org.apache.commons:commons-collections4:jar:4.1</node>
-          </SelectedNodes>
-          <Categories />
-          <SCOPE>All</SCOPE>
-          <VISIBILITY>All</VISIBILITY>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/api/btz/function/user/controller/ApiUserController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1556">
-          <caret line="37" column="13" lean-forward="false" selection-start-line="37" selection-start-column="13" selection-end-line="37" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="273">
@@ -2612,13 +1748,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/btz/exercise/entity/ExerciseEntity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="5805">
-          <caret line="179" column="43" lean-forward="false" selection-start-line="179" selection-start-column="43" selection-end-line="179" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://E:/btz/maven/repository/org/apache/poi/poi-ooxml/3.15/poi-ooxml-3.15-sources.jar!/org/apache/poi/xssf/usermodel/XSSFCell.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="10710">
@@ -2644,7 +1773,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2340">
           <caret line="78" column="0" lean-forward="false" selection-start-line="78" selection-start-column="0" selection-end-line="78" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2652,9 +1780,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1710">
           <caret line="42" column="0" lean-forward="false" selection-start-line="42" selection-start-column="0" selection-end-line="42" selection-end-column="0" />
-          <folding>
-            <element signature="e#783#784#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -2662,7 +1787,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="630">
           <caret line="41" column="35" lean-forward="false" selection-start-line="41" selection-start-column="35" selection-end-line="41" selection-end-column="35" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2670,6 +1794,329 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="405">
           <caret line="15" column="35" lean-forward="false" selection-start-line="15" selection-start-column="35" selection-end-line="15" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/app/btz/common/constant/ApiURLConstant.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="6" column="31" lean-forward="false" selection-start-line="6" selection-start-column="31" selection-end-line="6" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/api/btz/function/user/json/ApiUserInfoJson.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="513">
+          <caret line="17" column="24" lean-forward="false" selection-start-line="17" selection-start-column="24" selection-end-line="17" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/api/btz/function/user/json/AuthUserInfoJson.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="288">
+          <caret line="23" column="1" lean-forward="true" selection-start-line="23" selection-start-column="1" selection-end-line="31" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/app/btz/function/user/controller/AppUserController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="450">
+          <caret line="30" column="13" lean-forward="false" selection-start-line="30" selection-start-column="13" selection-end-line="30" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/app/btz/function/testModule/vo/SubCourseAppVo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="530">
+          <caret line="91" column="34" lean-forward="false" selection-start-line="91" selection-start-column="34" selection-end-line="91" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/btz/user/entity/UserEntity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="222">
+          <caret line="31" column="7" lean-forward="true" selection-start-line="31" selection-start-column="7" selection-end-line="31" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/app/btz/common/authority/CourseAuthorityPojo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="11" column="13" lean-forward="false" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/app/btz/common/service/AppTokenService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="371">
+          <caret line="12" column="25" lean-forward="false" selection-start-line="12" selection-start-column="25" selection-end-line="12" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/app/btz/common/service/impl/AppTokenServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-792">
+          <caret line="45" column="25" lean-forward="false" selection-start-line="45" selection-start-column="25" selection-end-line="45" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/app/btz/function/user/controller/AppLoginController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="125">
+          <caret line="51" column="0" lean-forward="true" selection-start-line="51" selection-start-column="0" selection-end-line="51" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/app/btz/function/testModule/controller/AppTestModuleController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1765">
+          <caret line="41" column="0" lean-forward="true" selection-start-line="41" selection-start-column="0" selection-end-line="41" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/app/btz/function/testModule/service/AppTestModuleService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="241">
+          <caret line="15" column="29" lean-forward="false" selection-start-line="15" selection-start-column="29" selection-end-line="15" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/app/btz/function/testModule/vo/ListInfoVo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-966">
+          <caret line="10" column="13" lean-forward="false" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/app/btz/function/testModule/service/impl/AppTestModuleServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-3325">
+          <caret line="41" column="49" lean-forward="false" selection-start-line="41" selection-start-column="49" selection-end-line="41" selection-end-column="49" />
+          <folding>
+            <element signature="e#5749#5761#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/app/btz/function/testModule/vo/ModuleTestRequestVo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="9" column="7" lean-forward="true" selection-start-line="9" selection-start-column="7" selection-end-line="9" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/framework/core/common/service/impl/BaseServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="249">
+          <caret line="44" column="16" lean-forward="false" selection-start-line="44" selection-start-column="16" selection-end-line="44" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/framework/core/common/service/BaseService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="249">
+          <caret line="36" column="16" lean-forward="false" selection-start-line="36" selection-start-column="16" selection-end-line="36" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/btz/video/live/entity/CourseLiveVideoEntity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="114">
+          <caret line="13" column="13" lean-forward="false" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/app/btz/function/video/Controller/AppLiveVideoController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="95">
+          <caret line="55" column="30" lean-forward="true" selection-start-line="55" selection-start-column="30" selection-end-line="55" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/app/btz/common/constant/TryOutConstant.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="241">
+          <caret line="7" column="62" lean-forward="false" selection-start-line="7" selection-start-column="62" selection-end-line="7" selection-end-column="62" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/app/btz/function/video/Controller/AppRecordedVideoController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="230">
+          <caret line="97" column="56" lean-forward="false" selection-start-line="97" selection-start-column="56" selection-end-line="97" selection-end-column="56" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/app/btz/function/carousel/controller/AppCarouselController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-291">
+          <caret line="32" column="13" lean-forward="false" selection-start-line="32" selection-start-column="13" selection-end-line="32" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/app/btz/function/course/controller/AppSubCourseController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3915">
+          <caret line="152" column="80" lean-forward="false" selection-start-line="152" selection-start-column="80" selection-end-line="152" selection-end-column="80" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/btz/feedback/entity/FeedbackEntity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="7245">
+          <caret line="225" column="56" lean-forward="false" selection-start-line="225" selection-start-column="56" selection-end-line="225" selection-end-column="56" />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#1518#1519#0" expanded="false" />
+            <element signature="e#1543#1544#0" expanded="false" />
+            <element signature="e#1580#1581#0" expanded="false" />
+            <element signature="e#1608#1609#0" expanded="false" />
+            <element signature="e#1712#1713#0" expanded="false" />
+            <element signature="e#1746#1747#0" expanded="false" />
+            <element signature="e#1801#1802#0" expanded="false" />
+            <element signature="e#1847#1848#0" expanded="false" />
+            <element signature="e#1947#1948#0" expanded="false" />
+            <element signature="e#1979#1980#0" expanded="false" />
+            <element signature="e#2030#2031#0" expanded="false" />
+            <element signature="e#2072#2073#0" expanded="false" />
+            <element signature="e#2170#2171#0" expanded="false" />
+            <element signature="e#2201#2202#0" expanded="false" />
+            <element signature="e#2250#2251#0" expanded="false" />
+            <element signature="e#2290#2291#0" expanded="false" />
+            <element signature="e#2392#2393#0" expanded="false" />
+            <element signature="e#2425#2426#0" expanded="false" />
+            <element signature="e#2479#2480#0" expanded="false" />
+            <element signature="e#2523#2524#0" expanded="false" />
+            <element signature="e#2624#2625#0" expanded="false" />
+            <element signature="e#2657#2658#0" expanded="false" />
+            <element signature="e#2710#2711#0" expanded="false" />
+            <element signature="e#2754#2755#0" expanded="false" />
+            <element signature="e#2834#2835#0" expanded="false" />
+            <element signature="e#2863#2864#0" expanded="false" />
+            <element signature="e#2907#2908#0" expanded="false" />
+            <element signature="e#2943#2944#0" expanded="false" />
+            <element signature="e#3025#3026#0" expanded="false" />
+            <element signature="e#3055#3056#0" expanded="false" />
+            <element signature="e#3101#3102#0" expanded="false" />
+            <element signature="e#3139#3140#0" expanded="false" />
+            <element signature="e#3233#3234#0" expanded="false" />
+            <element signature="e#3262#3263#0" expanded="false" />
+            <element signature="e#3307#3308#0" expanded="false" />
+            <element signature="e#3343#3344#0" expanded="false" />
+            <element signature="e#3440#3441#0" expanded="false" />
+            <element signature="e#3471#3472#0" expanded="false" />
+            <element signature="e#3519#3520#0" expanded="false" />
+            <element signature="e#3559#3560#0" expanded="false" />
+            <element signature="e#3653#3654#0" expanded="false" />
+            <element signature="e#3682#3683#0" expanded="false" />
+            <element signature="e#3727#3728#0" expanded="false" />
+            <element signature="e#3763#3764#0" expanded="false" />
+            <element signature="e#3857#3858#0" expanded="false" />
+            <element signature="e#3888#3889#0" expanded="false" />
+            <element signature="e#3934#3935#0" expanded="false" />
+            <element signature="e#3974#3975#0" expanded="false" />
+            <element signature="e#4071#4072#0" expanded="false" />
+            <element signature="e#4104#4105#0" expanded="false" />
+            <element signature="e#4154#4155#0" expanded="false" />
+            <element signature="e#4198#4199#0" expanded="false" />
+            <element signature="e#4296#4297#0" expanded="false" />
+            <element signature="e#4329#4330#0" expanded="false" />
+            <element signature="e#4379#4380#0" expanded="false" />
+            <element signature="e#4423#4424#0" expanded="false" />
+            <element signature="e#4515#4516#0" expanded="false" />
+            <element signature="e#4544#4545#0" expanded="false" />
+            <element signature="e#4588#4589#0" expanded="false" />
+            <element signature="e#4624#4625#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/app/btz/common/constant/FeedbackConstant.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="855">
+          <caret line="19" column="9" lean-forward="false" selection-start-line="19" selection-start-column="9" selection-end-line="19" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/app/btz/function/feedback/controller/AppFeedbackController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4545">
+          <caret line="137" column="0" lean-forward="false" selection-start-line="137" selection-start-column="0" selection-end-line="137" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/app/btz/function/exercise/controller/AppExerciseController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2790">
+          <caret line="87" column="13" lean-forward="false" selection-start-line="87" selection-start-column="13" selection-end-line="87" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/app/btz/function/video/vo/ItemRecordedVideoVo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="450">
+          <caret line="10" column="0" lean-forward="false" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
+          <folding>
+            <element signature="e#549#550#0" expanded="false" />
+            <element signature="e#574#575#0" expanded="false" />
+            <element signature="e#611#612#0" expanded="false" />
+            <element signature="e#639#640#0" expanded="false" />
+            <element signature="e#678#679#0" expanded="false" />
+            <element signature="e#712#713#0" expanded="false" />
+            <element signature="e#767#768#0" expanded="false" />
+            <element signature="e#813#814#0" expanded="false" />
+            <element signature="e#850#851#0" expanded="false" />
+            <element signature="e#882#883#0" expanded="false" />
+            <element signature="e#933#934#0" expanded="false" />
+            <element signature="e#975#976#0" expanded="false" />
+            <element signature="e#1007#1008#0" expanded="false" />
+            <element signature="e#1035#1036#0" expanded="false" />
+            <element signature="e#1077#1078#0" expanded="false" />
+            <element signature="e#1111#1112#0" expanded="false" />
+            <element signature="e#1146#1147#0" expanded="false" />
+            <element signature="e#1177#1178#0" expanded="false" />
+            <element signature="e#1225#1226#0" expanded="false" />
+            <element signature="e#1265#1266#0" expanded="false" />
+            <element signature="e#1302#1303#0" expanded="false" />
+            <element signature="e#1335#1336#0" expanded="false" />
+            <element signature="e#1387#1388#0" expanded="false" />
+            <element signature="e#1431#1432#0" expanded="false" />
+            <element signature="e#1466#1467#0" expanded="false" />
+            <element signature="e#1496#1497#0" expanded="false" />
+            <element signature="e#1543#1544#0" expanded="false" />
+            <element signature="e#1581#1582#0" expanded="false" />
+            <element signature="e#1615#1616#0" expanded="false" />
+            <element signature="e#1644#1645#0" expanded="false" />
+            <element signature="e#1689#1690#0" expanded="false" />
+            <element signature="e#1725#1726#0" expanded="false" />
+            <element signature="e#1757#1758#0" expanded="false" />
+            <element signature="e#1784#1785#0" expanded="false" />
+            <element signature="e#1825#1826#0" expanded="false" />
+            <element signature="e#1857#1858#0" expanded="false" />
+            <element signature="e#1889#1890#0" expanded="false" />
+            <element signature="e#1916#1917#0" expanded="false" />
+            <element signature="e#1957#1958#0" expanded="false" />
+            <element signature="e#1989#1990#0" expanded="false" />
+            <element signature="e#2021#2022#0" expanded="false" />
+            <element signature="e#2048#2049#0" expanded="false" />
+            <element signature="e#2089#2090#0" expanded="false" />
+            <element signature="e#2121#2122#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/btz/exercise/controller/ExerciseController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="450">
+          <caret line="185" column="17" lean-forward="false" selection-start-line="185" selection-start-column="17" selection-end-line="185" selection-end-column="17" />
           <folding />
         </state>
       </provider>
@@ -2682,285 +2129,83 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/btz/exercise/controller/ExerciseController.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/btz/poi/service/impl/DownTestModuleExcelImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="5220">
-          <caret line="161" column="0" lean-forward="false" selection-start-line="161" selection-start-column="0" selection-end-line="161" selection-end-column="0" />
+        <state relative-caret-position="-7315">
+          <caret line="342" column="17" lean-forward="false" selection-start-line="342" selection-start-column="17" selection-end-line="342" selection-end-column="17" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/index.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="2" column="24" lean-forward="false" selection-start-line="2" selection-start-column="24" selection-end-line="2" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/btz/exercise/entity/ExerciseEntity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="727">
+          <caret line="179" column="43" lean-forward="false" selection-start-line="179" selection-start-column="43" selection-end-line="179" selection-end-column="43" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/btz/strategy/entity/ItemStrategyEntity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="434">
+          <caret line="133" column="46" lean-forward="false" selection-start-line="133" selection-start-column="41" selection-end-line="133" selection-end-column="46" />
+          <folding>
+            <element signature="e#2853#2854#0" expanded="true" />
+            <element signature="e#2883#2884#0" expanded="true" />
+            <element signature="e#2930#2931#0" expanded="true" />
+            <element signature="e#2968#2969#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/btz/contants/QuestionType.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1530">
-          <caret line="34" column="36" lean-forward="false" selection-start-line="34" selection-start-column="36" selection-end-line="34" selection-end-column="36" />
+        <state relative-caret-position="376">
+          <caret line="21" column="61" lean-forward="false" selection-start-line="21" selection-start-column="61" selection-end-line="21" selection-end-column="61" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/btz/poi/service/impl/DownTestModuleExcelImpl.java">
+    <entry file="file://$PROJECT_DIR$/src/main/resources/DBConfig.properties">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="23490">
-          <caret line="560" column="0" lean-forward="false" selection-start-line="560" selection-start-column="0" selection-end-line="560" selection-end-column="0" />
+        <state relative-caret-position="315">
+          <caret line="7" column="30" lean-forward="true" selection-start-line="7" selection-start-column="30" selection-end-line="7" selection-end-column="30" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/app/btz/common/constant/ApiURLConstant.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/btz/strategy/controller/StrategyController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="6" column="31" lean-forward="false" selection-start-line="6" selection-start-column="31" selection-end-line="6" selection-end-column="31" />
+        <state relative-caret-position="390">
+          <caret line="48" column="71" lean-forward="false" selection-start-line="48" selection-start-column="71" selection-end-line="48" selection-end-column="71" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/api/btz/function/user/json/ApiUserInfoJson.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/app/btz/function/strategy/vo/ItemStrategyVo.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="513">
-          <caret line="17" column="24" lean-forward="false" selection-start-line="17" selection-start-column="24" selection-end-line="17" selection-end-column="24" />
+        <state relative-caret-position="470">
+          <caret line="51" column="33" lean-forward="false" selection-start-line="51" selection-start-column="33" selection-end-line="51" selection-end-column="33" />
           <folding>
-            <element signature="e#842#843#0" expanded="true" />
-            <element signature="e#871#872#0" expanded="true" />
-            <element signature="e#916#917#0" expanded="true" />
-            <element signature="e#952#953#0" expanded="true" />
+            <element signature="e#988#989#0" expanded="true" />
+            <element signature="e#1035#1036#0" expanded="true" />
+            <element signature="e#1073#1074#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/api/btz/function/user/json/AuthUserInfoJson.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/app/btz/function/strategy/controller/AppStrategyController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="288">
-          <caret line="23" column="1" lean-forward="true" selection-start-line="23" selection-start-column="1" selection-end-line="31" selection-end-column="31" />
-          <folding>
-            <element signature="e#1056#1057#0" expanded="true" />
-            <element signature="e#1088#1089#0" expanded="true" />
-            <element signature="e#1139#1140#0" expanded="true" />
-            <element signature="e#1181#1182#0" expanded="true" />
-            <element signature="e#1219#1220#0" expanded="true" />
-            <element signature="e#1252#1253#0" expanded="true" />
-            <element signature="e#1305#1306#0" expanded="true" />
-            <element signature="e#1349#1350#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/app/btz/function/user/controller/AppUserController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="450">
-          <caret line="30" column="13" lean-forward="false" selection-start-line="30" selection-start-column="13" selection-end-line="30" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/app/btz/function/testModule/vo/SubCourseAppVo.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="530">
-          <caret line="91" column="34" lean-forward="false" selection-start-line="91" selection-start-column="34" selection-end-line="91" selection-end-column="34" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/btz/user/entity/UserEntity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="222">
-          <caret line="31" column="7" lean-forward="true" selection-start-line="31" selection-start-column="7" selection-end-line="31" selection-end-column="7" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/app/btz/common/authority/CourseAuthorityPojo.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="11" column="13" lean-forward="false" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
-          <folding>
-            <element signature="e#1182#1183#0" expanded="true" />
-            <element signature="e#1213#1214#0" expanded="true" />
-            <element signature="e#1262#1263#0" expanded="true" />
-            <element signature="e#1302#1303#0" expanded="true" />
-            <element signature="e#1339#1340#0" expanded="true" />
-            <element signature="e#1371#1372#0" expanded="true" />
-            <element signature="e#1422#1423#0" expanded="true" />
-            <element signature="e#1464#1465#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/app/btz/common/service/AppTokenService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="371">
-          <caret line="12" column="25" lean-forward="false" selection-start-line="12" selection-start-column="25" selection-end-line="12" selection-end-column="25" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/app/btz/common/service/impl/AppTokenServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-792">
-          <caret line="45" column="25" lean-forward="false" selection-start-line="45" selection-start-column="25" selection-end-line="45" selection-end-column="25" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/app/btz/function/user/controller/AppLoginController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="125">
-          <caret line="51" column="0" lean-forward="true" selection-start-line="51" selection-start-column="0" selection-end-line="51" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/app/btz/function/testModule/controller/AppTestModuleController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1765">
-          <caret line="41" column="0" lean-forward="true" selection-start-line="41" selection-start-column="0" selection-end-line="41" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/app/btz/function/testModule/service/AppTestModuleService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="241">
-          <caret line="15" column="29" lean-forward="false" selection-start-line="15" selection-start-column="29" selection-end-line="15" selection-end-column="29" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/app/btz/function/testModule/vo/ListInfoVo.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-966">
-          <caret line="10" column="13" lean-forward="false" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/app/btz/function/testModule/service/impl/AppTestModuleServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-3325">
-          <caret line="41" column="49" lean-forward="false" selection-start-line="41" selection-start-column="49" selection-end-line="41" selection-end-column="49" />
-          <folding>
-            <element signature="e#5749#5761#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/app/btz/function/testModule/vo/ModuleTestRequestVo.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" column="7" lean-forward="true" selection-start-line="9" selection-start-column="7" selection-end-line="9" selection-end-column="7" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/framework/core/common/service/impl/BaseServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="249">
-          <caret line="44" column="16" lean-forward="false" selection-start-line="44" selection-start-column="16" selection-end-line="44" selection-end-column="16" />
-          <folding>
-            <element signature="e#1253#1254#0" expanded="true" />
-            <element signature="e#1310#1311#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/framework/core/common/service/BaseService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="249">
-          <caret line="36" column="16" lean-forward="false" selection-start-line="36" selection-start-column="16" selection-end-line="36" selection-end-column="16" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/btz/video/live/entity/CourseLiveVideoEntity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="114">
-          <caret line="13" column="13" lean-forward="false" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/app/btz/function/video/Controller/AppLiveVideoController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="95">
-          <caret line="55" column="30" lean-forward="true" selection-start-line="55" selection-start-column="30" selection-end-line="55" selection-end-column="30" />
-          <folding>
-            <element signature="e#2550#2567#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/app/btz/common/constant/TryOutConstant.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="241">
-          <caret line="7" column="62" lean-forward="false" selection-start-line="7" selection-start-column="62" selection-end-line="7" selection-end-column="62" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/app/btz/function/video/Controller/AppRecordedVideoController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="230">
-          <caret line="97" column="56" lean-forward="false" selection-start-line="97" selection-start-column="56" selection-end-line="97" selection-end-column="56" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/app/btz/function/video/vo/ItemRecordedVideoVo.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="384">
-          <caret line="27" column="29" lean-forward="true" selection-start-line="27" selection-start-column="29" selection-end-line="27" selection-end-column="29" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/app/btz/function/carousel/controller/AppCarouselController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-291">
-          <caret line="32" column="13" lean-forward="false" selection-start-line="32" selection-start-column="13" selection-end-line="32" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/app/btz/function/course/controller/AppSubCourseController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3915">
-          <caret line="152" column="80" lean-forward="false" selection-start-line="152" selection-start-column="80" selection-end-line="152" selection-end-column="80" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/app/btz/function/exercise/controller/AppExerciseController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-50">
-          <caret line="87" column="13" lean-forward="true" selection-start-line="87" selection-start-column="13" selection-end-line="87" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/btz/feedback/entity/FeedbackEntity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="331">
-          <caret line="225" column="56" lean-forward="false" selection-start-line="225" selection-start-column="56" selection-end-line="225" selection-end-column="56" />
-          <folding>
-            <element signature="e#4714#4715#0" expanded="true" />
-            <element signature="e#4741#4742#0" expanded="true" />
-            <element signature="e#4782#4783#0" expanded="true" />
-            <element signature="e#4814#4815#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/app/btz/common/constant/FeedbackConstant.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="511">
-          <caret line="19" column="9" lean-forward="false" selection-start-line="19" selection-start-column="9" selection-end-line="19" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/app/btz/function/feedback/controller/AppFeedbackController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="137" column="0" lean-forward="true" selection-start-line="137" selection-start-column="0" selection-end-line="137" selection-end-column="0" />
+        <state relative-caret-position="629">
+          <caret line="72" column="71" lean-forward="true" selection-start-line="72" selection-start-column="71" selection-end-line="72" selection-end-column="71" />
           <folding />
         </state>
       </provider>
