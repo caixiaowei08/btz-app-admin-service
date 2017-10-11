@@ -115,19 +115,15 @@ public class AppLoginController extends BaseController {
             j.setContent("账号或者密码错误！");
             return j;
         }
-
         UserEntity userEntityDb = userEntityList.get(0);
         if (userEntityDb.getState().equals(SfynConstant.SFYN_N)) {
             j.setReturnCode(AppAjax.FAIL);
             j.setContent("账户已被冻结！");
             return j;
         }
-
         AppUserVo appUserVo = appUserService.saveUserToken(userEntityDb);//获取token
         j.setReturnCode(AppAjax.SUCCESS);
         j.setContent(appUserVo);
         return j;
     }
-
-
 }

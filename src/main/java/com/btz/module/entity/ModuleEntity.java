@@ -41,6 +41,11 @@ public class ModuleEntity implements Serializable {
     private String alias;
 
     /**
+     * 预设值链接
+     */
+    private String url;
+
+    /**
      * 模块类型 1-章节练习 2 -核心考点 3-考前押题 4-授课视频 5-直播视频
      */
     private Integer type;
@@ -137,5 +142,14 @@ public class ModuleEntity implements Serializable {
 
     public void setAlias(String alias) {
         this.alias = alias;
+    }
+
+    @Column(name = "url", nullable = true)
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
     }
 }

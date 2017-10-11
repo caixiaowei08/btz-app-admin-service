@@ -103,10 +103,10 @@ public class AppTestModuleServiceImpl implements AppTestModuleService {
         ExerciseVo exerciseVo = new ExerciseVo();
         exerciseVo.setId(exerciseEntity.getId());
         exerciseVo.setType(exerciseEntity.getType());
-        exerciseVo.setTitle(exerciseEntity.getTitle());
-        exerciseVo.setContent(exerciseEntity.getContent());
-        exerciseVo.setAnswer(exerciseEntity.getAnswer());
-        exerciseVo.setAnswerKey(exerciseEntity.getAnswerKey());
+        exerciseVo.setTitle(exerciseEntity.getTitle().replaceAll("https","http"));
+        exerciseVo.setContent(exerciseEntity.getContent().replaceAll("https","http"));
+        exerciseVo.setAnswer(exerciseEntity.getAnswer().replaceAll("https","http"));
+        exerciseVo.setAnswerKey(exerciseEntity.getAnswerKey().replaceAll("https","http"));
         return exerciseVo;
     }
 

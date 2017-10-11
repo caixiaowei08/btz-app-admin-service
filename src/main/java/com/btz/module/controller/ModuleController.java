@@ -1,6 +1,7 @@
 package com.btz.module.controller;
 
 import com.alibaba.fastjson.JSON;
+import com.btz.common.constant.ModuleConstant;
 import com.btz.course.ConstantChapterLevel;
 import com.btz.course.entity.ChapterEntity;
 import com.btz.course.entity.MainCourseEntity;
@@ -91,6 +92,17 @@ public class ModuleController extends BaseController {
         try {
             moduleEntity.setVersionNo(0);
             moduleEntity.setMainCourseId(subCourseEntity.getFid());
+            if(moduleEntity.getType().equals(BelongToEnum.ERROR_SORT.getIndex())){
+                if(StringUtils.hasText(moduleEntity.getUrl())){
+                    moduleEntity.setUrl(moduleEntity.getUrl()
+                            +"&subCourseId="+subCourseEntity.getId()
+                            +"&username=");
+                }else{
+                    moduleEntity.setUrl(ModuleConstant.MODULE_URL);
+                }
+            }else{
+                moduleEntity.setUrl(null);
+            }
             moduleEntity.setUpdateTime(new Date());
             moduleEntity.setCreateTime(new Date());
             moduleService.save(moduleEntity);
@@ -169,11 +181,23 @@ public class ModuleController extends BaseController {
         AjaxJson j = new AjaxJson();
         ModuleEntity t = moduleService.get(ModuleEntity.class, moduleEntity.getId());
         try {
+            if(t.getType().equals(BelongToEnum.ERROR_SORT.getIndex())){
+                if(StringUtils.hasText(moduleEntity.getUrl())){
+                    moduleEntity.setUrl(moduleEntity.getUrl()
+                            +"&subCourseId="+t.getSubCourseId()
+                            +"&username=");
+                }else{
+                    moduleEntity.setUrl(ModuleConstant.MODULE_URL);
+                }
+            }else{
+                moduleEntity.setUrl(null);
+            }
             moduleEntity.setUpdateTime(new Date());
             BeanUtils.copyBeanNotNull2Bean(moduleEntity, t);
             moduleService.saveOrUpdate(t);
         } catch (Exception e) {
             e.printStackTrace();
+            logger.error(e);
             j.setSuccess(AjaxJson.CODE_FAIL);
             j.setMsg("更新失败！");
         }

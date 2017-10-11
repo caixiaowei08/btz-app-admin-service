@@ -95,8 +95,26 @@ public class AppExerciseController extends BaseController {
             j.setMsg("题目不存在或者已被删除！");
             return j;
         }
+        ExerciseVo exerciseVo = new ExerciseVo();
+        try {
+            QuestionType questionType = QuestionType.getExamTypeByExamType(exerciseDb.getType());
+            exerciseVo.setId(exerciseDb.getId());
+            exerciseVo.setTypeName(questionType.getExamName());
+            exerciseVo.setTypeShow(questionType.getExamShow());
+            exerciseVo.setType(exerciseDb.getType());
+            exerciseVo.setTitle(exerciseDb.getTitle());
+            exerciseVo.setContent(exerciseDb.getContent());
+            exerciseVo.setAnswer(exerciseDb.getAnswer());
+            exerciseVo.setAnswerKey(exerciseDb.getAnswerKey());
+            exerciseVo.setOrderNo(exerciseDb.getOrderNo());
+        }catch (Exception e){
+            logger.error(e);
+            j.setReturnCode(AppAjax.FAIL);
+            j.setMsg("未能获取题目详细信息！");
+            return j;
+        }
         j.setReturnCode(AppAjax.SUCCESS);
-        j.setContent(exerciseDb);
+        j.setContent(exerciseVo);
         return j;
     }
 

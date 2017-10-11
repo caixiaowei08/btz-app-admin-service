@@ -5,6 +5,7 @@ import app.btz.function.testModule.vo.ModuleTestRequestVo;
 import com.btz.module.entity.ModuleEntity;
 import com.btz.module.service.ModuleService;
 import com.btz.utils.BelongToEnum;
+import com.btz.utils.Constant;
 import org.apache.commons.collections.CollectionUtils;
 import org.framework.core.common.controller.BaseController;
 import org.hibernate.criterion.DetachedCriteria;
@@ -45,6 +46,7 @@ public class AppModuleController extends BaseController {
         DetachedCriteria moduleDetachedCriteria = DetachedCriteria.forClass(ModuleEntity.class);
         moduleDetachedCriteria.add(Restrictions.eq("subCourseId", subCourseId));
         moduleDetachedCriteria.add(Restrictions.eq("type", moduleType));
+        moduleDetachedCriteria.add(Restrictions.eq("s_state", Constant.STATE_UNLOCK));
         List<ModuleEntity> moduleEntityList = moduleService.getListByCriteriaQuery(moduleDetachedCriteria);
         if (CollectionUtils.isEmpty(moduleEntityList)) {
             j.setReturnCode(AppAjax.FAIL);

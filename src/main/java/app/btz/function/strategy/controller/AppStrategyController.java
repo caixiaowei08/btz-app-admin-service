@@ -19,7 +19,10 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Created by User on 2017/8/26.
@@ -37,7 +40,7 @@ public class AppStrategyController extends BaseController {
     public AppAjax doGetStrategyBySubCourseId(
             MainStrategyVo mainStrategyVo, HttpServletRequest request, HttpServletResponse response) {
         AppAjax j = new AppAjax();
-        MainStrategyVo t = new MainStrategyVo();
+
         if (mainStrategyVo.getSubCourseId() == null) {
             j.setReturnCode(AppAjax.FAIL);
             j.setMsg("参数错误，未输入课程编号！");
@@ -51,6 +54,7 @@ public class AppStrategyController extends BaseController {
             j.setMsg("系统未设置该课程的试题策略!");
             return j;
         }
+        MainStrategyVo t = new MainStrategyVo();
         MainStrategyEntity mainStrategyEntity = mainStrategyEntityList.get(0);
         t.setTotalTime(mainStrategyEntity.getTotalTime());
         t.setTotalPoint(mainStrategyEntity.getTotalPoint());
@@ -64,14 +68,28 @@ public class AppStrategyController extends BaseController {
             j.setMsg("系统未设置该课程试卷题目组合策略!");
             return j;
         }
-        for (ItemStrategyEntity itemStrategyEntity : itemStrategyEntityList) {
-            ItemStrategyVo itemStrategyVo = new ItemStrategyVo();
-            itemStrategyVo.setSubCourseId(itemStrategyEntity.getSubCourseId());
-            itemStrategyVo.setExamNo(itemStrategyEntity.getExamNo());
-            itemStrategyVo.setExamType(itemStrategyEntity.getExamType());
-            itemStrategyVo.setPoint(itemStrategyEntity.getPoint());
-            itemStrategyVo.setOrderNo(itemStrategyEntity.getOrderNo());
-            t.getQuestions().add(itemStrategyVo);
+
+        List<ItemStrategyEntity> itemStrategyEntityShowList = new ArrayList<ItemStrategyEntity>();
+        List<Integer> integerList = new ArrayList<Integer>();
+        for (ItemStrategyEntity firstItemStrategyEntity : itemStrategyEntityList) {
+            if(integerList.contains(firstItemStrategyEntity.getExamType())){
+                continue;
+            }
+            integerList.add(firstItemStrategyEntity.getExamType());
+            for (ItemStrategyEntity secondItemStrategyEntity : itemStrategyEntityList){
+                if(firstItemStrategyEntity.getExamType().equals(secondItemStrategyEntity.getExamType())){
+                    itemStrategyEntityShowList.add(secondItemStrategyEntity);
+                }
+            }
+        }
+
+        for (ItemStrategyEntity itemStrategyEntity : itemStrategyEntityShowList) {
+            for (int i = 0; i < itemStrategyEntity.getExamNo(); i++) {
+                ItemStrategyVo itemStrategyVo = new ItemStrategyVo();
+                itemStrategyVo.setExamType(itemStrategyEntity.getExamType());
+                itemStrategyVo.setPoint(itemStrategyEntity.getPoint());
+                t.getQuestions().add(itemStrategyVo);
+            }
         }
         j.setReturnCode(AppAjax.SUCCESS);
         j.setContent(t);
