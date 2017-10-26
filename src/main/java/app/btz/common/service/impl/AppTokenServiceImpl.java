@@ -56,7 +56,9 @@ public class AppTokenServiceImpl implements AppTokenService {
             }
             String result = "";
             try {
+                logger.info(ApiURLConstant.BTZ_USER_INFO_URL + appUserEntity.getUserId());
                 result = ApiHttpClient.doGet(ApiURLConstant.BTZ_USER_INFO_URL + appUserEntity.getUserId());
+                logger.info(result);
             } catch (Exception e) {
                 e.printStackTrace();
                 logger.error(e);
@@ -73,6 +75,7 @@ public class AppTokenServiceImpl implements AppTokenService {
                         courseAuthorityPojo.setEndTime(authUserInfoJson.getEnd());
                         courseAuthorityPojo.setVideoAuth(authUserInfoJson.getVideo_auth());
                         courseAuthorityPojo.setExamAuth(authUserInfoJson.getExam_auth());
+                        courseAuthorityPojo.setVideoClass(authUserInfoJson.getVideo_class());
                         courseAuthorityPojoList.add(courseAuthorityPojo);
                     }
                 }

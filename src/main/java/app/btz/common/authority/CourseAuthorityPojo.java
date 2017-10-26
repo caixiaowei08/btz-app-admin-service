@@ -4,7 +4,9 @@ import com.alibaba.fastjson.annotation.JSONField;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 /**
  * Created by User on 2017/7/19.
@@ -31,7 +33,7 @@ public class CourseAuthorityPojo implements Serializable{
      */
     private Integer videoAuth = 0;
 
-
+    private List<Integer> videoClass = new ArrayList<Integer>();
 
     public Integer getSubCourseId() {
         return subCourseId;
@@ -71,5 +73,13 @@ public class CourseAuthorityPojo implements Serializable{
 
     public void setVideoAuth(Integer videoAuth) {
         this.videoAuth = videoAuth;
+    }
+
+    public List<Integer> getVideoClass() {
+        return videoClass;
+    }
+
+    public void setVideoClass(List<Integer> videoClass) {
+        this.videoClass = videoClass;
     }
 }

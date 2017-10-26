@@ -139,6 +139,7 @@ public class AppSubCourseController extends BaseController {
                 subCourseAppVo.setExpirationTime(courseAuthorityPojo.getEndTime());
                 subCourseAppVo.setExamAuth(courseAuthorityPojo.getExamAuth());
                 subCourseAppVo.setVideoAuth(courseAuthorityPojo.getVideoAuth());
+                subCourseAppVo.setVideoClass(courseAuthorityPojo.getVideoClass());
                 mainCourseAppVo.getChildren().add(subCourseAppVo);
                 mainCourseMap.put(mainCourseEntity.getId(), mainCourseAppVo);
             } else {
@@ -151,6 +152,7 @@ public class AppSubCourseController extends BaseController {
                 subCourseAppVo.setExpirationTime(courseAuthorityPojo.getEndTime());
                 subCourseAppVo.setExamAuth(courseAuthorityPojo.getExamAuth());
                 subCourseAppVo.setVideoAuth(courseAuthorityPojo.getVideoAuth());
+                subCourseAppVo.setVideoClass(courseAuthorityPojo.getVideoClass());
                 mainCourseAppVo.getChildren().add(subCourseAppVo);
             }
         }

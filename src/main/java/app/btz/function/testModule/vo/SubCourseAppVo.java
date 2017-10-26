@@ -2,6 +2,7 @@ package app.btz.function.testModule.vo;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 
 /**
  * Created by User on 2017/6/19.
@@ -44,6 +45,13 @@ public class SubCourseAppVo implements Serializable, Comparable<SubCourseAppVo> 
      * 视频权限
      */
     private Integer videoAuth;
+
+    /**
+     * 视频子类权限
+     */
+    private List<Integer> videoClass;
+
+
 
     public int compareTo(SubCourseAppVo o) {
         return this.orderNo.compareTo(o.getOrderNo());
@@ -103,5 +111,13 @@ public class SubCourseAppVo implements Serializable, Comparable<SubCourseAppVo> 
 
     public void setVideoAuth(Integer videoAuth) {
         this.videoAuth = videoAuth;
+    }
+
+    public List<Integer> getVideoClass() {
+        return videoClass;
+    }
+
+    public void setVideoClass(List<Integer> videoClass) {
+        this.videoClass = videoClass;
     }
 }

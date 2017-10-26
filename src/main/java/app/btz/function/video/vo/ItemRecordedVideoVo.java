@@ -13,6 +13,8 @@ public class ItemRecordedVideoVo implements Serializable {
 
     private Integer chapterId;
 
+    private Integer authId;
+
     private String title = "";
 
     private String videoUrl = "";
@@ -115,5 +117,13 @@ public class ItemRecordedVideoVo implements Serializable {
 
     public void setDown(Integer down) {
         this.down = down;
+    }
+
+    public Integer getAuthId() {
+        return authId;
+    }
+
+    public void setAuthId(Integer authId) {
+        this.authId = authId;
     }
 }

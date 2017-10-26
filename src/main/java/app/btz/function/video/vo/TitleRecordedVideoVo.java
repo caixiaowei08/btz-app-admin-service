@@ -13,6 +13,8 @@ public class TitleRecordedVideoVo implements Serializable {
 
     private String teach;
 
+    private Integer chapterId;
+
     private List<ChapterRecordedVideoVo> list = new ArrayList<ChapterRecordedVideoVo>();
 
     public String getTitle() {
@@ -37,5 +39,13 @@ public class TitleRecordedVideoVo implements Serializable {
 
     public void setList(List<ChapterRecordedVideoVo> list) {
         this.list = list;
+    }
+
+    public Integer getChapterId() {
+        return chapterId;
+    }
+
+    public void setChapterId(Integer chapterId) {
+        this.chapterId = chapterId;
     }
 }

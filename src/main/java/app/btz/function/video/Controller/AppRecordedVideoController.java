@@ -68,7 +68,6 @@ public class AppRecordedVideoController extends BaseController {
         chapterDetachedCriteria.addOrder(Order.asc("orderNo"));
         List<ChapterEntity> chapterEntityList = chapterService.getListByCriteriaQuery(chapterDetachedCriteria);
         List<TimeRecordedVideoVo> timeRecordedVideoVoList = new ArrayList<TimeRecordedVideoVo>();
-        int tryOut = TryOutConstant.APP_RECORDED_VIDEO_TRY_OUT;
         if (CollectionUtils.isNotEmpty(chapterEntityList)) {
             for (ChapterEntity chapterA : chapterEntityList) {
                 if (chapterA.getLevel().equals(ConstantChapterLevel.ONE)) {
@@ -78,9 +77,11 @@ public class AppRecordedVideoController extends BaseController {
                     for (ChapterEntity chapterB : chapterEntityList) {
                         if (chapterB.getLevel().equals(ConstantChapterLevel.TWO) &&
                                 chapterA.getId().equals(chapterB.getFid())) {
+                            int tryOut = TryOutConstant.APP_RECORDED_VIDEO_TRY_OUT;
                             TitleRecordedVideoVo titleRecordedVideoVo = new TitleRecordedVideoVo();
                             titleRecordedVideoVo.setTitle(chapterB.getChapterName());
                             titleRecordedVideoVo.setTeach(chapterB.getChapterName());
+                            titleRecordedVideoVo.setChapterId(chapterB.getId());
                             timeRecordedVideoVo.getList().add(titleRecordedVideoVo);
                             for (ChapterEntity chapterC : chapterEntityList) {
                                 if (chapterC.getLevel().equals(ConstantChapterLevel.THREE) &&
@@ -102,6 +103,7 @@ public class AppRecordedVideoController extends BaseController {
                                             itemRecordedVideoVo.setLectureUrl(courseRecordedVideoEntity.getLectureUrl());
                                             itemRecordedVideoVo.setOrderNo(courseRecordedVideoEntity.getOrderNo());
                                             itemRecordedVideoVo.setChapterId(chapterC.getId());
+                                            itemRecordedVideoVo.setAuthId(chapterB.getId());
                                             itemRecordedVideoVo.setSubCourseId(chapterC.getCourseId());
                                             if (tryOut > 0) { //试用设置
                                                 itemRecordedVideoVo.setTryOut(true);

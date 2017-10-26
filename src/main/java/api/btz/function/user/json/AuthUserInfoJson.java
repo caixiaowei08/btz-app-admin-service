@@ -5,6 +5,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 
 /**
  * Created by User on 2017/8/22.
@@ -30,6 +31,12 @@ public class AuthUserInfoJson implements Serializable {
      * 视频权限
      */
     private Integer video_auth;
+
+    /**
+     * 视频子类权限
+     */
+    private List<Integer> video_class;
+
 
     public Integer getId() {
         return id;
@@ -69,5 +76,13 @@ public class AuthUserInfoJson implements Serializable {
 
     public void setVideo_auth(Integer video_auth) {
         this.video_auth = video_auth;
+    }
+
+    public List<Integer> getVideo_class() {
+        return video_class;
+    }
+
+    public void setVideo_class(List<Integer> video_class) {
+        this.video_class = video_class;
     }
 }
