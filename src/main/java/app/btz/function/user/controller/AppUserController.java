@@ -111,7 +111,7 @@ public class AppUserController extends BaseController {
         } catch (Exception e) {
             logger.error(e);
             j.setReturnCode(AppAjax.FAIL);
-            j.setMsg("W:邮件发送失败！");
+            j.setMsg("账号服务器异常！");
             return j;
         }
 

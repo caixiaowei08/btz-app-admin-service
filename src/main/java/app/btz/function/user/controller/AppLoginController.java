@@ -1,7 +1,6 @@
 package app.btz.function.user.controller;
 
 import api.btz.common.constant.SourceConstant;
-import api.btz.function.user.controller.ApiUserController;
 import api.btz.function.user.json.ApiUserInfoJson;
 import api.btz.function.user.json.AuthUserInfoJson;
 import app.btz.common.ajax.AppAjax;
@@ -71,12 +70,34 @@ public class AppLoginController extends BaseController {
         }
 
         if (StringUtils.hasText(result) && !result.equals("null")) {
-            ApiUserInfoJson apiUserInfoJson = JSON.parseObject(result, ApiUserInfoJson.class);
+            ApiUserInfoJson apiUserInfoJson = null;
+            try {
+                logger.info("BTZ_USER_INFO_URL:" + result);
+                apiUserInfoJson = JSON.parseObject(result, ApiUserInfoJson.class);
+            } catch (Exception e) {
+                logger.error("BTZ_USER_INFO_URL Return Parse Exception :" + e.toString());
+                j.setReturnCode(AppAjax.FAIL);
+                j.setMsg("api error,请联系客服！");
+                return j;
+            }
+
+            if (apiUserInfoJson == null) {
+                j.setReturnCode(AppAjax.FAIL);
+                j.setMsg("未知账户，请联系客服！");
+                return j;
+            }
+
+            if (!apiUserInfoJson.getResult()) {
+                j.setReturnCode(AppAjax.FAIL);
+                j.setMsg("登录失败，请检查账号是否输入错误！");
+                return j;
+            }
+
             DetachedCriteria userEntityDetachedCriteria = DetachedCriteria.forClass(UserEntity.class);
             userEntityDetachedCriteria.add(Restrictions.eq("userId", userEntity.getUserId()));
             List<UserEntity> userEntityList = userService.getListByCriteriaQuery(userEntityDetachedCriteria);
             UserEntity userDb = new UserEntity();
-            if(CollectionUtils.isNotEmpty(userEntityList)){
+            if (CollectionUtils.isNotEmpty(userEntityList)) {
                 userDb = userEntityList.get(0);
             }
             userDb.setUserId(apiUserInfoJson.getUsername());
@@ -98,9 +119,9 @@ public class AppLoginController extends BaseController {
             userDb.setSource(SourceConstant.SOURCE_WEB);
             userDb.setState(SystemConstant.YN_Y);
             userDb.setUpdateTime(new Date());
-            if(CollectionUtils.isNotEmpty(userEntityList)){
+            if (CollectionUtils.isNotEmpty(userEntityList)) {
                 userService.saveOrUpdate(userDb);
-            }else{
+            } else {
                 userDb.setCreateTime(new Date());
                 userService.save(userDb);
             }

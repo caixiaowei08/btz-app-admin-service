@@ -39,7 +39,7 @@ import java.util.*;
 @RequestMapping("/app/appSubCourseController")
 public class AppSubCourseController extends BaseController {
 
-    private static Logger logger = LogManager.getLogger(ApiUserController.class.getName());
+    private static Logger logger = LogManager.getLogger(AppSubCourseController.class.getName());
 
     @Autowired
     private AppTokenService appTokenService;
