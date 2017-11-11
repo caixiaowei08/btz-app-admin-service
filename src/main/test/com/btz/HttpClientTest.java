@@ -1,8 +1,10 @@
 package com.btz;
 
 import api.btz.function.user.json.ApiUserInfoJson;
+import app.btz.common.constant.ApiURLConstant;
 import app.btz.common.http.ApiHttpClient;
 import app.btz.function.feedback.vo.FeedbackVo;
+import app.btz.function.user.vo.AppUserEmailVo;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import org.apache.http.client.ResponseHandler;
@@ -21,10 +23,11 @@ import java.io.IOException;
 public class HttpClientTest {
     public static void main(String[] args) {
         String returnValue = "这是默认返回值，接口调用失败";
-        String url = "http://114.55.110.110:8080/app/feedbackController.do?doAdd&token=f96474ae960b448194fc7c867b92b573";
-        FeedbackVo feedbackVo = new FeedbackVo();
-        feedbackVo.setExerciseId(100005);
-        feedbackVo.setContent("问题很大！");
+        // String url = "http://114.55.110.110:8080/app/feedbackController.do?doAdd&token=f96474ae960b448194fc7c867b92b573";
+        String url = ApiURLConstant.BTZ_UPDATE_PWD_EMIAL_CODE_URL;//"http://114.55.110.110:8080/app/feedbackController.do?doAdd&token=f96474ae960b448194fc7c867b92b573";
+        //  FeedbackVo feedbackVo = new FeedbackVo();
+//        feedbackVo.setEx erciseId(100005);
+//        feedbackVo.setContent("问题很大！");
         /*NotesEntity notesEntity = new NotesEntity();
         notesEntity.setExerciseId(100005);
         notesEntity.setNotes("笔记测试笔记测试");*/
@@ -43,16 +46,22 @@ public class HttpClientTest {
             courseAuthorityVo.setEndTime(DateUtils.addDay(new Date(),20));
             courseAuthorityVoList.add(courseAuthorityVo);
         }*/
+
+        AppUserEmailVo appUserEmailVo = new AppUserEmailVo();
+        appUserEmailVo.setCode("627615");
+        appUserEmailVo.setUsername("1005814292");
+        appUserEmailVo.setPassword("1q2w3e4r");
+        appUserEmailVo.setToken(ApiURLConstant.BTZ_TOKEN);
+
         CloseableHttpClient httpClient = HttpClients.createDefault();
         ResponseHandler<String> responseHandler = new BasicResponseHandler();
         try {
-            httpClient = HttpClients.createDefault();
             HttpPost httpPost = new HttpPost(url);
-            String json = JSON.toJSONString(feedbackVo);
+            String json = JSON.toJSONString(appUserEmailVo);
             System.out.println(json);
             StringEntity requestEntity = new StringEntity(json, "utf-8");
             requestEntity.setContentEncoding("UTF-8");
-            httpPost.setHeader("Content-type", "application/json");
+            httpPost.setHeader("Content-type", "application/x-www-form-urlencoded");
             httpPost.setEntity(requestEntity);
             returnValue = httpClient.execute(httpPost, responseHandler); //调接口获取返回值时，
             System.out.println(returnValue);

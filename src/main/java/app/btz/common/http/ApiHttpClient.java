@@ -6,6 +6,7 @@ import org.apache.http.HttpResponse;
 import org.apache.http.NameValuePair;
 import org.apache.http.client.ClientProtocolException;
 import org.apache.http.client.ResponseHandler;
+import org.apache.http.client.entity.UrlEncodedFormEntity;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.entity.StringEntity;
@@ -13,9 +14,12 @@ import org.apache.http.impl.client.BasicResponseHandler;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.impl.client.HttpClients;
+import org.apache.http.message.BasicNameValuePair;
 import org.apache.http.util.EntityUtils;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -45,17 +49,15 @@ public class ApiHttpClient {
         return result;
     }
 
-    public static String doPost(String URL,String json) throws IOException {
+    public static String doPost(String URL,List<BasicNameValuePair> parms) throws IOException {
         CloseableHttpClient httpClient = HttpClients.createDefault();
         ResponseHandler<String> responseHandler = new BasicResponseHandler();
         String returnValue = null;
         try {
             httpClient = HttpClients.createDefault();
             HttpPost httpPost = new HttpPost(URL);
-            StringEntity requestEntity = new StringEntity(json, "utf-8");
-            requestEntity.setContentEncoding("UTF-8");
-            httpPost.setHeader("Content-type", "application/json");
-            httpPost.setEntity(requestEntity);
+            httpPost.setHeader("Content-type", "application/x-www-form-urlencoded");
+            httpPost.setEntity(new UrlEncodedFormEntity(parms));
             returnValue = httpClient.execute(httpPost, responseHandler); //调接口获取返回值时，
         } finally {
             try {
