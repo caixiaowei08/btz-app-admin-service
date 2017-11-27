@@ -13,6 +13,7 @@ import org.framework.core.common.controller.BaseController;
 import org.framework.core.utils.StringUtils;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -79,6 +80,12 @@ public class AppUserController extends BaseController {
 
     }
 
+    @RequestMapping(params = "doUpdatePwdByEmailCodePost")
+    @ResponseBody
+    public AppAjax doUpdatePwdByEmailCodePost(@RequestBody AppUserPwdVo appUserPwdVo, HttpServletRequest request) {
+        return doUpdatePwdByEmailCode(appUserPwdVo, request);
+    }
+
     @RequestMapping(params = "doUpdatePwdByEmailCode")
     @ResponseBody
     public AppAjax doUpdatePwdByEmailCode(AppUserPwdVo appUserPwdVo, HttpServletRequest request) {
@@ -104,12 +111,12 @@ public class AppUserController extends BaseController {
         String result = "";
         try {
             List<BasicNameValuePair> params = new ArrayList<BasicNameValuePair>();
-            params.add(new BasicNameValuePair("code",appUserPwdVo.getEmailCode()));
-            params.add(new BasicNameValuePair("username",appUserPwdVo.getUserId()));
-            params.add(new BasicNameValuePair("password",appUserPwdVo.getNewPwd()));
-            params.add(new BasicNameValuePair("token",ApiURLConstant.BTZ_TOKEN));
+            params.add(new BasicNameValuePair("code", appUserPwdVo.getEmailCode()));
+            params.add(new BasicNameValuePair("username", appUserPwdVo.getUserId()));
+            params.add(new BasicNameValuePair("password", appUserPwdVo.getNewPwd()));
+            params.add(new BasicNameValuePair("token", ApiURLConstant.BTZ_TOKEN));
             logger.info("BTZ请求数据:" + JSON.toJSONString(params));
-            result = ApiHttpClient.doPost(ApiURLConstant.BTZ_UPDATE_PWD_EMIAL_CODE_URL,params);
+            result = ApiHttpClient.doPost(ApiURLConstant.BTZ_UPDATE_PWD_EMIAL_CODE_URL, params);
             logger.info("BTZ服务器返回:" + result);
         } catch (Exception e) {
             logger.error(e);
@@ -144,6 +151,13 @@ public class AppUserController extends BaseController {
 
     }
 
+    @RequestMapping(params = "doUpdatePwdByOldPwdPost")
+    @ResponseBody
+    public AppAjax doUpdatePwdByOldPwdPost(@RequestBody AppUserPwdVo appUserPwdVo, HttpServletRequest request) {
+        return doUpdatePwdByOldPwd(appUserPwdVo,request);
+    }
+
+
     @RequestMapping(params = "doUpdatePwdByOldPwd")
     @ResponseBody
     public AppAjax doUpdatePwdByOldPwd(AppUserPwdVo appUserPwdVo, HttpServletRequest request) {
@@ -169,12 +183,12 @@ public class AppUserController extends BaseController {
         String result = "";
         try {
             List<BasicNameValuePair> params = new ArrayList<BasicNameValuePair>();
-            params.add(new BasicNameValuePair("username",appUserPwdVo.getUserId()));
-            params.add(new BasicNameValuePair("password",appUserPwdVo.getNewPwd()));
-            params.add(new BasicNameValuePair("old_password",appUserPwdVo.getOldPwd()));
-            params.add(new BasicNameValuePair("token",ApiURLConstant.BTZ_TOKEN));
+            params.add(new BasicNameValuePair("username", appUserPwdVo.getUserId()));
+            params.add(new BasicNameValuePair("password", appUserPwdVo.getNewPwd()));
+            params.add(new BasicNameValuePair("old_password", appUserPwdVo.getOldPwd()));
+            params.add(new BasicNameValuePair("token", ApiURLConstant.BTZ_TOKEN));
             logger.info("BTZ请求数据:" + JSON.toJSONString(params));
-            result = ApiHttpClient.doPost(ApiURLConstant.BTZ_UPDATE_PWD_OLD_PWD_URL,params);
+            result = ApiHttpClient.doPost(ApiURLConstant.BTZ_UPDATE_PWD_OLD_PWD_URL, params);
             logger.info("BTZ服务器返回:" + result);
         } catch (Exception e) {
             logger.error(e);
@@ -208,6 +222,13 @@ public class AppUserController extends BaseController {
         }
     }
 
+
+    @RequestMapping(params = "doRegisterUserPost")
+    @ResponseBody
+    public AppAjax doRegisterUserPost(@RequestBody AppUser appUser, HttpServletRequest request) {
+        return doRegisterUser(appUser,request);
+    }
+
     @RequestMapping(params = "doRegisterUser")
     @ResponseBody
     public AppAjax doRegisterUser(AppUser appUser, HttpServletRequest request) {
@@ -233,12 +254,12 @@ public class AppUserController extends BaseController {
         String result = "";
         try {
             List<BasicNameValuePair> params = new ArrayList<BasicNameValuePair>();
-            params.add(new BasicNameValuePair("username",appUser.getUsername()));
-            params.add(new BasicNameValuePair("password",appUser.getPassword()));
-            params.add(new BasicNameValuePair("email",appUser.getEmail()));
-            params.add(new BasicNameValuePair("token",ApiURLConstant.BTZ_TOKEN));
+            params.add(new BasicNameValuePair("username", appUser.getUsername()));
+            params.add(new BasicNameValuePair("password", appUser.getPassword()));
+            params.add(new BasicNameValuePair("email", appUser.getEmail()));
+            params.add(new BasicNameValuePair("token", ApiURLConstant.BTZ_TOKEN));
             logger.info("BTZ请求数据:" + JSON.toJSONString(params));
-            result = ApiHttpClient.doPost(ApiURLConstant.BTZ_ADD_USER_URL,params);
+            result = ApiHttpClient.doPost(ApiURLConstant.BTZ_ADD_USER_URL, params);
             logger.info("BTZ服务器返回:" + result);
         } catch (Exception e) {
             logger.error(e);
@@ -285,10 +306,10 @@ public class AppUserController extends BaseController {
         String result = "";
         try {
             List<BasicNameValuePair> params = new ArrayList<BasicNameValuePair>();
-            params.add(new BasicNameValuePair("username",appUser.getUsername()));
-            params.add(new BasicNameValuePair("token",ApiURLConstant.BTZ_TOKEN));
+            params.add(new BasicNameValuePair("username", appUser.getUsername()));
+            params.add(new BasicNameValuePair("token", ApiURLConstant.BTZ_TOKEN));
             logger.info("BTZ请求数据:" + JSON.toJSONString(params));
-            result = ApiHttpClient.doPost(ApiURLConstant.BTZ_ACTIVE_USER_URL,params);
+            result = ApiHttpClient.doPost(ApiURLConstant.BTZ_ACTIVE_USER_URL, params);
             logger.info("BTZ服务器返回:" + result);
         } catch (Exception e) {
             logger.error(e);

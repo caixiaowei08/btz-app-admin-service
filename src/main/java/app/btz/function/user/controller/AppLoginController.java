@@ -25,6 +25,7 @@ import org.hibernate.criterion.Restrictions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -48,6 +49,12 @@ public class AppLoginController extends BaseController {
 
     @Autowired
     private UserService userService;
+
+    @RequestMapping(params = "loginPost")
+    @ResponseBody
+    public AppAjax loginPost(@RequestBody UserEntity userEntity, HttpServletRequest request) {
+        return login(userEntity,request);
+    }
 
     @RequestMapping(params = "login")
     @ResponseBody
