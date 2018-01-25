@@ -13,9 +13,15 @@ public class AppAjax implements Serializable {
     public final static Integer SUCCESS = 1;
 
     /**
-     *错误
+     * 错误
      */
     public final static Integer FAIL = 0;
+
+
+    /**
+     * 用户登录失效 需要重新登录
+     */
+    public final static Integer LOGNIN_INVALID = 3;
 
     private Integer returnCode = SUCCESS;
 

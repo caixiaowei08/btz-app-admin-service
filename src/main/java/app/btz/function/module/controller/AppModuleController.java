@@ -1,12 +1,15 @@
 package app.btz.function.module.controller;
 
 import app.btz.common.ajax.AppAjax;
+import app.btz.function.record.controller.ExerciseRecordController;
 import app.btz.function.testModule.vo.ModuleTestRequestVo;
 import com.btz.module.entity.ModuleEntity;
 import com.btz.module.service.ModuleService;
 import com.btz.utils.BelongToEnum;
 import com.btz.utils.Constant;
 import org.apache.commons.collections.CollectionUtils;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.framework.core.common.controller.BaseController;
 import org.hibernate.criterion.DetachedCriteria;
 import org.hibernate.criterion.Restrictions;
@@ -29,6 +32,8 @@ import java.util.List;
 @RequestMapping("/app/appModuleController")
 public class AppModuleController extends BaseController {
 
+    private static Logger logger = LogManager.getLogger(AppModuleController.class.getName());
+
     @Autowired
     private ModuleService moduleService;
 
@@ -41,6 +46,7 @@ public class AppModuleController extends BaseController {
         if (subCourseId == null || moduleType == null) {
             j.setReturnCode(AppAjax.FAIL);
             j.setMsg("请求参数不完整！");
+            logger.info("请求参数不完整！");
             return j;
         }
         DetachedCriteria moduleDetachedCriteria = DetachedCriteria.forClass(ModuleEntity.class);
@@ -51,6 +57,7 @@ public class AppModuleController extends BaseController {
         if (CollectionUtils.isEmpty(moduleEntityList)) {
             j.setReturnCode(AppAjax.FAIL);
             j.setMsg("模块被删除删除或者不存在！");
+            logger.info("模块被删除删除或者不存在！");
             return j;
         }
         ModuleEntity moduleEntity = moduleEntityList.get(0);

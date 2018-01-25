@@ -1,6 +1,5 @@
 package app.btz.function.testModule.service.impl;
 
-import app.btz.common.ajax.AppAjax;
 import app.btz.common.constant.TryOutConstant;
 import app.btz.function.testModule.service.AppTestModuleService;
 import app.btz.function.testModule.vo.ExerciseVo;

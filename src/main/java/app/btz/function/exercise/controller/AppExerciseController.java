@@ -1,6 +1,8 @@
 package app.btz.function.exercise.controller;
 
 import app.btz.common.ajax.AppAjax;
+import app.btz.function.record.entity.ExerciseRecordEntity;
+import app.btz.function.record.service.ExerciseRecordService;
 import app.btz.function.testModule.service.AppTestModuleService;
 import app.btz.function.testModule.vo.ExerciseVo;
 import app.btz.function.testModule.vo.ListInfoVo;
@@ -45,6 +47,9 @@ public class AppExerciseController extends BaseController {
     @Autowired
     private AppTestModuleService appTestModuleService;
 
+    @Autowired
+    private ExerciseRecordService exerciseRecordService;
+
     @RequestMapping(params = "getModuleExerciseByCourseIdAndModuleType")
     @ResponseBody
     public AppAjax getModuleExerciseByCourseIdAndModuleType(ModuleTestRequestVo moduleTestRequestVo, HttpServletRequest request, HttpServletResponse response) {
@@ -85,6 +90,65 @@ public class AppExerciseController extends BaseController {
         return j;
     }
 
+    @RequestMapping(params = "getModuleExerciseByCourseIdAndModuleTypeWithRecord")
+    @ResponseBody
+    public AppAjax getModuleExerciseByCourseIdAndModuleTypeWithRecord(ModuleTestRequestVo moduleTestRequestVo, HttpServletRequest request, HttpServletResponse response) {
+        AppAjax j = new AppAjax();
+        Integer subCourseId = moduleTestRequestVo.getSubCourseId();
+        Integer moduleType = moduleTestRequestVo.getModuleType();
+        if (subCourseId == null || moduleType == null) {
+            j.setReturnCode(AppAjax.FAIL);
+            j.setMsg("请求参数不完整！");
+            return j;
+        }
+        DetachedCriteria moduleDetachedCriteria = DetachedCriteria.forClass(ModuleEntity.class);
+        moduleDetachedCriteria.add(Restrictions.eq("subCourseId", subCourseId));
+        moduleDetachedCriteria.add(Restrictions.eq("type", moduleType));
+        List<ModuleEntity> moduleEntityList = moduleService.getListByCriteriaQuery(moduleDetachedCriteria);
+        if (CollectionUtils.isEmpty(moduleEntityList)) {
+            j.setReturnCode(AppAjax.FAIL);
+            j.setMsg("模块已被删除！");
+            return j;
+        }
+        List<ListInfoVo> listInfoVoList = appTestModuleService.getListInfoVoByModuleEntity(moduleEntityList.get(0));
+        List<ExerciseVo> exerciseVoList = appTestModuleService.getExerciseVoListByListInfoVo(listInfoVoList);
+        for (ExerciseVo exerciseVo : exerciseVoList) {
+            QuestionType questionType = QuestionType.getExamTypeByExamType(exerciseVo.getType());
+            if (questionType == null) {
+                exerciseVo.setTypeName("未知题型");
+                exerciseVo.setTypeShow(0);
+            }
+            exerciseVo.setTypeShow(questionType.getExamShow());
+            exerciseVo.setTypeName(questionType.getExamName());
+        }
+
+
+        //给题目合做题记录
+        List<ExerciseRecordEntity> exerciseRecordEntityList = exerciseRecordService.doGetQuestionRecordListByTokenAndSubCourseIdAndModuleType(moduleTestRequestVo.getToken(), moduleTestRequestVo.getSubCourseId(), moduleTestRequestVo.getModuleType());
+
+        if (CollectionUtils.isNotEmpty(exerciseRecordEntityList)) {
+            for (ExerciseRecordEntity exerciseRecordEntity : exerciseRecordEntityList) {
+                for (ExerciseVo exerciseVo : exerciseVoList) {
+                    if (exerciseRecordEntity.getExerciseId().equals(exerciseVo.getId())) {
+                        exerciseVo.setSet(exerciseRecordEntity.getAnswer());
+                        exerciseVo.setDone(exerciseRecordEntity.getCheckState());
+                        exerciseVo.setGet(exerciseRecordEntity.getIsCollect());
+                        break;
+                    }
+                }
+            }
+        }
+
+        ModuleVo<ExerciseVo, ListInfoVo> moduleVo = new ModuleVo<ExerciseVo, ListInfoVo>();
+        moduleVo.setVersion(moduleEntityList.get(0).getVersionNo());
+        moduleVo.setExam(exerciseVoList);
+        moduleVo.setList(listInfoVoList);
+        j.setReturnCode(AppAjax.SUCCESS);
+        j.setContent(moduleVo);
+        return j;
+    }
+
+
     @RequestMapping(params = "doGetExerciseByExerciseId")
     @ResponseBody
     public AppAjax doGetExerciseByExerciseId(ExerciseEntity exerciseEntity, HttpServletRequest request, HttpServletResponse response) {
@@ -107,7 +171,7 @@ public class AppExerciseController extends BaseController {
             exerciseVo.setAnswer(exerciseDb.getAnswer());
             exerciseVo.setAnswerKey(exerciseDb.getAnswerKey());
             exerciseVo.setOrderNo(exerciseDb.getOrderNo());
-        }catch (Exception e){
+        } catch (Exception e) {
             logger.error(e);
             j.setReturnCode(AppAjax.FAIL);
             j.setMsg("未能获取题目详细信息！");

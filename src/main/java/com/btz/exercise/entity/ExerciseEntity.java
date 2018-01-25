@@ -174,10 +174,11 @@ public class ExerciseEntity implements Serializable {
         this.orderNo = orderNo;
     }
 
+    @Column(name = "point", nullable = true)
     public Double getPoint() {
         return point;
     }
-    @Column(name = "point", nullable = true)
+
     public void setPoint(Double point) {
         this.point = point;
     }

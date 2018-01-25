@@ -18,4 +18,10 @@ public interface AppUserService {
 
 
     public AppUserVo saveUserToken(UserEntity userEntity);
+
+
+
+
+
+
 }
