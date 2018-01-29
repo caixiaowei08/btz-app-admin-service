@@ -30,16 +30,16 @@ public class ExerciseVo implements Serializable {
     /**
      * 题目是否已做
      */
-    private Integer done = 0;
+    private Double done = 0d;
     /**
      * 题目是否收藏
      */
     private Integer get = 0;
 
     /**
-     * 题目是否收藏
+     * 题目打分
      */
-    private Integer sb = 0;
+    private Double sb = 0d;
 
     public Integer getId() {
         return id;
@@ -97,11 +97,11 @@ public class ExerciseVo implements Serializable {
         this.orderNo = orderNo;
     }
 
-    public Integer getDone() {
+    public Double getDone() {
         return done;
     }
 
-    public void setDone(Integer done) {
+    public void setDone(Double done) {
         this.done = done;
     }
 
@@ -121,11 +121,11 @@ public class ExerciseVo implements Serializable {
         this.set = set;
     }
 
-    public Integer getSb() {
+    public Double getSb() {
         return sb;
     }
 
-    public void setSb(Integer sb) {
+    public void setSb(Double sb) {
         this.sb = sb;
     }
 

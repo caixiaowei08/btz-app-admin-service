@@ -23,6 +23,11 @@ public class ExerciseRecordVo {
     private Integer subCourseId;
 
     /**
+     * 模块信息
+     */
+    private Integer moduleType;
+
+    /**
      * app用户id
      */
     private Integer userId;
@@ -45,7 +50,7 @@ public class ExerciseRecordVo {
     /**
      * 0-未判定 1-判定作答正确 2-判定作答错误 3-未判断分数
      */
-    private Integer checkState;
+    private Double checkState;
 
     /**
      * 题目分值
@@ -120,11 +125,11 @@ public class ExerciseRecordVo {
         this.isCollect = isCollect;
     }
 
-    public Integer getCheckState() {
+    public Double getCheckState() {
         return checkState;
     }
 
-    public void setCheckState(Integer checkState) {
+    public void setCheckState(Double checkState) {
         this.checkState = checkState;
     }
 
@@ -150,5 +155,13 @@ public class ExerciseRecordVo {
 
     public void setCreateTime(Date createTime) {
         this.createTime = createTime;
+    }
+
+    public Integer getModuleType() {
+        return moduleType;
+    }
+
+    public void setModuleType(Integer moduleType) {
+        this.moduleType = moduleType;
     }
 }

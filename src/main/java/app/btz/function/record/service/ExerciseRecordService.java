@@ -2,6 +2,7 @@ package app.btz.function.record.service;
 
 import app.btz.common.ajax.AppAjax;
 import app.btz.function.record.entity.ExerciseRecordEntity;
+import app.btz.function.record.vo.ExerciseRecordVo;
 import com.btz.token.entity.UserTokenEntity;
 import org.framework.core.common.service.BaseService;
 
@@ -57,12 +58,22 @@ public interface ExerciseRecordService extends BaseService {
     /**
      * 根据token 课程id 模块编号获取做题存储记录
      */
-    public List<ExerciseRecordEntity> doGetQuestionRecordListByAppTokenAndSubCourseIdAndModuleType(ExerciseRecordEntity exerciseRecordEntity, UserTokenEntity userTokenEntity);
+    public List<ExerciseRecordEntity> doGetQuestionRecordListByAppTokenAndSubCourseIdAndModuleType(ExerciseRecordVo exerciseRecordVo, UserTokenEntity userTokenEntity);
+
 
     /**
      * 根据token 课程id 模块编号获取做题存储记录
      */
-    public List<ExerciseRecordEntity> doGetQuestionRecordListByTokenAndSubCourseIdAndModuleType(String token,Integer subCourseId,Integer moduleType);
+    public List<ExerciseRecordEntity> doGetQuestionRecordListByTokenAndSubCourseIdAndModuleType(String token, Integer subCourseId, Integer moduleType);
+
+
+    /**
+     * 删除做题记录 实际不是删除而是将答案 做题状态 分数重置
+     *
+     * @param exerciseRecordVo
+     * @return
+     */
+    public AppAjax doClearAllQuestionRecordListByAppTokenAndSubCourseIdAndModuleType(ExerciseRecordVo exerciseRecordVo);
 
 
 }

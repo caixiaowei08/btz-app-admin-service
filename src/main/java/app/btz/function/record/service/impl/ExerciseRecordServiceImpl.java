@@ -2,14 +2,18 @@ package app.btz.function.record.service.impl;
 
 
 import app.btz.common.ajax.AppAjax;
+import app.btz.function.record.controller.ExerciseRecordController;
 import app.btz.function.record.entity.ExerciseRecordEntity;
 import app.btz.function.record.service.ExerciseRecordService;
+import app.btz.function.record.vo.ExerciseRecordVo;
 import app.btz.function.user.service.AppUserService;
 import com.btz.exercise.entity.ExerciseEntity;
 import com.btz.exercise.service.ExerciseService;
 import com.btz.system.global.GlobalService;
 import com.btz.token.entity.UserTokenEntity;
 import org.apache.commons.collections.CollectionUtils;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.framework.core.common.service.impl.BaseServiceImpl;
 import org.framework.core.utils.StringUtils;
 import org.hibernate.criterion.DetachedCriteria;
@@ -24,6 +28,8 @@ import java.util.List;
 @Service("exerciseRecordService")
 @Transactional
 public class ExerciseRecordServiceImpl extends BaseServiceImpl implements ExerciseRecordService {
+
+    private static Logger logger = LogManager.getLogger(ExerciseRecordController.class.getName());
 
     @Autowired
     private AppUserService appUserService;
@@ -70,6 +76,7 @@ public class ExerciseRecordServiceImpl extends BaseServiceImpl implements Exerci
              */
             if (exerciseEntity != null) {
                 exerciseRecordEntity.setSubCourseId(exerciseEntity.getSubCourseId());
+                exerciseRecordEntity.setModuleType(exerciseEntity.getModuleType());
             }
 
             if (StringUtils.isEmpty(exerciseRecordEntity.getAnswer())) {
@@ -87,7 +94,7 @@ public class ExerciseRecordServiceImpl extends BaseServiceImpl implements Exerci
             }
 
             if (exerciseRecordEntity.getCheckState() == null) {
-                exerciseRecordEntity.setCheckState(0);//默认值
+                exerciseRecordEntity.setCheckState(0d);//默认值
             }
 
             if (exerciseRecordEntity.getPoint() == null) {
@@ -98,7 +105,6 @@ public class ExerciseRecordServiceImpl extends BaseServiceImpl implements Exerci
             exerciseRecordEntity.setCreateTime(new Date());
             globalService.save(exerciseRecordEntity);
         } else {
-
             //只要不是null 就覆盖
             if (StringUtils.hasText(exerciseRecordEntity.getAnswer())) {//有就可以覆盖
                 exerciseRecordEntityDb.setAnswer(exerciseRecordEntity.getAnswer());
@@ -119,11 +125,9 @@ public class ExerciseRecordServiceImpl extends BaseServiceImpl implements Exerci
             if (exerciseRecordEntity.getPoint() != null) {
                 exerciseRecordEntityDb.setPoint(exerciseRecordEntity.getPoint());
             }
-
             exerciseRecordEntityDb.setUpdateTime(new Date());
             globalService.saveOrUpdate(exerciseRecordEntityDb);
         }
-
         return j;
     }
 
@@ -205,21 +209,51 @@ public class ExerciseRecordServiceImpl extends BaseServiceImpl implements Exerci
         return j;
     }
 
-    public List<ExerciseRecordEntity> doGetQuestionRecordListByAppTokenAndSubCourseIdAndModuleType(ExerciseRecordEntity exerciseRecordEntity, UserTokenEntity userTokenEntity) {
+    public List<ExerciseRecordEntity> doGetQuestionRecordListByAppTokenAndSubCourseIdAndModuleType(ExerciseRecordVo exerciseRecordVo, UserTokenEntity userTokenEntity) {
         if (userTokenEntity != null) {
             DetachedCriteria exerciseRecordDetachedCriteria = DetachedCriteria.forClass(ExerciseRecordEntity.class);
             exerciseRecordDetachedCriteria.add(Restrictions.eq("userId", userTokenEntity.getUserId()));
-            exerciseRecordDetachedCriteria.add(Restrictions.eq("subCourseId", exerciseRecordEntity.getSubCourseId()));
+            exerciseRecordDetachedCriteria.add(Restrictions.eq("subCourseId", exerciseRecordVo.getSubCourseId()));
+            exerciseRecordDetachedCriteria.add(Restrictions.eq("moduleType", exerciseRecordVo.getModuleType()));
             return globalService.getListByCriteriaQuery(exerciseRecordDetachedCriteria);
         } else {
             return null;
         }
     }
 
+    public AppAjax doClearAllQuestionRecordListByAppTokenAndSubCourseIdAndModuleType(ExerciseRecordVo exerciseRecordVo) {
+        AppAjax j = new AppAjax();
+        UserTokenEntity userTokenEntity = doGetAppUserInfoByAppToken(exerciseRecordVo.getToken());
+        //用户登录信息校验
+        if (userTokenEntity == null || userTokenEntity.getUserId() < 100000) {
+            j.setReturnCode(AppAjax.LOGNIN_INVALID);
+            j.setMsg("登录失效，请重新登录！");
+            return j;
+        }
+        logger.info("清空做题记录：userId" + userTokenEntity.getUserId());
+        List<ExerciseRecordEntity> exerciseRecordEntityList = doGetQuestionRecordListByAppTokenAndSubCourseIdAndModuleType(exerciseRecordVo, userTokenEntity);
+        if (CollectionUtils.isNotEmpty(exerciseRecordEntityList)) {
+            for (ExerciseRecordEntity exerciseRecordEntity : exerciseRecordEntityList) {
+                exerciseRecordEntity.setAnswer("");
+                exerciseRecordEntity.setPoint(0d);
+                exerciseRecordEntity.setCheckState(0d);
+                globalService.saveOrUpdate(exerciseRecordEntity);
+            }
+        }
+        return j;
+    }
 
     public List<ExerciseRecordEntity> doGetQuestionRecordListByTokenAndSubCourseIdAndModuleType(String token, Integer subCourseId, Integer moduleType) {
+        ExerciseRecordVo exerciseRecordVo = new ExerciseRecordVo();
+        exerciseRecordVo.setToken(token);
+        exerciseRecordVo.setSubCourseId(subCourseId);
+        exerciseRecordVo.setModuleType(moduleType);
 
-
-        return null;
+        UserTokenEntity userTokenEntity = doGetAppUserInfoByAppToken(exerciseRecordVo.getToken());
+        //用户登录信息校验
+        if (userTokenEntity == null || userTokenEntity.getUserId() < 100000) {
+            return null;
+        }
+        return doGetQuestionRecordListByAppTokenAndSubCourseIdAndModuleType(exerciseRecordVo, userTokenEntity);
     }
 }

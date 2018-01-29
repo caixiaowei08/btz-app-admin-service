@@ -26,6 +26,7 @@
 				<property name="features">
 					<array value-type="com.alibaba.fastjson.serializer.SerializerFeature">
 						<value>NotWriteDefaultValue</value>
+						<value>WriteNullNumberAsZero</value>
 						<value>DisableCircularReferenceDetect</value>
 					</array>
 				</property>

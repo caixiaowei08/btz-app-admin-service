@@ -21,6 +21,11 @@ public class ExerciseRecordEntity implements Serializable {
     private Integer subCourseId;
 
     /**
+     * 模块编号
+     */
+    private Integer moduleType;
+
+    /**
      * app用户id
      */
     private Integer userId;
@@ -43,7 +48,7 @@ public class ExerciseRecordEntity implements Serializable {
     /**
      * 0-未判定 1-判定作答正确 2-判定作答错误 3-未判断分数
      */
-    private Integer checkState;
+    private Double checkState;
 
     /**
      * 题目分值
@@ -83,6 +88,15 @@ public class ExerciseRecordEntity implements Serializable {
         this.subCourseId = subCourseId;
     }
 
+    @Column(name = "moduleType", nullable = false)
+    public Integer getModuleType() {
+        return moduleType;
+    }
+
+    public void setModuleType(Integer moduleType) {
+        this.moduleType = moduleType;
+    }
+
     @Column(name = "userId", nullable = false, length = 20)
     public Integer getUserId() {
         return userId;
@@ -119,12 +133,12 @@ public class ExerciseRecordEntity implements Serializable {
         this.isCollect = isCollect;
     }
 
-    @Column(name = "checkState", nullable = true, length = 11)
-    public Integer getCheckState() {
+    @Column(name = "checkState", nullable = true)
+    public Double getCheckState() {
         return checkState;
     }
 
-    public void setCheckState(Integer checkState) {
+    public void setCheckState(Double checkState) {
         this.checkState = checkState;
     }
 
@@ -154,4 +168,6 @@ public class ExerciseRecordEntity implements Serializable {
     public void setCreateTime(Date createTime) {
         this.createTime = createTime;
     }
+
+
 }

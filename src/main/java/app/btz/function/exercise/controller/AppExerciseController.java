@@ -13,10 +13,12 @@ import com.btz.exercise.entity.ExerciseEntity;
 import com.btz.exercise.service.ExerciseService;
 import com.btz.module.entity.ModuleEntity;
 import com.btz.module.service.ModuleService;
+import com.btz.token.entity.UserTokenEntity;
 import org.apache.commons.collections.CollectionUtils;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.framework.core.common.controller.BaseController;
+import org.framework.core.utils.StringUtils;
 import org.hibernate.criterion.DetachedCriteria;
 import org.hibernate.criterion.Restrictions;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -50,6 +52,14 @@ public class AppExerciseController extends BaseController {
     @Autowired
     private ExerciseRecordService exerciseRecordService;
 
+
+    /**
+     * 不包含后台做题记录的数据
+     * @param moduleTestRequestVo
+     * @param request
+     * @param response
+     * @return
+     */
     @RequestMapping(params = "getModuleExerciseByCourseIdAndModuleType")
     @ResponseBody
     public AppAjax getModuleExerciseByCourseIdAndModuleType(ModuleTestRequestVo moduleTestRequestVo, HttpServletRequest request, HttpServletResponse response) {
@@ -90,10 +100,12 @@ public class AppExerciseController extends BaseController {
         return j;
     }
 
-    @RequestMapping(params = "getModuleExerciseByCourseIdAndModuleTypeWithRecord")
+    //包含做题记录的题目数据
+    @RequestMapping(params = "getModuleExerciseByCourseIdAndModuleTypeAndTokenWithRecord")
     @ResponseBody
     public AppAjax getModuleExerciseByCourseIdAndModuleTypeWithRecord(ModuleTestRequestVo moduleTestRequestVo, HttpServletRequest request, HttpServletResponse response) {
         AppAjax j = new AppAjax();
+
         Integer subCourseId = moduleTestRequestVo.getSubCourseId();
         Integer moduleType = moduleTestRequestVo.getModuleType();
         if (subCourseId == null || moduleType == null) {
@@ -123,20 +135,30 @@ public class AppExerciseController extends BaseController {
         }
 
 
-        //给题目合做题记录
-        List<ExerciseRecordEntity> exerciseRecordEntityList = exerciseRecordService.doGetQuestionRecordListByTokenAndSubCourseIdAndModuleType(moduleTestRequestVo.getToken(), moduleTestRequestVo.getSubCourseId(), moduleTestRequestVo.getModuleType());
-
-        if (CollectionUtils.isNotEmpty(exerciseRecordEntityList)) {
-            for (ExerciseRecordEntity exerciseRecordEntity : exerciseRecordEntityList) {
-                for (ExerciseVo exerciseVo : exerciseVoList) {
-                    if (exerciseRecordEntity.getExerciseId().equals(exerciseVo.getId())) {
-                        exerciseVo.setSet(exerciseRecordEntity.getAnswer());
-                        exerciseVo.setDone(exerciseRecordEntity.getCheckState());
-                        exerciseVo.setGet(exerciseRecordEntity.getIsCollect());
-                        break;
+        //有token值
+        if (StringUtils.hasText(moduleTestRequestVo.getToken())) {
+            UserTokenEntity userTokenEntity = exerciseRecordService.doGetAppUserInfoByAppToken(moduleTestRequestVo.getToken());
+            if (userTokenEntity == null) {
+                j.setReturnCode(AppAjax.LOGNIN_INVALID);
+                j.setMsg("登录失效，请重新登录！");
+                return j;
+            }
+            //给题目合做题记录
+            List<ExerciseRecordEntity> exerciseRecordEntityList = exerciseRecordService.doGetQuestionRecordListByTokenAndSubCourseIdAndModuleType(moduleTestRequestVo.getToken(), moduleTestRequestVo.getSubCourseId(), moduleTestRequestVo.getModuleType());
+            if (CollectionUtils.isNotEmpty(exerciseRecordEntityList)) {
+                for (ExerciseRecordEntity exerciseRecordEntity : exerciseRecordEntityList) {
+                    for (ExerciseVo exerciseVo : exerciseVoList) {
+                        if (exerciseRecordEntity.getExerciseId().equals(exerciseVo.getId())) {
+                            exerciseVo.setSet(exerciseRecordEntity.getAnswer());
+                            exerciseVo.setDone(exerciseRecordEntity.getCheckState());
+                            exerciseVo.setGet(exerciseRecordEntity.getIsCollect());
+                            exerciseVo.setSb(exerciseRecordEntity.getPoint());
+                            break;
+                        }
                     }
                 }
             }
+
         }
 
         ModuleVo<ExerciseVo, ListInfoVo> moduleVo = new ModuleVo<ExerciseVo, ListInfoVo>();

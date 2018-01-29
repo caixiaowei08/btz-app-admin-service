@@ -36,16 +36,69 @@ public class ExerciseRecordController {
 
 
     /**
+     * 做题记录提交条件检验
+     *
+     * @param exerciseRecordVo
+     * @return
+     */
+    private Boolean checkSaveQuestionRecordCondition(ExerciseRecordVo exerciseRecordVo) {
+        /**
+         *题目编号
+         */
+        Integer exerciseId = exerciseRecordVo.getExerciseId();
+        if (exerciseId == null || exerciseId < 100000) {
+            return false;
+        }
+
+        /**
+         *课程编号
+         */
+        Integer subCourseId = exerciseRecordVo.getSubCourseId();
+        if (subCourseId == null || subCourseId < 100000) {
+            return false;
+        }
+
+        /**
+         * 所属模块
+         */
+        Integer moduleType = exerciseRecordVo.getModuleType();
+        if (moduleType == null) {
+            return false;
+        }
+
+        if (moduleType.equals(1) ||//章节练习
+                moduleType.equals(2) ||//核心考点
+                moduleType.equals(4) ||//考前押题
+                moduleType.equals(7)//历年真题
+                ) {
+            return true;
+        }
+
+        return false;
+    }
+
+
+    /**
      * 单个做题记录保存
      */
     @RequestMapping(params = "doSaveSingleQuestionRecordByAppTokenAndExerciseId")
     @ResponseBody
     public AppAjax doSaveSingleQuestionRecordByAppTokenAndExerciseId(@RequestBody ExerciseRecordVo exerciseRecordVo, HttpServletRequest request, HttpServletResponse response) {
         AppAjax j = new AppAjax();
+
+        //不满足提交条件 不能提交
+        if (!checkSaveQuestionRecordCondition(exerciseRecordVo)) {
+            j.setReturnCode(AppAjax.FAIL);
+            j.setMsg("做题记录保存失败!");
+            return j;
+        }
+
+        //上传数据校验 不能让空数据替代原始数据
         try {
             if (StringUtils.hasText(exerciseRecordVo.getToken())) {
                 ExerciseRecordEntity exerciseRecordEntity = new ExerciseRecordEntity();
                 exerciseRecordEntity.setExerciseId(exerciseRecordVo.getExerciseId());
+                exerciseRecordEntity.setModuleType(exerciseRecordVo.getModuleType());
                 exerciseRecordEntity.setSubCourseId(exerciseRecordVo.getSubCourseId());
 
                 if (StringUtils.hasText(exerciseRecordVo.getAnswer())) {
@@ -53,7 +106,6 @@ public class ExerciseRecordController {
                 } else {
                     exerciseRecordEntity.setAnswer(null);
                 }
-
                 //提交试题的时候 只提交收藏的试题
                 if (exerciseRecordVo.getIsCollect() != null && exerciseRecordVo.getIsCollect() > 0) {
                     exerciseRecordEntity.setIsCollect(1);
@@ -72,7 +124,6 @@ public class ExerciseRecordController {
                 } else {
                     exerciseRecordEntity.setPoint(null);
                 }
-
                 j = exerciseRecordService.doSaveSingleQuestionRecordByAppTokenAndExerciseId(exerciseRecordEntity, exerciseRecordVo.getToken());
             }
         } catch (Exception e) {
@@ -111,18 +162,30 @@ public class ExerciseRecordController {
         return j;
     }
 
-
     /**
      * 题目收藏
      */
     @RequestMapping(params = "doSaveCollectQuestionRecordByAppTokenAndExerciseId")
     @ResponseBody
-    public AppAjax doSaveCollectQuestionRecordByAppTokenAndExerciseId(ExerciseRecordEntity exerciseRecordEntity, HttpServletRequest request, HttpServletResponse response) {
+    public AppAjax doSaveCollectQuestionRecordByAppTokenAndExerciseId(@RequestBody ExerciseRecordVo exerciseRecordVo, HttpServletRequest request, HttpServletResponse response) {
         AppAjax j = new AppAjax();
+
+        if (!checkSaveQuestionRecordCondition(exerciseRecordVo)) {
+            j.setReturnCode(AppAjax.FAIL);
+            j.setMsg("题目收藏参数不全！");
+            return j;
+        }
+
         try {
+            ExerciseRecordEntity exerciseRecordEntity = new ExerciseRecordEntity();
+            exerciseRecordEntity.setSubCourseId(exerciseRecordEntity.getSubCourseId());
+            exerciseRecordEntity.setExerciseId(exerciseRecordVo.getExerciseId());
+            exerciseRecordEntity.setModuleType(exerciseRecordVo.getModuleType());
+            exerciseRecordEntity.setIsCollect(exerciseRecordVo.getIsCollect());
             exerciseRecordEntity.setAnswer(null);
             exerciseRecordEntity.setCheckState(null);
-            j = exerciseRecordService.doSaveCollectQuestionRecordByAppTokenAndExerciseId(exerciseRecordEntity, request.getParameter("token"));
+            exerciseRecordEntity.setPoint(null);
+            j = exerciseRecordService.doSaveCollectQuestionRecordByAppTokenAndExerciseId(exerciseRecordEntity, exerciseRecordVo.getToken());
         } catch (Exception e) {
             j.setReturnCode(AppAjax.FAIL);
             j.setMsg("题目收藏失败！");
@@ -131,51 +194,76 @@ public class ExerciseRecordController {
         return j;
     }
 
-
     /**
      * 获取做题记录
      */
     @RequestMapping(params = "doGetQuestionRecordListByAppTokenAndSubCourseIdAndModuleType")
     @ResponseBody
-    public AppAjax doGetQuestionRecordListByAppTokenAndSubCourseIdAndModuleType(ExerciseRecordEntity exerciseRecordEntity, HttpServletRequest request, HttpServletResponse response) {
+    public AppAjax doGetQuestionRecordListByAppTokenAndSubCourseIdAndModuleType(@RequestBody ExerciseRecordVo exerciseRecordVo, HttpServletRequest request, HttpServletResponse response) {
         AppAjax j = new AppAjax();
-
-        String token = request.getParameter(TokenGeneratorUtil.TOKEN_FLAG);
-        if (StringUtils.isEmpty(token)) {
+        if (StringUtils.isEmpty(exerciseRecordVo.getToken())) {
             j.setReturnCode(AppAjax.FAIL);
             j.setMsg("无用户信息！");
             return j;
         }
 
-        UserTokenEntity userTokenEntity = exerciseRecordService.doGetAppUserInfoByAppToken(token);
+        UserTokenEntity userTokenEntity = exerciseRecordService.doGetAppUserInfoByAppToken(exerciseRecordVo.getToken());
         if (userTokenEntity == null) {
             j.setReturnCode(AppAjax.LOGNIN_INVALID);
             j.setMsg("登录无效，请重新登录!");
             return j;
         }
 
-        List<ExerciseRecordEntity> exerciseRecordEntityList = null;
+        if (exerciseRecordVo.getSubCourseId() == null || exerciseRecordVo.getModuleType() == null) {
+            j.setReturnCode(AppAjax.FAIL);
+            j.setMsg("请求参数无效!");
+            return j;
+        }
 
-        if (exerciseRecordEntity.getSubCourseId() != null) {
-            try {
-                exerciseRecordEntityList = exerciseRecordService.doGetQuestionRecordListByAppTokenAndSubCourseIdAndModuleType(exerciseRecordEntity, userTokenEntity);
-                if (CollectionUtils.isNotEmpty(exerciseRecordEntityList)) {
-                    j.setReturnCode(AppAjax.SUCCESS);
-                    j.setContent(exerciseRecordEntityList);
-                    return j;
-                } else {
-                    j.setReturnCode(AppAjax.FAIL);
-                    j.setMsg("该模块无做题记录保存！");
-                    return j;
-                }
-            } catch (Exception e) {
-                logger.error("获取做题记录失败：" + userTokenEntity.getUserId() + ":" + e.getMessage());
+        try {
+            List<ExerciseRecordEntity> exerciseRecordEntityList = exerciseRecordService.doGetQuestionRecordListByAppTokenAndSubCourseIdAndModuleType(exerciseRecordVo, userTokenEntity);
+            if (CollectionUtils.isNotEmpty(exerciseRecordEntityList)) {
+                j.setReturnCode(AppAjax.SUCCESS);
+                j.setContent(exerciseRecordEntityList);
+                return j;
+            } else {
                 j.setReturnCode(AppAjax.FAIL);
-                j.setMsg("获取做题记录错误！");
+                j.setMsg("该模块无做题记录保存！");
                 return j;
             }
+        } catch (Exception e) {
+            logger.error("获取做题记录失败：" + userTokenEntity.getUserId() + ":" + e.getMessage());
+            j.setReturnCode(AppAjax.FAIL);
+            j.setMsg("获取做题记录错误！");
+            return j;
         }
-        return j;
+    }
+
+    /**
+     * 清除某个模块的做题记录 重置做题记录
+     */
+    @RequestMapping(params = "doClearAllQuestionRecordListByAppTokenAndSubCourseIdAndModuleType")
+    @ResponseBody
+    public AppAjax doClearAllQuestionRecordListByAppTokenAndSubCourseIdAndModuleType(@RequestBody ExerciseRecordVo exerciseRecordVo, HttpServletRequest request, HttpServletResponse response) {
+        AppAjax j = new AppAjax();
+        if (exerciseRecordVo.getSubCourseId() == null ||
+                exerciseRecordVo.getModuleType() == null ||
+                StringUtils.isEmpty(exerciseRecordVo.getToken())
+                ) {
+            j.setReturnCode(AppAjax.FAIL);
+            j.setMsg("请求参数不全！");
+            return j;
+        }
+
+
+        try {
+            return exerciseRecordService.doClearAllQuestionRecordListByAppTokenAndSubCourseIdAndModuleType(exerciseRecordVo);
+        } catch (Exception e) {
+            j.setReturnCode(AppAjax.FAIL);
+            j.setMsg("清除做题记录错误！");
+            logger.error("清除做题记录错误！:" + e.getMessage());
+            return j;
+        }
     }
 
 
