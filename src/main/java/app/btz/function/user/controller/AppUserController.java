@@ -3,14 +3,20 @@ package app.btz.function.user.controller;
 import app.btz.common.ajax.AppAjax;
 import app.btz.common.constant.ApiURLConstant;
 import app.btz.common.http.ApiHttpClient;
+import app.btz.function.user.service.AppUserService;
+import app.btz.function.user.service.PhoneSmsCodeService;
 import app.btz.function.user.vo.*;
 import com.alibaba.fastjson.JSON;
+import com.btz.token.entity.UserTokenEntity;
+import com.btz.user.service.UserService;
 import org.apache.http.NameValuePair;
 import org.apache.http.message.BasicNameValuePair;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.framework.core.common.controller.BaseController;
+import org.framework.core.utils.PatternUtil;
 import org.framework.core.utils.StringUtils;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -20,6 +26,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import javax.servlet.http.HttpServletRequest;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  * Created by User on 2017/6/13.
@@ -30,6 +38,16 @@ import java.util.List;
 public class AppUserController extends BaseController {
 
     private static Logger logger = LogManager.getLogger(AppUserController.class.getName());
+
+
+    @Autowired
+    private AppUserService appUserService;
+
+    @Autowired
+    private UserService userService;
+
+    @Autowired
+    private PhoneSmsCodeService phoneSmsCodeService;
 
     @RequestMapping(params = "sendEmail")
     @ResponseBody
@@ -154,7 +172,7 @@ public class AppUserController extends BaseController {
     @RequestMapping(params = "doUpdatePwdByOldPwdPost")
     @ResponseBody
     public AppAjax doUpdatePwdByOldPwdPost(@RequestBody AppUserPwdVo appUserPwdVo, HttpServletRequest request) {
-        return doUpdatePwdByOldPwd(appUserPwdVo,request);
+        return doUpdatePwdByOldPwd(appUserPwdVo, request);
     }
 
 
@@ -226,7 +244,7 @@ public class AppUserController extends BaseController {
     @RequestMapping(params = "doRegisterUserPost")
     @ResponseBody
     public AppAjax doRegisterUserPost(@RequestBody AppUser appUser, HttpServletRequest request) {
-        return doRegisterUser(appUser,request);
+        return doRegisterUser(appUser, request);
     }
 
     @RequestMapping(params = "doRegisterUser")
@@ -342,4 +360,94 @@ public class AppUserController extends BaseController {
             return j;
         }
     }
+
+    /**
+     * 发送短信信息 接口
+     * 1、获取登录账号信息 根据登录token值获取 --》判断登录token的有效性
+     * 2、验证手机号码是否符合11位数字  验证手机号的基本性质
+     * 3、发送给web服务端  获取发送短息 在app存储当前的生成验证码 并计算验证码的有效时间 和 生成时间
+     * 注解：游客没有此功能
+     */
+    @RequestMapping(params = "doGetSmsCodeByTokenAndPhoneNo")
+    @ResponseBody
+    public AppAjax doGetSmsCodeByTokenAndPhoneNo(@RequestBody AppUserSmsVo appUserSmsVo, HttpServletRequest request) {
+        AppAjax j = new AppAjax();
+
+        //验证token
+        if (StringUtils.isEmpty(appUserSmsVo.getToken())) {
+            j.setReturnCode(AppAjax.FAIL);
+            j.setMsg("游客登录，不能发送手机短信！");
+            return j;
+        }
+
+        UserTokenEntity userTokenEntity = appUserService.checkUserToken(appUserSmsVo.getToken());
+
+        //验证用户
+        if (userTokenEntity == null) {
+            j.setReturnCode(AppAjax.LOGNIN_INVALID);
+            j.setMsg("登录失效，请重新登录！");
+            return j;
+        }
+
+        //验证手机号
+        if (StringUtils.isEmpty(appUserSmsVo.getPhoneNo())) {
+            j.setReturnCode(AppAjax.FAIL);
+            j.setMsg("请输入手机号码！");
+            return j;
+        }
+
+
+        if (!PatternUtil.isPhone(appUserSmsVo.getPhoneNo())) {
+            j.setReturnCode(AppAjax.FAIL);
+            j.setMsg("手机号油污，请核对！");
+            return j;
+        }
+
+        String result = "";
+        try {
+            String URL = ApiURLConstant.BTZ_SEND_PHONE_SMS_URL.replace("PHONE_NO", appUserSmsVo.getPhoneNo());
+            logger.info("发送手机短信 BTZ请求数据:" + URL);
+            result = ApiHttpClient.doGet(URL);
+            logger.info("发送手机短信 BTZ服务器返回:" + result);
+        } catch (Exception e) {
+            logger.error(e);
+            j.setReturnCode(AppAjax.FAIL);
+            j.setMsg("百题斩服务器，短信验证码发送失败！");
+            return j;
+        }
+
+        try {
+            if (StringUtils.hasText(result) && !result.equals("null")) {
+                AppUserSmsReturnVo appUserSmsReturnVo = JSON.parseObject(result, AppUserSmsReturnVo.class);
+                if (appUserSmsReturnVo.getResult()) {
+                    //在本服务器保存记录
+                    appUserSmsVo.setAppUserId(userTokenEntity.getUserId());
+                    appUserSmsVo.setSmsCheckCode(appUserSmsReturnVo.getCode());
+                    return phoneSmsCodeService.doSaveAndResetPhoneSmsInfo(appUserSmsVo);
+                } else {
+                    j.setReturnCode(AppAjax.FAIL);
+                    j.setMsg("手机短信验证码发送失败，请重试！");
+                    return j;
+                }
+            } else {
+                j.setReturnCode(AppAjax.FAIL);
+                j.setMsg("短信验证码发送失败！");
+                return j;
+            }
+        } catch (Exception e) {
+            logger.error(e);
+            j.setReturnCode(AppAjax.FAIL);
+            j.setMsg("系统异常：短信验证码发送失败！");
+            return j;
+        }
+    }
+
+
+    /**
+     * 验证app端输入的手机号码 验证短信码 和 用户登录token的有效值 验证通过保存到本地和web服务器
+     * 1、获取登录账号信息 根据登录token值获取 --》判断登录token的有效性
+     * 2、验证手机号 和 短信 验证码是否一致
+     * 3、保存app 服务器并 发送给web服务器保存
+     */
+
 }

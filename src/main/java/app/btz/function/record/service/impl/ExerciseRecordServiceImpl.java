@@ -237,6 +237,7 @@ public class ExerciseRecordServiceImpl extends BaseServiceImpl implements Exerci
                 exerciseRecordEntity.setAnswer("");
                 exerciseRecordEntity.setPoint(0d);
                 exerciseRecordEntity.setCheckState(0d);
+                exerciseRecordEntity.setUpdateTime(new Date());//更新时间
                 globalService.saveOrUpdate(exerciseRecordEntity);
             }
         }

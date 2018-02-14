@@ -11,7 +11,7 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <junit.version>4.7</junit.version>
     <spring.version>4.3.6.RELEASE</spring.version>
-    <fastjson.version>1.2.25</fastjson.version>
+    <fastjson.version>1.2.16</fastjson.version>
     <log4j.version>2.6.2</log4j.version>
     <druid.alibaba.version>1.0.17</druid.alibaba.version>
     <mysql-connector.version>5.1.38</mysql-connector.version>

@@ -8,7 +8,7 @@ public class ApiURLConstant {
     /**
      * 百题斩TOKEN
      */
-    public final static String BTZ_TOKEN= "3ZI3Bt2CyMpimPzC";
+    public final static String BTZ_TOKEN = "3ZI3Bt2CyMpimPzC";
 
 
     /**
@@ -47,6 +47,24 @@ public class ApiURLConstant {
      * 激活，post 参数 username
      */
     public final static String BTZ_ACTIVE_USER_URL = "http://api.baitizhan.com/index.php?c=User&a=active";
+
+
+    /**
+     * 发送手机验证码
+     * mobile是手机号
+     * 返回值：
+     * 结果：false/true
+     * 验证码：6位数字
+     */
+    public final static String BTZ_SEND_PHONE_SMS_URL = "http://api.baitizhan.com/index.php?c=Sms&a=sendCheckCode&token=3ZI3Bt2CyMpimPzC&mobile=PHONE_NO";
+
+
+    /**
+     * 保存手机号到web服务器
+     * 用户名
+     * 手机号
+     */
+    public final static String BTZ_SAVE_PHONE_NO_URL = "http://api.baitizhan.com/index.php?c=Sms&a=setNumber&token=3ZI3Bt2CyMpimPzC&username=USERNAME&tel=PHONE_NO";
 
 
 }
