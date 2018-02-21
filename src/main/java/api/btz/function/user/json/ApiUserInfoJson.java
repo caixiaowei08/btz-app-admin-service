@@ -15,6 +15,8 @@ public class ApiUserInfoJson implements Serializable {
 
     private Boolean result;
 
+    private String tel;
+
     private List<AuthUserInfoJson> auth;
 
     public String getUsername() {
@@ -47,5 +49,13 @@ public class ApiUserInfoJson implements Serializable {
 
     public void setResult(Boolean result) {
         this.result = result;
+    }
+
+    public String getTel() {
+        return tel;
+    }
+
+    public void setTel(String tel) {
+        this.tel = tel;
     }
 }

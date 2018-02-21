@@ -62,6 +62,7 @@ public class AppUserServiceImpl implements AppUserService {
         appUserVo.setToken(token);
         appUserVo.setUserId(userEntity.getUserId());
         appUserVo.setUserName(userEntity.getUserName());
+        appUserVo.setPhoneNo(userEntity.getPhone());
         appUserVo.setAuthority(userEntity.getAuthority());
         return appUserVo;
     }

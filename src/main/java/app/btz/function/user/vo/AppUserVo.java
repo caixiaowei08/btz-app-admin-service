@@ -11,6 +11,8 @@ public class AppUserVo implements Serializable {
 
     private String userName;
 
+    private String phoneNo;
+
     private String authority;
 
     private String token;
@@ -45,5 +47,13 @@ public class AppUserVo implements Serializable {
 
     public void setToken(String token) {
         this.token = token;
+    }
+
+    public String getPhoneNo() {
+        return phoneNo;
+    }
+
+    public void setPhoneNo(String phoneNo) {
+        this.phoneNo = phoneNo;
     }
 }

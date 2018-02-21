@@ -7,6 +7,9 @@ import org.framework.core.common.service.BaseService;
 public interface PhoneSmsCodeService extends BaseService {
 
 
-    public AppAjax doSaveAndResetPhoneSmsInfo(AppUserSmsVo appUserSmsVo);
+    public AppAjax doSaveAndResetPhoneCheckSmsInfo(AppUserSmsVo appUserSmsVo);
+
+
+    public AppAjax doSaveAndResetPhoneNoToDbAndWebService(AppUserSmsVo appUserSmsVo);
 
 }

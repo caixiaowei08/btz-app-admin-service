@@ -368,9 +368,9 @@ public class AppUserController extends BaseController {
      * 3、发送给web服务端  获取发送短息 在app存储当前的生成验证码 并计算验证码的有效时间 和 生成时间
      * 注解：游客没有此功能
      */
-    @RequestMapping(params = "doGetSmsCodeByTokenAndPhoneNo")
+    @RequestMapping(params = "doSendSmsCodeByTokenAndPhoneNo")
     @ResponseBody
-    public AppAjax doGetSmsCodeByTokenAndPhoneNo(@RequestBody AppUserSmsVo appUserSmsVo, HttpServletRequest request) {
+    public AppAjax doSendSmsCodeByTokenAndPhoneNo(@RequestBody AppUserSmsVo appUserSmsVo, HttpServletRequest request) {
         AppAjax j = new AppAjax();
 
         //验证token
@@ -396,12 +396,12 @@ public class AppUserController extends BaseController {
             return j;
         }
 
-
         if (!PatternUtil.isPhone(appUserSmsVo.getPhoneNo())) {
             j.setReturnCode(AppAjax.FAIL);
-            j.setMsg("手机号油污，请核对！");
+            j.setMsg("手机号输入格式有误，请核对！");
             return j;
         }
+
 
         String result = "";
         try {
@@ -412,7 +412,7 @@ public class AppUserController extends BaseController {
         } catch (Exception e) {
             logger.error(e);
             j.setReturnCode(AppAjax.FAIL);
-            j.setMsg("百题斩服务器，短信验证码发送失败！");
+            j.setMsg("百题斩服务器异常，验证码发送失败，请稍后重试！");
             return j;
         }
 
@@ -423,10 +423,10 @@ public class AppUserController extends BaseController {
                     //在本服务器保存记录
                     appUserSmsVo.setAppUserId(userTokenEntity.getUserId());
                     appUserSmsVo.setSmsCheckCode(appUserSmsReturnVo.getCode());
-                    return phoneSmsCodeService.doSaveAndResetPhoneSmsInfo(appUserSmsVo);
+                    return phoneSmsCodeService.doSaveAndResetPhoneCheckSmsInfo(appUserSmsVo);
                 } else {
                     j.setReturnCode(AppAjax.FAIL);
-                    j.setMsg("手机短信验证码发送失败，请重试！");
+                    j.setMsg("验证码发送失败，请稍后重试！");
                     return j;
                 }
             } else {
@@ -446,8 +446,64 @@ public class AppUserController extends BaseController {
     /**
      * 验证app端输入的手机号码 验证短信码 和 用户登录token的有效值 验证通过保存到本地和web服务器
      * 1、获取登录账号信息 根据登录token值获取 --》判断登录token的有效性
-     * 2、验证手机号 和 短信 验证码是否一致
+     * 2、验证手机号 和 短信 验证码是否一致 状态 时间
      * 3、保存app 服务器并 发送给web服务器保存
      */
+    @RequestMapping(params = "doCheckSmsCodeAndSetPhoneNoByTokenAndPhoneNoAndSmsCode")
+    @ResponseBody
+    public AppAjax doCheckSmsCodeAndSetPhoneNoByTokenAndPhoneNoAndSmsCode(@RequestBody AppUserSmsVo appUserSmsVo, HttpServletRequest request) {
+        AppAjax j = new AppAjax();
+        //验证token
+        if (StringUtils.isEmpty(appUserSmsVo.getToken())) {
+            j.setReturnCode(AppAjax.FAIL);
+            j.setMsg("游客登录，不能发送手机短信！");
+            return j;
+        }
 
+        UserTokenEntity userTokenEntity = appUserService.checkUserToken(appUserSmsVo.getToken());
+        //验证用户
+        if (userTokenEntity == null) {
+            j.setReturnCode(AppAjax.LOGNIN_INVALID);
+            j.setMsg("登录失效，请重新登录！");
+            return j;
+        }
+
+        //验证手机号
+        if (StringUtils.isEmpty(appUserSmsVo.getPhoneNo())) {
+            j.setReturnCode(AppAjax.FAIL);
+            j.setMsg("请输入手机号码！");
+            return j;
+        }
+
+        if (!PatternUtil.isPhone(appUserSmsVo.getPhoneNo())) {
+            j.setReturnCode(AppAjax.FAIL);
+            j.setMsg("输入手机号有误，请重新输入！");
+            return j;
+        }
+
+        //验证手机号
+        if (StringUtils.isEmpty(appUserSmsVo.getSmsCheckCode())) {
+            j.setReturnCode(AppAjax.FAIL);
+            j.setMsg("请输入验证码！");
+            return j;
+        }
+
+        if (!PatternUtil.isSixDigitCheckSmsCode(appUserSmsVo.getSmsCheckCode())) {
+            j.setReturnCode(AppAjax.FAIL);
+            j.setMsg("请输入6位数字短息验证码！");
+            return j;
+        }
+
+
+        try {
+            appUserSmsVo.setAppUserId(userTokenEntity.getUserId());
+            return phoneSmsCodeService.doSaveAndResetPhoneNoToDbAndWebService(appUserSmsVo);
+        } catch (Exception e) {
+            logger.error(e);
+            j.setReturnCode(AppAjax.FAIL);
+            j.setMsg("系统异常，请稍后重试！");
+            return j;
+        }
+
+    }
 }

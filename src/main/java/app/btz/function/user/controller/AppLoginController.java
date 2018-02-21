@@ -53,7 +53,7 @@ public class AppLoginController extends BaseController {
     @RequestMapping(params = "loginPost")
     @ResponseBody
     public AppAjax loginPost(@RequestBody UserEntity userEntity, HttpServletRequest request) {
-        return login(userEntity,request);
+        return login(userEntity, request);
     }
 
     @RequestMapping(params = "login")
@@ -108,6 +108,7 @@ public class AppLoginController extends BaseController {
                 userDb = userEntityList.get(0);
             }
             userDb.setUserId(apiUserInfoJson.getUsername());
+            userDb.setPhone(apiUserInfoJson.getTel());
             userDb.setUserPwd(PasswordUtil.getMD5Encryp(apiUserInfoJson.getPassword()));
             List<AuthUserInfoJson> authUserInfoJsonList = apiUserInfoJson.getAuth();
             List<CourseAuthorityPojo> courseAuthorityPojoList = new ArrayList<CourseAuthorityPojo>();
