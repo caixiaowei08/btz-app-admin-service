@@ -23,9 +23,9 @@
 		<property name="username" value="${jdbc.btz.username}"/>
 		<property name="password" value="${jdbc.btz.password}"/>
 		<property name="initialSize" value="200"/>
-		<property name="maxActive" value="1000"/>
+		<property name="maxActive" value="7000"/>
 		<property name="minIdle" value="100"/>
-		<property name="maxWait" value="60000"/>
+		<property name="maxWait" value="6000"/>
 		<property name="validationQuery" value="${validation.query.sql}"/>
 		<property name="testOnBorrow" value="false"/>
 		<property name="testOnReturn" value="false"/>

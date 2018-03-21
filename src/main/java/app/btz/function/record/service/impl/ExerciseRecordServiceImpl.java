@@ -7,6 +7,7 @@ import app.btz.function.record.entity.ExerciseRecordEntity;
 import app.btz.function.record.service.ExerciseRecordService;
 import app.btz.function.record.vo.ExerciseRecordVo;
 import app.btz.function.user.service.AppUserService;
+import com.alibaba.fastjson.JSON;
 import com.btz.exercise.entity.ExerciseEntity;
 import com.btz.exercise.service.ExerciseService;
 import com.btz.system.global.GlobalService;
@@ -66,6 +67,9 @@ public class ExerciseRecordServiceImpl extends BaseServiceImpl implements Exerci
         AppAjax j = new AppAjax();
         exerciseRecordEntity.setUserId(userTokenEntity.getUserId());
         ExerciseRecordEntity exerciseRecordEntityDb = doGetExerciseRecordEntitydByUserIdoAndExerciseId(exerciseRecordEntity);
+
+        logger.info("save single record：" + JSON.toJSON(exerciseRecordEntity));
+
         /**
          * 判断是否有存储记录
          */

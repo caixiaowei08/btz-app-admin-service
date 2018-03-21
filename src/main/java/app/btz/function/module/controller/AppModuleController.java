@@ -57,7 +57,6 @@ public class AppModuleController extends BaseController {
         if (CollectionUtils.isEmpty(moduleEntityList)) {
             j.setReturnCode(AppAjax.FAIL);
             j.setMsg("模块被删除删除或者不存在！");
-            logger.info("模块被删除删除或者不存在！");
             return j;
         }
         ModuleEntity moduleEntity = moduleEntityList.get(0);
