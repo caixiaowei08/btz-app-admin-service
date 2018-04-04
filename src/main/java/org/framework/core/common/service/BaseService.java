@@ -36,8 +36,6 @@ public interface BaseService {
      */
     public List getListByCriteriaQuery(DetachedCriteria cq);
 
-
-
     public <T> void saveOrUpdate(T entity);
 
     public <T> void delete(T entity);
@@ -48,4 +46,20 @@ public interface BaseService {
      * @return
      */
     public DataGridReturn getDataGridReturn(final CriteriaQuery criteriaQuery);
+
+    /**
+     * 加载全部实体
+     *
+     * @param <T>
+     * @param entityClass
+     * @return
+     */
+    public <T> List<T> loadAll(final Class<T> entityClass);
+
+    /**
+     * 批量保存
+     * @param entitys
+     * @param <T>
+     */
+    public <T> void batchSave(List<T> entitys);
 }

@@ -10,5 +10,6 @@ import org.springframework.transaction.annotation.Transactional;
  */
 @Service("mainCourseService")
 @Transactional
-public class MainCourseServiceImpl extends BaseServiceImpl implements MainCourseService{
+public class MainCourseServiceImpl extends BaseServiceImpl implements MainCourseService {
+
 }

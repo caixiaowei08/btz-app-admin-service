@@ -1,7 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="btz-app-admin-service:war exploded" />
+    </artifacts-to-build>
+  </component>
+  <component name="BookmarkManager">
+    <bookmark url="file://$PROJECT_DIR$/src/main/java/com/btz/course/entity/ChapterEntity.java" line="21" />
+    <bookmark url="file://$PROJECT_DIR$/src/main/java/app/btz/function/testModule/vo/MainCourseAppVo.java" line="13" />
+    <bookmark url="file://$PROJECT_DIR$/src/main/java/com/btz/common/filter/ManagerLoginFilter.java" line="36" mnemonic="1" />
+    <bookmark url="file://$PROJECT_DIR$/src/main/java/com/btz/cascade/service/impl/CascadeDataServiceImpl.java" line="37" />
+    <bookmark url="file://$PROJECT_DIR$/src/main/java/com/btz/module/entity/ModuleEntity.java" line="40" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="d011a689-1738-441b-9536-fda59732bb4a" name="Default" comment="">
+<<<<<<< HEAD
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__antlr_antlr_2_7_7.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__antlr_antlr_2_7_7.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_alibaba_druid_1_0_17.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_alibaba_druid_1_0_17.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_alibaba_fastjson_1_2_25.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_alibaba_fastjson_1_2_25.xml" />
@@ -46,6 +59,16 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_webmvc_4_3_6_RELEASE.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_webmvc_4_3_6_RELEASE.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/btz-app-admin-service.iml" afterPath="$PROJECT_DIR$/btz-app-admin-service.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/app/btz/function/module/controller/AppModuleController.java" afterPath="$PROJECT_DIR$/src/main/java/app/btz/function/module/controller/AppModuleController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/app/btz/function/record/service/impl/ExerciseRecordServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/app/btz/function/record/service/impl/ExerciseRecordServiceImpl.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/DBConfig.properties" afterPath="$PROJECT_DIR$/src/main/resources/DBConfig.properties" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/log4j2.xml" afterPath="$PROJECT_DIR$/src/main/resources/log4j2.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/spring-context.xml" afterPath="$PROJECT_DIR$/src/main/resources/spring-context.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/DBConfig.properties" afterPath="$PROJECT_DIR$/target/classes/DBConfig.properties" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/log4j2.xml" afterPath="$PROJECT_DIR$/target/classes/log4j2.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/spring-context.xml" afterPath="$PROJECT_DIR$/target/classes/spring-context.xml" />
+>>>>>>> caixiaowei20170607
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -60,25 +83,67 @@
     <option name="PATCH_PATH" value="" />
   </component>
   <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
     <option name="GROUP_SCHEMA" value="true" />
     <option name="GROUP_CONTENTS" value="false" />
     <option name="SORT_POSITIONED" value="false" />
     <option name="SHOW_TABLE_DETAILS" value="true" />
     <option name="SHOW_EMPTY_GROUPS" value="false" />
     <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <expand />
+    <select />
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+<<<<<<< HEAD
       <file leaf-file-name="DBConfig.properties" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/resources/DBConfig.properties">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="60">
               <caret line="4" column="22" lean-forward="false" selection-start-line="4" selection-start-column="22" selection-end-line="4" selection-end-column="22" />
+=======
+      <file leaf-file-name="ExerciseRecordServiceImpl.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/app/btz/function/record/service/impl/ExerciseRecordServiceImpl.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="975">
+              <caret line="88" column="0" lean-forward="false" selection-start-line="88" selection-start-column="0" selection-end-line="88" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="DBConfig.properties" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/DBConfig.properties">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="105">
+              <caret line="7" column="42" lean-forward="false" selection-start-line="7" selection-start-column="42" selection-end-line="7" selection-end-column="42" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="spring-context.xml" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/spring-context.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="162">
+              <caret line="25" column="49" lean-forward="false" selection-start-line="25" selection-start-column="49" selection-end-line="25" selection-end-column="49" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AppNotesController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/app/btz/function/notes/controller/AppNotesController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1545">
+              <caret line="136" column="50" lean-forward="false" selection-start-line="136" selection-start-column="50" selection-end-line="136" selection-end-column="50" />
+>>>>>>> caixiaowei20170607
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+<<<<<<< HEAD
       <file leaf-file-name="spring-context.xml" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/resources/spring-context.xml">
           <provider selected="true" editor-type-id="text-editor">
@@ -91,6 +156,54 @@
                 <element signature="e#1541#1566#0" expanded="true" />
                 <element signature="n#prop#0;n#props#0;n#property#1;n#bean#1;n#beans#0;n#!!top" expanded="true" />
               </folding>
+=======
+      <file leaf-file-name="ApiUserController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/api/btz/function/user/controller/ApiUserController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1395">
+              <caret line="120" column="9" lean-forward="false" selection-start-line="120" selection-start-column="9" selection-end-line="120" selection-end-column="9" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="NotesConstant.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/app/btz/common/constant/NotesConstant.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="255">
+              <caret line="17" column="32" lean-forward="false" selection-start-line="17" selection-start-column="32" selection-end-line="17" selection-end-column="32" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AppCrossAomainFilter.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/app/btz/filter/AppCrossAomainFilter.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="330">
+              <caret line="24" column="27" lean-forward="false" selection-start-line="24" selection-start-column="27" selection-end-line="24" selection-end-column="27" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AppLoginController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/app/btz/function/user/controller/AppLoginController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="300">
+              <caret line="52" column="35" lean-forward="false" selection-start-line="52" selection-start-column="30" selection-end-line="52" selection-end-column="35" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AppLoginFilter.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/app/btz/filter/AppLoginFilter.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="105">
+              <caret line="21" column="13" lean-forward="false" selection-start-line="21" selection-start-column="13" selection-end-line="21" selection-end-column="13" />
+              <folding />
+>>>>>>> caixiaowei20170607
             </state>
           </provider>
         </entry>
@@ -99,11 +212,16 @@
         <entry file="file://$PROJECT_DIR$/src/main/resources/log4j2.xml">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="450">
+<<<<<<< HEAD
               <caret line="30" column="26" lean-forward="false" selection-start-line="30" selection-start-column="26" selection-end-line="30" selection-end-column="26" />
               <folding>
                 <marker date="1521619343501" expanded="true" signature="1431:1441" ph="..." />
                 <marker date="1521619343501" expanded="true" signature="1431:1453" ph="..." />
               </folding>
+=======
+              <caret line="30" column="27" lean-forward="false" selection-start-line="30" selection-start-column="27" selection-end-line="30" selection-end-column="27" />
+              <folding />
+>>>>>>> caixiaowei20170607
             </state>
           </provider>
         </entry>
@@ -122,13 +240,51 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>Projections</find>
-      <find>Projection</find>
-      <find>List</find>
-      <find>pSendTime</find>
-      <find>AdminEntity</find>
-      <find>state</find>
+      <find>doAdd</find>
+      <find>hasText</find>
+      <find>mainCourseTreeGrid</find>
+      <find>del</find>
+      <find>deleteSubCourseBySubCourseId</find>
+      <find>doUpdate</find>
+      <find>userService</find>
+      <find>name</find>
+      <find>考前押题</find>
+      <find>辨析题</find>
+      <find>计算分析题</find>
+      <find>7</find>
+      <find>F:\code\btz-app-admin-service\target\</find>
+      <find>tryOut</find>
+      <find>apiUserInfoJson</find>
+      <find>W:邮件发送失败！</find>
+      <find>append</find>
+      <find>getModuleExerciseByCourseIdAndModuleType</find>
+      <find>getModuleBySubCourseIdAndModuleType</find>
+      <find>dou</find>
+      <find>DoubleSerializer</find>
+      <find>无</find>
+      <find>WriteNullNumberAsZero</find>
+      <find>fast</find>
+      <find>double</find>
+      <find>fastjson</find>
+      <find>doSaveSingleQuestionRecordByAppTokenAndExerciseId</find>
+      <find>AppModuleController</find>
+      <find>intLevel</find>
+      <find>login</find>
     </findStrings>
+    <replaceStrings>
+      <replace />
+    </replaceStrings>
+    <dirStrings>
+      <dir>$PROJECT_DIR$</dir>
+    </dirStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -141,6 +297,7 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
+<<<<<<< HEAD
         <option value="$PROJECT_DIR$/src/main/java/org/framework/core/common/entity/IdEntity.java" />
         <option value="$PROJECT_DIR$/src/main/java/org/framework/core/common/controller/BaseController.java" />
         <option value="$PROJECT_DIR$/src/main/java/org/framework/core/common/model/json/AjaxJson.java" />
@@ -191,6 +348,58 @@
         <option value="$PROJECT_DIR$/src/main/java/com/btz/course/entity/MainCourseEntity.java" />
         <option value="$PROJECT_DIR$/.idea/workspace.xml" />
         <option value="$PROJECT_DIR$/.gitignore" />
+=======
+        <option value="$PROJECT_DIR$/src/main/java/com/btz/system/config/package-info.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/btz/system/config/entity/ConfigEntity.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/btz/system/config/ConfigConstant.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/btz/system/config/service/ConfigService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/btz/system/config/service/impl/ConfigServiceImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/app/btz/function/config/controller/AppConfigController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/app/btz/function/user/vo/AppUserEmailVo.java" />
+        <option value="$PROJECT_DIR$/src/main/java/app/btz/function/user/vo/AppUser.java" />
+        <option value="$PROJECT_DIR$/src/main/java/app/btz/function/user/vo/AppUserOldPwdVo.java" />
+        <option value="$PROJECT_DIR$/src/main/java/app/btz/common/http/ApiHttpClient.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/btz/log/controller/AppLogController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/app/btz/function/log/vo/LogVo.java" />
+        <option value="$PROJECT_DIR$/src/main/java/app/btz/function/log/controller/AppLogController.java" />
+        <option value="$PROJECT_DIR$/src/main/test/com/btz/HttpClientTest.java" />
+        <option value="$PROJECT_DIR$/src/main/test/com/btz/test.java" />
+        <option value="$PROJECT_DIR$/.idea/workspace.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/app/btz/filter/AppCrossAomainFilter.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/app/btz/function/testModule/service/impl/AppTestModuleServiceImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/app/btz/function/record/package-info.java" />
+        <option value="$PROJECT_DIR$/src/main/java/app/btz/common/ajax/AppAjax.java" />
+        <option value="$PROJECT_DIR$/src/main/java/app/btz/function/user/service/AppUserService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/app/btz/function/testModule/vo/ModuleTestRequestVo.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/btz/exercise/entity/ExerciseEntity.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/btz/utils/BelongToEnum.java" />
+        <option value="$PROJECT_DIR$/src/main/java/app/btz/function/record/vo/ExerciseRecordVo.java" />
+        <option value="$PROJECT_DIR$/src/main/java/app/btz/function/record/entity/ExerciseRecordEntity.java" />
+        <option value="$PROJECT_DIR$/src/main/java/app/btz/function/record/service/ExerciseRecordService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/app/btz/function/testModule/vo/ExerciseVo.java" />
+        <option value="$PROJECT_DIR$/src/main/java/app/btz/function/exercise/controller/AppExerciseController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/app/btz/function/record/controller/ExerciseRecordController.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/spring-mvc.xml" />
+        <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/app/btz/common/constant/ApiURLConstant.java" />
+        <option value="$PROJECT_DIR$/src/main/java/app/btz/function/user/vo/AppUserSmsVo.java" />
+        <option value="$PROJECT_DIR$/src/main/java/app/btz/function/user/entity/PhoneSmsCodeEntity.java" />
+        <option value="$PROJECT_DIR$/src/main/java/app/btz/function/user/vo/AppUserSmsReturnVo.java" />
+        <option value="$PROJECT_DIR$/src/main/java/org/framework/core/utils/PatternUtil.java" />
+        <option value="$PROJECT_DIR$/src/main/java/app/btz/common/constant/SfynConstant.java" />
+        <option value="$PROJECT_DIR$/src/main/java/app/btz/function/user/service/PhoneSmsCodeService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/app/btz/function/user/controller/AppUserController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/api/btz/function/user/json/ApiUserInfoJson.java" />
+        <option value="$PROJECT_DIR$/src/main/java/app/btz/function/user/vo/AppUserVo.java" />
+        <option value="$PROJECT_DIR$/src/main/java/app/btz/function/user/controller/AppLoginController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/app/btz/function/user/service/impl/AppUserServiceImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/app/btz/function/user/service/impl/PhoneSmsCodeServiceImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/app/btz/function/module/controller/AppModuleController.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/log4j2.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/app/btz/function/record/service/impl/ExerciseRecordServiceImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/DBConfig.properties" />
+>>>>>>> caixiaowei20170607
         <option value="$PROJECT_DIR$/src/main/resources/spring-context.xml" />
       </list>
     </option>
@@ -211,8 +420,7 @@
   <component name="MavenImportPreferences">
     <option name="generalSettings">
       <MavenGeneralSettings>
-        <option name="mavenHome" value="E:/btz/maven/apache-maven-3.3.9" />
-        <option name="userSettingsFile" value="E:\btz\maven\apache-maven-3.3.9\conf\settings.xml" />
+        <option name="mavenHome" value="$PROJECT_DIR$/../../../tool/apache-maven-3.5.2" />
       </MavenGeneralSettings>
     </option>
     <option name="importingSettings">
@@ -323,19 +531,21 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="settings.editor.selected.configurable" value="Errors" />
+    <property name="settings.editor.selected.configurable" value="MavenSettings" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="nodejs_interpreter_path" value="D:/Program Files/nodejs/node" />
     <property name="js.eslint.eslintPackage" value="" />
     <property name="js-jscs-nodeInterpreter" value="D:\Program Files\nodejs\node.exe" />
-    <property name="project.structure.last.edited" value="Artifacts" />
+    <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2934866" />
-    <property name="SearchEverywhereHistoryKey" value="&#9;FILE&#9;file://F:/code/btz-app-admin-service/src/main/java/org/framework/core/common/service/BaseService.java" />
+    <property name="SearchEverywhereHistoryKey" value="&#9;FILE&#9;file:///Users/code/java/btz-app-admin-service/src/main/java/app/btz/function/user/vo/AppUserSmsVo.java" />
+    <property name="extract.method.default.visibility" value="private" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="F:\code\btz-app-admin-service" />
       <recent name="F:\code\btz-app-admin-service\src\main\resources" />
     </key>
   </component>
@@ -352,6 +562,53 @@
     </option>
   </component>
   <component name="RunManager" selected="Tomcat Server.btz-app-admin-service-tomcat">
+<<<<<<< HEAD
+=======
+    <configuration name="HttpClientTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="com.btz.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="MAIN_CLASS_NAME" value="com.btz.HttpClientTest" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="btz-app-admin-service" />
+      <envs />
+    </configuration>
+    <configuration name="HttpClientTest.test01" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="com.btz.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <module name="btz-app-admin-service" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="com.btz" />
+      <option name="MAIN_CLASS_NAME" value="com.btz.HttpClientTest" />
+      <option name="METHOD_NAME" value="test01" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <envs />
+      <patterns />
+    </configuration>
+>>>>>>> caixiaowei20170607
     <configuration name="MainTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
@@ -371,6 +628,28 @@
       <module name="btz-app-admin-service" />
       <envs />
     </configuration>
+<<<<<<< HEAD
+=======
+    <configuration name="QuestionTypeTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="com.btz.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="MAIN_CLASS_NAME" value="com.btz.QuestionTypeTest" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="btz-app-admin-service" />
+      <envs />
+    </configuration>
+>>>>>>> caixiaowei20170607
     <configuration default="true" type="Applet" factoryName="Applet">
       <option name="HTML_USED" value="false" />
       <option name="WIDTH" value="400" />
@@ -722,6 +1001,31 @@
       <envs />
       <method />
     </configuration>
+<<<<<<< HEAD
+=======
+    <configuration default="true" type="MavenRunConfiguration" factoryName="Maven">
+      <MavenSettings>
+        <option name="myGeneralSettings" />
+        <option name="myRunnerSettings" />
+        <option name="myRunnerParameters">
+          <MavenRunnerParameters>
+            <option name="profiles">
+              <set />
+            </option>
+            <option name="goals">
+              <list />
+            </option>
+            <option name="profilesMap">
+              <map />
+            </option>
+            <option name="resolveToWorkspace" value="false" />
+            <option name="workingDirPath" value="" />
+          </MavenRunnerParameters>
+        </option>
+      </MavenSettings>
+      <method />
+    </configuration>
+>>>>>>> caixiaowei20170607
     <configuration default="true" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <module name="" />
@@ -752,7 +1056,11 @@
     <configuration default="true" type="osgi.bnd.run" factoryName="Test Launcher (JUnit)">
       <method />
     </configuration>
+<<<<<<< HEAD
     <configuration name="btz-app-admin-service-tomcat" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 8.0.41-amzon" ALTERNATIVE_JRE_ENABLED="true" ALTERNATIVE_JRE_PATH="1.8">
+=======
+    <configuration name="btz-app-admin-service-tomcat" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 8.5.23" ALTERNATIVE_JRE_ENABLED="true" ALTERNATIVE_JRE_PATH="1.8">
+>>>>>>> caixiaowei20170607
       <option name="BROWSER_ID" value="98ca6316-2f89-46d9-a9e5-fa9e2b0625b3" />
       <option name="UPDATING_POLICY" value="restart-server" />
       <deployment>
@@ -826,13 +1134,46 @@
         </option>
       </method>
     </configuration>
-    <list size="2">
+    <configuration name="test.test01" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="com.btz.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <module name="btz-app-admin-service" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="com.btz" />
+      <option name="MAIN_CLASS_NAME" value="com.btz.test" />
+      <option name="METHOD_NAME" value="test01" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <envs />
+      <patterns />
+    </configuration>
+    <list size="6">
       <item index="0" class="java.lang.String" itemvalue="Tomcat Server.btz-app-admin-service-tomcat" />
       <item index="1" class="java.lang.String" itemvalue="Application.MainTest" />
+      <item index="2" class="java.lang.String" itemvalue="Application.QuestionTypeTest" />
+      <item index="3" class="java.lang.String" itemvalue="Application.HttpClientTest" />
+      <item index="4" class="java.lang.String" itemvalue="JUnit.HttpClientTest.test01" />
+      <item index="5" class="java.lang.String" itemvalue="JUnit.test.test01" />
     </list>
     <recent_temporary>
-      <list size="1">
-        <item index="0" class="java.lang.String" itemvalue="Application.MainTest" />
+      <list size="5">
+        <item index="0" class="java.lang.String" itemvalue="JUnit.test.test01" />
+        <item index="1" class="java.lang.String" itemvalue="Application.HttpClientTest" />
+        <item index="2" class="java.lang.String" itemvalue="JUnit.HttpClientTest.test01" />
+        <item index="3" class="java.lang.String" itemvalue="Application.MainTest" />
+        <item index="4" class="java.lang.String" itemvalue="Application.QuestionTypeTest" />
       </list>
     </recent_temporary>
   </component>
@@ -873,14 +1214,202 @@
       <workItem from="1496831686340" duration="758000" />
       <workItem from="1496832506225" duration="8000" />
       <workItem from="1496832652667" duration="97000" />
+<<<<<<< HEAD
       <workItem from="1496832986394" duration="139000" />
       <workItem from="1501403560969" duration="209000" />
       <workItem from="1501403792354" duration="980000" />
+=======
+      <workItem from="1496832986394" duration="3359000" />
+      <workItem from="1496887537530" duration="1519000" />
+      <workItem from="1496889180123" duration="7081000" />
+      <workItem from="1496905245711" duration="4771000" />
+      <workItem from="1496910999131" duration="843000" />
+      <workItem from="1496912446286" duration="9123000" />
+      <workItem from="1496972266772" duration="23296000" />
+      <workItem from="1497058448284" duration="10095000" />
+      <workItem from="1497078354899" duration="124000" />
+      <workItem from="1497078497099" duration="54000" />
+      <workItem from="1497098512453" duration="1294000" />
+      <workItem from="1497151331067" duration="1378000" />
+      <workItem from="1497176495440" duration="1567000" />
+      <workItem from="1497184641417" duration="1478000" />
+      <workItem from="1497230141705" duration="19332000" />
+      <workItem from="1497315348758" duration="19542000" />
+      <workItem from="1497400765132" duration="2485000" />
+      <workItem from="1497506187102" duration="23906000" />
+      <workItem from="1497576204453" duration="24934000" />
+      <workItem from="1497665780405" duration="22188000" />
+      <workItem from="1497748056371" duration="19927000" />
+      <workItem from="1497849773123" duration="7895000" />
+      <workItem from="1497924109282" duration="3066000" />
+      <workItem from="1498005069867" duration="654000" />
+      <workItem from="1498094182633" duration="603000" />
+      <workItem from="1498107708829" duration="2231000" />
+      <workItem from="1498185970427" duration="623000" />
+      <workItem from="1498201507512" duration="1717000" />
+      <workItem from="1498264910921" duration="5773000" />
+      <workItem from="1498369587528" duration="1299000" />
+      <workItem from="1499049383166" duration="12255000" />
+      <workItem from="1499231374644" duration="19105000" />
+      <workItem from="1499316364058" duration="10954000" />
+      <workItem from="1499388784522" duration="12418000" />
+      <workItem from="1499480166117" duration="1805000" />
+      <workItem from="1499521896662" duration="1297000" />
+      <workItem from="1499565810142" duration="612000" />
+      <workItem from="1499647228022" duration="684000" />
+      <workItem from="1499738201167" duration="645000" />
+      <workItem from="1499820100646" duration="614000" />
+      <workItem from="1499907772730" duration="2407000" />
+      <workItem from="1499992456401" duration="10828000" />
+      <workItem from="1500080778917" duration="21765000" />
+      <workItem from="1500254376190" duration="47522000" />
+      <workItem from="1500511368583" duration="30033000" />
+      <workItem from="1500597864011" duration="599000" />
+      <workItem from="1500599232178" duration="36204000" />
+      <workItem from="1500685914173" duration="34619000" />
+      <workItem from="1500864403485" duration="3626000" />
+      <workItem from="1500947792608" duration="33271000" />
+      <workItem from="1501141829359" duration="5031000" />
+      <workItem from="1501206572008" duration="16174000" />
+      <workItem from="1501308120505" duration="10594000" />
+      <workItem from="1501399425684" duration="646000" />
+      <workItem from="1501403408599" duration="1000" />
+      <workItem from="1501404946032" duration="571000" />
+      <workItem from="1501469519418" duration="1245000" />
+      <workItem from="1501565302477" duration="919000" />
+      <workItem from="1501637040177" duration="619000" />
+      <workItem from="1501724039332" duration="3036000" />
+      <workItem from="1501809506308" duration="1286000" />
+      <workItem from="1501992959324" duration="1824000" />
+      <workItem from="1502276809430" duration="9000" />
+      <workItem from="1502604812734" duration="51000" />
+      <workItem from="1502967462422" duration="6770000" />
+      <workItem from="1503019034015" duration="17221000" />
+      <workItem from="1503110640655" duration="7059000" />
+      <workItem from="1503195325242" duration="3166000" />
+      <workItem from="1503281564890" duration="4744000" />
+      <workItem from="1503375305768" duration="14433000" />
+      <workItem from="1503463540934" duration="19428000" />
+      <workItem from="1503626629579" duration="12830000" />
+      <workItem from="1503725432106" duration="15508000" />
+      <workItem from="1503821006701" duration="14341000" />
+      <workItem from="1503900359044" duration="7006000" />
+      <workItem from="1503985618802" duration="2479000" />
+      <workItem from="1504056786455" duration="8526000" />
+      <workItem from="1504167345876" duration="1889000" />
+      <workItem from="1504261549378" duration="9855000" />
+      <workItem from="1504347573795" duration="6398000" />
+      <workItem from="1504606117081" duration="26284000" />
+      <workItem from="1504844420357" duration="15743000" />
+      <workItem from="1504876329685" duration="23104000" />
+      <workItem from="1505020803423" duration="14587000" />
+      <workItem from="1505104018061" duration="18334000" />
+      <workItem from="1505373265147" duration="5947000" />
+      <workItem from="1505385361405" duration="11546000" />
+      <workItem from="1505398877283" duration="697000" />
+      <workItem from="1505481094694" duration="670000" />
+      <workItem from="1505530931970" duration="11512000" />
+      <workItem from="1505553052745" duration="300000" />
+      <workItem from="1505642265091" duration="16000" />
+      <workItem from="1505694816525" duration="14000" />
+      <workItem from="1505697584851" duration="8018000" />
+      <workItem from="1505731198274" duration="1687000" />
+      <workItem from="1505782060890" duration="1141000" />
+      <workItem from="1505871510910" duration="7336000" />
+      <workItem from="1505884930982" duration="1259000" />
+      <workItem from="1505954347836" duration="21000" />
+      <workItem from="1505957547298" duration="1500000" />
+      <workItem from="1506568091227" duration="8041000" />
+      <workItem from="1506649106256" duration="2936000" />
+      <workItem from="1506735223188" duration="3260000" />
+      <workItem from="1506740333394" duration="2053000" />
+      <workItem from="1506823227907" duration="22000" />
+      <workItem from="1507698610694" duration="14311000" />
+      <workItem from="1507804527004" duration="1353000" />
+      <workItem from="1508215278105" duration="1467000" />
+      <workItem from="1508305146461" duration="13000" />
+      <workItem from="1508310584632" duration="610000" />
+      <workItem from="1508328475353" duration="623000" />
+      <workItem from="1508334442485" duration="761000" />
+      <workItem from="1508406750560" duration="393000" />
+      <workItem from="1508759130851" duration="655000" />
+      <workItem from="1508956023423" duration="1441000" />
+      <workItem from="1508992986731" duration="7085000" />
+      <workItem from="1509029519622" duration="1256000" />
+      <workItem from="1509083476602" duration="4190000" />
+      <workItem from="1509330870555" duration="2707000" />
+      <workItem from="1509352494581" duration="1323000" />
+      <workItem from="1509365259390" duration="4285000" />
+      <workItem from="1510307629340" duration="8269000" />
+      <workItem from="1510386442445" duration="663000" />
+      <workItem from="1510398238918" duration="13350000" />
+      <workItem from="1510479003723" duration="50000" />
+      <workItem from="1510575786198" duration="5927000" />
+      <workItem from="1511272823371" duration="128000" />
+      <workItem from="1511400397402" duration="2502000" />
+      <workItem from="1511770832160" duration="8000" />
+      <workItem from="1511803391604" duration="2293000" />
+      <workItem from="1513689442437" duration="269000" />
+      <workItem from="1513690774974" duration="958000" />
+      <workItem from="1513871103668" duration="4111000" />
+      <workItem from="1514294572777" duration="3799000" />
+      <workItem from="1515781606255" duration="859000" />
+      <workItem from="1515851093025" duration="681000" />
+      <workItem from="1516283690745" duration="2006000" />
+      <workItem from="1516637589253" duration="26681000" />
+      <workItem from="1516864926418" duration="10238000" />
+      <workItem from="1516949874654" duration="13133000" />
+      <workItem from="1517561509213" duration="5967000" />
+      <workItem from="1518268513216" duration="690000" />
+      <workItem from="1518621559894" duration="23290000" />
+      <workItem from="1519464856412" duration="270000" />
+      <workItem from="1520176432270" duration="7606000" />
+      <workItem from="1520403587449" duration="4047000" />
+      <workItem from="1520939037542" duration="327000" />
+      <workItem from="1521037175960" duration="620000" />
+      <workItem from="1521110182292" duration="7000" />
+      <workItem from="1521548836176" duration="2214000" />
+      <workItem from="1521560252084" duration="4304000" />
+      <workItem from="1521619254114" duration="12000" />
+>>>>>>> caixiaowei20170607
     </task>
     <servers />
   </component>
+  <component name="TestHistory">
+    <history-entry file="HttpClientTest_test01 - 2017.08.22 at 21h 07m 11s.xml">
+      <configuration name="HttpClientTest.test01" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="HttpClientTest_test01 - 2017.08.22 at 21h 10m 33s.xml">
+      <configuration name="HttpClientTest.test01" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="HttpClientTest_test01 - 2017.08.22 at 21h 10m 48s.xml">
+      <configuration name="HttpClientTest.test01" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="HttpClientTest_test01 - 2017.08.22 at 21h 11m 10s.xml">
+      <configuration name="HttpClientTest.test01" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="HttpClientTest_test01 - 2017.08.22 at 21h 12m 03s.xml">
+      <configuration name="HttpClientTest.test01" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="HttpClientTest_test01 - 2017.08.22 at 21h 22m 31s.xml">
+      <configuration name="HttpClientTest.test01" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="test_test01 - 2017.11.23 at 09h 50m 26s.xml">
+      <configuration name="test.test01" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="test_test01 - 2017.11.23 at 09h 51m 18s.xml">
+      <configuration name="test.test01" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="test_test01 - 2017.11.23 at 09h 59m 53s.xml">
+      <configuration name="test.test01" configurationId="JUnit" />
+    </history-entry>
+  </component>
   <component name="TimeTrackingManager">
+<<<<<<< HEAD
     <option name="totallyTimeSpent" value="136639000" />
+=======
+    <option name="totallyTimeSpent" value="1186713000" />
+>>>>>>> caixiaowei20170607
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -899,6 +1428,7 @@
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2791762" sideWeight="0.49839488" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.14757104" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="CDI" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+<<<<<<< HEAD
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3289007" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -928,20 +1458,22 @@
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32847896" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+=======
+>>>>>>> caixiaowei20170607
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32985553" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3289007" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2495647" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.18579455" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.5409524" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32928804" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.27750808" sideWeight="0.48916534" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.5262055" sideWeight="0.64163613" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32901135" sideWeight="0.49678972" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32928804" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24505928" sideWeight="0.49796867" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+<<<<<<< HEAD
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="REST Client" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.40304708" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Thumbnails" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3298217" sideWeight="0.5" order="15" side_tool="false" content_ui="tabs" />
@@ -949,10 +1481,54 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32901135" sideWeight="0.49839488" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32901135" sideWeight="0.49564713" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.26243982" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" x="1524" y="225" width="492" height="781" />
+=======
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.5177914" sideWeight="0.7582418" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.572327" sideWeight="0.48779" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32928804" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3547826" sideWeight="0.64590967" order="14" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22089826" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" x="1524" y="225" width="492" height="781" />
+>>>>>>> caixiaowei20170607
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="true" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+    </layout>
+    <layout-to-restore>
+      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Nl-Palette" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+<<<<<<< HEAD
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33638445" sideWeight="0.32775378" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2791762" sideWeight="0.49839488" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2103265" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="CDI" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32985553" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.12041037" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32937366" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2495647" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.18579455" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.91135734" sideWeight="0.6722462" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32901135" sideWeight="0.49678972" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.43607953" sideWeight="0.47192225" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24505928" sideWeight="0.49796867" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="REST Client" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.40304708" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+=======
+      <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.11965812" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.43494898" sideWeight="0.4023199" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="REST Client" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.40304708" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Thumbnails" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3298217" sideWeight="0.5" order="15" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32951945" sideWeight="0.49298057" order="1" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -981,6 +1557,7 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="REST Client" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.40304708" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+>>>>>>> caixiaowei20170607
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.5732266" sideWeight="0.49028078" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3993135" sideWeight="0.7424406" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Thumbnails" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3298217" sideWeight="0.5" order="15" side_tool="false" content_ui="tabs" />
@@ -993,19 +1570,29 @@
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
     </layout-to-restore>
   </component>
+<<<<<<< HEAD
+=======
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+>>>>>>> caixiaowei20170607
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
       <map>
         <entry key="MAIN">
           <value>
             <State>
+<<<<<<< HEAD
               <option name="LONG_EDGES_VISIBLE" value="true" />
+=======
+>>>>>>> caixiaowei20170607
               <option name="RECENTLY_FILTERED_USER_GROUPS">
                 <collection />
               </option>
               <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
                 <collection />
               </option>
+<<<<<<< HEAD
               <option name="FILTERS">
                 <map>
                   <entry key="branch">
@@ -1016,6 +1603,15 @@
                     </value>
                   </entry>
                 </map>
+=======
+              <option name="COLUMN_ORDER">
+                <list>
+                  <option value="0" />
+                  <option value="1" />
+                  <option value="2" />
+                  <option value="3" />
+                </list>
+>>>>>>> caixiaowei20170607
               </option>
             </State>
           </value>
@@ -1029,20 +1625,233 @@
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/btz/admin/controller/AdminController.java</url>
-          <line>152</line>
+        <line-breakpoint type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/btz/exercise/utils/PoiExcelExerciseUtils.java</url>
+          <line>44</line>
           <properties />
-          <option name="timeStamp" value="1" />
+          <option name="timeStamp" value="92" />
+        </line-breakpoint>
+        <line-breakpoint type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/btz/exercise/utils/PoiExcelExerciseUtils.java</url>
+          <line>34</line>
+          <properties />
+          <option name="timeStamp" value="93" />
+        </line-breakpoint>
+        <line-breakpoint type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/btz/video/recorded/controller/CourseRecordedVideoController.java</url>
+          <line>144</line>
+          <properties />
+          <option name="timeStamp" value="131" />
+        </line-breakpoint>
+        <line-breakpoint type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/btz/video/recorded/controller/CourseRecordedVideoController.java</url>
+          <line>154</line>
+          <properties />
+          <option name="timeStamp" value="132" />
+        </line-breakpoint>
+        <line-breakpoint type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/btz/video/recorded/controller/CourseRecordedVideoController.java</url>
+          <line>173</line>
+          <properties />
+          <option name="timeStamp" value="133" />
+        </line-breakpoint>
+        <line-breakpoint type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/app/btz/function/testModule/service/impl/AppTestModuleServiceImpl.java</url>
+          <line>88</line>
+          <properties />
+          <option name="timeStamp" value="156" />
+        </line-breakpoint>
+        <line-breakpoint type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/btz/course/controller/SubCourseController.java</url>
+          <line>87</line>
+          <properties />
+          <option name="timeStamp" value="165" />
+        </line-breakpoint>
+        <line-breakpoint type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/app/btz/function/video/Controller/AppRecordedVideoController.java</url>
+          <line>68</line>
+          <properties />
+          <option name="timeStamp" value="168" />
+        </line-breakpoint>
+        <line-breakpoint type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/app/btz/function/notes/controller/AppNotesController.java</url>
+          <line>253</line>
+          <properties />
+          <option name="timeStamp" value="169" />
+        </line-breakpoint>
+        <line-breakpoint type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/app/btz/function/notes/controller/AppNotesController.java</url>
+          <line>67</line>
+          <properties />
+          <option name="timeStamp" value="170" />
+        </line-breakpoint>
+        <line-breakpoint type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/btz/feedback/controller/FeedbackController.java</url>
+          <line>60</line>
+          <properties />
+          <option name="timeStamp" value="171" />
+        </line-breakpoint>
+        <line-breakpoint type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/btz/admin/controller/AdminController.java</url>
+          <line>202</line>
+          <properties />
+          <option name="timeStamp" value="174" />
+        </line-breakpoint>
+        <line-breakpoint type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/btz/exercise/service/impl/ExerciseServiceImpl.java</url>
+          <line>41</line>
+          <properties />
+          <option name="timeStamp" value="189" />
+        </line-breakpoint>
+        <line-breakpoint type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/btz/exercise/service/impl/ExerciseServiceImpl.java</url>
+          <line>40</line>
+          <properties />
+          <option name="timeStamp" value="190" />
+        </line-breakpoint>
+        <line-breakpoint type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/btz/strategy/service/impl/StrategyServiceImpl.java</url>
+          <line>36</line>
+          <properties />
+          <option name="timeStamp" value="201" />
+        </line-breakpoint>
+        <line-breakpoint type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/btz/strategy/service/impl/StrategyServiceImpl.java</url>
+          <line>29</line>
+          <properties />
+          <option name="timeStamp" value="202" />
+        </line-breakpoint>
+        <line-breakpoint type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/btz/video/recorded/controller/CourseRecordedVideoController.java</url>
+          <line>195</line>
+          <properties />
+          <option name="timeStamp" value="204" />
+        </line-breakpoint>
+        <line-breakpoint type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/btz/video/recorded/controller/CourseRecordedVideoController.java</url>
+          <line>216</line>
+          <properties />
+          <option name="timeStamp" value="206" />
+        </line-breakpoint>
+        <line-breakpoint type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/btz/video/recorded/controller/CourseRecordedVideoController.java</url>
+          <line>239</line>
+          <properties />
+          <option name="timeStamp" value="207" />
+        </line-breakpoint>
+        <line-breakpoint type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/btz/video/recorded/service/impl/CourseRecordedVideoServiceImpl.java</url>
+          <line>228</line>
+          <properties />
+          <option name="timeStamp" value="211" />
+        </line-breakpoint>
+        <line-breakpoint type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/btz/newsBulletin/carousel/controller/CarouselController.java</url>
+          <line>67</line>
+          <properties />
+          <option name="timeStamp" value="230" />
+        </line-breakpoint>
+        <line-breakpoint type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/btz/poi/service/impl/DownTestModuleExcelImpl.java</url>
+          <line>715</line>
+          <properties />
+          <option name="timeStamp" value="249" />
+        </line-breakpoint>
+        <line-breakpoint type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/btz/poi/service/impl/DownTestModuleExcelImpl.java</url>
+          <line>339</line>
+          <properties />
+          <option name="timeStamp" value="263" />
+        </line-breakpoint>
+        <line-breakpoint type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/app/btz/function/user/service/impl/AppUserServiceImpl.java</url>
+          <line>42</line>
+          <properties />
+          <option name="timeStamp" value="277" />
+        </line-breakpoint>
+        <line-breakpoint type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/btz/module/controller/ModuleController.java</url>
+          <line>180</line>
+          <properties />
+          <option name="timeStamp" value="281" />
+        </line-breakpoint>
+        <line-breakpoint type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/btz/module/controller/ModuleController.java</url>
+          <line>182</line>
+          <properties />
+          <option name="timeStamp" value="282" />
+        </line-breakpoint>
+        <line-breakpoint type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/app/btz/function/user/controller/AppUserController.java</url>
+          <line>218</line>
+          <properties />
+          <option name="timeStamp" value="316" />
+        </line-breakpoint>
+        <line-breakpoint type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/app/btz/function/user/controller/AppUserController.java</url>
+          <line>279</line>
+          <properties />
+          <option name="timeStamp" value="317" />
+        </line-breakpoint>
+        <line-breakpoint type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/app/btz/function/user/controller/AppUserController.java</url>
+          <line>280</line>
+          <properties />
+          <option name="timeStamp" value="318" />
+        </line-breakpoint>
+        <line-breakpoint type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/app/btz/function/user/controller/AppUserController.java</url>
+          <line>274</line>
+          <properties />
+          <option name="timeStamp" value="319" />
+        </line-breakpoint>
+        <line-breakpoint type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/app/btz/function/user/controller/AppUserController.java</url>
+          <line>252</line>
+          <properties />
+          <option name="timeStamp" value="320" />
+        </line-breakpoint>
+        <line-breakpoint type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/app/btz/function/log/controller/AppLogController.java</url>
+          <line>31</line>
+          <properties />
+          <option name="timeStamp" value="323" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/btz/admin/controller/AdminController.java</url>
-          <line>71</line>
+          <url>file://$PROJECT_DIR$/src/main/java/app/btz/function/user/controller/AppUserController.java</url>
+          <line>174</line>
           <properties />
-          <option name="timeStamp" value="19" />
+          <option name="timeStamp" value="330" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/app/btz/function/record/service/impl/ExerciseRecordServiceImpl.java</url>
+          <line>202</line>
+          <properties />
+          <option name="timeStamp" value="349" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/app/btz/function/user/service/impl/PhoneSmsCodeServiceImpl.java</url>
+          <line>45</line>
+          <properties />
+          <option name="timeStamp" value="354" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/framework/core/common/dao/impl/BaseDaoImpl.java</url>
+          <line>40</line>
+          <properties />
+          <option name="timeStamp" value="357" />
+        </line-breakpoint>
+        <line-breakpoint type="java-method">
+          <url>file://$PROJECT_DIR$/src/main/java/com/btz/poi/service/impl/DownTestModuleExcelImpl.java</url>
+          <line>241</line>
+          <properties class="com.btz.poi.service.impl.DownTestModuleExcelImpl" method="generateExcelDataSheetSubRubric" />
+          <option name="timeStamp" value="234" />
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="33" />
+      <breakpoints-dialog>
+        <breakpoints-dialog />
+      </breakpoints-dialog>
+      <option name="time" value="358" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -1051,290 +1860,368 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/src/main/java/com/btz/utils/package-info.java">
+=======
+    <entry file="file://$PROJECT_DIR$/src/main/java/app/btz/common/constant/SfynConstant.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state relative-caret-position="75">
+          <caret line="5" column="25" lean-forward="false" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="25" />
         </state>
       </provider>
     </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-aop/4.3.6.RELEASE/spring-aop-4.3.6.RELEASE.jar!/org/springframework/aop/support/AopUtils.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="329">
+          <caret line="178" column="0" lean-forward="false" selection-start-line="178" selection-start-column="0" selection-end-line="178" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/framework/core/utils/PatternUtil.java">
+>>>>>>> caixiaowei20170607
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="232">
+          <caret line="23" column="26" lean-forward="false" selection-start-line="23" selection-start-column="26" selection-end-line="23" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+<<<<<<< HEAD
     <entry file="jar://E:/btz/maven/repository/org/hibernate/hibernate-core/5.2.5.Final/hibernate-core-5.2.5.Final-sources.jar!/org/hibernate/Session.java" />
     <entry file="jar://E:/btz/maven/repository/org/hibernate/hibernate-core/5.2.5.Final/hibernate-core-5.2.5.Final-sources.jar!/org/hibernate/event/spi/SaveOrUpdateEvent.java" />
     <entry file="jar://E:/btz/maven/repository/org/hibernate/hibernate-core/5.2.5.Final/hibernate-core-5.2.5.Final-sources.jar!/org/hibernate/internal/SessionImpl.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/com/btz/newsBulletin/carousel/controller.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/com/btz/newsBulletin/package-info.java">
+=======
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/framework/core/utils/DateUtils.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/btz/newsBulletin/carousel/package-info.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/btz/newsBulletin/message/package-info.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="3" column="37" lean-forward="true" selection-start-line="3" selection-start-column="37" selection-end-line="3" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/btz/admin/service/AdminService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="7" column="17" lean-forward="false" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://E:/btz/maven/repository/org/hibernate/javax/persistence/hibernate-jpa-2.1-api/1.0.0.Final/hibernate-jpa-2.1-api-1.0.0.Final.jar!/javax/persistence/Column.class" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/btz/admin/package-info.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/btz/user/package-info.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="1" column="7" lean-forward="false" selection-start-line="1" selection-start-column="7" selection-end-line="1" selection-end-column="7" />
+        <state relative-caret-position="211">
+          <caret line="750" column="23" lean-forward="false" selection-start-line="750" selection-start-column="23" selection-end-line="750" selection-end-column="23" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/btz/user/service/UserService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="7" column="39" lean-forward="false" selection-start-line="7" selection-start-column="39" selection-end-line="7" selection-end-column="39" />
+        <state relative-caret-position="105">
+          <caret line="7" column="17" lean-forward="false" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/btz/user/service/impl/UserServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="517">
+        <state relative-caret-position="180">
           <caret line="15" column="13" lean-forward="false" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml">
+    <entry file="file://$PROJECT_DIR$/src/main/java/app/btz/common/constant/ApiURLConstant.java">
+>>>>>>> caixiaowei20170607
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="558">
-          <caret line="40" column="17" lean-forward="false" selection-start-line="40" selection-start-column="17" selection-end-line="40" selection-end-column="21" />
+        <state relative-caret-position="406">
+          <caret line="66" column="162" lean-forward="false" selection-start-line="66" selection-start-column="154" selection-end-line="66" selection-end-column="162" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/btz/user/entity/UserEntity.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/app/btz/function/user/vo/AppUserPwdReturnVo.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="60" column="28" lean-forward="true" selection-start-line="60" selection-start-column="28" selection-end-line="60" selection-end-column="28" />
+        <state relative-caret-position="75">
+          <caret line="5" column="31" lean-forward="false" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="31" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/btz/newsBulletin/message/service/package-info.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/api/btz/function/user/json/ApiUserInfoJson.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="3" column="36" lean-forward="false" selection-start-line="3" selection-start-column="29" selection-end-line="3" selection-end-column="36" />
+        <state relative-caret-position="210">
+          <caret line="16" column="0" lean-forward="false" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/btz/newsBulletin/carousel/service/CarouselService.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/app/btz/function/user/vo/AppUserVo.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="7" column="43" lean-forward="false" selection-start-line="7" selection-start-column="43" selection-end-line="7" selection-end-column="43" />
+        <state relative-caret-position="525">
+          <caret line="51" column="32" lean-forward="false" selection-start-line="51" selection-start-column="32" selection-end-line="51" selection-end-column="32" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/btz/newsBulletin/carousel/service/impl/CarouselServiceImpl.java">
+<<<<<<< HEAD
+    <entry file="jar://E:/btz/maven/repository/org/hibernate/javax/persistence/hibernate-jpa-2.1-api/1.0.0.Final/hibernate-jpa-2.1-api-1.0.0.Final.jar!/javax/persistence/Column.class" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/btz/admin/package-info.java">
+=======
+    <entry file="file://$PROJECT_DIR$/src/main/java/app/btz/function/user/service/AppUserService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="10" column="0" lean-forward="false" selection-start-line="10" selection-start-column="0" selection-end-line="11" selection-end-column="14" />
+        <state relative-caret-position="240">
+          <caret line="19" column="21" lean-forward="false" selection-start-line="19" selection-start-column="21" selection-end-line="19" selection-end-column="21" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/btz/user/controller/UserController.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/app/btz/function/user/service/impl/AppUserServiceImpl.java">
+>>>>>>> caixiaowei20170607
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-675">
-          <caret line="67" column="4" lean-forward="false" selection-start-line="67" selection-start-column="4" selection-end-line="93" selection-end-column="5" />
+        <state relative-caret-position="690">
+          <caret line="62" column="52" lean-forward="false" selection-start-line="62" selection-start-column="52" selection-end-line="62" selection-end-column="52" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/btz/utils/Constant.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/app/btz/function/user/service/PhoneSmsCodeService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="259">
-          <caret line="12" column="33" lean-forward="false" selection-start-line="12" selection-start-column="33" selection-end-line="12" selection-end-column="33" />
+        <state relative-caret-position="105">
+          <caret line="9" column="19" lean-forward="false" selection-start-line="9" selection-start-column="19" selection-end-line="9" selection-end-column="19" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/framework/core/utils/DatagridJsonUtils.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/app/btz/function/user/service/impl/PhoneSmsCodeServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="188">
-          <caret line="65" column="17" lean-forward="true" selection-start-line="65" selection-start-column="17" selection-end-line="65" selection-end-column="17" />
+        <state relative-caret-position="1275">
+          <caret line="85" column="13" lean-forward="false" selection-start-line="85" selection-start-column="13" selection-end-line="85" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/btz/newsBulletin/carousel/controller/CarouselController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-76">
-          <caret line="69" column="30" lean-forward="false" selection-start-line="69" selection-start-column="30" selection-end-line="69" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/btz/course/package-info.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/app/btz/function/user/controller/AppUserController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <caret line="453" column="90" lean-forward="false" selection-start-line="453" selection-start-column="90" selection-end-line="453" selection-end-column="90" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/btz/newsBulletin/carousel/entity/CarouselEntity.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/app/btz/function/user/vo/AppUserSmsVo.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="540">
-          <caret line="16" column="9" lean-forward="false" selection-start-line="16" selection-start-column="9" selection-end-line="16" selection-end-column="9" />
+        <state relative-caret-position="180">
+          <caret line="12" column="26" lean-forward="false" selection-start-line="12" selection-start-column="26" selection-end-line="12" selection-end-column="26" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/btz/course/service/package-info.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/btz/exercise/controller/ExerciseController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state relative-caret-position="150">
+          <caret line="55" column="13" lean-forward="false" selection-start-line="55" selection-start-column="13" selection-end-line="55" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/btz/course/service/MainCourseService.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/app/btz/function/exercise/controller/AppExerciseController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="7" column="54" lean-forward="false" selection-start-line="7" selection-start-column="54" selection-end-line="7" selection-end-column="54" />
+        <state relative-caret-position="1440">
+          <caret line="125" column="74" lean-forward="false" selection-start-line="125" selection-start-column="74" selection-end-line="125" selection-end-column="74" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/btz/admin/service/impl/AdminServiceImpl.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/app/btz/function/record/service/ExerciseRecordService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="10" column="0" lean-forward="false" selection-start-line="10" selection-start-column="0" selection-end-line="11" selection-end-column="14" />
+        <state relative-caret-position="285">
+          <caret line="25" column="19" lean-forward="false" selection-start-line="25" selection-start-column="19" selection-end-line="25" selection-end-column="19" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/btz/course/service/impl/MainCourseServiceImpl.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/app/btz/function/testModule/service/impl/AppTestModuleServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="10" column="29" lean-forward="false" selection-start-line="10" selection-start-column="29" selection-end-line="10" selection-end-column="29" />
+        <state relative-caret-position="675">
+          <caret line="85" column="5" lean-forward="false" selection-start-line="85" selection-start-column="5" selection-end-line="85" selection-end-column="5" />
+          <folding>
+            <element signature="e#1382#1394#0" expanded="true" />
+            <element signature="e#5821#5833#0" expanded="true" />
+            <element signature="e#6479#6491#0" expanded="true" />
+            <element signature="e#7279#7291#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/framework/core/common/model/json/AjaxJson.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/app/btz/function/testModule/service/AppTestModuleService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="10" column="1" lean-forward="false" selection-start-line="10" selection-start-column="1" selection-end-line="33" selection-end-column="75" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/framework/core/common/entity/IdEntity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="720">
-          <caret line="22" column="4" lean-forward="false" selection-start-line="22" selection-start-column="4" selection-end-line="22" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/btz/newsBulletin/message/entity/MessageEntity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1575">
-          <caret line="40" column="12" lean-forward="false" selection-start-line="40" selection-start-column="12" selection-end-line="40" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/btz/newsBulletin/message/service/MessageService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="7" column="51" lean-forward="false" selection-start-line="7" selection-start-column="51" selection-end-line="7" selection-end-column="51" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/btz/newsBulletin/message/service/impl/MessageServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="10" column="0" lean-forward="false" selection-start-line="10" selection-start-column="0" selection-end-line="11" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/btz/newsBulletin/message/controller/MessageController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="28" column="0" lean-forward="false" selection-start-line="28" selection-start-column="0" selection-end-line="30" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/framework/core/common/controller/BaseController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="405">
-          <caret line="10" column="13" lean-forward="false" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/framework/core/common/dao/BaseDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2475">
-          <caret line="60" column="0" lean-forward="false" selection-start-line="60" selection-start-column="0" selection-end-line="60" selection-end-column="0" />
+        <state relative-caret-position="165">
+          <caret line="15" column="29" lean-forward="false" selection-start-line="15" selection-start-column="29" selection-end-line="15" selection-end-column="29" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/org/framework/core/common/service/BaseService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1440">
-          <caret line="37" column="0" lean-forward="false" selection-start-line="37" selection-start-column="0" selection-end-line="37" selection-end-column="0" />
+        <state relative-caret-position="434">
+          <caret line="38" column="20" lean-forward="false" selection-start-line="38" selection-start-column="20" selection-end-line="38" selection-end-column="20" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/org/framework/core/common/service/impl/BaseServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1260">
-          <caret line="48" column="0" lean-forward="false" selection-start-line="48" selection-start-column="0" selection-end-line="48" selection-end-column="0" />
+        <state relative-caret-position="285">
+          <caret line="33" column="25" lean-forward="true" selection-start-line="33" selection-start-column="25" selection-end-line="33" selection-end-column="25" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/btz/admin/controller/AdminController.java">
+    <entry file="jar://$MAVEN_REPOSITORY$/org/hibernate/hibernate-core/5.2.5.Final/hibernate-core-5.2.5.Final.jar!/org/hibernate/engine/spi/SessionDelegatorBaseImpl.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2745">
-          <caret line="85" column="7" lean-forward="false" selection-start-line="85" selection-start-column="7" selection-end-line="89" selection-end-column="9" />
-          <folding />
+        <state relative-caret-position="324">
+          <caret line="628" column="30" lean-forward="false" selection-start-line="628" selection-start-column="30" selection-end-line="628" selection-end-column="30" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/btz/admin/entity/AdminEntity.java">
+    <entry file="jar://$MAVEN_REPOSITORY$/org/hibernate/hibernate-core/5.2.5.Final/hibernate-core-5.2.5.Final.jar!/org/hibernate/Session.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3555">
-          <caret line="104" column="0" lean-forward="false" selection-start-line="104" selection-start-column="0" selection-end-line="104" selection-end-column="0" />
+        <state relative-caret-position="293">
+          <caret line="77" column="9" lean-forward="false" selection-start-line="77" selection-start-column="9" selection-end-line="77" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/hibernate/hibernate-core/5.2.5.Final/hibernate-core-5.2.5.Final.jar!/org/hibernate/internal/SessionImpl.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="293">
+          <caret line="533" column="17" lean-forward="false" selection-start-line="533" selection-start-column="17" selection-end-line="533" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/app/btz/function/module/controller/AppModuleController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="229">
+          <caret line="58" column="38" lean-forward="false" selection-start-line="58" selection-start-column="38" selection-end-line="58" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/framework/core/common/dao/BaseDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="309">
+          <caret line="27" column="20" lean-forward="false" selection-start-line="27" selection-start-column="20" selection-end-line="27" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-aop/4.3.6.RELEASE/spring-aop-4.3.6.RELEASE.jar!/org/springframework/aop/framework/JdkDynamicAopProxy.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="291">
+          <caret line="123" column="0" lean-forward="false" selection-start-line="123" selection-start-column="0" selection-end-line="123" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/apache/logging/log4j/log4j-api/2.6.2/log4j-api-2.6.2.jar!/org/apache/logging/log4j/Level.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2">
+          <caret line="16" column="19" lean-forward="false" selection-start-line="16" selection-start-column="19" selection-end-line="16" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/apache/logging/log4j/log4j-api/2.6.2/log4j-api-2.6.2.jar!/org/apache/logging/log4j/spi/ExtendedLogger.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="126">
+          <caret line="23" column="12" lean-forward="false" selection-start-line="23" selection-start-column="12" selection-end-line="23" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/apache/logging/log4j/log4j-core/2.6.2/log4j-core-2.6.2.jar!/org/apache/logging/log4j/core/script/ScriptManager.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="126">
+          <caret line="84" column="0" lean-forward="false" selection-start-line="84" selection-start-column="0" selection-end-line="84" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/apache/logging/log4j/log4j-core/2.6.2/log4j-core-2.6.2.jar!/org/apache/logging/log4j/core/filter/AbstractFilterable.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="24" column="0" lean-forward="false" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/apache/logging/log4j/log4j-core/2.6.2/log4j-core-2.6.2.jar!/org/apache/logging/log4j/core/Logger.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="915">
+          <caret line="85" column="0" lean-forward="false" selection-start-line="85" selection-start-column="0" selection-end-line="85" selection-end-column="0" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/org/framework/core/common/dao/impl/BaseDaoImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="24" column="22" lean-forward="false" selection-start-line="24" selection-start-column="22" selection-end-line="24" selection-end-column="22" />
+        <state relative-caret-position="195">
+          <caret line="30" column="42" lean-forward="false" selection-start-line="30" selection-start-column="42" selection-end-line="30" selection-end-column="42" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/DBConfig.properties">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/btz/token/entity/UserTokenEntity.java">
       <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="630">
+          <caret line="50" column="0" lean-forward="false" selection-start-line="50" selection-start-column="0" selection-end-line="50" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/apache/logging/log4j/log4j-api/2.6.2/log4j-api-2.6.2.jar!/org/apache/logging/log4j/Logger.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="5925">
+          <caret line="402" column="9" lean-forward="false" selection-start-line="402" selection-start-column="9" selection-end-line="402" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/app/btz/function/record/controller/ExerciseRecordController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1320">
+          <caret line="107" column="17" lean-forward="false" selection-start-line="107" selection-start-column="17" selection-end-line="107" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/app/btz/function/log/vo/LogVo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="28" column="1" lean-forward="false" selection-start-line="28" selection-start-column="1" selection-end-line="28" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/apache/logging/log4j/log4j-api/2.6.2/log4j-api-2.6.2.jar!/org/apache/logging/log4j/spi/AbstractLogger.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="13095">
+          <caret line="926" column="21" lean-forward="false" selection-start-line="926" selection-start-column="21" selection-end-line="926" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/app/btz/function/log/controller/AppLogController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="23" column="17" lean-forward="false" selection-start-line="23" selection-start-column="17" selection-end-line="23" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/app/btz/function/record/service/impl/ExerciseRecordServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+        <state relative-caret-position="3555">
+          <caret line="104" column="0" lean-forward="false" selection-start-line="104" selection-start-column="0" selection-end-line="104" selection-end-column="0" />
+=======
+        <state relative-caret-position="975">
+          <caret line="88" column="0" lean-forward="false" selection-start-line="88" selection-start-column="0" selection-end-line="88" selection-end-column="0" />
+          <folding />
+>>>>>>> caixiaowei20170607
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/app/btz/filter/AppLoginFilter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="21" column="13" lean-forward="false" selection-start-line="21" selection-start-column="13" selection-end-line="21" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/app/btz/filter/AppCrossAomainFilter.java">
+      <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state relative-caret-position="60">
           <caret line="4" column="22" lean-forward="false" selection-start-line="4" selection-start-column="22" selection-end-line="4" selection-end-column="22" />
+=======
+        <state relative-caret-position="330">
+          <caret line="24" column="27" lean-forward="false" selection-start-line="24" selection-start-column="27" selection-end-line="24" selection-end-column="27" />
+>>>>>>> caixiaowei20170607
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/spring-mvc.xml">
+    <entry file="file://$PROJECT_DIR$/src/main/java/app/btz/function/user/controller/AppLoginController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2745">
-          <caret line="61" column="19" lean-forward="false" selection-start-line="61" selection-start-column="19" selection-end-line="61" selection-end-column="19" />
+        <state relative-caret-position="300">
+          <caret line="52" column="35" lean-forward="false" selection-start-line="52" selection-start-column="30" selection-end-line="52" selection-end-column="35" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/spring-context.xml">
+    <entry file="file://$PROJECT_DIR$/src/main/java/app/btz/common/constant/NotesConstant.java">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state relative-caret-position="222">
           <caret line="29" column="0" lean-forward="false" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
           <folding>
@@ -1344,32 +2231,64 @@
             <element signature="e#1541#1566#0" expanded="true" />
             <element signature="n#prop#0;n#props#0;n#property#1;n#bean#1;n#beans#0;n#!!top" expanded="true" />
           </folding>
+=======
+        <state relative-caret-position="255">
+          <caret line="17" column="32" lean-forward="false" selection-start-line="17" selection-start-column="32" selection-end-line="17" selection-end-column="32" />
+          <folding />
+>>>>>>> caixiaowei20170607
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/btz/course/entity/MainCourseEntity.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/app/btz/function/notes/controller/AppNotesController.java">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state relative-caret-position="1665">
           <caret line="42" column="7" lean-forward="false" selection-start-line="42" selection-start-column="7" selection-end-line="42" selection-end-column="7" />
+=======
+        <state relative-caret-position="1545">
+          <caret line="136" column="50" lean-forward="false" selection-start-line="136" selection-start-column="50" selection-end-line="136" selection-end-column="50" />
+          <folding />
+>>>>>>> caixiaowei20170607
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/framework/web/service/SystemService.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/api/btz/function/user/controller/ApiUserController.java">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state relative-caret-position="315">
           <caret line="7" column="17" lean-forward="false" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
+=======
+        <state relative-caret-position="1395">
+          <caret line="120" column="9" lean-forward="false" selection-start-line="120" selection-start-column="9" selection-end-line="120" selection-end-column="9" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/framework/web/service/impl/SystemServiceImpl.java">
+    <entry file="file://$PROJECT_DIR$/src/main/resources/log4j2.xml">
       <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="450">
+          <caret line="30" column="27" lean-forward="false" selection-start-line="30" selection-start-column="27" selection-end-line="30" selection-end-column="27" />
+          <folding />
+>>>>>>> caixiaowei20170607
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/DBConfig.properties">
+      <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state relative-caret-position="315">
           <caret line="9" column="13" lean-forward="false" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
+=======
+        <state relative-caret-position="105">
+          <caret line="7" column="42" lean-forward="false" selection-start-line="7" selection-start-column="42" selection-end-line="7" selection-end-column="42" />
+          <folding />
+>>>>>>> caixiaowei20170607
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/btz/course/controller/MainCourseController.java">
+    <entry file="file://$PROJECT_DIR$/src/main/resources/spring-context.xml">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state relative-caret-position="102">
           <caret line="27" column="38" lean-forward="false" selection-start-line="27" selection-start-column="18" selection-end-line="27" selection-end-column="38" />
         </state>
@@ -1386,6 +2305,11 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="495">
           <caret line="11" column="11" lean-forward="false" selection-start-line="11" selection-start-column="11" selection-end-line="11" selection-end-column="11" />
+=======
+        <state relative-caret-position="162">
+          <caret line="25" column="49" lean-forward="false" selection-start-line="25" selection-start-column="49" selection-end-line="25" selection-end-column="49" />
+          <folding />
+>>>>>>> caixiaowei20170607
         </state>
       </provider>
     </entry>
@@ -1447,7 +2371,7 @@
           <splitter-proportions>
             <option name="proportions">
               <list>
-                <option value="0.2" />
+                <option value="0.2934866" />
                 <option value="0.6" />
               </list>
             </option>

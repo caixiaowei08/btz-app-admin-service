@@ -50,7 +50,8 @@ public class MainCourseEntity implements Serializable{
     public void setId(Integer id) {
         this.id = id;
     }
-    @Column(name ="name",nullable = false,length=20)
+
+    @Column(name ="name",nullable = false,length=50)
     public String getName() {
         return name;
     }

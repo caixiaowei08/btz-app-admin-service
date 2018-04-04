@@ -17,6 +17,10 @@ public class AjaxJson implements Serializable{
      */
     public static final String CODE_FAIL = "fail";
     /**
+     * 重新登录
+     */
+    public static final String CODE_LOGIN = "login";
+    /**
      * 成功信息
      */
     public static final String MSG_SUCCESS = "操作成功";

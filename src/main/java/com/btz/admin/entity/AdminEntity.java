@@ -3,57 +3,56 @@ package com.btz.admin.entity;
 import com.alibaba.fastjson.annotation.JSONField;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.Date;
 
 /**
  * Created by User on 2017/5/26.
  */
 @Entity
-@Table(name = "btz_administrator_account", schema = "",uniqueConstraints={@UniqueConstraint(columnNames={"accountId"})})
-@SuppressWarnings("serial")
-public class AdminEntity {
+@Table(name = "btz_administrator_account", schema = "", uniqueConstraints = {@UniqueConstraint(columnNames = {"accountId"})})
+public class AdminEntity implements Serializable {
     /**
-     *主键
+     * 主键
      */
     private Integer id;
     /**
-     *'账号'
+     * 账号
      */
     private String accountId;
     /**
-     *'登录密码'
+     * 登录密码
      */
     private String accountPwd;
     /**
-     *'姓名'
+     * 姓名
      */
     private String accountName;
     /**
-     *类型 1-管理员 2-录入员
+     * 类型 1-管理员 2-录入员
      */
     private Integer type;
     /**
-     *'状态 1-有效 2-无效 '
+     * 状态 1-有效 2-无效
      */
     private Integer state;
     /**
-     *'修改时间'
+     * 修改时间
      */
-    @JSONField(format="yyyy-MM-dd HH:mm:ss")
+    @JSONField(format = "yyyy-MM-dd HH:mm:ss")
     private Date updateTime;
     /**
-     *'创建时间'
+     * 创建时间
      */
-    @JSONField(format="yyyy-MM-dd HH:mm:ss")
+    @JSONField(format = "yyyy-MM-dd HH:mm:ss")
     private Date createTime;
 
     /**
-     *方法: 取得java.lang.Integer
-     *@return: java.lang.Integer  主键
+     * 方法: 取得java.lang.Integer
      */
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name ="id",nullable=false,length=20)
+    @Column(name = "id", nullable = false, length = 20)
     public Integer getId() {
         return id;
     }
@@ -62,7 +61,7 @@ public class AdminEntity {
         this.id = id;
     }
 
-    @Column(name ="accountId",nullable=true,length=50)
+    @Column(name = "accountId", nullable = true, length = 50)
     public String getAccountId() {
         return accountId;
     }
@@ -71,7 +70,7 @@ public class AdminEntity {
         this.accountId = accountId;
     }
 
-    @Column(name ="accountPwd",nullable=true,length=50)
+    @Column(name = "accountPwd", nullable = true, length = 50)
     public String getAccountPwd() {
         return accountPwd;
     }
@@ -80,7 +79,7 @@ public class AdminEntity {
         this.accountPwd = accountPwd;
     }
 
-    @Column(name ="accountName",nullable=true,length=50)
+    @Column(name = "accountName", nullable = true, length = 50)
     public String getAccountName() {
         return accountName;
     }
@@ -89,7 +88,7 @@ public class AdminEntity {
         this.accountName = accountName;
     }
 
-    @Column(name ="type",length=20)
+    @Column(name = "type", length = 20)
     public Integer getType() {
         return type;
     }
@@ -98,7 +97,7 @@ public class AdminEntity {
         this.type = type;
     }
 
-    @Column(name ="state",length=20)
+    @Column(name = "state", length = 20)
     public Integer getState() {
         return state;
     }
@@ -106,7 +105,8 @@ public class AdminEntity {
     public void setState(Integer state) {
         this.state = state;
     }
-    @Column(name ="updateTime",nullable=true,length=20)
+
+    @Column(name = "updateTime", nullable = true, length = 20)
     public Date getUpdateTime() {
         return updateTime;
     }
@@ -114,7 +114,8 @@ public class AdminEntity {
     public void setUpdateTime(Date updateTime) {
         this.updateTime = updateTime;
     }
-    @Column(name ="createTime",nullable=true,length=20)
+
+    @Column(name = "createTime", nullable = true, length = 20)
     public Date getCreateTime() {
         return createTime;
     }

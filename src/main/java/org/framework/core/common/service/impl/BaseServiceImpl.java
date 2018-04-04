@@ -45,4 +45,21 @@ public class BaseServiceImpl implements BaseService{
     public List getListByCriteriaQuery(DetachedCriteria cq) {
         return baseDao.getListByCriteriaQuery(cq);
     }
+
+    /**
+     * 加载全部实体
+     *
+     * @param <T>
+     * @param entityClass
+     * @return
+     */
+    public <T> List<T> loadAll(final Class<T> entityClass){
+        return baseDao.loadAll(entityClass);
+    }
+
+    public <T> void batchSave(List<T> entitys) {
+        for ( T entity : entitys){
+            save(entity);
+        }
+    }
 }

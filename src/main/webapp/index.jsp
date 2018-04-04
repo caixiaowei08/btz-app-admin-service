@@ -1,5 +1,5 @@
-<html>
+<html lang="">
 <body>
-<h2>Hello World!</h2>
+<h2>App service started !</h2>
 </body>
 </html>
