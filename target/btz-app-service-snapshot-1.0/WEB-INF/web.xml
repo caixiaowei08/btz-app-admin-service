@@ -76,7 +76,7 @@
 		<filter-name>managerLoginFilter</filter-name>
 		<url-pattern>/admin/*</url-pattern>
 	</filter-mapping>
-	<filter>
+	<!--<filter>
 		<filter-name>delegatingApiFilterProxy</filter-name>
 		<filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
 		<init-param>
@@ -91,7 +91,8 @@
 	<filter-mapping>
 		<filter-name>delegatingApiFilterProxy</filter-name>
 		<url-pattern>/api/*</url-pattern>
-	</filter-mapping>
+	</filter-mapping>-->
+
 	<filter>
 		<filter-name>appCrossDomainFilter</filter-name>
 		<filter-class>app.btz.filter.AppCrossAomainFilter</filter-class>
@@ -100,8 +101,8 @@
 		<filter-name>appCrossDomainFilter</filter-name>
 		<url-pattern>/app/*</url-pattern>
 	</filter-mapping>
-	<!--session超时10分钟-->
+	<!--session超时60分钟-->
 	<session-config>
-		<session-timeout>10</session-timeout>
+		<session-timeout>60</session-timeout>
 	</session-config>
 </web-app>

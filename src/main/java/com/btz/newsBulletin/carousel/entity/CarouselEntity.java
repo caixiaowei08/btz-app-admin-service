@@ -23,7 +23,7 @@ public class CarouselEntity implements Serializable {
      */
     private Integer subCourseId;
     /**
-     * 图片
+     * 图片地址
      */
     private String img;
     /**
